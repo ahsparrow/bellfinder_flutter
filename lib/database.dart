@@ -21,7 +21,16 @@ class Towers extends Table {
   Set<Column> get primaryKey => {towerId};
 }
 
-@DriftDatabase(tables: [Towers])
+class Visits extends Table {
+  IntColumn get visitId => integer().autoIncrement().named('visitId')();
+  IntColumn get towerId => integer().named('towerId')();
+  DateTimeColumn get date => dateTime()();
+  TextColumn get notes => text().nullable()();
+  BoolColumn get peal => boolean()();
+  BoolColumn get quarter => boolean()();
+}
+
+@DriftDatabase(tables: [Towers, Visits])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 

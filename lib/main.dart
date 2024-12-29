@@ -1,5 +1,5 @@
 import 'Dart:io' show Platform;
-import 'package:drift/drift.dart';
+import 'package:drift/drift.dart' show Value;
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -16,6 +16,7 @@ void main() async {
 
   final database = AppDatabase();
 
+  await database.delete(database.towers).go();
   await database.into(database.towers).insert(TowersCompanion.insert(
         towerId: Value(123),
         place: 'Lockerley',
@@ -27,5 +28,12 @@ void main() async {
         unringable: false,
         latitude: 51,
         longitude: -1,
+      ));
+
+  await database.into(database.visits).insert(VisitsCompanion.insert(
+        towerId: 123,
+        date: DateTime(2024, 12, 28),
+        peal: false,
+        quarter: false,
       ));
 }
