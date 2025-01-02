@@ -40,8 +40,11 @@ class AppDatabase extends _$AppDatabase {
   static QueryExecutor _openConnection() {
     final nativeOpts = DriftNativeOptions(databasePath: () async {
       var dir = await getDatabasesPath();
-      return p.join(dir, 'towers_database');
+      return p.join(dir, 'tower_database');
     });
     return driftDatabase(name: 'tower_database', native: nativeOpts);
   }
+
+  Future<List<Tower>> get allTowers => managers.towers.get();
+  Future<List<Visit>> get allVisits => managers.visits.get();
 }

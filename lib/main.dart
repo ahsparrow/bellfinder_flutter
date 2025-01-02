@@ -1,39 +1,35 @@
-import 'Dart:io' show Platform;
-import 'package:drift/drift.dart' show Value;
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-import 'package:bellfinder/database.dart';
+import 'database.dart';
+import 'router.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider(create: (context) {
+          if (Platform.isLinux) {
+            sqfliteFfiInit();
+            databaseFactory = databaseFactoryFfi;
+          }
+          return AppDatabase();
+        }),
+      ],
+      child: const MainApp(),
+    ),
+  );
+}
 
-  // Add Linux support for testing
-  if (Platform.isLinux) {
-    sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: router,
+    );
   }
-
-  final database = AppDatabase();
-
-  await database.delete(database.towers).go();
-  await database.into(database.towers).insert(TowersCompanion.insert(
-        towerId: Value(123),
-        place: 'Lockerley',
-        dedication: 'S Johns',
-        county: 'UK',
-        bells: 6,
-        weight: 500,
-        practice: 'Thur',
-        unringable: false,
-        latitude: 51,
-        longitude: -1,
-      ));
-
-  await database.into(database.visits).insert(VisitsCompanion.insert(
-        towerId: 123,
-        date: DateTime(2024, 12, 28),
-        peal: false,
-        quarter: false,
-      ));
 }
