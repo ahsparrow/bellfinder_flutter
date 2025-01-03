@@ -1,7 +1,8 @@
+import 'dart:io' show Platform;
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
-import 'package:path/path.dart' as p;
-import 'package:sqflite/sqflite.dart' show getDatabasesPath;
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
 
@@ -38,10 +39,14 @@ class AppDatabase extends _$AppDatabase {
   int get schemaVersion => 1;
 
   static QueryExecutor _openConnection() {
-    final nativeOpts = DriftNativeOptions(databasePath: () async {
-      var dir = await getDatabasesPath();
-      return p.join(dir, 'tower_database');
-    });
+    DriftNativeOptions? nativeOpts;
+    if (Platform.isAndroid) {
+      nativeOpts = DriftNativeOptions(databasePath: () async {
+        var dir = await getApplicationSupportDirectory();
+        return path.join(dir.path, '../databases', 'tower_database');
+      });
+    }
+
     return driftDatabase(name: 'tower_database', native: nativeOpts);
   }
 

@@ -1,21 +1,26 @@
-import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'database.dart';
 import 'router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final db = AppDatabase();
+
+  var x = await db.select(db.visits).get();
+  print(x);
+
+  final dir = await getApplicationDocumentsDirectory();
+  print(dir);
+
   runApp(
     MultiProvider(
       providers: [
         Provider(create: (context) {
-          if (Platform.isLinux) {
-            sqfliteFfiInit();
-            databaseFactory = databaseFactoryFfi;
-          }
-          return AppDatabase();
+          return db;
         }),
       ],
       child: const MainApp(),
