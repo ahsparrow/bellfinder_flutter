@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home_viewmodel.dart';
+import 'widgets/map.dart';
 import 'widgets/towers_list.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
               TowerListWidget(viewModel: viewModel),
               Center(child: Text('Visits')),
               Center(child: Text('Nearby')),
-              Center(child: Text('Map')),
+              MapWidget(),
             ],
           ),
         ),
