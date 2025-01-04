@@ -12,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final db = AppDatabase();
-  await checkUpdateTowers(db);
+  await updateTowers(db);
 
   runApp(
     MultiProvider(
@@ -37,12 +37,11 @@ class MainApp extends StatelessWidget {
   }
 }
 
-Future<void> checkUpdateTowers(AppDatabase db) async {
+Future<void> updateTowers(AppDatabase db) async {
   final prefs = await SharedPreferences.getInstance();
   final packageInfo = await PackageInfo.fromPlatform();
 
   if (packageInfo.buildNumber != prefs.getString('build_number')) {
-    print("updating...");
     await prefs.setString('build_number', packageInfo.buildNumber);
 
     final dove = await rootBundle.loadString('assets/dove.json');

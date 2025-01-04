@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
               TowerListWidget(viewModel: viewModel),
               Center(child: Text('Visits')),
               Center(child: Text('Nearby')),
-              MapWidget(),
+              MapWidget(viewModel: viewModel),
             ],
           ),
         ),
