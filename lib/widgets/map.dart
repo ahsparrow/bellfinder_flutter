@@ -20,12 +20,34 @@ class MapWidgetState extends State<MapWidget> {
   @override
   Widget build(context) {
     List<Marker> markers = [];
-    final svg = SvgPicture.asset('assets/tower6.svg');
+    final tower3 = SvgPicture.asset('assets/tower3.svg');
+    final tower4 = SvgPicture.asset('assets/tower4.svg');
+    final tower5 = SvgPicture.asset('assets/tower5.svg');
+    final tower6 = SvgPicture.asset('assets/tower6.svg');
+    final tower8 = SvgPicture.asset('assets/tower8.svg');
+    final tower10 = SvgPicture.asset('assets/tower10.svg');
+    final tower12 = SvgPicture.asset('assets/tower12.svg');
+    final towerUnringable = SvgPicture.asset('assets/tower_unringable.svg');
 
     for (var tower in widget.viewModel.towers) {
       markers.add(Marker(
         point: LatLng(tower.latitude, tower.longitude),
-        child: svg,
+        child: GestureDetector(
+          onTap: () {
+            print(tower.place);
+          },
+          child: tower.unringable
+              ? towerUnringable
+              : switch (tower.bells) {
+                  <= 3 => tower3,
+                  4 => tower4,
+                  5 => tower5,
+                  6 => tower6,
+                  7 || 8 => tower8,
+                  9 || 10 => tower10,
+                  _ => tower12,
+                },
+        ),
         height: 30,
         width: 60,
       ));
@@ -62,6 +84,7 @@ class MapWidgetState extends State<MapWidget> {
           ),
         ),
         RichAttributionWidget(
+          showFlutterMapAttribution: false,
           attributions: [
             TextSourceAttribution(
               'OpenStreetMap contributors',
