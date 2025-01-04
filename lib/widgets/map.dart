@@ -48,8 +48,7 @@ class MapWidgetState extends State<MapWidget> {
                   _ => tower12,
                 },
         ),
-        height: 30,
-        width: 60,
+        height: 40,
       ));
     }
 
