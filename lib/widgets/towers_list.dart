@@ -12,7 +12,12 @@ class TowerListWidget extends StatelessWidget {
     return ListenableBuilder(
       listenable: viewModel,
       builder: (context, _) {
-        return Text('foobar');
+        return ListView.builder(
+          itemCount: viewModel.towers.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Text(viewModel.towers[index].place);
+          },
+        );
       },
     );
   }
