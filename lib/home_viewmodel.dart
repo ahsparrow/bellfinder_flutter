@@ -19,8 +19,8 @@ class HomeViewModel extends ChangeNotifier {
   UnmodifiableListView<Visit> get visits => UnmodifiableListView(_visits);
 
   _load() async {
-    _towers = await _database.allTowers;
-    _visits = await _database.allVisits;
+    _towers = await _database.getTowers();
+    _visits = await _database.getVisits();
     notifyListeners();
   }
 
@@ -32,7 +32,7 @@ class HomeViewModel extends ChangeNotifier {
           peal: false,
         ));
 
-    _visits = await _database.allVisits;
+    _visits = await _database.getVisits();
     notifyListeners();
   }
 }

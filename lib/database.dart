@@ -50,6 +50,27 @@ class AppDatabase extends _$AppDatabase {
     return driftDatabase(name: 'tower_database', native: nativeOpts);
   }
 
-  Future<List<Tower>> get allTowers => managers.towers.get();
-  Future<List<Visit>> get allVisits => managers.visits.get();
+  Future<List<Tower>> getTowers() => managers.towers.get();
+  Future<List<Visit>> getVisits() => managers.visits.get();
+
+  Future<int> deleteAllTowers() => managers.towers.delete();
+
+  Future<void> insertTowers(towers) {
+    return transaction(() async {
+      for (final tower in towers) {
+        await managers.towers.create((o) => o(
+              towerId: Value(tower['towerId']),
+              place: tower['place'],
+              county: tower['county'],
+              dedication: tower['dedication'],
+              bells: tower['bells'],
+              weight: tower['weight'],
+              unringable: tower['unringable'],
+              practice: tower['practice'],
+              latitude: tower['latitude'],
+              longitude: tower['longitude'],
+            ));
+      }
+    });
+  }
 }
