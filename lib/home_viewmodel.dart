@@ -35,4 +35,6 @@ class HomeViewModel extends ChangeNotifier {
     _visits = await _database.getVisits();
     notifyListeners();
   }
+
+  static weightCwt(int weight) => weight / 112;
 }

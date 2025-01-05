@@ -33,9 +33,32 @@ class MapWidgetState extends State<MapWidget> {
       markers.add(Marker(
         point: LatLng(tower.latitude, tower.longitude),
         child: GestureDetector(
-          onTap: () {
-            print(tower.place);
-          },
+          onTap: () => showDialog<void>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: Text(tower.place),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: [
+                    Text(tower.dedication),
+                    Text(
+                        "${HomeViewModel.weightCwt(tower.weight).toStringAsFixed(0)} cwt"),
+                  ],
+                ),
+              ),
+              actions: [
+                TextButton(
+                  child: const Text("Cancel"),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+                TextButton(
+                  child: const Text("More Info"),
+                  onPressed: () {},
+                )
+              ],
+              actionsAlignment: MainAxisAlignment.spaceBetween,
+            ),
+          ),
           child: tower.unringable
               ? towerUnringable
               : switch (tower.bells) {
