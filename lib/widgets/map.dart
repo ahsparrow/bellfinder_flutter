@@ -7,6 +7,27 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../home_viewmodel.dart';
 
+final tower3 = SvgPicture.asset('assets/tower3.svg');
+final tower4 = SvgPicture.asset('assets/tower4.svg');
+final tower5 = SvgPicture.asset('assets/tower5.svg');
+final tower6 = SvgPicture.asset('assets/tower6.svg');
+final tower8 = SvgPicture.asset('assets/tower8.svg');
+final tower10 = SvgPicture.asset('assets/tower10.svg');
+final tower12 = SvgPicture.asset('assets/tower12.svg');
+final towerUnringable = SvgPicture.asset('assets/tower_unringable.svg');
+
+class TowerMarker extends Marker {
+  final String place;
+
+  const TowerMarker({
+    super.key,
+    required super.point,
+    required super.child,
+    super.height = 30,
+    required this.place,
+  });
+}
+
 class MapWidget extends StatefulWidget {
   const MapWidget({super.key, required this.viewModel});
 
@@ -17,48 +38,17 @@ class MapWidget extends StatefulWidget {
 }
 
 class MapWidgetState extends State<MapWidget> {
-  @override
-  Widget build(context) {
-    List<Marker> markers = [];
-    final tower3 = SvgPicture.asset('assets/tower3.svg');
-    final tower4 = SvgPicture.asset('assets/tower4.svg');
-    final tower5 = SvgPicture.asset('assets/tower5.svg');
-    final tower6 = SvgPicture.asset('assets/tower6.svg');
-    final tower8 = SvgPicture.asset('assets/tower8.svg');
-    final tower10 = SvgPicture.asset('assets/tower10.svg');
-    final tower12 = SvgPicture.asset('assets/tower12.svg');
-    final towerUnringable = SvgPicture.asset('assets/tower_unringable.svg');
+  final PopupController _popupController = PopupController();
 
+  List<TowerMarker> markers = [];
+
+  @override
+  initState() {
     for (var tower in widget.viewModel.towers) {
-      markers.add(Marker(
-        point: LatLng(tower.latitude, tower.longitude),
-        child: GestureDetector(
-          onTap: () => showDialog<void>(
-            context: context,
-            builder: (BuildContext context) => AlertDialog(
-              title: Text(tower.place),
-              content: SingleChildScrollView(
-                child: ListBody(
-                  children: [
-                    Text(tower.dedication),
-                    Text(
-                        "${HomeViewModel.weightCwt(tower.weight).toStringAsFixed(0)} cwt"),
-                  ],
-                ),
-              ),
-              actions: [
-                TextButton(
-                  child: const Text("Cancel"),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-                TextButton(
-                  child: const Text("More Info"),
-                  onPressed: () {},
-                )
-              ],
-              actionsAlignment: MainAxisAlignment.spaceBetween,
-            ),
-          ),
+      markers.add(
+        TowerMarker(
+          place: tower.place,
+          point: LatLng(tower.latitude, tower.longitude),
           child: tower.unringable
               ? towerUnringable
               : switch (tower.bells) {
@@ -71,52 +61,80 @@ class MapWidgetState extends State<MapWidget> {
                   _ => tower12,
                 },
         ),
-        height: 40,
-      ));
-    }
+      );
 
-    return FlutterMap(
-      options: MapOptions(
-        initialCenter: LatLng(51.07, -1.61),
-        initialZoom: 10,
-        interactionOptions: InteractionOptions(
-            flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
-      ),
-      children: [
-        TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'uk.org.freeflight.bellfinder',
+      super.initState();
+    }
+  }
+
+  @override
+  Widget build(context) {
+    return PopupScope(
+      popupController: _popupController,
+      child: FlutterMap(
+        options: MapOptions(
+          initialCenter: LatLng(51.07, -1.61),
+          initialZoom: 10,
+          maxZoom: 15,
+          interactionOptions: InteractionOptions(
+              flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
+          onTap: (_, __) => _popupController.hideAllPopups(),
         ),
-        MarkerClusterLayerWidget(
-          options: MarkerClusterLayerOptions(
-            markers: markers,
-            padding: EdgeInsets.all(50),
-            builder: (context, markers) {
-              return Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue),
-                child: Center(
-                  child: Text(
-                    markers.length.toString(),
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-              );
-            },
+        children: [
+          // Map layer
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'uk.org.freeflight.bellfinder',
           ),
-        ),
-        RichAttributionWidget(
-          showFlutterMapAttribution: false,
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
-              onTap: () => launchUrl(Uri.parse(
-                  'https://openstreetmap.org/copyright')), // (external)
+
+          // Marker layer
+          MarkerClusterLayerWidget(
+            options: MarkerClusterLayerOptions(
+              markers: markers,
+              padding: EdgeInsets.all(50),
+              popupOptions: PopupOptions(
+                popupController: _popupController,
+                popupBuilder: (_, marker) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                  ),
+                  width: 200,
+                  height: 100,
+                  child: Text((marker as TowerMarker).place),
+                ),
+              ),
+              showPolygon: false,
+              builder: (context, markers) {
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blue,
+                  ),
+                  child: Center(
+                    child: Text(
+                      markers.length.toString(),
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                );
+              },
             ),
-          ],
-        ),
-      ],
+          ),
+
+          // Attribution layer
+          RichAttributionWidget(
+            showFlutterMapAttribution: false,
+            attributions: [
+              TextSourceAttribution(
+                'OpenStreetMap contributors',
+                onTap: () => launchUrl(Uri.parse(
+                    'https://openstreetmap.org/copyright')), // (external)
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
