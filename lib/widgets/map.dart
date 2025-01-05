@@ -90,6 +90,7 @@ class MapWidgetState extends State<MapWidget> {
         MarkerClusterLayerWidget(
           options: MarkerClusterLayerOptions(
             markers: markers,
+            padding: EdgeInsets.all(50),
             builder: (context, markers) {
               return Container(
                 decoration: BoxDecoration(
