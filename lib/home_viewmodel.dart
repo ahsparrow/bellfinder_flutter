@@ -13,15 +13,19 @@ class HomeViewModel extends ChangeNotifier {
   final AppDatabase _database;
 
   List<Tower> _towers = [];
-  UnmodifiableListView<Tower> get towers => UnmodifiableListView(_towers);
-
   List<Visit> _visits = [];
-  UnmodifiableListView<Visit> get visits => UnmodifiableListView(_visits);
 
   _load() async {
     _towers = await _database.getTowers();
     _visits = await _database.getVisits();
     notifyListeners();
+  }
+
+  UnmodifiableListView<Tower> get towers => UnmodifiableListView(_towers);
+  UnmodifiableListView<Visit> get visits => UnmodifiableListView(_visits);
+
+  Tower getTower(int towerId) {
+    return _towers.firstWhere((tower) => tower.towerId == towerId);
   }
 
   void insertVisit() async {
