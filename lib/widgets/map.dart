@@ -24,6 +24,7 @@ class TowerMarker extends Marker {
     required super.point,
     required super.child,
     super.height = 30,
+    super.width = 30,
     required this.place,
   });
 }
@@ -99,9 +100,47 @@ class MapWidgetState extends State<MapWidget> {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
                   ),
-                  width: 200,
-                  height: 100,
-                  child: Text((marker as TowerMarker).place),
+                  width: 250,
+                  margin: EdgeInsets.all(4),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Text(
+                          (marker as TowerMarker).place,
+                          textScaler: TextScaler.linear(1.3),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Text(
+                          marker.place,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Text(
+                          marker.place,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              child: Text("Cancel"),
+                              onPressed: () => _popupController.hideAllPopups(),
+                            ),
+                            TextButton(child: Text("Info"), onPressed: () {}),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               showPolygon: false,
