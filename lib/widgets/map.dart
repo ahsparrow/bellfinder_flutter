@@ -143,6 +143,7 @@ class MapWidgetState extends State<MapWidget> {
                   ),
                 ),
               ),
+              disableClusteringAtZoom: 13,
               showPolygon: false,
               builder: (context, markers) {
                 return Container(
