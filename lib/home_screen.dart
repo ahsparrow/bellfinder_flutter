@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
             title: const Text('BellFinder'),
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             bottom: TabBar(
               tabs: [
                 Tab(text: 'Towers'),

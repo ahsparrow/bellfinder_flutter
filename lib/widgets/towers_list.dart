@@ -15,7 +15,16 @@ class TowerListWidget extends StatelessWidget {
         return ListView.builder(
           itemCount: viewModel.towers.length,
           itemBuilder: (BuildContext context, int index) {
-            return Text(viewModel.towers[index].place);
+            final tower = viewModel.towers[index];
+            return Card(
+              margin: EdgeInsets.all(4),
+              child: ListTile(
+                title: Text(tower.place),
+                subtitle: Text('${tower.dedication}, ${tower.county}'),
+                leading: Text('${tower.bells}'),
+                leadingAndTrailingTextStyle: TextTheme.of(context).titleLarge,
+              ),
+            );
           },
         );
       },
