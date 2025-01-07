@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../home_viewmodel.dart';
+import '../viewmodels/home_viewmodel.dart';
 
 class TowerListWidget extends StatelessWidget {
   const TowerListWidget({super.key, required this.viewModel});

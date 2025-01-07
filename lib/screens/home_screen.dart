@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'home_viewmodel.dart';
-import 'widgets/map.dart';
-import 'widgets/towers_list.dart';
+import '../viewmodels/home_viewmodel.dart';
+import '../widgets/map.dart';
+import '../widgets/towers_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.viewModel});

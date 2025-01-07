@@ -5,7 +5,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'database.dart';
+import 'data/database.dart';
 import 'router.dart';
 
 void main() async {

@@ -5,7 +5,7 @@ import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../home_viewmodel.dart';
+import '../viewmodels/home_viewmodel.dart';
 
 final tower3 = SvgPicture.asset('assets/tower3.svg');
 final tower4 = SvgPicture.asset('assets/tower4.svg');

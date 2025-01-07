@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import 'home_screen.dart';
-import 'home_viewmodel.dart';
-import 'tower_screen.dart';
-import 'tower_viewmodel.dart';
+import 'screens/home_screen.dart';
+import 'viewmodels/home_viewmodel.dart';
+import 'screens/tower_screen.dart';
+import 'viewmodels/tower_viewmodel.dart';
 
 final router = GoRouter(
   routes: [

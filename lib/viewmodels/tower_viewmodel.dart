@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'database.dart';
+import '../data/database.dart';
 
 class TowerViewModel extends ChangeNotifier {
   TowerViewModel({

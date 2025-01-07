@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'tower_viewmodel.dart';
+import '../viewmodels/tower_viewmodel.dart';
 
 class TowerScreen extends StatelessWidget {
   const TowerScreen({super.key, required this.viewModel});
