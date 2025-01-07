@@ -14,6 +14,30 @@ class TowerScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('BellFinder'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 1,
+                child: Text('Get directions'),
+              ),
+              PopupMenuItem(
+                value: 2,
+                child: Text('Add visit'),
+              ),
+            ],
+            onSelected: (val) async {
+              if (val == 1) {
+                final tower = viewModel.tower;
+                if (tower != null) {
+                  final uri = Uri.parse(
+                      "geo:${tower.latitude},${tower.longitude}?z=8&q=${tower.latitude},${tower.longitude}(${Uri.encodeFull(tower.dedication)})");
+                  await launchUrl(uri);
+                }
+              }
+            },
+          ),
+        ],
       ),
       body: ListenableBuilder(
         listenable: viewModel,
