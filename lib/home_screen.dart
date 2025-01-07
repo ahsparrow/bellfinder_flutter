@@ -13,9 +13,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(
+      child: Scaffold(
+        appBar: AppBar(
             title: const Text('BellFinder'),
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             bottom: TabBar(
@@ -26,15 +25,19 @@ class HomeScreen extends StatelessWidget {
                 Tab(text: 'Map'),
               ],
             ),
-          ),
-          body: TabBarView(
-            children: [
-              TowerListWidget(viewModel: viewModel),
-              Center(child: Text('Visits')),
-              Center(child: Text('Nearby')),
-              MapWidget(viewModel: viewModel),
-            ],
-          ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {},
+              ),
+            ]),
+        body: TabBarView(
+          children: [
+            TowerListWidget(viewModel: viewModel),
+            Center(child: Text('Visits')),
+            Center(child: Text('Nearby')),
+            MapWidget(viewModel: viewModel),
+          ],
         ),
       ),
     );

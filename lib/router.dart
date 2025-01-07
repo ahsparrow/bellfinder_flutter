@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'home_screen.dart';
 import 'home_viewmodel.dart';
+import 'tower_screen.dart';
+import 'tower_viewmodel.dart';
 
 final router = GoRouter(
   routes: [
@@ -12,5 +14,16 @@ final router = GoRouter(
         return HomeScreen(viewModel: HomeViewModel(database: context.read()));
       },
     ),
+    GoRoute(
+      path: '/towers/:towerId',
+      builder: (context, state) {
+        return TowerScreen(
+          viewModel: TowerViewModel(
+            towerId: int.parse(state.pathParameters['towerId']!),
+            database: context.read(),
+          ),
+        );
+      },
+    )
   ],
 );

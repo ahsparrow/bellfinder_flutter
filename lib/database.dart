@@ -43,7 +43,7 @@ class AppDatabase extends _$AppDatabase {
     if (Platform.isAndroid) {
       nativeOpts = DriftNativeOptions(databasePath: () async {
         var dir = await getApplicationSupportDirectory();
-        return path.join(dir.path, '../databases', 'tower_database');
+        return path.join(dir.path, '..', 'databases', 'tower_database');
       });
     }
 
@@ -52,6 +52,9 @@ class AppDatabase extends _$AppDatabase {
 
   Future<List<Tower>> getTowers() => managers.towers.get();
   Future<List<Visit>> getVisits() => managers.visits.get();
+
+  Future<Tower> getTower(int towerId) =>
+      managers.towers.filter((f) => f.towerId(towerId)).getSingle();
 
   Future<int> deleteAllTowers() => managers.towers.delete();
 
