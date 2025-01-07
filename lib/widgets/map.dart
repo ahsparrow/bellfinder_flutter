@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -176,7 +177,13 @@ class MapWidgetState extends State<MapWidget> {
                   child: Text("Cancel"),
                   onPressed: () => _popupController.hideAllPopups(),
                 ),
-                TextButton(child: Text("Info"), onPressed: () {}),
+                TextButton(
+                  child: Text("Info"),
+                  onPressed: () {
+                    _popupController.hideAllPopups();
+                    context.push('/towers/${tower.towerId}');
+                  },
+                ),
               ],
             ),
           ),
