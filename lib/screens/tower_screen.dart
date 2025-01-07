@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../viewmodels/tower_viewmodel.dart';
 
@@ -18,7 +19,9 @@ class TowerScreen extends StatelessWidget {
         listenable: viewModel,
         builder: (context, _) {
           final tower = viewModel.tower;
+
           if (tower == null) {
+            // Empty widget
             return SizedBox.shrink();
           } else {
             const spacer = TableRow(
@@ -108,10 +111,18 @@ class TowerScreen extends StatelessWidget {
                       ],
                     ),
                     spacer,
+                    spacer,
                     TableRow(
                       children: [
                         SizedBox.shrink(),
-                        Text("Open Dove's Guide"),
+                        Row(
+                          children: [
+                            FilledButton.tonal(
+                              onPressed: () => _launchUrl(tower.towerId),
+                              child: Text("Open Dove's Guide"),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ],
@@ -122,5 +133,10 @@ class TowerScreen extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<void> _launchUrl(int towerId) async {
+    await launchUrl(
+        Uri.parse("https://dove.cccbr.org.uk/detail.php?TowerBase=$towerId"));
   }
 }

@@ -21,16 +21,14 @@ class TowerViewModel extends ChangeNotifier {
   String get weightString => _weightString;
 
   _load() async {
-    var tower = await _database.getTower(_towerId);
+    _tower = await _database.getTower(_towerId);
 
-    var weight = tower.weight;
-    var weightLbs = weight % 28;
-    weight = (weight - weightLbs) ~/ 28;
-    var weightQr = weight % 4;
-    var weightCwt = (weight - weightQr) ~/ 4;
-    _weightString = '$weightCwt-$weightQr-$weightLbs';
+    final weight = _tower!.weight;
+    final cwt = weight ~/ 112;
+    final qr = (weight - cwt * 112) ~/ 28;
+    final lbs = weight % 28;
+    _weightString = '$cwt-$qr-$lbs';
 
-    _tower = tower;
     notifyListeners();
   }
 }
