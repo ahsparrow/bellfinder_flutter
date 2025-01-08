@@ -40,9 +40,10 @@ class TowerScreen extends StatelessWidget {
         ],
       ),
       body: _body(context),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        child: Icon(Icons.add),
+        icon: Icon(Icons.add),
+        label: Text("Add visit"),
       ),
     );
   }
