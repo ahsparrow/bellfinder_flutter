@@ -27,13 +27,6 @@ class NewVisitScreenState extends State<NewVisitScreen> {
   }
 
   @override
-  void initState() {
-    _dateController.text = DateFormat("dd/MM/yyyy").format(DateTime.now());
-    _noteController.text = "123";
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -42,6 +35,11 @@ class NewVisitScreenState extends State<NewVisitScreen> {
           TextButton(
             child: Text("Save"),
             onPressed: () {
+              widget.viewModel.insert(
+                  date: DateFormat("dd/MM/yyyy").parse(_dateController.text),
+                  notes: _noteController.text,
+                  quarter: _quarter,
+                  peal: _peal);
               context.pop();
             },
           ),
@@ -62,6 +60,8 @@ class NewVisitScreenState extends State<NewVisitScreen> {
     return ListenableBuilder(
       listenable: widget.viewModel,
       builder: (context, _) {
+        _dateController.text = DateFormat("dd/MM/yyyy").format(DateTime.now());
+        _noteController.text = "";
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

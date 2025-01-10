@@ -28,4 +28,18 @@ class NewVisitViewModel extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  Future<int> insert({
+    required DateTime date,
+    required String notes,
+    required bool quarter,
+    required bool peal,
+  }) async {
+    return await _database.insertVisit(
+        towerId: _towerId,
+        date: date,
+        notes: notes,
+        quarter: quarter,
+        peal: peal);
+  }
 }

@@ -76,4 +76,19 @@ class AppDatabase extends _$AppDatabase {
       }
     });
   }
+
+  Future<int> insertVisit(
+      {required int towerId,
+      required DateTime date,
+      required String notes,
+      required bool quarter,
+      required bool peal}) async {
+    return await managers.visits.create((o) => o(
+          towerId: towerId,
+          date: date,
+          notes: Value(notes),
+          quarter: quarter,
+          peal: peal,
+        ));
+  }
 }
