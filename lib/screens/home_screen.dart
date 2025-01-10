@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../viewmodels/home_viewmodel.dart';
 import '../widgets/map.dart';
 import '../widgets/towers_list.dart';
+import '../widgets/visits_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.viewModel});
@@ -34,7 +35,7 @@ class HomeScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             TowerListWidget(viewModel: viewModel),
-            Center(child: Text('Visits')),
+            VisitsListWidget(viewModel: viewModel),
             Center(child: Text('Nearby')),
             MapWidget(viewModel: viewModel),
           ],

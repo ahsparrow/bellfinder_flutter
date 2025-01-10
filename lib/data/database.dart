@@ -31,6 +31,28 @@ class Visits extends Table {
   BoolColumn get quarter => boolean()();
 }
 
+class VisitTower {
+  VisitTower({
+    required this.visitId,
+    required this.place,
+    required this.county,
+    required this.dedication,
+    required this.bells,
+    required this.date,
+    required this.peal,
+    required this.quarter,
+  });
+
+  int visitId;
+  DateTime date;
+  bool peal;
+  bool quarter;
+  String place;
+  String county;
+  String dedication;
+  int bells;
+}
+
 @DriftDatabase(tables: [Towers, Visits])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
@@ -50,14 +72,17 @@ class AppDatabase extends _$AppDatabase {
     return driftDatabase(name: 'tower_database', native: nativeOpts);
   }
 
+  // Get all the towers
   Future<List<Tower>> getTowers() => managers.towers.get();
-  Future<List<Visit>> getVisits() => managers.visits.get();
 
+  // Get a single tower
   Future<Tower> getTower(int towerId) =>
       managers.towers.filter((f) => f.towerId(towerId)).getSingle();
 
+  // Delete all towers
   Future<int> deleteAllTowers() => managers.towers.delete();
 
+  // Add a list of towers
   Future<void> insertTowers(towers) {
     return transaction(() async {
       for (final tower in towers) {
@@ -77,6 +102,7 @@ class AppDatabase extends _$AppDatabase {
     });
   }
 
+  // Add a visit
   Future<int> insertVisit(
       {required int towerId,
       required DateTime date,
@@ -90,5 +116,27 @@ class AppDatabase extends _$AppDatabase {
           quarter: quarter,
           peal: peal,
         ));
+  }
+
+  // Get visits merged with tower info
+  Future<List<VisitTower>> getVisits() {
+    final query = select(visits)
+        .join([innerJoin(towers, towers.towerId.equalsExp(visits.towerId))]);
+
+    return query.map((row) {
+      final visit = row.readTable(visits);
+      final tower = row.readTable(towers);
+
+      return VisitTower(
+        visitId: visit.visitId,
+        date: visit.date,
+        peal: visit.peal,
+        quarter: visit.quarter,
+        place: tower.place,
+        dedication: tower.dedication,
+        county: tower.county,
+        bells: tower.bells,
+      );
+    }).get();
   }
 }
