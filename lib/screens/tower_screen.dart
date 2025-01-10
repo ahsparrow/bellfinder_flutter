@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../viewmodels/tower_viewmodel.dart';
@@ -41,7 +42,12 @@ class TowerScreen extends StatelessWidget {
       ),
       body: _body(context),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          final tower = viewModel.tower;
+          if (tower != null) {
+            context.push('/newvisit/${tower.towerId}');
+          }
+        },
         icon: Icon(Icons.add),
         label: Text("Add visit"),
       ),
