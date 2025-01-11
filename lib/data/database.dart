@@ -118,6 +118,12 @@ class AppDatabase extends _$AppDatabase {
         ));
   }
 
+  // Get a visit
+  Future<Visit> getVisit(int visitId) {
+    return (select(visits)..where((v) => v.visitId.equals(visitId)))
+        .getSingle();
+  }
+
   // Get visits merged with tower info
   Future<List<VisitTower>> getVisits() {
     final query = select(visits)

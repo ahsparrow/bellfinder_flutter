@@ -19,7 +19,7 @@ class VisitsListWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final visit = viewModel.visits[index];
             return GestureDetector(
-              onTap: () => context.push('/visits/${visit.visitId}'),
+              onTap: () => context.push('/visit/${visit.visitId}'),
               child: Card(
                 margin: EdgeInsets.all(2),
                 child: ListTile(
