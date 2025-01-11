@@ -21,7 +21,7 @@ final router = GoRouter(
 
     // Tower details
     GoRoute(
-      path: '/towers/:towerId',
+      path: '/tower/:towerId',
       builder: (context, state) {
         return TowerScreen(
           viewModel: TowerViewModel(

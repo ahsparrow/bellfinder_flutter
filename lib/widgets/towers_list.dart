@@ -18,7 +18,7 @@ class TowerListWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final tower = viewModel.towers[index];
             return GestureDetector(
-              onTap: () => context.push('/towers/${tower.towerId}'),
+              onTap: () => context.push('/tower/${tower.towerId}'),
               child: Card(
                 margin: EdgeInsets.all(2),
                 child: ListTile(
