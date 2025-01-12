@@ -142,8 +142,68 @@ class EditFormState extends State<EditForm> {
           value: _peal,
           controlAffinity: ListTileControlAffinity.leading,
         ),
+
+        Row(
+          children: [
+            Spacer(),
+
+            // Delete button
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: ElevatedButton(
+                onPressed: () async {
+                  if (await _confirmDelete() && context.mounted) {
+                    context.pop();
+                  }
+                },
+                child: Text("Delete"),
+              ),
+            ),
+
+            // Save button
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: ElevatedButton(
+                onPressed: () {
+                  widget.viewModel.update(
+                    date: DateFormat('dd/MM/yyyy').parse(_dateController.text),
+                    notes: _noteController.text,
+                    peal: _peal,
+                    quarter: _quarter,
+                  );
+                  context.pop();
+                },
+                child: Text("Save"),
+              ),
+            ),
+          ],
+        ),
       ],
     );
+  }
+
+  Future<bool> _confirmDelete() async {
+    switch (await showDialog<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(title: const Text('Are you sure?'), actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, 1),
+            child: Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, 2),
+            child: Text('Yes'),
+          ),
+        ]);
+      },
+    )) {
+      case 2:
+        widget.viewModel.delete();
+        return true;
+      default:
+        return false;
+    }
   }
 
   Future<void> _pickDate(BuildContext context) async {

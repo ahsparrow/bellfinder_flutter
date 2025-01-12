@@ -118,6 +118,27 @@ class AppDatabase extends _$AppDatabase {
         ));
   }
 
+  // Update a visit
+  Future<int> updateVisit(
+      {required int visitId,
+      required DateTime date,
+      required String notes,
+      required bool quarter,
+      required bool peal}) async {
+    return await managers.visits
+        .filter((v) => v.visitId.equals(visitId))
+        .update((v) => v(
+            date: Value(date),
+            notes: Value(notes),
+            peal: Value(peal),
+            quarter: Value(quarter)));
+  }
+
+  // Delete a visit
+  deleteVisit(int visitId) async {
+    return managers.visits.filter((v) => v.visitId.equals(visitId)).delete();
+  }
+
   // Get a visit
   Future<Visit> getVisit(int visitId) {
     return (select(visits)..where((v) => v.visitId.equals(visitId)))

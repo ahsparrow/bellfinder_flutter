@@ -41,4 +41,21 @@ class EditVisitViewModel extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  Future<int> update(
+      {required DateTime date,
+      required String notes,
+      required bool peal,
+      required bool quarter}) async {
+    return await _database.updateVisit(
+        visitId: _visitId,
+        date: date,
+        notes: notes,
+        peal: peal,
+        quarter: quarter);
+  }
+
+  Future<int> delete() async {
+    return await _database.deleteVisit(_visitId);
+  }
 }
