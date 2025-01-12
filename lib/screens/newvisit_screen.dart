@@ -134,6 +134,27 @@ class NewVisitFormState extends State<NewVisitForm> {
           value: _peal,
           controlAffinity: ListTileControlAffinity.leading,
         ),
+
+        Row(
+          children: [
+            Spacer(),
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: ElevatedButton(
+                onPressed: () {
+                  widget.viewModel.insert(
+                    date: DateFormat('dd/MM/yyyy').parse(_dateController.text),
+                    notes: _noteController.text,
+                    peal: _peal,
+                    quarter: _quarter,
+                  );
+                  context.pop();
+                },
+                child: Text("Save"),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
