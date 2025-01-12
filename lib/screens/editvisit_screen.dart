@@ -22,6 +22,7 @@ class EditVisitScreen extends StatelessWidget {
       body: ListenableBuilder(
         listenable: viewModel,
         builder: (context, _) {
+          // Use UniqueKey so state gets regenerated on change
           return EditForm(key: UniqueKey(), viewModel: viewModel);
         },
       ),
