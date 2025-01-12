@@ -44,7 +44,7 @@ final router = GoRouter(
         );
       },
     ),
-    //
+
     // Edit visit
     GoRoute(
       path: '/visit/:visitId',

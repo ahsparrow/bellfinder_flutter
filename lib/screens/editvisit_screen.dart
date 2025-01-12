@@ -4,20 +4,61 @@ import 'package:go_router/go_router.dart';
 
 import '../viewmodels/editvisit_viewmodel.dart';
 
-class EditVisitScreen extends StatefulWidget {
+class EditVisitScreen extends StatelessWidget {
   const EditVisitScreen({super.key, required this.viewModel});
 
   final EditVisitViewModel viewModel;
 
   @override
-  State<EditVisitScreen> createState() => EditVisitScreenState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Edit visit'),
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () => context.pop(),
+        ),
+      ),
+      body: ListenableBuilder(
+        listenable: viewModel,
+        builder: (context, _) {
+          return EditForm(key: UniqueKey(), viewModel: viewModel);
+        },
+      ),
+    );
+  }
 }
 
-class EditVisitScreenState extends State<EditVisitScreen> {
+class EditForm extends StatefulWidget {
+  const EditForm({super.key, required this.viewModel});
+
+  final EditVisitViewModel viewModel;
+
+  @override
+  State<EditForm> createState() => EditFormState();
+}
+
+class EditFormState extends State<EditForm> {
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _noteController = TextEditingController();
   bool _quarter = false;
   bool _peal = false;
+
+  @override
+  initState() {
+    _dateController.value = TextEditingValue(
+      text: (widget.viewModel.date != null)
+          ? DateFormat("dd/MM/yyyy").format(widget.viewModel.date!)
+          : "",
+    );
+    _noteController.value = TextEditingValue(
+      text: widget.viewModel.notes,
+    );
+    _quarter = widget.viewModel.quarter;
+    _peal = widget.viewModel.peal;
+
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -28,115 +69,79 @@ class EditVisitScreenState extends State<EditVisitScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit visit'),
-        actions: [
-          TextButton(
-            child: Text("Save"),
-            onPressed: () {
-              context.pop();
-            },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Date
+        Container(
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.all(8),
+          color: Theme.of(context).colorScheme.inversePrimary,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.viewModel.place,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              Text(
+                widget.viewModel.dedication,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
           ),
-        ],
-        leading: IconButton(
-          icon: Icon(Icons.close),
-          onPressed: () => context.pop(),
         ),
-      ),
-      body: ListenableBuilder(
-        listenable: widget.viewModel,
-        builder: (context, _) => builder(context),
-      ),
-    );
-  }
 
-  Widget builder(BuildContext context) {
-    return ListenableBuilder(
-      listenable: widget.viewModel,
-      builder: (context, _) {
-        _dateController.text = (widget.viewModel.date != null)
-            ? DateFormat("dd/MM/yyyy").format(widget.viewModel.date!)
-            : "";
-        _noteController.text = widget.viewModel.notes;
-        _peal = widget.viewModel.peal;
-        _quarter = widget.viewModel.quarter;
+        // Notes
+        Padding(
+          padding: EdgeInsets.fromLTRB(8, 16, 8, 8),
+          child: TextField(
+            readOnly: true,
+            controller: _dateController,
+            onTap: () => _pickDate(context),
+            decoration: InputDecoration(
+              labelText: "Date",
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ),
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Date
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.all(8),
-              color: Theme.of(context).colorScheme.inversePrimary,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.viewModel.place,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  Text(
-                    widget.viewModel.dedication,
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                ],
-              ),
+        // Quarter
+        Padding(
+          padding: EdgeInsets.all(8),
+          child: TextField(
+            minLines: 5,
+            maxLines: 5,
+            controller: _noteController,
+            decoration: InputDecoration(
+              labelText: "Notes",
+              border: OutlineInputBorder(),
             ),
+          ),
+        ),
 
-            // Notes
-            Padding(
-              padding: EdgeInsets.fromLTRB(8, 16, 8, 8),
-              child: TextField(
-                readOnly: true,
-                controller: _dateController,
-                onTap: () => _pickDate(context),
-                decoration: InputDecoration(
-                  labelText: "Date",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-
-            // Quarter
-            Padding(
-              padding: EdgeInsets.all(8),
-              child: TextField(
-                minLines: 5,
-                maxLines: 5,
-                controller: _noteController,
-                decoration: InputDecoration(
-                  labelText: "Notes",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-
-            // Peal
-            CheckboxListTile(
-              title: Text("Quarter"),
-              onChanged: (value) {
-                setState(() {
-                  _quarter = value ?? false;
-                });
-              },
-              value: _quarter,
-              controlAffinity: ListTileControlAffinity.leading,
-            ),
-            CheckboxListTile(
-              title: Text("Peal"),
-              onChanged: (value) {
-                setState(() {
-                  _peal = value ?? false;
-                });
-              },
-              value: _peal,
-              controlAffinity: ListTileControlAffinity.leading,
-            ),
-          ],
-        );
-      },
+        // Peal
+        CheckboxListTile(
+          title: Text("Quarter"),
+          onChanged: (value) {
+            setState(() {
+              _quarter = value ?? false;
+            });
+          },
+          value: _quarter,
+          controlAffinity: ListTileControlAffinity.leading,
+        ),
+        CheckboxListTile(
+          title: Text("Peal"),
+          onChanged: (value) {
+            setState(() {
+              _peal = value ?? false;
+            });
+          },
+          value: _peal,
+          controlAffinity: ListTileControlAffinity.leading,
+        ),
+      ],
     );
   }
 
