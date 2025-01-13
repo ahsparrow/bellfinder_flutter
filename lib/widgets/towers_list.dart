@@ -26,7 +26,11 @@ class TowerListWidget extends StatelessWidget {
                   subtitle: Text('${tower.dedication}, ${tower.county}'),
                   leading: Text('${tower.bells}'),
                   leadingAndTrailingTextStyle: TextTheme.of(context).titleLarge,
-                  dense: true,
+                  visualDensity:
+                      VisualDensity(vertical: VisualDensity.minimumDensity),
+                  trailing: (viewModel.hasVisit(tower.towerId))
+                      ? Icon(Icons.done)
+                      : null,
                 ),
               ),
             );

@@ -34,6 +34,7 @@ class Visits extends Table {
 class VisitTower {
   VisitTower({
     required this.visitId,
+    required this.towerId,
     required this.place,
     required this.county,
     required this.dedication,
@@ -44,6 +45,7 @@ class VisitTower {
   });
 
   int visitId;
+  int towerId;
   DateTime date;
   bool peal;
   bool quarter;
@@ -159,6 +161,7 @@ class AppDatabase extends _$AppDatabase {
         date: visit.date,
         peal: visit.peal,
         quarter: visit.quarter,
+        towerId: visit.towerId,
         place: tower.place,
         dedication: tower.dedication,
         county: tower.county,
