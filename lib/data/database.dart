@@ -129,11 +129,20 @@ class AppDatabase extends _$AppDatabase {
       required bool peal}) async {
     return await managers.visits
         .filter((v) => v.visitId.equals(visitId))
-        .update((v) => v(
+        .update(
+          (v) => v(
             date: Value(date),
             notes: Value(notes),
             peal: Value(peal),
-            quarter: Value(quarter)));
+            quarter: Value(quarter),
+          ),
+        );
+  }
+
+  Future<void> insertVisits(List<Visit> newVisits) async {
+    await batch((batch) {
+      batch.insertAll(visits, newVisits, mode: InsertMode.replace);
+    });
   }
 
   // Delete a visit
