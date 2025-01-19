@@ -181,7 +181,7 @@ class MapWidgetState extends State<MapWidget> {
                   child: Text("Info"),
                   onPressed: () {
                     _popupController.hideAllPopups();
-                    context.push('/towers/${tower.towerId}');
+                    context.push('/tower/${tower.towerId}');
                   },
                 ),
               ],
