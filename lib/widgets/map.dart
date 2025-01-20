@@ -55,7 +55,7 @@ class MapWidgetState extends State<MapWidget> {
         TowerMarker(
           towerId: tower.towerId,
           point: LatLng(tower.latitude, tower.longitude),
-          alignment: Alignment(0, 1),
+          alignment: Alignment(0, -1),
           child: tower.unringable
               ? towerUnringable
               : switch (tower.bells) {
