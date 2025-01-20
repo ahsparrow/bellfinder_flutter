@@ -157,7 +157,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Get visits merged with tower info
-  Future<List<VisitTower>> getVisits() {
+  Stream<List<VisitTower>> getVisits() {
     final query = select(visits)
         .join([innerJoin(towers, towers.towerId.equalsExp(visits.towerId))]);
 
@@ -176,6 +176,6 @@ class AppDatabase extends _$AppDatabase {
         county: tower.county,
         bells: tower.bells,
       );
-    }).get();
+    }).watch();
   }
 }
