@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 
+import '../data/database.dart';
+import '../screens/editvisit_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
+import '../viewmodels/editvisit_viewmodel.dart';
 
 class VisitsListWidget extends StatelessWidget {
   const VisitsListWidget({super.key, required this.viewModel});
@@ -19,7 +22,19 @@ class VisitsListWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final visit = viewModel.visits[index];
             return GestureDetector(
-              onTap: () => context.push('/visit/${visit.visitId}'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditVisitScreen(
+                      viewModel: EditVisitViewModel(
+                        database: context.read<AppDatabase>(),
+                        visitId: visit.visitId,
+                      ),
+                    ),
+                  ),
+                );
+              },
               child: Card(
                 margin: EdgeInsets.all(2),
                 child: ListTile(

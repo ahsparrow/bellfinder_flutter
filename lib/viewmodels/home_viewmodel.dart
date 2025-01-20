@@ -26,7 +26,6 @@ class HomeViewModel extends ChangeNotifier {
   StreamSubscription<Position>? positionStreamSubscription;
 
   _load() async {
-    print("_load");
     _towers = await _database.getTowers();
     _visits = await _database.getVisits();
     _visitTowerIds = [for (var v in _visits) v.towerId];

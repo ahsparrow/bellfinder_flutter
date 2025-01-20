@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
+import '../data/database.dart';
+import '../screens/tower_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
+import '../viewmodels/tower_viewmodel.dart';
 
 class NearestListWidget extends StatefulWidget {
   const NearestListWidget({super.key, required this.viewModel});
@@ -15,14 +18,12 @@ class NearestListWidget extends StatefulWidget {
 class NearestListWidgetState extends State<NearestListWidget> {
   @override
   initState() {
-    print("init");
     super.initState();
     widget.viewModel.startLocationUpdates();
   }
 
   @override
   dispose() {
-    print("dispose");
     widget.viewModel.stopLocationUpdates();
     super.dispose();
   }
@@ -39,7 +40,17 @@ class NearestListWidgetState extends State<NearestListWidget> {
             return GestureDetector(
               onTap: () async {
                 widget.viewModel.stopLocationUpdates();
-                await context.push('/tower/${tower.towerId}');
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TowerScreen(
+                      viewModel: TowerViewModel(
+                        database: context.read<AppDatabase>(),
+                        towerId: tower.towerId,
+                      ),
+                    ),
+                  ),
+                );
                 widget.viewModel.startLocationUpdates();
               },
               child: Card(

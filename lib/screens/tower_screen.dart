@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../data/database.dart';
+import '../screens/newvisit_screen.dart';
 import '../viewmodels/tower_viewmodel.dart';
+import '../viewmodels/newvisit_viewmodel.dart';
 
 class TowerScreen extends StatelessWidget {
   const TowerScreen({super.key, required this.viewModel});
@@ -45,7 +48,16 @@ class TowerScreen extends StatelessWidget {
         onPressed: () {
           final tower = viewModel.tower;
           if (tower != null) {
-            context.push('/newvisit/${tower.towerId}');
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NewVisitScreen(
+                  viewModel: NewVisitViewModel(
+                      database: context.read<AppDatabase>(),
+                      towerId: tower.towerId),
+                ),
+              ),
+            );
           }
         },
         icon: Icon(Icons.add),

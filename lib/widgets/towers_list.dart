@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
+import '../data/database.dart';
+import '../screens/tower_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
+import '../viewmodels/tower_viewmodel.dart';
 
 class TowerListWidget extends StatelessWidget {
   const TowerListWidget({super.key, required this.viewModel});
@@ -18,7 +21,19 @@ class TowerListWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final tower = viewModel.towers[index];
             return GestureDetector(
-              onTap: () => context.push('/tower/${tower.towerId}'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TowerScreen(
+                      viewModel: TowerViewModel(
+                        database: context.read<AppDatabase>(),
+                        towerId: tower.towerId,
+                      ),
+                    ),
+                  ),
+                );
+              },
               child: Card(
                 margin: EdgeInsets.all(2),
                 child: ListTile(

@@ -7,7 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/database.dart';
-import 'router.dart';
+import 'screens/home_screen.dart';
+import 'viewmodels/home_viewmodel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,8 +39,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
+    return MaterialApp(
+      home: HomeScreen(
+        viewModel: HomeViewModel(database: context.read<AppDatabase>()),
+      ),
       title: "Bellfinder",
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),

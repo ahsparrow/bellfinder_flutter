@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../viewmodels/newvisit_viewmodel.dart';
 
@@ -16,7 +15,7 @@ class NewVisitScreen extends StatelessWidget {
         title: const Text('Add new visit'),
         leading: IconButton(
           icon: Icon(Icons.close),
-          onPressed: () => context.pop(),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: ListenableBuilder(
@@ -148,7 +147,7 @@ class NewVisitFormState extends State<NewVisitForm> {
                     peal: _peal,
                     quarter: _quarter,
                   );
-                  context.pop();
+                  Navigator.pop(context);
                 },
                 child: Text("Save"),
               ),

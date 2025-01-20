@@ -1,12 +1,15 @@
-import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../data/database.dart';
+import '../screens/tower_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
+import '../viewmodels/tower_viewmodel.dart';
 
 final tower3 = SvgPicture.asset('assets/tower3.svg');
 final tower4 = SvgPicture.asset('assets/tower4.svg');
@@ -181,7 +184,17 @@ class MapWidgetState extends State<MapWidget> {
                   child: Text("Info"),
                   onPressed: () {
                     _popupController.hideAllPopups();
-                    context.push('/tower/${tower.towerId}');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TowerScreen(
+                          viewModel: TowerViewModel(
+                            database: context.read<AppDatabase>(),
+                            towerId: tower.towerId,
+                          ),
+                        ),
+                      ),
+                    );
                   },
                 ),
               ],

@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../viewmodels/editvisit_viewmodel.dart';
 
@@ -16,7 +15,7 @@ class EditVisitScreen extends StatelessWidget {
         title: const Text('Edit visit'),
         leading: IconButton(
           icon: Icon(Icons.close),
-          onPressed: () => context.pop(),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: ListenableBuilder(
@@ -153,7 +152,7 @@ class EditFormState extends State<EditForm> {
               child: ElevatedButton(
                 onPressed: () async {
                   if (await _confirmDelete() && context.mounted) {
-                    context.pop();
+                    Navigator.pop(context);
                   }
                 },
                 child: Text("Delete"),
@@ -171,7 +170,7 @@ class EditFormState extends State<EditForm> {
                     peal: _peal,
                     quarter: _quarter,
                   );
-                  context.pop();
+                  Navigator.pop(context);
                 },
                 child: Text("Save"),
               ),
