@@ -5,6 +5,7 @@ import '../viewmodels/home_viewmodel.dart';
 import '../widgets/map.dart';
 import '../widgets/towers_list.dart';
 import '../widgets/visits_list.dart';
+import '../widgets/nearest_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.viewModel});
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             TowerListWidget(viewModel: viewModel),
             VisitsListWidget(viewModel: viewModel),
-            Center(child: Text('Nearby')),
+            NearestListWidget(viewModel: viewModel),
             MapWidget(viewModel: viewModel),
           ],
         ),

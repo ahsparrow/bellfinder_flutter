@@ -1,9 +1,12 @@
+import 'dart:async';
 import 'dart:collection';
 import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 import '../data/database.dart';
+import '../data/location.dart';
 
 class HomeViewModel extends ChangeNotifier {
   HomeViewModel({
@@ -17,8 +20,13 @@ class HomeViewModel extends ChangeNotifier {
   List<Tower> _towers = [];
   List<VisitTower> _visits = [];
   List<int> _visitTowerIds = [];
+  List<Tower> _nearest = [];
+
+  Stream<Position>? positionStream;
+  StreamSubscription<Position>? positionStreamSubscription;
 
   _load() async {
+    print("_load");
     _towers = await _database.getTowers();
     _visits = await _database.getVisits();
     _visitTowerIds = [for (var v in _visits) v.towerId];
@@ -26,6 +34,7 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   UnmodifiableListView<Tower> get towers => UnmodifiableListView(_towers);
+  UnmodifiableListView<Tower> get nearest => UnmodifiableListView(_nearest);
   UnmodifiableListView<VisitTower> get visits => UnmodifiableListView(_visits);
 
   Tower getTower(int towerId) {
@@ -66,6 +75,30 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
 
     return csvVisits.length - 1;
+  }
+
+  void startLocationUpdates() async {
+    positionStream = await getPositionStream();
+
+    positionStreamSubscription = positionStream?.listen((Position position) {
+      var towerDistances = [
+        for (final t in _towers) (tower: t, dist: distanceFrom(t, position))
+      ];
+      towerDistances.sort((a, b) => a.dist.compareTo(b.dist));
+      _nearest = [for (final td in towerDistances.sublist(0, 100)) td.tower];
+
+      notifyListeners();
+    });
+  }
+
+  double distanceFrom(Tower t, Position p) {
+    return Geolocator.distanceBetween(
+        p.latitude, p.longitude, t.latitude, t.longitude);
+  }
+
+  void stopLocationUpdates() async {
+    await positionStreamSubscription?.cancel();
+    _nearest = [];
   }
 
   static weightCwt(int weight) => weight / 112;
