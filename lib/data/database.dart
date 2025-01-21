@@ -156,6 +156,11 @@ class AppDatabase extends _$AppDatabase {
         .getSingle();
   }
 
+  // Get visits to specified tower
+  Stream<List<Visit>> getTowerVisits(int towerId) {
+    return managers.visits.filter((v) => v.towerId.equals(towerId)).watch();
+  }
+
   // Get visits merged with tower info
   Stream<List<VisitTower>> getVisits() {
     final query = select(visits)

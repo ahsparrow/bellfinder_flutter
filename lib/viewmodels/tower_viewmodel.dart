@@ -15,10 +15,12 @@ class TowerViewModel extends ChangeNotifier {
   final int _towerId;
 
   Tower? _tower;
+  List<Visit> _visits = [];
   String _weightString = "";
 
   Tower? get tower => _tower;
   String get weightString => _weightString;
+  DateTime? get firstVisit => _visits.firstOrNull?.date;
 
   _load() async {
     _tower = await _database.getTower(_towerId);
@@ -29,6 +31,11 @@ class TowerViewModel extends ChangeNotifier {
     final lbs = weight % 28;
     _weightString = '$cwt-$qr-$lbs';
 
-    notifyListeners();
+    await for (final visits in _database.getTowerVisits(_towerId)) {
+      visits.sort((a, b) => a.date.compareTo(b.date));
+      _visits = visits;
+
+      notifyListeners();
+    }
   }
 }

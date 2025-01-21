@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -158,8 +159,9 @@ class TowerScreen extends StatelessWidget {
                         padding: EdgeInsets.only(right: 16),
                         child: Text('First visit:'),
                       ),
-                      // TBD - Add value
-                      Text(''),
+                      Text((viewModel.firstVisit != null)
+                          ? DateFormat("d/M/y").format(viewModel.firstVisit!)
+                          : ""),
                     ],
                   ),
                   spacer,
