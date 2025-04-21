@@ -47,8 +47,13 @@ class VisitsListWidget extends StatelessWidget {
                   ),
                   subtitle: Row(
                     children: [
-                      Text('${visit.dedication}, ${visit.county}'),
-                      Spacer(),
+                      Expanded(
+                        child: Text(
+                          '${visit.dedication}, ${visit.county}',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                      ),
                       Text((visit.peal)
                           ? "P"
                           : (visit.quarter)
