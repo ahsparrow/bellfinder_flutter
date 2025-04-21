@@ -58,7 +58,6 @@ class VisitsListWidget extends StatelessWidget {
                   ),
                   leading: Text('${visit.bells}'),
                   leadingAndTrailingTextStyle: TextTheme.of(context).titleLarge,
-                  dense: true,
                 ),
               ),
             );
