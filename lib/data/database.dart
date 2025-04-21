@@ -180,6 +180,7 @@ class AppDatabase extends _$AppDatabase {
   Stream<List<VisitTower>> getVisits() {
     final query = select(visits)
         .join([innerJoin(towers, towers.towerId.equalsExp(visits.towerId))]);
+    query.orderBy([OrderingTerm.desc(visits.date)]);
 
     return query.map((row) {
       final visit = row.readTable(visits);
