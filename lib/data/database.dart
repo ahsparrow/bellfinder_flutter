@@ -6,6 +6,21 @@ import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
 
+class DateConverter extends TypeConverter<DateTime, int> {
+  @override
+  fromSql(int date) {
+    final day = date % 100;
+    final month = (date ~/ 100) % 100 + 1;
+    final year = date ~/ 10000;
+    return DateTime.utc(year, month, day);
+  }
+
+  @override
+  toSql(DateTime date) {
+    return date.year * 10000 + (date.month - 1) * 100 + date.day;
+  }
+}
+
 class Towers extends Table {
   IntColumn get towerId => integer().named('towerId')();
   TextColumn get place => text()();
@@ -25,7 +40,7 @@ class Towers extends Table {
 class Visits extends Table {
   IntColumn get visitId => integer().autoIncrement().named('visitId')();
   IntColumn get towerId => integer().named('towerId')();
-  DateTimeColumn get date => dateTime()();
+  IntColumn get date => integer().map(DateConverter())();
   TextColumn get notes => text().nullable()();
   BoolColumn get peal => boolean()();
   BoolColumn get quarter => boolean()();
@@ -60,7 +75,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 5;
 
   static QueryExecutor _openConnection() {
     DriftNativeOptions? nativeOpts;
