@@ -90,7 +90,8 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Get all the towers
-  Future<List<Tower>> getTowers() => managers.towers.get();
+  Future<List<Tower>> getTowers() =>
+      managers.towers.orderBy((o) => o.place.asc() & o.dedication.asc()).get();
 
   // Get a single tower
   Future<Tower> getTower(int towerId) =>
