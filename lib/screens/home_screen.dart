@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        // AppBar contains the tower search bar
         appBar: AppBar(
           centerTitle: true,
           clipBehavior: Clip.none,
@@ -28,8 +29,9 @@ class HomeScreen extends StatelessWidget {
                   hintText: "Search towers",
                   leading: Icon(Icons.search),
                   elevation: WidgetStatePropertyAll(0),
+
+                  // Settings menu
                   trailing: [
-                    // Settings menu item
                     PopupMenuButton(
                       icon: Icon(Icons.menu),
                       itemBuilder: (context) {
@@ -58,12 +60,16 @@ class HomeScreen extends StatelessWidget {
                 ),
               );
             },
+
+            // Search suggestions
             suggestionsBuilder:
                 (BuildContext context, SearchController controller) {
               return [Text("foobar")];
             },
           ),
         ),
+
+        // Body with tabbed widgets
         body: Padding(
           padding: EdgeInsets.all(8),
           child: TabBarView(
@@ -74,6 +80,8 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+
+        // Bottom navigation with tab controller
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).padding.bottom + 8,
