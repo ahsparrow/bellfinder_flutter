@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../viewmodels/home_viewmodel.dart';
 import '../widgets/map.dart';
-import '../widgets/towers_list.dart';
 import '../widgets/visits_list.dart';
 import '../widgets/nearest_list.dart';
 
@@ -15,19 +14,58 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
+        appBar: AppBar(toolbarHeight: 0),
+        body: Column(
+          children: [
+            SearchAnchor(
+              builder: (BuildContext context, SearchController controller) {
+                return Padding(
+                  padding: EdgeInsets.only(top: 8, left: 8, right: 8),
+                  child: SearchBar(
+                    hintText: "Search towers",
+                    leading: Icon(Icons.search),
+                    elevation: WidgetStatePropertyAll(0),
+                  ),
+                );
+              },
+              suggestionsBuilder:
+                  (BuildContext context, SearchController controller) {
+                return [Text("foobar")];
+              },
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: TabBarView(
+                  children: [
+                    VisitsListWidget(viewModel: viewModel),
+                    NearestListWidget(viewModel: viewModel),
+                    MapWidget(viewModel: viewModel),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).padding.bottom + 8,
+          ),
+          child: TabBar(
+            tabs: [
+              Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
+              Tab(text: 'Near Me', icon: const Icon(Icons.near_me)),
+              Tab(text: 'Map', icon: const Icon(Icons.map)),
+            ],
+            dividerColor: Colors.transparent,
+          ),
+        ),
+        /*
         appBar: AppBar(
           title: const Text('BellFinder'),
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          bottom: TabBar(
-            tabs: [
-              Tab(text: 'Towers'),
-              Tab(text: 'Visits'),
-              Tab(text: 'Nearby'),
-              Tab(text: 'Map'),
-            ],
-          ),
           actions: [
             // Settings menu item
             PopupMenuButton(itemBuilder: (context) {
@@ -53,14 +91,7 @@ class HomeScreen extends StatelessWidget {
             }),
           ],
         ),
-        body: TabBarView(
-          children: [
-            TowerListWidget(viewModel: viewModel),
-            VisitsListWidget(viewModel: viewModel),
-            NearestListWidget(viewModel: viewModel),
-            MapWidget(viewModel: viewModel),
-          ],
-        ),
+        */
       ),
     );
   }
