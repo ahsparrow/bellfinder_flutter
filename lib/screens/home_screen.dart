@@ -16,38 +16,63 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(toolbarHeight: 0),
-        body: Column(
-          children: [
-            SearchAnchor(
-              builder: (BuildContext context, SearchController controller) {
-                return Padding(
-                  padding: EdgeInsets.only(top: 8, left: 8, right: 8),
-                  child: SearchBar(
-                    hintText: "Search towers",
-                    leading: Icon(Icons.search),
-                    elevation: WidgetStatePropertyAll(0),
-                  ),
-                );
-              },
-              suggestionsBuilder:
-                  (BuildContext context, SearchController controller) {
-                return [Text("foobar")];
-              },
-            ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(8),
-                child: TabBarView(
-                  children: [
-                    VisitsListWidget(viewModel: viewModel),
-                    NearestListWidget(viewModel: viewModel),
-                    MapWidget(viewModel: viewModel),
+        appBar: AppBar(
+          centerTitle: true,
+          clipBehavior: Clip.none,
+          titleSpacing: 0,
+          title: SearchAnchor(
+            builder: (BuildContext context, SearchController controller) {
+              return Padding(
+                padding: EdgeInsets.only(left: 16, right: 16),
+                child: SearchBar(
+                  hintText: "Search towers",
+                  leading: Icon(Icons.search),
+                  elevation: WidgetStatePropertyAll(0),
+                  trailing: [
+                    // Settings menu item
+                    PopupMenuButton(
+                      icon: Icon(Icons.menu),
+                      itemBuilder: (context) {
+                        return [
+                          // Import visits menu item
+                          PopupMenuItem<int>(
+                            onTap: () async {
+                              _importCsv(context);
+                            },
+                            child: const Text('Import visits'),
+                          ),
+
+                          // Import visits menu item
+                          PopupMenuItem<int>(
+                            child: const Text('Export visits'),
+                          ),
+
+                          // About menu item
+                          const PopupMenuItem<int>(
+                            child: Text('About'),
+                          ),
+                        ];
+                      },
+                    ),
                   ],
                 ),
-              ),
-            ),
-          ],
+              );
+            },
+            suggestionsBuilder:
+                (BuildContext context, SearchController controller) {
+              return [Text("foobar")];
+            },
+          ),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(8),
+          child: TabBarView(
+            children: [
+              VisitsListWidget(viewModel: viewModel),
+              NearestListWidget(viewModel: viewModel),
+              MapWidget(viewModel: viewModel),
+            ],
+          ),
         ),
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(
@@ -62,36 +87,6 @@ class HomeScreen extends StatelessWidget {
             dividerColor: Colors.transparent,
           ),
         ),
-        /*
-        appBar: AppBar(
-          title: const Text('BellFinder'),
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          actions: [
-            // Settings menu item
-            PopupMenuButton(itemBuilder: (context) {
-              return [
-                // Import visits menu item
-                PopupMenuItem<int>(
-                  onTap: () async {
-                    _importCsv(context);
-                  },
-                  child: const Text('Import visits'),
-                ),
-
-                // Import visits menu item
-                PopupMenuItem<int>(
-                  child: const Text('Export visits'),
-                ),
-
-                // About menu item
-                const PopupMenuItem<int>(
-                  child: Text('About'),
-                ),
-              ];
-            }),
-          ],
-        ),
-        */
       ),
     );
   }
