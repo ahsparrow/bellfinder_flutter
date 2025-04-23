@@ -1,10 +1,14 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../data/database.dart';
+import '../screens/tower_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
+import '../viewmodels/tower_viewmodel.dart';
 import '../widgets/map.dart';
-import '../widgets/visits_list.dart';
 import '../widgets/nearest_list.dart';
+import '../widgets/visits_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.viewModel});
@@ -26,12 +30,19 @@ class HomeScreen extends StatelessWidget {
               return Padding(
                 padding: EdgeInsets.only(left: 16, right: 16),
                 child: SearchBar(
-                  hintText: "Search towers",
-                  leading: Icon(Icons.search),
+                  controller: controller,
                   elevation: WidgetStatePropertyAll(0),
-
+                  hintText: "Search towers",
+                  keyboardType: TextInputType.none,
+                  leading: Icon(Icons.search),
+                  onChanged: (_) => controller.openView(),
+                  onTap: () => controller.openView(),
                   // Settings menu
                   trailing: [
+                    IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () => controller.clear(),
+                    ),
                     PopupMenuButton(
                       icon: Icon(Icons.menu),
                       itemBuilder: (context) {
@@ -64,7 +75,33 @@ class HomeScreen extends StatelessWidget {
             // Search suggestions
             suggestionsBuilder:
                 (BuildContext context, SearchController controller) {
-              return [Text("foobar")];
+              return viewModel.towers
+                  .where((t) => t.place
+                      .toLowerCase()
+                      .startsWith(controller.text.toLowerCase()))
+                  .followedBy(viewModel.towers.where((t) => t.place
+                      .toLowerCase()
+                      .contains(controller.text.toLowerCase(), 1)))
+                  .take(15)
+                  .map(
+                    (t) => ListTile(
+                      title: Text("${t.place}, ${t.dedication}"),
+                      onTap: () {
+                        controller.closeView("");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TowerScreen(
+                              viewModel: TowerViewModel(
+                                database: context.read<AppDatabase>(),
+                                towerId: t.towerId,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
             },
           ),
         ),
