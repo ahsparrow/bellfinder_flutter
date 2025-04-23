@@ -1,5 +1,6 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:provider/provider.dart';
 
 import '../data/database.dart';
@@ -11,9 +12,10 @@ import '../widgets/nearest_list.dart';
 import '../widgets/visits_list.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.viewModel});
+  HomeScreen({super.key, required this.viewModel});
 
   final HomeViewModel viewModel;
+  final MapController mapController = MapController();
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +129,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               VisitsListWidget(viewModel: viewModel),
               NearestListWidget(viewModel: viewModel),
-              MapWidget(viewModel: viewModel),
+              MapWidget(viewModel: viewModel, controller: mapController),
             ],
           ),
         ),

@@ -35,9 +35,11 @@ class TowerMarker extends Marker {
 }
 
 class MapWidget extends StatefulWidget {
-  const MapWidget({super.key, required this.viewModel});
+  const MapWidget(
+      {super.key, required this.viewModel, required this.controller});
 
   final HomeViewModel viewModel;
+  final MapController controller;
 
   @override
   State<MapWidget> createState() => MapWidgetState();
@@ -79,6 +81,7 @@ class MapWidgetState extends State<MapWidget> {
     return PopupScope(
       popupController: _popupController,
       child: FlutterMap(
+        mapController: widget.controller,
         options: MapOptions(
           initialCenter: LatLng(51.07, -1.61),
           initialZoom: 10,
