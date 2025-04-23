@@ -37,8 +37,10 @@ class HomeScreen extends StatelessWidget {
                   leading: Icon(Icons.search),
                   onChanged: (_) => controller.openView(),
                   onTap: () => controller.openView(),
-                  // Settings menu
+
+                  // Trailing actions
                   trailing: [
+                    // Clear and unfocus search bar
                     IconButton(
                       icon: Icon(Icons.close),
                       onPressed: () {
@@ -46,6 +48,8 @@ class HomeScreen extends StatelessWidget {
                         FocusScope.of(context).unfocus();
                       },
                     ),
+
+                    // Application menu
                     PopupMenuButton(
                       icon: Icon(Icons.menu),
                       itemBuilder: (context) {
@@ -79,9 +83,13 @@ class HomeScreen extends StatelessWidget {
             suggestionsBuilder:
                 (BuildContext context, SearchController controller) {
               return viewModel.towers
+
+                  // Firstly matching start of place name...
                   .where((t) => t.place
                       .toLowerCase()
                       .startsWith(controller.text.toLowerCase()))
+
+                  // ...and then by rest of place name
                   .followedBy(viewModel.towers.where((t) => t.place
                       .toLowerCase()
                       .contains(controller.text.toLowerCase(), 1)))
@@ -90,7 +98,10 @@ class HomeScreen extends StatelessWidget {
                     (t) => ListTile(
                       title: Text("${t.place}, ${t.dedication}"),
                       onTap: () {
+                        // Close suggestions view
                         controller.closeView("");
+
+                        // Navigate to tower screen
                         Navigator.push(
                           context,
                           MaterialPageRoute(
