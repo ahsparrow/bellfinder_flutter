@@ -108,7 +108,7 @@ class HomeScreen extends StatelessWidget {
 
         // Body with tabbed widgets
         body: Padding(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.only(top: 8),
           child: TabBarView(
             children: [
               VisitsListWidget(viewModel: viewModel),

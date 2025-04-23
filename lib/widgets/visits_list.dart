@@ -14,61 +14,65 @@ class VisitsListWidget extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return ListenableBuilder(
-      listenable: viewModel,
-      builder: (context, _) {
-        return ListView.builder(
-          itemCount: viewModel.visits.length,
-          itemBuilder: (BuildContext context, int index) {
-            final visit = viewModel.visits[index];
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => EditVisitScreen(
-                      viewModel: EditVisitViewModel(
-                        database: context.read<AppDatabase>(),
-                        visitId: visit.visitId,
-                      ),
-                    ),
-                  ),
-                );
-              },
-              child: Card(
-                margin: EdgeInsets.all(2),
-                child: ListTile(
-                  title: Row(
-                    children: [
-                      Text(visit.place),
-                      Spacer(),
-                      Text(DateFormat('dd/MM/yyyy').format(visit.date)),
-                    ],
-                  ),
-                  subtitle: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '${visit.dedication}, ${visit.county}',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: ListenableBuilder(
+        listenable: viewModel,
+        builder: (context, _) {
+          return ListView.builder(
+            itemCount: viewModel.visits.length,
+            itemBuilder: (BuildContext context, int index) {
+              final visit = viewModel.visits[index];
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditVisitScreen(
+                        viewModel: EditVisitViewModel(
+                          database: context.read<AppDatabase>(),
+                          visitId: visit.visitId,
                         ),
                       ),
-                      Text((visit.peal)
-                          ? "P"
-                          : (visit.quarter)
-                              ? "Q"
-                              : ""),
-                    ],
+                    ),
+                  );
+                },
+                child: Card(
+                  margin: EdgeInsets.all(2),
+                  child: ListTile(
+                    title: Row(
+                      children: [
+                        Text(visit.place),
+                        Spacer(),
+                        Text(DateFormat('dd/MM/yyyy').format(visit.date)),
+                      ],
+                    ),
+                    subtitle: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            '${visit.dedication}, ${visit.county}',
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                        ),
+                        Text((visit.peal)
+                            ? "P"
+                            : (visit.quarter)
+                                ? "Q"
+                                : ""),
+                      ],
+                    ),
+                    leading: Text('${visit.bells}'),
+                    leadingAndTrailingTextStyle:
+                        TextTheme.of(context).titleLarge,
                   ),
-                  leading: Text('${visit.bells}'),
-                  leadingAndTrailingTextStyle: TextTheme.of(context).titleLarge,
                 ),
-              ),
-            );
-          },
-        );
-      },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
