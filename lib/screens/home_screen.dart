@@ -41,7 +41,10 @@ class HomeScreen extends StatelessWidget {
                   trailing: [
                     IconButton(
                       icon: Icon(Icons.close),
-                      onPressed: () => controller.clear(),
+                      onPressed: () {
+                        controller.clear();
+                        FocusScope.of(context).unfocus();
+                      },
                     ),
                     PopupMenuButton(
                       icon: Icon(Icons.menu),
