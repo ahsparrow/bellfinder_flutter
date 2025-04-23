@@ -1,0 +1,18 @@
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/icon/bell.png"
+
+  android: true
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icon/bell.png"
+
+  ios: false
+
+  web:
+    generate: false
+
+  windows:
+    generate: false
+
+  macos:
+    generate: false
