@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
   final HomeViewModel viewModel;
   final MapController mapController = MapController();
 
-  void showTowerOnMap(BuildContext context, Tower tower) {
+  void _showTowerOnMap(BuildContext context, Tower tower) {
     mapController.move(LatLng(tower.latitude, tower.longitude), 13);
     DefaultTabController.of(context).animateTo(0);
   }
@@ -27,140 +27,141 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(
-        // AppBar contains the tower search bar
-        appBar: AppBar(
-          centerTitle: true,
-          clipBehavior: Clip.none,
-          titleSpacing: 0,
-          title: SearchAnchor(
-            builder: (BuildContext context, SearchController controller) {
-              return Padding(
-                padding: EdgeInsets.only(left: 16, right: 16),
-                child: SearchBar(
-                  controller: controller,
-                  elevation: WidgetStatePropertyAll(0),
-                  hintText: "Search towers",
-                  keyboardType: TextInputType.none,
-                  leading: Icon(Icons.search),
-                  onChanged: (_) => controller.openView(),
-                  onTap: () => controller.openView(),
+      child: Builder(builder: (BuildContext tabContext) {
+        return Scaffold(
+          // AppBar contains the tower search bar
+          appBar: AppBar(
+            centerTitle: true,
+            clipBehavior: Clip.none,
+            titleSpacing: 0,
+            title: SearchAnchor(
+              builder: (BuildContext context, SearchController controller) {
+                return Padding(
+                  padding: EdgeInsets.only(left: 16, right: 16),
+                  child: SearchBar(
+                    controller: controller,
+                    elevation: WidgetStatePropertyAll(0),
+                    hintText: "Search towers",
+                    keyboardType: TextInputType.none,
+                    leading: Icon(Icons.search),
+                    onChanged: (_) => controller.openView(),
+                    onTap: () => controller.openView(),
 
-                  // Trailing actions
-                  trailing: [
-                    // Clear and unfocus search bar
-                    IconButton(
-                      icon: Icon(Icons.close),
-                      onPressed: () {
-                        controller.clear();
-                        FocusScope.of(context).unfocus();
-                      },
-                    ),
+                    // Trailing actions
+                    trailing: [
+                      // Clear and unfocus search bar
+                      IconButton(
+                        icon: Icon(Icons.close),
+                        onPressed: () {
+                          controller.clear();
+                          FocusScope.of(context).unfocus();
+                        },
+                      ),
 
-                    // Application menu
-                    PopupMenuButton(
-                      icon: Icon(Icons.menu),
-                      itemBuilder: (context) {
-                        return [
-                          // Import visits menu item
-                          PopupMenuItem<int>(
-                            onTap: () async {
-                              _importCsv(context);
-                            },
-                            child: const Text('Import visits'),
-                          ),
+                      // Application menu
+                      PopupMenuButton(
+                        icon: Icon(Icons.menu),
+                        itemBuilder: (context) {
+                          return [
+                            // Import visits menu item
+                            PopupMenuItem<int>(
+                              onTap: () async {
+                                _importCsv(context);
+                              },
+                              child: const Text('Import visits'),
+                            ),
 
-                          // Import visits menu item
-                          PopupMenuItem<int>(
-                            child: const Text('Export visits'),
-                          ),
+                            // Import visits menu item
+                            PopupMenuItem<int>(
+                              child: const Text('Export visits'),
+                            ),
 
-                          // About menu item
-                          const PopupMenuItem<int>(
-                            child: Text('About'),
-                          ),
-                        ];
-                      },
-                    ),
-                  ],
-                ),
-              );
-            },
+                            // About menu item
+                            const PopupMenuItem<int>(
+                              child: Text('About'),
+                            ),
+                          ];
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
 
-            // Search suggestions
-            suggestionsBuilder:
-                (BuildContext context, SearchController controller) {
-              return viewModel.towers
+              // Search suggestions
+              suggestionsBuilder:
+                  (BuildContext context, SearchController controller) {
+                return viewModel.towers
 
-                  // Firstly matching start of place name...
-                  .where((t) => t.place
-                      .toLowerCase()
-                      .startsWith(controller.text.toLowerCase()))
+                    // Firstly matching start of place name...
+                    .where((t) => t.place
+                        .toLowerCase()
+                        .startsWith(controller.text.toLowerCase()))
 
-                  // ...and then by rest of place name
-                  .followedBy(viewModel.towers.where((t) => t.place
-                      .toLowerCase()
-                      .contains(controller.text.toLowerCase(), 1)))
-                  .take(15)
-                  .map(
-                    (t) => ListTile(
-                        title: Text("${t.place}, ${t.dedication}"),
-                        onTap: () {
-                          // Close suggestions view
-                          controller.closeView("");
+                    // ...and then by rest of place name
+                    .followedBy(viewModel.towers.where((t) => t.place
+                        .toLowerCase()
+                        .contains(controller.text.toLowerCase(), 1)))
+                    .take(15)
+                    .map(
+                      (t) => ListTile(
+                          title: Text("${t.place}, ${t.dedication}"),
+                          onTap: () {
+                            // Close suggestions view
+                            controller.closeView("");
 
-                          // Navigate to tower screen
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => TowerScreen(
-                                viewModel: TowerViewModel(
-                                  database: context.read<AppDatabase>(),
-                                  towerId: t.towerId,
+                            // Navigate to tower screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TowerScreen(
+                                  viewModel: TowerViewModel(
+                                    database: context.read<AppDatabase>(),
+                                    towerId: t.towerId,
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                        onLongPress: () {
-                          controller.closeView("");
-                          showTowerOnMap(
-                              context, viewModel.getTower(t.towerId));
-                        }),
-                  );
-            },
+                            );
+                          },
+                          onLongPress: () {
+                            controller.closeView("");
+                            _showTowerOnMap(tabContext, t);
+                          }),
+                    );
+              },
+            ),
           ),
-        ),
 
-        // Body with tabbed widgets
-        body: Padding(
-          padding: EdgeInsets.only(top: 8),
-          child: TabBarView(
-            children: [
-              MapWidget(viewModel: viewModel, controller: mapController),
-              NearestListWidget(
-                  viewModel: viewModel, showTowerOnMap: showTowerOnMap),
-              VisitsListWidget(
-                  viewModel: viewModel, showTowerOnMap: showTowerOnMap),
-            ],
+          // Body with tabbed widgets
+          body: Padding(
+            padding: EdgeInsets.only(top: 8),
+            child: TabBarView(
+              children: [
+                MapWidget(viewModel: viewModel, controller: mapController),
+                NearestListWidget(
+                    viewModel: viewModel, showTowerOnMap: _showTowerOnMap),
+                VisitsListWidget(
+                    viewModel: viewModel, showTowerOnMap: _showTowerOnMap),
+              ],
+            ),
           ),
-        ),
 
-        // Bottom navigation with tab controller
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).padding.bottom + 8,
+          // Bottom navigation with tab controller
+          bottomNavigationBar: Padding(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).padding.bottom + 8,
+            ),
+            child: TabBar(
+              tabs: [
+                Tab(text: 'Map', icon: const Icon(Icons.map)),
+                Tab(text: 'Near Me', icon: const Icon(Icons.near_me)),
+                Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
+              ],
+              dividerColor: Colors.transparent,
+            ),
           ),
-          child: TabBar(
-            tabs: [
-              Tab(text: 'Map', icon: const Icon(Icons.map)),
-              Tab(text: 'Near Me', icon: const Icon(Icons.near_me)),
-              Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
-            ],
-            dividerColor: Colors.transparent,
-          ),
-        ),
-      ),
+        );
+      }),
     );
   }
 
