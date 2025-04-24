@@ -7,9 +7,11 @@ import '../viewmodels/home_viewmodel.dart';
 import '../viewmodels/tower_viewmodel.dart';
 
 class NearestListWidget extends StatefulWidget {
-  const NearestListWidget({super.key, required this.viewModel});
+  const NearestListWidget(
+      {super.key, required this.viewModel, required this.showTowerOnMap});
 
   final HomeViewModel viewModel;
+  final Function(BuildContext, Tower) showTowerOnMap;
 
   @override
   State<NearestListWidget> createState() => NearestListWidgetState();
@@ -55,6 +57,8 @@ class NearestListWidgetState extends State<NearestListWidget> {
                   );
                   widget.viewModel.startLocationUpdates();
                 },
+                onLongPress: () => widget.showTowerOnMap(
+                    context, widget.viewModel.getTower(tower.towerId)),
                 child: Card(
                   margin: EdgeInsets.all(2),
                   child: ListTile(

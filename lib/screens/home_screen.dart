@@ -134,7 +134,8 @@ class HomeScreen extends StatelessWidget {
           child: TabBarView(
             children: [
               MapWidget(viewModel: viewModel, controller: mapController),
-              NearestListWidget(viewModel: viewModel),
+              NearestListWidget(
+                  viewModel: viewModel, showTowerOnMap: showTowerOnMap),
               VisitsListWidget(
                   viewModel: viewModel, showTowerOnMap: showTowerOnMap),
             ],
