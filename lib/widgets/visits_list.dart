@@ -8,9 +8,11 @@ import '../viewmodels/home_viewmodel.dart';
 import '../viewmodels/editvisit_viewmodel.dart';
 
 class VisitsListWidget extends StatelessWidget {
-  const VisitsListWidget({super.key, required this.viewModel});
+  const VisitsListWidget(
+      {super.key, required this.viewModel, required this.showTowerOnMap});
 
   final HomeViewModel viewModel;
+  final Function(BuildContext, Tower) showTowerOnMap;
 
   @override
   Widget build(context) {
@@ -37,6 +39,8 @@ class VisitsListWidget extends StatelessWidget {
                     ),
                   );
                 },
+                onLongPress: () =>
+                    showTowerOnMap(context, viewModel.getTower(visit.towerId)),
                 child: Card(
                   margin: EdgeInsets.all(2),
                   child: ListTile(
