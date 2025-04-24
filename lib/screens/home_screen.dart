@@ -1,6 +1,7 @@
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:provider/provider.dart';
 
 import '../data/database.dart';
@@ -16,6 +17,11 @@ class HomeScreen extends StatelessWidget {
 
   final HomeViewModel viewModel;
   final MapController mapController = MapController();
+
+  void showTowerOnMap(BuildContext context, Tower tower) {
+    mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+    DefaultTabController.of(context).animateTo(0);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,9 +133,10 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.only(top: 8),
           child: TabBarView(
             children: [
-              VisitsListWidget(viewModel: viewModel),
-              NearestListWidget(viewModel: viewModel),
               MapWidget(viewModel: viewModel, controller: mapController),
+              NearestListWidget(viewModel: viewModel),
+              VisitsListWidget(
+                  viewModel: viewModel, showTowerOnMap: showTowerOnMap),
             ],
           ),
         ),
@@ -141,9 +148,9 @@ class HomeScreen extends StatelessWidget {
           ),
           child: TabBar(
             tabs: [
-              Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
-              Tab(text: 'Near Me', icon: const Icon(Icons.near_me)),
               Tab(text: 'Map', icon: const Icon(Icons.map)),
+              Tab(text: 'Near Me', icon: const Icon(Icons.near_me)),
+              Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
             ],
             dividerColor: Colors.transparent,
           ),
