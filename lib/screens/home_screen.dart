@@ -104,25 +104,29 @@ class HomeScreen extends StatelessWidget {
                   .take(15)
                   .map(
                     (t) => ListTile(
-                      title: Text("${t.place}, ${t.dedication}"),
-                      onTap: () {
-                        // Close suggestions view
-                        controller.closeView("");
+                        title: Text("${t.place}, ${t.dedication}"),
+                        onTap: () {
+                          // Close suggestions view
+                          controller.closeView("");
 
-                        // Navigate to tower screen
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TowerScreen(
-                              viewModel: TowerViewModel(
-                                database: context.read<AppDatabase>(),
-                                towerId: t.towerId,
+                          // Navigate to tower screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TowerScreen(
+                                viewModel: TowerViewModel(
+                                  database: context.read<AppDatabase>(),
+                                  towerId: t.towerId,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
-                    ),
+                          );
+                        },
+                        onLongPress: () {
+                          controller.closeView("");
+                          showTowerOnMap(
+                              context, viewModel.getTower(t.towerId));
+                        }),
                   );
             },
           ),
