@@ -51,94 +51,91 @@ class MapWidgetState extends State<MapWidget> {
   List<TowerMarker> markers = [];
 
   @override
-  initState() {
-    for (var tower in widget.viewModel.towers) {
-      markers.add(
-        TowerMarker(
-          towerId: tower.towerId,
-          point: LatLng(tower.latitude, tower.longitude),
-          alignment: Alignment(0, -1),
-          child: tower.unringable
-              ? towerUnringable
-              : switch (tower.bells) {
-                  <= 3 => tower3,
-                  4 => tower4,
-                  5 => tower5,
-                  6 || 7 => tower6,
-                  8 || 9 => tower8,
-                  10 || 11 => tower10,
-                  _ => tower12,
-                },
-        ),
-      );
-
-      super.initState();
-    }
-  }
-
-  @override
   Widget build(context) {
-    return PopupScope(
-      popupController: _popupController,
-      child: FlutterMap(
-        mapController: widget.controller,
-        options: MapOptions(
-          initialCenter: LatLng(51.07, -1.61),
-          initialZoom: 10,
-          maxZoom: 15,
-          interactionOptions: InteractionOptions(
-              flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
-          onTap: (_, __) => _popupController.hideAllPopups(),
-        ),
-        children: [
-          // Map layer
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'uk.org.freeflight.bellfinder',
-          ),
+    return ListenableBuilder(
+        listenable: widget.viewModel,
+        builder: (context, _) {
+          markers = widget.viewModel.towers
+              .map((t) => TowerMarker(
+                    towerId: t.towerId,
+                    point: LatLng(t.latitude, t.longitude),
+                    alignment: Alignment(0, -1),
+                    child: t.unringable
+                        ? towerUnringable
+                        : switch (t.bells) {
+                            <= 3 => tower3,
+                            4 => tower4,
+                            5 => tower5,
+                            6 || 7 => tower6,
+                            8 || 9 => tower8,
+                            10 || 11 => tower10,
+                            _ => tower12,
+                          },
+                  ))
+              .toList();
 
-          // Marker layer
-          MarkerClusterLayerWidget(
-            options: MarkerClusterLayerOptions(
-              markers: markers,
-              padding: EdgeInsets.all(50),
-              popupOptions: PopupOptions(
-                popupController: _popupController,
-                popupBuilder: (_, marker) => popupBuilder(marker),
+          return PopupScope(
+            popupController: _popupController,
+            child: FlutterMap(
+              mapController: widget.controller,
+              options: MapOptions(
+                initialCenter: LatLng(51.07, -1.61),
+                initialZoom: 10,
+                maxZoom: 15,
+                interactionOptions: InteractionOptions(
+                    flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
+                onTap: (_, __) => _popupController.hideAllPopups(),
               ),
-              disableClusteringAtZoom: 13,
-              showPolygon: false,
-              builder: (context, markers) {
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue,
-                  ),
-                  child: Center(
-                    child: Text(
-                      markers.length.toString(),
-                      style: const TextStyle(color: Colors.white),
+              children: [
+                // Map layer
+                TileLayer(
+                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  userAgentPackageName: 'uk.org.freeflight.bellfinder',
+                ),
+
+                // Marker layer
+                MarkerClusterLayerWidget(
+                  options: MarkerClusterLayerOptions(
+                    markers: markers,
+                    padding: EdgeInsets.all(50),
+                    popupOptions: PopupOptions(
+                      popupController: _popupController,
+                      popupBuilder: (_, marker) => popupBuilder(marker),
                     ),
+                    disableClusteringAtZoom: 13,
+                    showPolygon: false,
+                    builder: (context, markers) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blue,
+                        ),
+                        child: Center(
+                          child: Text(
+                            markers.length.toString(),
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          ),
+                ),
 
-          // Attribution layer
-          RichAttributionWidget(
-            showFlutterMapAttribution: false,
-            attributions: [
-              TextSourceAttribution(
-                'OpenStreetMap contributors',
-                onTap: () => launchUrl(Uri.parse(
-                    'https://openstreetmap.org/copyright')), // (external)
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+                // Attribution layer
+                RichAttributionWidget(
+                  showFlutterMapAttribution: false,
+                  attributions: [
+                    TextSourceAttribution(
+                      'OpenStreetMap contributors',
+                      onTap: () => launchUrl(Uri.parse(
+                          'https://openstreetmap.org/copyright')), // (external)
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        });
   }
 
   Widget popupBuilder(Marker marker) {
