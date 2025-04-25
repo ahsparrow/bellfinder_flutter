@@ -19,8 +19,8 @@ class HomeScreen extends StatelessWidget {
   final MapController mapController = MapController();
 
   void _showTowerOnMap(BuildContext context, Tower tower) {
-    mapController.move(LatLng(tower.latitude, tower.longitude), 13);
     DefaultTabController.of(context).animateTo(0);
+    mapController.move(LatLng(tower.latitude, tower.longitude), 13);
   }
 
   @override
