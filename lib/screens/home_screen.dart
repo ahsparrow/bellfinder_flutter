@@ -106,12 +106,12 @@ class HomeScreen extends StatelessWidget {
                     .map(
                       (t) => ListTile(
                           title: Text("${t.place}, ${t.dedication}"),
-                          onTap: () {
+                          onTap: () async {
                             // Close suggestions view
                             controller.closeView("");
 
                             // Navigate to tower screen
-                            Navigator.push(
+                            final result = await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => TowerScreen(
@@ -122,6 +122,10 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             );
+
+                            if (result == "map" && tabContext.mounted) {
+                              _showTowerOnMap(tabContext, t);
+                            }
                           },
                           onLongPress: () {
                             controller.closeView("");

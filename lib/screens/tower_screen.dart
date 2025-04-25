@@ -86,98 +86,105 @@ class TowerScreen extends StatelessWidget {
 
           return DefaultTextStyle.merge(
             style: Theme.of(context).textTheme.headlineSmall,
-            child: Container(
+            child: Padding(
               padding: EdgeInsets.all(8),
-              child: Table(
-                columnWidths: const {
-                  0: IntrinsicColumnWidth(),
-                  1: FlexColumnWidth(),
-                },
+              child: Column(
                 children: [
-                  TableRow(
+                  Table(
+                    columnWidths: const {
+                      0: IntrinsicColumnWidth(),
+                      1: FlexColumnWidth(),
+                    },
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text('Place:'),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      TableRow(
                         children: [
-                          Text(tower.place),
-                          Text(
-                            tower.dedication,
-                            textScaler: TextScaler.linear(0.75),
+                          Padding(
+                            padding: EdgeInsets.only(right: 16),
+                            child: Text('Place:'),
                           ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(tower.place),
+                              Text(
+                                tower.dedication,
+                                textScaler: TextScaler.linear(0.75),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      spacer,
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 16),
+                            child: Text('County:'),
+                          ),
+                          Text(tower.county),
+                        ],
+                      ),
+                      spacer,
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 16),
+                            child: Text('Bells:'),
+                          ),
+                          Text(tower.bells.toString()),
+                        ],
+                      ),
+                      spacer,
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 16),
+                            child: Text('Tenor:'),
+                          ),
+                          Text(viewModel.weightString),
+                        ],
+                      ),
+                      spacer,
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 16),
+                            child: Text('Practice:'),
+                          ),
+                          Text(tower.practice),
+                        ],
+                      ),
+                      spacer,
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 16),
+                            child: Text('First visit:'),
+                          ),
+                          Text((viewModel.firstVisit != null)
+                              ? DateFormat("d/M/y")
+                                  .format(viewModel.firstVisit!)
+                              : ""),
                         ],
                       ),
                     ],
                   ),
-                  spacer,
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text('County:'),
-                      ),
-                      Text(tower.county),
-                    ],
-                  ),
-                  spacer,
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text('Bells:'),
-                      ),
-                      Text(tower.bells.toString()),
-                    ],
-                  ),
-                  spacer,
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text('Tenor:'),
-                      ),
-                      Text(viewModel.weightString),
-                    ],
-                  ),
-                  spacer,
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text('Practice:'),
-                      ),
-                      Text(tower.practice),
-                    ],
-                  ),
-                  spacer,
-                  TableRow(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 16),
-                        child: Text('First visit:'),
-                      ),
-                      Text((viewModel.firstVisit != null)
-                          ? DateFormat("d/M/y").format(viewModel.firstVisit!)
-                          : ""),
-                    ],
-                  ),
-                  spacer,
-                  spacer,
-                  TableRow(
-                    children: [
-                      SizedBox.shrink(),
-                      Row(
+                  Center(
+                    child: FittedBox(
+                      child: Row(
                         children: [
+                          FilledButton.tonal(
+                            onPressed: () => Navigator.pop(context, "map"),
+                            child: Text("Show Map"),
+                          ),
+                          SizedBox(width: 16),
                           FilledButton.tonal(
                             onPressed: () => _launchUrl(tower.towerId),
                             child: Text("Open Dove's Guide"),
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
