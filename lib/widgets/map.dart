@@ -126,9 +126,9 @@ class MapWidgetState extends State<MapWidget> {
 
                 // Location marker
                 CurrentLocationLayer(
-                  headingStream: null,
                   alignPositionStream: _alignPositionStreamController.stream,
                   alignPositionOnUpdate: _alignOnUpdate,
+                  alignPositionAnimationDuration: Duration(milliseconds: 500),
                   style: LocationMarkerStyle(
                     marker: DefaultLocationMarker(
                       color: Colors.green[600]!,
