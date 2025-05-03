@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -46,9 +49,30 @@ class MapWidget extends StatefulWidget {
 }
 
 class MapWidgetState extends State<MapWidget> {
-  final PopupController _popupController = PopupController();
+  late final PopupController _popupController;
+
+  late AlignOnUpdate _alignOnUpdate;
+  late final StreamController<double?> _alignPositionStreamController;
 
   List<TowerMarker> markers = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _popupController = PopupController();
+
+    _alignOnUpdate = AlignOnUpdate.never;
+    _alignPositionStreamController = StreamController<double?>();
+  }
+
+  @override
+  void dispose() {
+    _alignPositionStreamController.close();
+    _popupController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(context) {
@@ -85,6 +109,13 @@ class MapWidgetState extends State<MapWidget> {
                 interactionOptions: InteractionOptions(
                     flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
                 onTap: (_, __) => _popupController.hideAllPopups(),
+                onPositionChanged: (_, bool hasGesture) {
+                  if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
+                    setState(
+                      () => _alignOnUpdate = AlignOnUpdate.never,
+                    );
+                  }
+                },
               ),
               children: [
                 // Map layer
@@ -93,10 +124,39 @@ class MapWidgetState extends State<MapWidget> {
                   userAgentPackageName: 'uk.org.freeflight.bellfinder',
                 ),
 
+                // Location marker
+                CurrentLocationLayer(
+                  headingStream: null,
+                  alignPositionStream: _alignPositionStreamController.stream,
+                  alignPositionOnUpdate: _alignOnUpdate,
+                  style: LocationMarkerStyle(
+                    marker: DefaultLocationMarker(
+                      color: Colors.green[600]!,
+                    ),
+                    showAccuracyCircle: false,
+                    showHeadingSector: false,
+                  ),
+                ),
+
                 // Marker layer
                 MarkerClusterLayerWidget(
                   options: MarkerClusterLayerOptions(
                     markers: markers,
+                    onMarkerTap: (_) {
+                      if (_alignOnUpdate != AlignOnUpdate.never) {
+                        setState(
+                          () => _alignOnUpdate = AlignOnUpdate.never,
+                        );
+                      }
+                    },
+                    onClusterTap: (_) {
+                      if (_alignOnUpdate != AlignOnUpdate.never) {
+                        setState(
+                          () => _alignOnUpdate = AlignOnUpdate.never,
+                        );
+                      }
+                      _popupController.hideAllPopups();
+                    },
                     padding: EdgeInsets.all(50),
                     popupOptions: PopupOptions(
                       popupController: _popupController,
@@ -123,6 +183,7 @@ class MapWidgetState extends State<MapWidget> {
 
                 // Attribution layer
                 RichAttributionWidget(
+                  alignment: AttributionAlignment.bottomLeft,
                   showFlutterMapAttribution: false,
                   attributions: [
                     TextSourceAttribution(
@@ -131,6 +192,30 @@ class MapWidgetState extends State<MapWidget> {
                           'https://openstreetmap.org/copyright')), // (external)
                     ),
                   ],
+                ),
+
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Padding(
+                    padding: EdgeInsets.all(4),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.my_location,
+                        color: (_alignOnUpdate == AlignOnUpdate.never)
+                            ? Color.fromRGBO(0, 0, 0, 0.3)
+                            : Color.fromRGBO(0, 0, 128, 1.0),
+                      ),
+                      onPressed: () {
+                        setState(
+                          () => _alignOnUpdate =
+                              (_alignOnUpdate == AlignOnUpdate.never)
+                                  ? AlignOnUpdate.always
+                                  : AlignOnUpdate.never,
+                        );
+                        _alignPositionStreamController.add(null);
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),
