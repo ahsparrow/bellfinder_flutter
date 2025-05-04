@@ -194,17 +194,15 @@ class MapWidgetState extends State<MapWidget> {
                   ],
                 ),
 
+                // Location button
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
                     padding: EdgeInsets.all(4),
                     child: IconButton(
-                      icon: Icon(
-                        Icons.my_location,
-                        color: (_alignOnUpdate == AlignOnUpdate.never)
-                            ? Color.fromRGBO(0, 0, 0, 0.3)
-                            : Color.fromRGBO(0, 0, 128, 1.0),
-                      ),
+                      icon: (_alignOnUpdate == AlignOnUpdate.never)
+                          ? Icon(Icons.location_searching)
+                          : Icon(Icons.my_location, color: Colors.deepPurple),
                       onPressed: () {
                         setState(
                           () => _alignOnUpdate =
