@@ -60,7 +60,6 @@ class HomeViewModel extends ChangeNotifier {
 
     List<Visit> visits = [];
     for (var visit in csvVisits.sublist(1)) {
-      print(visit);
       var v = Visit(
         visitId: int.parse(visit[0]),
         towerId: int.parse(visit[1]),
