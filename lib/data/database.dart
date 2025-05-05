@@ -57,6 +57,7 @@ class VisitTower {
     required this.date,
     required this.peal,
     required this.quarter,
+    required this.notes,
   });
 
   int visitId;
@@ -68,6 +69,7 @@ class VisitTower {
   String county;
   String dedication;
   int bells;
+  String? notes;
 }
 
 @DriftDatabase(tables: [Towers, Visits])
@@ -193,6 +195,7 @@ class AppDatabase extends _$AppDatabase {
         peal: visit.peal,
         quarter: visit.quarter,
         towerId: visit.towerId,
+        notes: visit.notes,
         place: tower.place,
         dedication: tower.dedication,
         county: tower.county,

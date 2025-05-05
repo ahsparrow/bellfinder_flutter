@@ -1,3 +1,6 @@
+import 'dart:convert' show utf8;
+
+import 'package:file_picker/file_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -74,6 +77,9 @@ class HomeScreen extends StatelessWidget {
 
                             // Import visits menu item
                             PopupMenuItem<int>(
+                              onTap: () async {
+                                _exportCsv(context);
+                              },
                               child: const Text('Export visits'),
                             ),
 
@@ -238,5 +244,14 @@ class HomeScreen extends StatelessWidget {
         },
       );
     }
+  }
+
+  void _exportCsv(BuildContext context) async {
+    final data = utf8.encode(viewModel.encodeCsvVisits());
+    await FilePicker.platform.saveFile(
+      dialogTitle: 'Choose a file',
+      fileName: 'visits.csv',
+      bytes: data,
+    );
   }
 }

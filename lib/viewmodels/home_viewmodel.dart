@@ -76,6 +76,36 @@ class HomeViewModel extends ChangeNotifier {
     return csvVisits.length - 1;
   }
 
+  String encodeCsvVisits() {
+    const header = [
+      <Object?>[
+        "VisitId",
+        "TowerBase",
+        "Date",
+        "Notes",
+        "Peal",
+        "Quarter",
+        "Place"
+      ]
+    ];
+
+    final formatter = DateFormat("YYYY-MM-dd");
+
+    final rows = _visits.map((v) => [
+          v.visitId,
+          v.towerId,
+          formatter.format(v.date),
+          v.notes,
+          v.peal ? "Y" : "",
+          v.quarter ? "Y" : "",
+          v.place
+        ]);
+    final out =
+        const ListToCsvConverter().convert(header.followedBy(rows).toList());
+
+    return out;
+  }
+
   void startLocationUpdates() async {
     positionStream = await getPositionStream();
 
