@@ -183,6 +183,10 @@ class HomeScreen extends StatelessWidget {
         context: context,
         applicationName: "Bell Finder",
         applicationVersion: info.version,
+        applicationIcon: Image.asset(
+          'assets/icon/bell.png',
+          width: 64,
+        ),
         applicationLegalese:
             "Bell Finder is copyright Alan Sparrow and licensed under GPLv3.\n\n"
             "Dove data is copyright Central Council of Church Bell Ringers "
@@ -194,7 +198,6 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 16),
             child: Column(
-              spacing: 2,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
