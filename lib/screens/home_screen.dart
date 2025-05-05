@@ -2,6 +2,7 @@ import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' show LatLng;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 import '../data/database.dart';
@@ -77,7 +78,8 @@ class HomeScreen extends StatelessWidget {
                             ),
 
                             // About menu item
-                            const PopupMenuItem<int>(
+                            PopupMenuItem<int>(
+                              onTap: () => _showAboutDialog(context),
                               child: Text('About'),
                             ),
                           ];
@@ -167,6 +169,45 @@ class HomeScreen extends StatelessWidget {
         );
       }),
     );
+  }
+
+  Future<void> _showAboutDialog(BuildContext context) async {
+    final info = await PackageInfo.fromPlatform();
+    if (context.mounted) {
+      showAboutDialog(
+        context: context,
+        applicationName: "Bell Finder",
+        applicationVersion: info.version,
+        applicationLegalese:
+            "Bell Finder is copyright Alan Sparrow and licensed under GPLv3.\n\n"
+            "Dove data is copyright Central Council of Church Bell Ringers "
+            "and licensed under the Creative Commons Attribution-ShareAlike "
+            "4.0 international license\n\n"
+            "Map data is copyright OpenStreetMap contributors and licensed "
+            "under the Open Data Commons Open Database License",
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 16),
+            child: Column(
+              spacing: 2,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Dove Data',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('Release date: ${const String.fromEnvironment(
+                  "DOVE_DATE",
+                  defaultValue: "Unknown",
+                )}'),
+                Text('Total towers: ${viewModel.towers.length}'),
+                Text('Visited: ${viewModel.visits.length}'),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
   }
 
   _importCsv(BuildContext context) async {
