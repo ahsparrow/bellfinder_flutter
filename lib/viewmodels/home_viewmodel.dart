@@ -60,6 +60,7 @@ class HomeViewModel extends ChangeNotifier {
 
     List<Visit> visits = [];
     for (var visit in csvVisits.sublist(1)) {
+      print(visit);
       var v = Visit(
         visitId: int.parse(visit[0]),
         towerId: int.parse(visit[1]),
@@ -89,7 +90,7 @@ class HomeViewModel extends ChangeNotifier {
       ]
     ];
 
-    final formatter = DateFormat("YYYY-MM-dd");
+    final formatter = DateFormat("yyyy-MM-dd");
 
     final rows = _visits.map((v) => [
           v.visitId,

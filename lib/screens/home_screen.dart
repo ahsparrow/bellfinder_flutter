@@ -1,7 +1,6 @@
 import 'dart:convert' show utf8;
 
 import 'package:file_picker/file_picker.dart';
-import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' show LatLng;
@@ -217,13 +216,17 @@ class HomeScreen extends StatelessWidget {
   }
 
   _importCsv(BuildContext context) async {
-    const typeGroup = XTypeGroup(label: 'CSV files', extensions: ['csv']);
-    final file = await openFile(acceptedTypeGroups: [typeGroup]);
-    if (file == null) {
+    final result = await FilePicker.platform.pickFiles(
+      dialogTitle: "Choose a file",
+      allowedExtensions: ["csv"],
+      withReadStream: true,
+    );
+
+    if (result == null || result.count == 0) {
       return;
     }
 
-    final data = await file.readAsString();
+    final data = await result.xFiles[0].readAsString();
     final numVisits = await viewModel.loadCsvVists(data);
 
     if (numVisits == 0 && context.mounted) {
@@ -233,7 +236,7 @@ class HomeScreen extends StatelessWidget {
         builder: (context) {
           return AlertDialog(
             title: const Text('Error'),
-            content: Text('Cannot load visit data from ${file.name}'),
+            content: Text('Cannot load visit data from ${result.names[0]}'),
             actions: [
               TextButton(
                 child: const Text("OK"),
