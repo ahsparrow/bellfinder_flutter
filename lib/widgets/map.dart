@@ -30,8 +30,8 @@ class TowerMarker extends Marker {
     super.key,
     required super.point,
     required super.child,
-    super.height = 30,
-    super.width = 30,
+    super.height = 40,
+    super.width = 40,
     super.alignment,
     required this.towerId,
   });
