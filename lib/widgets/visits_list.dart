@@ -6,6 +6,7 @@ import '../data/database.dart';
 import '../screens/editvisit_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
 import '../viewmodels/editvisit_viewmodel.dart';
+import '../util.dart';
 
 class VisitsListWidget extends StatelessWidget {
   const VisitsListWidget(
@@ -25,6 +26,7 @@ class VisitsListWidget extends StatelessWidget {
             itemCount: viewModel.visits.length,
             itemBuilder: (BuildContext context, int index) {
               final visit = viewModel.visits[index];
+
               return GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -67,9 +69,12 @@ class VisitsListWidget extends StatelessWidget {
                                 : ""),
                       ],
                     ),
-                    leading: Text('${visit.bells}'),
-                    leadingAndTrailingTextStyle:
-                        TextTheme.of(context).titleLarge,
+                    leading: CircleAvatar(
+                      backgroundColor:
+                          HSLColor.fromAHSL(1.0, bellHue(visit.bells), 1.0, 0.6)
+                              .toColor(),
+                      child: Text('${visit.bells}'),
+                    ),
                   ),
                 ),
               );
