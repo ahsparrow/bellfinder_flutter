@@ -7,6 +7,7 @@ import '../data/database.dart';
 import '../screens/newvisit_screen.dart';
 import '../viewmodels/tower_viewmodel.dart';
 import '../viewmodels/newvisit_viewmodel.dart';
+import '../util.dart';
 
 class TowerScreen extends StatelessWidget {
   const TowerScreen({super.key, required this.viewModel});
@@ -58,12 +59,24 @@ class TowerScreen extends StatelessWidget {
         return Column(
           //Tower information header
           children: [
-            Text(
-              tower.place,
-              style:
-                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
+            ListTile(
+              title: Text(
+                tower.place,
+                style:
+                    DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
+              ),
+              subtitle: Text(tower.dedication),
+              leading: CircleAvatar(
+                radius: 30,
+                backgroundColor: Color(bellColour(tower.bells)),
+                child: Text(
+                  "${tower.bells}",
+                  style: DefaultTextStyle.of(context)
+                      .style
+                      .apply(fontSizeFactor: 2),
+                ),
+              ),
             ),
-            Text(tower.dedication),
 
             // Tower details table
             Padding(
