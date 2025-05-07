@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 import '../viewmodels/editvisit_viewmodel.dart';
+import '../util.dart';
 
 class EditVisitScreen extends StatelessWidget {
   const EditVisitScreen({super.key, required this.viewModel});
@@ -72,27 +73,24 @@ class EditFormState extends State<EditForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Date
-        Container(
-          alignment: Alignment.centerLeft,
-          padding: EdgeInsets.all(8),
-          color: Theme.of(context).colorScheme.inversePrimary,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.viewModel.place,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              Text(
-                widget.viewModel.dedication,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-            ],
+        ListTile(
+          title: Text(
+            widget.viewModel.place,
+            style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
+          ),
+          subtitle: Text(widget.viewModel.dedication),
+          leading: CircleAvatar(
+            radius: 30,
+            backgroundColor: Color(bellColour(widget.viewModel.bells)),
+            child: Text(
+              "${widget.viewModel.bells}",
+              style:
+                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
+            ),
           ),
         ),
 
-        // Notes
+        // Date
         Padding(
           padding: EdgeInsets.fromLTRB(8, 16, 8, 8),
           child: TextField(
@@ -106,7 +104,7 @@ class EditFormState extends State<EditForm> {
           ),
         ),
 
-        // Quarter
+        // Notes
         Padding(
           padding: EdgeInsets.all(8),
           child: TextField(
@@ -120,7 +118,7 @@ class EditFormState extends State<EditForm> {
           ),
         ),
 
-        // Peal
+        // Quarter
         CheckboxListTile(
           title: Text("Quarter"),
           onChanged: (value) {
@@ -131,6 +129,8 @@ class EditFormState extends State<EditForm> {
           value: _quarter,
           controlAffinity: ListTileControlAffinity.leading,
         ),
+
+        // Peal
         CheckboxListTile(
           title: Text("Peal"),
           onChanged: (value) {
@@ -162,7 +162,7 @@ class EditFormState extends State<EditForm> {
             // Save button
             Padding(
               padding: EdgeInsets.all(8),
-              child: ElevatedButton(
+              child: FilledButton(
                 onPressed: () {
                   widget.viewModel.update(
                     date: DateFormat('dd/MM/yyyy').parse(_dateController.text),

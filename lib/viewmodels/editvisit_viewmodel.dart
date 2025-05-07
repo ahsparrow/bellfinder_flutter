@@ -16,6 +16,7 @@ class EditVisitViewModel extends ChangeNotifier {
 
   String _place = "";
   String _dedication = "";
+  int _bells = 0;
   DateTime? _date;
   String _notes = "";
   bool _quarter = false;
@@ -23,6 +24,7 @@ class EditVisitViewModel extends ChangeNotifier {
 
   String get place => _place;
   String get dedication => _dedication;
+  int get bells => _bells;
   DateTime? get date => _date;
   String get notes => _notes;
   bool get quarter => _quarter;
@@ -34,6 +36,7 @@ class EditVisitViewModel extends ChangeNotifier {
 
     _place = tower.place;
     _dedication = tower.dedication;
+    _bells = tower.bells;
     _date = visit.date;
     _notes = visit.notes ?? "";
     _quarter = visit.quarter;
