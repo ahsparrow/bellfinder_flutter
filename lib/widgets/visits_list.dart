@@ -70,9 +70,7 @@ class VisitsListWidget extends StatelessWidget {
                       ],
                     ),
                     leading: CircleAvatar(
-                      backgroundColor:
-                          HSLColor.fromAHSL(1.0, bellHue(visit.bells), 1.0, 0.6)
-                              .toColor(),
+                      backgroundColor: Color(bellColour(visit.bells)),
                       child: Text('${visit.bells}'),
                     ),
                   ),

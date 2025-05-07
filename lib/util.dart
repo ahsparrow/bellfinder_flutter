@@ -1,6 +1,19 @@
-const hue = [0, 0, 0, 0, 51, 102, 154, 206, 206, 257, 257, 308, 308];
+const colour = [
+  0,
+  0,
+  0,
+  0xffee675c,
+  0xfffa903d,
+  0xfffcc935,
+  0xff5ab974,
+  0xff5ab974,
+  0xffaf5cf7,
+  0xffaf5cf7,
+  0xff4ecde6,
+  0xff4ecde6,
+  0xffff63b8,
+];
 
-double bellHue(int bells) {
-  final val = (bells <= 12) ? hue[bells] : hue[12];
-  return val.toDouble();
+int bellColour(int bells) {
+  return (bells <= 12) ? colour[bells] : colour[12];
 }

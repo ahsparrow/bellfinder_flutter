@@ -92,8 +92,8 @@
      transform="translate(0.390625,0.390625)">
     <path
        id="path1444"
-       style="fill:#cc00ad;fill-opacity:0.60000002;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 99.609375,49.479505 C 99.609375,77.022017 50,149.60938 50,149.60938 c 0,0 -50.390625,-72.587363 -50.390625,-100.129875 0,-27.542512 22.385763,-49.87013 50,-49.87013 27.614237,0 50,22.327618 50,49.87013 z"
+       style="fill:#ff63bf;fill-opacity:0.69999999;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 98.900992,49.479505 c 0,27.542512 -49.609375,100.129875 -49.609375,100.129875 0,0 -50.3906245,-72.587363 -50.3906245,-100.129875 0,-27.542512 22.3857625,-49.87013 49.9999995,-49.87013 27.614237,0 50,22.327618 50,49.87013 z"
        sodipodi:nodetypes="scsss" />
     <g
        aria-label="T"
