@@ -5,6 +5,7 @@ import '../data/database.dart';
 import '../screens/tower_screen.dart';
 import '../viewmodels/home_viewmodel.dart';
 import '../viewmodels/tower_viewmodel.dart';
+import '../util.dart';
 
 class NearestListWidget extends StatefulWidget {
   const NearestListWidget(
@@ -64,13 +65,16 @@ class NearestListWidgetState extends State<NearestListWidget> {
                   child: ListTile(
                     title: Text(tower.place),
                     subtitle: Text('${tower.dedication}, ${tower.county}'),
-                    leading: Text('${tower.bells}'),
+                    leading: CircleAvatar(
+                      backgroundColor: Color(bellColour(tower.bells)),
+                      child: Text('${tower.bells}'),
+                    ),
                     leadingAndTrailingTextStyle:
                         TextTheme.of(context).titleLarge,
                     visualDensity:
                         VisualDensity(vertical: VisualDensity.minimumDensity),
                     trailing: (widget.viewModel.hasVisit(tower.towerId))
-                        ? Icon(Icons.done)
+                        ? Icon(Icons.beenhere_outlined)
                         : null,
                   ),
                 ),
