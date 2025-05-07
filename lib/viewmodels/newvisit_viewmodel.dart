@@ -16,15 +16,18 @@ class NewVisitViewModel extends ChangeNotifier {
 
   String _place = "";
   String _dedication = "";
+  int _bells = 0;
 
   String get place => _place;
   String get dedication => _dedication;
+  int get bells => _bells;
 
   _load() async {
     var tower = await _database.getTower(_towerId);
 
     _place = tower.place;
     _dedication = tower.dedication;
+    _bells = tower.bells;
 
     notifyListeners();
   }

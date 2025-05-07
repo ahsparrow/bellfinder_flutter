@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 import '../viewmodels/newvisit_viewmodel.dart';
+import '../util.dart';
 
 class NewVisitScreen extends StatelessWidget {
   const NewVisitScreen({super.key, required this.viewModel});
@@ -12,7 +13,7 @@ class NewVisitScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add new visit'),
+        title: const Text('Add visit'),
         leading: IconButton(
           icon: Icon(Icons.close),
           onPressed: () => Navigator.pop(context),
@@ -64,29 +65,26 @@ class NewVisitFormState extends State<NewVisitForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Date
-        Container(
-          alignment: Alignment.centerLeft,
-          padding: EdgeInsets.all(8),
-          color: Theme.of(context).colorScheme.inversePrimary,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.viewModel.place,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              Text(
-                widget.viewModel.dedication,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-            ],
+        ListTile(
+          title: Text(
+            widget.viewModel.place,
+            style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
+          ),
+          subtitle: Text(widget.viewModel.dedication),
+          leading: CircleAvatar(
+            radius: 30,
+            backgroundColor: Color(bellColour(widget.viewModel.bells)),
+            child: Text(
+              "${widget.viewModel.bells}",
+              style:
+                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
+            ),
           ),
         ),
 
-        // Notes
+        // Date
         Padding(
-          padding: EdgeInsets.fromLTRB(8, 16, 8, 8),
+          padding: EdgeInsets.fromLTRB(16, 16, 16, 8),
           child: TextField(
             readOnly: true,
             controller: _dateController,
@@ -98,9 +96,9 @@ class NewVisitFormState extends State<NewVisitForm> {
           ),
         ),
 
-        // Quarter
+        // Notes
         Padding(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: TextField(
             minLines: 5,
             maxLines: 5,
@@ -112,7 +110,7 @@ class NewVisitFormState extends State<NewVisitForm> {
           ),
         ),
 
-        // Peal
+        // Quarter
         CheckboxListTile(
           title: Text("Quarter"),
           onChanged: (value) {
@@ -123,6 +121,8 @@ class NewVisitFormState extends State<NewVisitForm> {
           value: _quarter,
           controlAffinity: ListTileControlAffinity.leading,
         ),
+
+        // Peal
         CheckboxListTile(
           title: Text("Peal"),
           onChanged: (value) {
@@ -139,7 +139,7 @@ class NewVisitFormState extends State<NewVisitForm> {
             Spacer(),
             Padding(
               padding: EdgeInsets.all(8),
-              child: ElevatedButton(
+              child: FilledButton(
                 onPressed: () {
                   widget.viewModel.insert(
                     date: DateFormat('dd/MM/yyyy').parse(_dateController.text),
