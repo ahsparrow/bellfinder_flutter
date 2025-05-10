@@ -63,7 +63,12 @@ class NearestListWidgetState extends State<NearestListWidget> {
                 child: Card(
                   margin: EdgeInsets.all(2),
                   child: ListTile(
-                    title: Text(tower.place),
+                    title: Text(
+                      tower.place,
+                      style: (tower.unringable)
+                          ? TextStyle(decoration: TextDecoration.lineThrough)
+                          : null,
+                    ),
                     subtitle: Text('${tower.dedication}, ${tower.county}'),
                     leading: CircleAvatar(
                       backgroundColor: Color(bellColour(tower.bells)),
