@@ -58,6 +58,9 @@ class HomeViewModel extends ChangeNotifier {
     return _towers.firstWhere((tower) => tower.towerId == towerId);
   }
 
+  int get numTowers => _towers.length;
+  int get numVisits => _visits.length;
+
   bool hasVisit(int towerId) {
     return _visitTowerIds.contains(towerId);
   }
