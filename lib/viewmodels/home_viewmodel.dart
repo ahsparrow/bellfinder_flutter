@@ -4,6 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/database.dart';
 import '../data/location.dart';
@@ -11,11 +12,14 @@ import '../data/location.dart';
 class HomeViewModel extends ChangeNotifier {
   HomeViewModel({
     required AppDatabase database,
-  }) : _database = database {
+  })  : _database = database,
+        _sharedPrefs = SharedPreferencesAsync() {
     _load();
   }
 
   final AppDatabase _database;
+
+  final SharedPreferencesAsync _sharedPrefs;
 
   List<Tower> _towers = [];
   List<VisitTower> _visits = [];
@@ -28,13 +32,19 @@ class HomeViewModel extends ChangeNotifier {
   bool _includeUnringable = true;
 
   bool get includeUnringable => _includeUnringable;
-  set includeUnringable(bool value) {
+  void setIncludeUnringable(bool value) async {
     _includeUnringable = value;
+
+    await _sharedPrefs.setBool("includeUnringable", value);
     notifyListeners();
   }
 
   _load() async {
     _towers = await _database.getTowers();
+
+    _includeUnringable =
+        await _sharedPrefs.getBool("includeUnringable") ?? true;
+
     notifyListeners();
 
     await for (final visits in _database.getVisits()) {
