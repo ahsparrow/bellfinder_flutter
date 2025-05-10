@@ -154,6 +154,7 @@ class HomeScreen extends StatelessWidget {
                   listenable: viewModel,
                   builder: (context, child) => CheckboxListTile(
                     title: Text("Show unringable"),
+                    secondary: Icon(Icons.notifications_off),
                     value: viewModel.includeUnringable,
                     onChanged: (val) => viewModel.setIncludeUnringable(val!),
                   ),
