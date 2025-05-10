@@ -25,6 +25,14 @@ class HomeViewModel extends ChangeNotifier {
   Stream<Position>? positionStream;
   StreamSubscription<Position>? positionStreamSubscription;
 
+  bool _includeUnringable = true;
+
+  bool get includeUnringable => _includeUnringable;
+  set includeUnringable(bool value) {
+    _includeUnringable = value;
+    notifyListeners();
+  }
+
   _load() async {
     _towers = await _database.getTowers();
     notifyListeners();
@@ -36,8 +44,14 @@ class HomeViewModel extends ChangeNotifier {
     }
   }
 
-  UnmodifiableListView<Tower> get towers => UnmodifiableListView(_towers);
-  UnmodifiableListView<Tower> get nearest => UnmodifiableListView(_nearest);
+  List<Tower> get towers {
+    return _towers.where((t) => _includeUnringable || !t.unringable).toList();
+  }
+
+  List<Tower> get nearest {
+    return _nearest.where((t) => _includeUnringable || !t.unringable).toList();
+  }
+
   UnmodifiableListView<VisitTower> get visits => UnmodifiableListView(_visits);
 
   Tower getTower(int towerId) {

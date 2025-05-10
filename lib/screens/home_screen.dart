@@ -60,36 +60,6 @@ class HomeScreen extends StatelessWidget {
                           FocusScope.of(context).unfocus();
                         },
                       ),
-
-                      // Application menu
-                      PopupMenuButton(
-                        icon: Icon(Icons.menu),
-                        itemBuilder: (context) {
-                          return [
-                            // Import visits menu item
-                            PopupMenuItem<int>(
-                              onTap: () async {
-                                _importCsv(context);
-                              },
-                              child: const Text('Import visits'),
-                            ),
-
-                            // Import visits menu item
-                            PopupMenuItem<int>(
-                              onTap: () async {
-                                _exportCsv(context);
-                              },
-                              child: const Text('Export visits'),
-                            ),
-
-                            // About menu item
-                            PopupMenuItem<int>(
-                              onTap: () => _showAboutDialog(context),
-                              child: Text('About'),
-                            ),
-                          ];
-                        },
-                      ),
                     ],
                   ),
                 );
@@ -169,6 +139,51 @@ class HomeScreen extends StatelessWidget {
                 Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
               ],
               dividerColor: Colors.transparent,
+            ),
+          ),
+
+          drawer: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                ListTile(
+                  title: Text("Settings"),
+                ),
+                Divider(),
+                ListenableBuilder(
+                  listenable: viewModel,
+                  builder: (context, child) => CheckboxListTile(
+                    title: Text("Show unringable"),
+                    value: viewModel.includeUnringable,
+                    onChanged: (val) => viewModel.includeUnringable = val!,
+                  ),
+                ),
+                Divider(),
+                ListTile(
+                  title: Text("Import Visits"),
+                  leading: Icon(Icons.file_open),
+                  onTap: () async {
+                    _importCsv(context);
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  title: Text("Export Visits"),
+                  leading: Icon(Icons.save),
+                  onTap: () async {
+                    _exportCsv(context);
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  title: Text("About"),
+                  leading: Icon(Icons.info_outline),
+                  onTap: () {
+                    _showAboutDialog(context);
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
           ),
         );
