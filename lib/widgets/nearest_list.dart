@@ -44,8 +44,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
               final tower = widget.viewModel.nearest[index];
               return GestureDetector(
                 onTap: () async {
-                  widget.viewModel.stopLocationUpdates();
-                  await Navigator.push(
+                  final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => TowerScreen(
@@ -56,10 +55,12 @@ class NearestListWidgetState extends State<NearestListWidget> {
                       ),
                     ),
                   );
-                  widget.viewModel.startLocationUpdates();
+
+                  if (result == "map" && context.mounted) {
+                    widget.showTowerOnMap(context, tower);
+                  }
                 },
-                onLongPress: () => widget.showTowerOnMap(
-                    context, widget.viewModel.getTower(tower.towerId)),
+                onLongPress: () => widget.showTowerOnMap(context, tower),
                 child: Card(
                   margin: EdgeInsets.all(2),
                   child: ListTile(
