@@ -143,48 +143,50 @@ class HomeScreen extends StatelessWidget {
           ),
 
           drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                ListTile(
-                  title: Text("Settings"),
-                ),
-                Divider(),
-                ListenableBuilder(
-                  listenable: viewModel,
-                  builder: (context, child) => CheckboxListTile(
-                    title: Text("Show unringable"),
-                    secondary: Icon(Icons.notifications_off),
-                    value: viewModel.includeUnringable,
-                    onChanged: (val) => viewModel.setIncludeUnringable(val!),
+            child: SafeArea(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  ListTile(
+                    title: Text("Settings"),
                   ),
-                ),
-                Divider(),
-                ListTile(
-                  title: Text("Import Visits"),
-                  leading: Icon(Icons.file_open),
-                  onTap: () async {
-                    _importCsv(context);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: Text("Export Visits"),
-                  leading: Icon(Icons.save),
-                  onTap: () async {
-                    _exportCsv(context);
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: Text("About"),
-                  leading: Icon(Icons.info_outline),
-                  onTap: () {
-                    _showAboutDialog(context);
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
+                  Divider(),
+                  ListenableBuilder(
+                    listenable: viewModel,
+                    builder: (context, child) => CheckboxListTile(
+                      title: Text("Show unringable"),
+                      secondary: Icon(Icons.notifications_off),
+                      value: viewModel.includeUnringable,
+                      onChanged: (val) => viewModel.setIncludeUnringable(val!),
+                    ),
+                  ),
+                  Divider(),
+                  ListTile(
+                    title: Text("Import Visits"),
+                    leading: Icon(Icons.file_open),
+                    onTap: () async {
+                      _importCsv(context);
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    title: Text("Export Visits"),
+                    leading: Icon(Icons.save),
+                    onTap: () async {
+                      _exportCsv(context);
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    title: Text("About"),
+                    leading: Icon(Icons.info_outline),
+                    onTap: () {
+                      _showAboutDialog(context);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         );
