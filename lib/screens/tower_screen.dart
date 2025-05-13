@@ -68,7 +68,8 @@ class TowerScreen extends StatelessWidget {
               subtitle: Text(tower.dedication),
               leading: CircleAvatar(
                 radius: 30,
-                backgroundColor: Color(bellColour(tower.bells)),
+                backgroundColor:
+                    Color(bellColour(tower.bells, tower.unringable)),
                 child: Text(
                   "${tower.bells}",
                   style: DefaultTextStyle.of(context)

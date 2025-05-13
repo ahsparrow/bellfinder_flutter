@@ -73,10 +73,6 @@ class NearestListWidgetState extends State<NearestListWidget> {
                             nearby.tower.place,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: (nearby.tower.unringable)
-                                ? TextStyle(
-                                    decoration: TextDecoration.lineThrough)
-                                : null,
                           ),
                         ),
                         Text("${(nearby.dist / 1609).toStringAsFixed(1)} mi"),
@@ -97,7 +93,9 @@ class NearestListWidgetState extends State<NearestListWidget> {
                       ],
                     ),
                     leading: CircleAvatar(
-                      backgroundColor: Color(bellColour(nearby.tower.bells)),
+                      backgroundColor: Color(
+                        bellColour(nearby.tower.bells, nearby.tower.unringable),
+                      ),
                       child: Text('${nearby.tower.bells}'),
                     ),
                     leadingAndTrailingTextStyle:

@@ -14,6 +14,10 @@ const colour = [
   0xffff63b8,
 ];
 
-int bellColour(int bells) {
-  return (bells <= 12) ? colour[bells] : colour[12];
+int bellColour(int bells, [bool unringable = false]) {
+  if (unringable) {
+    return 0xffe8e8e8;
+  } else {
+    return (bells <= 12) ? colour[bells] : colour[12];
+  }
 }
