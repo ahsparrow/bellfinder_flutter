@@ -24,7 +24,7 @@ class HomeViewModel extends ChangeNotifier {
   List<Tower> _towers = [];
   List<VisitTower> _visits = [];
   List<int> _visitTowerIds = [];
-  List<Tower> _nearest = [];
+  List<({double dist, Tower tower})> _nearest = [];
 
   Stream<Position>? positionStream;
   StreamSubscription<Position>? positionStreamSubscription;
@@ -58,9 +58,7 @@ class HomeViewModel extends ChangeNotifier {
     return _towers.where((t) => _includeUnringable || !t.unringable).toList();
   }
 
-  List<Tower> get nearest {
-    return _nearest.where((t) => _includeUnringable || !t.unringable).toList();
-  }
+  List<({double dist, Tower tower})> get nearest => _nearest;
 
   UnmodifiableListView<VisitTower> get visits => UnmodifiableListView(_visits);
 
@@ -138,10 +136,12 @@ class HomeViewModel extends ChangeNotifier {
 
     positionStreamSubscription = positionStream?.listen((Position position) {
       var towerDistances = [
-        for (final t in _towers) (tower: t, dist: distanceFrom(t, position))
+        for (final t in _towers)
+          if (_includeUnringable || !t.unringable)
+            (tower: t, dist: distanceFrom(t, position))
       ];
       towerDistances.sort((a, b) => a.dist.compareTo(b.dist));
-      _nearest = [for (final td in towerDistances.sublist(0, 100)) td.tower];
+      _nearest = towerDistances.sublist(0, 100);
 
       notifyListeners();
     });
