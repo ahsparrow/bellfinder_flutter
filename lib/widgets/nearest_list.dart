@@ -109,7 +109,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
                         ...((widget.viewModel.hasVisit(tower.towerId))
                             ? [
                                 Icon(
-                                  Icons.verified_outlined,
+                                  Icons.verified,
                                   size: IconTheme.of(context).size! * 0.75,
                                 ),
                               ]
