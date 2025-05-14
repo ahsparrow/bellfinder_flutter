@@ -38,10 +38,11 @@ class NearestListWidgetState extends State<NearestListWidget> {
       child: ListenableBuilder(
         listenable: widget.viewModel,
         builder: (context, _) {
+          var nearest = widget.viewModel.getNearest();
           return ListView.builder(
-            itemCount: widget.viewModel.nearest.length,
+            itemCount: nearest.length,
             itemBuilder: (BuildContext context, int index) {
-              final nearby = widget.viewModel.nearest[index];
+              final nearby = nearest[index];
               return GestureDetector(
                 onTap: () async {
                   final result = await Navigator.push(

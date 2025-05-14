@@ -17,21 +17,28 @@ class HomeViewModel extends ChangeNotifier {
     _load();
   }
 
+  // Database
   final AppDatabase _database;
 
+  // Shared preferences
   final SharedPreferencesAsync _sharedPrefs;
 
+  // Towers and visits
   List<Tower> _towers = [];
   List<VisitTower> _visits = [];
   List<int> _visitTowerIds = [];
-  List<({double dist, Tower tower})> _nearest = [];
+
+  // Position
+  Position? _position;
 
   Stream<Position>? positionStream;
   StreamSubscription<Position>? positionStreamSubscription;
 
+  // Unringable
   bool _includeUnringable = true;
 
   bool get includeUnringable => _includeUnringable;
+
   void setIncludeUnringable(bool value) async {
     _includeUnringable = value;
 
@@ -39,6 +46,7 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  // Load database
   _load() async {
     _towers = await _database.getTowers();
 
@@ -47,6 +55,7 @@ class HomeViewModel extends ChangeNotifier {
 
     notifyListeners();
 
+    // Stream visit updates
     await for (final visits in _database.getVisits()) {
       _visits = visits;
       _visitTowerIds = [for (var v in _visits) v.towerId];
@@ -58,7 +67,22 @@ class HomeViewModel extends ChangeNotifier {
     return _towers.where((t) => _includeUnringable || !t.unringable).toList();
   }
 
-  List<({double dist, Tower tower})> get nearest => _nearest;
+  List<({double dist, Tower tower})> getNearest([int numTowers = 100]) {
+    var pos = _position;
+
+    if (pos == null) {
+      return [];
+    } else {
+      var towerDistances = [
+        for (final t in _towers)
+          if (_includeUnringable || !t.unringable)
+            (tower: t, dist: distanceFrom(t, pos))
+      ];
+      towerDistances.sort((a, b) => a.dist.compareTo(b.dist));
+
+      return towerDistances.sublist(0, numTowers);
+    }
+  }
 
   UnmodifiableListView<VisitTower> get visits => UnmodifiableListView(_visits);
 
@@ -73,6 +97,7 @@ class HomeViewModel extends ChangeNotifier {
     return _visitTowerIds.contains(towerId);
   }
 
+  // Import visits
   Future<int> loadCsvVists(String data) async {
     final csvVisits =
         CsvToListConverter(shouldParseNumbers: false).convert(data);
@@ -101,6 +126,7 @@ class HomeViewModel extends ChangeNotifier {
     return csvVisits.length - 1;
   }
 
+  // Export visits
   String encodeCsvVisits() {
     const header = [
       <Object?>[
@@ -131,30 +157,27 @@ class HomeViewModel extends ChangeNotifier {
     return out;
   }
 
+  // Start/stop location updates
   void startLocationUpdates() async {
     positionStream = await getPositionStream();
 
     positionStreamSubscription = positionStream?.listen((Position position) {
-      var towerDistances = [
-        for (final t in _towers)
-          if (_includeUnringable || !t.unringable)
-            (tower: t, dist: distanceFrom(t, position))
-      ];
-      towerDistances.sort((a, b) => a.dist.compareTo(b.dist));
-      _nearest = towerDistances.sublist(0, 100);
+      _position = position;
 
       notifyListeners();
     });
   }
 
+  void stopLocationUpdates() async {
+    await positionStreamSubscription?.cancel();
+
+    _position = null;
+  }
+
+  // Conversion utilities
   double distanceFrom(Tower t, Position p) {
     return Geolocator.distanceBetween(
         p.latitude, p.longitude, t.latitude, t.longitude);
-  }
-
-  void stopLocationUpdates() async {
-    await positionStreamSubscription?.cancel();
-    _nearest = [];
   }
 
   static weightCwt(int weight) => weight / 112;
