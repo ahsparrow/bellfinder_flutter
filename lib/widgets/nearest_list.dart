@@ -95,19 +95,31 @@ class NearestListWidgetState extends State<NearestListWidget> {
                             "${HomeViewModel.weightCwt(tower.weight).round()} cwt"),
                       ],
                     ),
-                    leading: CircleAvatar(
-                      backgroundColor: Color(
-                        bellColour(tower.bells, tower.unringable),
-                      ),
-                      child: Text('${tower.bells}'),
+                    leading: Stack(
+                      alignment: Alignment.topRight,
+                      children: [
+                        ...[
+                          CircleAvatar(
+                            backgroundColor: Color(
+                              bellColour(tower.bells, tower.unringable),
+                            ),
+                            child: Text('${tower.bells}'),
+                          )
+                        ],
+                        ...((widget.viewModel.hasVisit(tower.towerId))
+                            ? [
+                                Icon(
+                                  Icons.verified_outlined,
+                                  size: IconTheme.of(context).size! * 0.75,
+                                ),
+                              ]
+                            : []),
+                      ],
                     ),
                     leadingAndTrailingTextStyle:
                         TextTheme.of(context).titleLarge,
                     visualDensity:
                         VisualDensity(vertical: VisualDensity.minimumDensity),
-                    trailing: (widget.viewModel.hasVisit(tower.towerId))
-                        ? Icon(Icons.beenhere_outlined)
-                        : null,
                   ),
                 ),
               );
