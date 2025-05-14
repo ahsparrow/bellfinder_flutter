@@ -180,5 +180,5 @@ class HomeViewModel extends ChangeNotifier {
         p.latitude, p.longitude, t.latitude, t.longitude);
   }
 
-  static weightCwt(int weight) => weight / 112;
+  static double weightCwt(int weight) => weight / 112;
 }

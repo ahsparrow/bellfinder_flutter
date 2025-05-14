@@ -43,6 +43,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
             itemCount: nearest.length,
             itemBuilder: (BuildContext context, int index) {
               final nearby = nearest[index];
+              final tower = nearby.tower;
               return GestureDetector(
                 onTap: () async {
                   final result = await Navigator.push(
@@ -51,17 +52,17 @@ class NearestListWidgetState extends State<NearestListWidget> {
                       builder: (context) => TowerScreen(
                         viewModel: TowerViewModel(
                           database: context.read<AppDatabase>(),
-                          towerId: nearby.tower.towerId,
+                          towerId: tower.towerId,
                         ),
                       ),
                     ),
                   );
 
                   if (result == "map" && context.mounted) {
-                    widget.showTowerOnMap(context, nearby.tower);
+                    widget.showTowerOnMap(context, tower);
                   }
                 },
-                onLongPress: () => widget.showTowerOnMap(context, nearby.tower),
+                onLongPress: () => widget.showTowerOnMap(context, tower),
                 child: Card(
                   margin: EdgeInsets.all(2),
                   child: ListTile(
@@ -71,7 +72,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
                       children: [
                         Expanded(
                           child: Text(
-                            nearby.tower.place,
+                            tower.place,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -85,25 +86,26 @@ class NearestListWidgetState extends State<NearestListWidget> {
                       children: [
                         Expanded(
                           child: Text(
-                            '${nearby.tower.dedication}, ${nearby.tower.county}',
+                            '${tower.dedication}, ${tower.county}',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        Text("${(nearby.tower.weight / 112).round()} cwt"),
+                        Text(
+                            "${HomeViewModel.weightCwt(tower.weight).round()} cwt"),
                       ],
                     ),
                     leading: CircleAvatar(
                       backgroundColor: Color(
-                        bellColour(nearby.tower.bells, nearby.tower.unringable),
+                        bellColour(tower.bells, tower.unringable),
                       ),
-                      child: Text('${nearby.tower.bells}'),
+                      child: Text('${tower.bells}'),
                     ),
                     leadingAndTrailingTextStyle:
                         TextTheme.of(context).titleLarge,
                     visualDensity:
                         VisualDensity(vertical: VisualDensity.minimumDensity),
-                    trailing: (widget.viewModel.hasVisit(nearby.tower.towerId))
+                    trailing: (widget.viewModel.hasVisit(tower.towerId))
                         ? Icon(Icons.beenhere_outlined)
                         : null,
                   ),
