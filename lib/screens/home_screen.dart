@@ -239,8 +239,6 @@ class HomeScreen extends StatelessWidget {
   _importCsv(BuildContext context) async {
     final result = await FilePicker.platform.pickFiles(
       dialogTitle: "Choose a file",
-      allowedExtensions: ["csv"],
-      type: FileType.custom,
       withReadStream: true,
     );
 
