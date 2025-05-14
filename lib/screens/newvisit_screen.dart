@@ -149,7 +149,7 @@ class NewVisitFormState extends State<NewVisitForm> {
                   );
                   Navigator.pop(context);
                 },
-                child: Text("Save"),
+                child: Text("Add visit"),
               ),
             ),
           ],
