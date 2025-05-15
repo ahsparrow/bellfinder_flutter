@@ -226,7 +226,7 @@ class MapWidgetState extends State<MapWidget> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
       ),
       width: 250,
       margin: EdgeInsets.all(4),
