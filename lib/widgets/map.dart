@@ -103,8 +103,8 @@ class MapWidgetState extends State<MapWidget> {
             child: FlutterMap(
               mapController: widget.controller,
               options: MapOptions(
-                initialCenter: LatLng(51.07, -1.61),
-                initialZoom: 10,
+                initialCenter: LatLng(54, -2.5),
+                initialZoom: 6,
                 maxZoom: 15,
                 interactionOptions: InteractionOptions(
                     flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
