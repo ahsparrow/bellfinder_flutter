@@ -18,7 +18,7 @@ class TowerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tower'),
+        title: const Text('Tower'),
       ),
       body: _body(context),
       floatingActionButton: FloatingActionButton(
@@ -37,7 +37,7 @@ class TowerScreen extends StatelessWidget {
             );
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -50,7 +50,7 @@ class TowerScreen extends StatelessWidget {
 
         if (tower == null) {
           // Empty widget
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         }
 
         const spacer =
@@ -81,8 +81,8 @@ class TowerScreen extends StatelessWidget {
 
             // Tower details table
             Padding(
-              padding:
-                  EdgeInsets.only(right: 24, left: 24, top: 24, bottom: 48),
+              padding: const EdgeInsets.only(
+                  right: 24, left: 24, top: 24, bottom: 48),
               child: DefaultTextStyle.merge(
                 style: DefaultTextStyle.of(context)
                     .style
@@ -96,8 +96,8 @@ class TowerScreen extends StatelessWidget {
                     TableRow(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 16),
-                          child: Text('County:'),
+                          padding: const EdgeInsets.only(right: 16),
+                          child: const Text('County:'),
                         ),
                         Text(tower.county),
                       ],
@@ -106,8 +106,8 @@ class TowerScreen extends StatelessWidget {
                     TableRow(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 16),
-                          child: Text('Bells:'),
+                          padding: const EdgeInsets.only(right: 16),
+                          child: const Text('Bells:'),
                         ),
                         Text(tower.bells.toString()),
                       ],
@@ -116,8 +116,8 @@ class TowerScreen extends StatelessWidget {
                     TableRow(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 16),
-                          child: Text('Tenor:'),
+                          padding: const EdgeInsets.only(right: 16),
+                          child: const Text('Tenor:'),
                         ),
                         Text(viewModel.weightString),
                       ],
@@ -126,8 +126,8 @@ class TowerScreen extends StatelessWidget {
                     TableRow(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 16),
-                          child: Text('Practice:'),
+                          padding: const EdgeInsets.only(right: 16),
+                          child: const Text('Practice:'),
                         ),
                         Text(tower.practice),
                       ],
@@ -136,8 +136,8 @@ class TowerScreen extends StatelessWidget {
                     TableRow(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 16),
-                          child: Text('First visit:'),
+                          padding: const EdgeInsets.only(right: 16),
+                          child: const Text('First visit:'),
                         ),
                         Text((viewModel.firstVisit != null)
                             ? DateFormat("d/M/y").format(viewModel.firstVisit!)
@@ -154,24 +154,24 @@ class TowerScreen extends StatelessWidget {
                   children: [
                     OutlinedButton.icon(
                       onPressed: () => Navigator.pop(context, "map"),
-                      label: Text("Map"),
-                      icon: Icon(Icons.map),
+                      label: const Text("Map"),
+                      icon: const Icon(Icons.map),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     OutlinedButton.icon(
                       onPressed: () => _launchUrl(tower.towerId),
-                      label: Text("Dove's"),
-                      icon: Icon(Icons.church_outlined),
+                      label: const Text("Dove's"),
+                      icon: const Icon(Icons.church_outlined),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     OutlinedButton.icon(
                       onPressed: () async {
                         final uri = Uri.parse(
                             "geo:${tower.latitude},${tower.longitude}?z=8&q=${tower.latitude},${tower.longitude}(${Uri.encodeFull(tower.dedication)})");
                         await launchUrl(uri);
                       },
-                      label: Text("Directions"),
-                      icon: Icon(Icons.directions_outlined),
+                      label: const Text("Directions"),
+                      icon: const Icon(Icons.directions_outlined),
                     ),
                   ],
                 ),

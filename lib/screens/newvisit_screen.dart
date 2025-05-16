@@ -15,7 +15,7 @@ class NewVisitScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add visit'),
         leading: IconButton(
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -84,12 +84,12 @@ class NewVisitFormState extends State<NewVisitForm> {
 
         // Date
         Padding(
-          padding: EdgeInsets.fromLTRB(16, 16, 16, 8),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
           child: TextField(
             readOnly: true,
             controller: _dateController,
             onTap: () => _pickDate(context),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Date",
               border: OutlineInputBorder(),
             ),
@@ -98,12 +98,12 @@ class NewVisitFormState extends State<NewVisitForm> {
 
         // Notes
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: TextField(
             minLines: 5,
             maxLines: 5,
             controller: _noteController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Notes",
               border: OutlineInputBorder(),
             ),
@@ -112,7 +112,7 @@ class NewVisitFormState extends State<NewVisitForm> {
 
         // Quarter
         CheckboxListTile(
-          title: Text("Quarter"),
+          title: const Text("Quarter"),
           onChanged: (value) {
             setState(() {
               _quarter = value ?? false;
@@ -124,7 +124,7 @@ class NewVisitFormState extends State<NewVisitForm> {
 
         // Peal
         CheckboxListTile(
-          title: Text("Peal"),
+          title: const Text("Peal"),
           onChanged: (value) {
             setState(() {
               _peal = value ?? false;
@@ -136,9 +136,9 @@ class NewVisitFormState extends State<NewVisitForm> {
 
         Row(
           children: [
-            Spacer(),
+            const Spacer(),
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: FilledButton(
                 onPressed: () {
                   widget.viewModel.insert(
@@ -149,7 +149,7 @@ class NewVisitFormState extends State<NewVisitForm> {
                   );
                   Navigator.pop(context);
                 },
-                child: Text("Add visit"),
+                child: const Text("Add visit"),
               ),
             ),
           ],

@@ -40,13 +40,13 @@ class HomeScreen extends StatelessWidget {
             title: SearchAnchor(
               builder: (BuildContext context, SearchController controller) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 16, right: 16),
+                  padding: const EdgeInsets.only(left: 16, right: 16),
                   child: SearchBar(
                     controller: controller,
                     elevation: WidgetStatePropertyAll(0),
                     hintText: "Search towers",
                     keyboardType: TextInputType.none,
-                    leading: Icon(Icons.search),
+                    leading: const Icon(Icons.search),
                     onChanged: (_) => controller.openView(),
                     onTap: () => controller.openView(),
 
@@ -115,7 +115,7 @@ class HomeScreen extends StatelessWidget {
 
           // Body with tabbed widgets
           body: Padding(
-            padding: EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.only(top: 8),
             child: TabBarView(
               children: [
                 MapWidget(viewModel: viewModel, controller: mapController),
@@ -132,11 +132,11 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.only(
               bottom: MediaQuery.of(context).padding.bottom + 8,
             ),
-            child: TabBar(
+            child: const TabBar(
               tabs: [
-                Tab(text: 'Map', icon: const Icon(Icons.map)),
-                Tab(text: 'Near Me', icon: const Icon(Icons.near_me)),
-                Tab(text: 'Visits', icon: const Icon(Icons.beenhere)),
+                Tab(text: 'Map', icon: Icon(Icons.map)),
+                Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
+                Tab(text: 'Visits', icon: Icon(Icons.beenhere)),
               ],
               dividerColor: Colors.transparent,
             ),
@@ -147,10 +147,10 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  ListTile(
+                  const ListTile(
                     title: Text("Settings"),
                   ),
-                  Divider(),
+                  const Divider(),
                   ListenableBuilder(
                     listenable: viewModel,
                     builder: (context, child) => CheckboxListTile(
@@ -160,26 +160,26 @@ class HomeScreen extends StatelessWidget {
                       onChanged: (val) => viewModel.setIncludeUnringable(val!),
                     ),
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text("Import Visits"),
-                    leading: Icon(Icons.file_open),
+                    title: const Text("Import Visits"),
+                    leading: const Icon(Icons.file_open),
                     onTap: () async {
                       _importCsv(context);
                       Navigator.pop(context);
                     },
                   ),
                   ListTile(
-                    title: Text("Export Visits"),
-                    leading: Icon(Icons.save),
+                    title: const Text("Export Visits"),
+                    leading: const Icon(Icons.save),
                     onTap: () async {
                       _exportCsv(context);
                       Navigator.pop(context);
                     },
                   ),
                   ListTile(
-                    title: Text("About"),
-                    leading: Icon(Icons.info_outline),
+                    title: const Text("About"),
+                    leading: const Icon(Icons.info_outline),
                     onTap: () {
                       _showAboutDialog(context);
                       Navigator.pop(context);
@@ -218,7 +218,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Dove Data',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),

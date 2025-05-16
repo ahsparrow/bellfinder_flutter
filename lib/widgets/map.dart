@@ -83,7 +83,7 @@ class MapWidgetState extends State<MapWidget> {
               .map((t) => TowerMarker(
                     towerId: t.towerId,
                     point: LatLng(t.latitude, t.longitude),
-                    alignment: Alignment(0, -1),
+                    alignment: const Alignment(0, -1),
                     child: t.unringable
                         ? towerUnringable
                         : switch (t.bells) {
@@ -103,7 +103,7 @@ class MapWidgetState extends State<MapWidget> {
             child: FlutterMap(
               mapController: widget.controller,
               options: MapOptions(
-                initialCenter: LatLng(54, -2.5),
+                initialCenter: const LatLng(54, -2.5),
                 initialZoom: 6,
                 maxZoom: 15,
                 interactionOptions: InteractionOptions(
@@ -143,7 +143,7 @@ class MapWidgetState extends State<MapWidget> {
                       }
                       _popupController.hideAllPopups();
                     },
-                    padding: EdgeInsets.all(50),
+                    padding: const EdgeInsets.all(50),
                     popupOptions: PopupOptions(
                       popupController: _popupController,
                       popupBuilder: (_, marker) => popupBuilder(marker),
@@ -171,7 +171,8 @@ class MapWidgetState extends State<MapWidget> {
                 CurrentLocationLayer(
                   alignPositionStream: _alignPositionStreamController.stream,
                   alignPositionOnUpdate: _alignOnUpdate,
-                  alignPositionAnimationDuration: Duration(milliseconds: 500),
+                  alignPositionAnimationDuration:
+                      const Duration(milliseconds: 500),
                   style: LocationMarkerStyle(
                     marker: DefaultLocationMarker(
                       color: Colors.green[600]!,
@@ -229,42 +230,42 @@ class MapWidgetState extends State<MapWidget> {
         color: Theme.of(context).cardColor,
       ),
       width: 250,
-      margin: EdgeInsets.all(4),
-      padding: EdgeInsets.all(16),
+      margin: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(16),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             child: Text(
               tower.place,
               textScaler: TextScaler.linear(1.3),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             child: Text(
               tower.dedication,
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             child: Text(
               "${HomeViewModel.weightCwt(tower.weight).round()} cwt",
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                   onPressed: () => _popupController.hideAllPopups(),
                 ),
                 TextButton(
-                  child: Text("Info"),
+                  child: const Text("Info"),
                   onPressed: () {
                     _popupController.hideAllPopups();
                     Navigator.push(

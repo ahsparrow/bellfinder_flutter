@@ -34,7 +34,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
   @override
   Widget build(context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListenableBuilder(
         listenable: widget.viewModel,
         builder: (context, _) {
@@ -64,7 +64,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
                 },
                 onLongPress: () => widget.showTowerOnMap(context, tower),
                 child: Card(
-                  margin: EdgeInsets.all(2),
+                  margin: const EdgeInsets.all(2),
                   child: ListTile(
                     title: Row(
                       crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -118,8 +118,8 @@ class NearestListWidgetState extends State<NearestListWidget> {
                     ),
                     leadingAndTrailingTextStyle:
                         TextTheme.of(context).titleLarge,
-                    visualDensity:
-                        VisualDensity(vertical: VisualDensity.minimumDensity),
+                    visualDensity: const VisualDensity(
+                        vertical: VisualDensity.minimumDensity),
                   ),
                 ),
               );

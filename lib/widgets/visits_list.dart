@@ -18,7 +18,7 @@ class VisitsListWidget extends StatelessWidget {
   @override
   Widget build(context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListenableBuilder(
         listenable: viewModel,
         builder: (context, _) {
@@ -44,12 +44,12 @@ class VisitsListWidget extends StatelessWidget {
                 onLongPress: () =>
                     showTowerOnMap(context, viewModel.getTower(visit.towerId)),
                 child: Card(
-                  margin: EdgeInsets.all(2),
+                  margin: const EdgeInsets.all(2),
                   child: ListTile(
                     title: Row(
                       children: [
                         Text(visit.place),
-                        Spacer(),
+                        const Spacer(),
                         Text(DateFormat('dd/MM/yyyy').format(visit.date)),
                       ],
                     ),

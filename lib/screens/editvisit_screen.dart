@@ -92,12 +92,12 @@ class EditFormState extends State<EditForm> {
 
         // Date
         Padding(
-          padding: EdgeInsets.fromLTRB(8, 16, 8, 8),
+          padding: const EdgeInsets.fromLTRB(8, 16, 8, 8),
           child: TextField(
             readOnly: true,
             controller: _dateController,
             onTap: () => _pickDate(context),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Date",
               border: OutlineInputBorder(),
             ),
@@ -106,12 +106,12 @@ class EditFormState extends State<EditForm> {
 
         // Notes
         Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: TextField(
             minLines: 5,
             maxLines: 5,
             controller: _noteController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Notes",
               border: OutlineInputBorder(),
             ),
@@ -120,7 +120,7 @@ class EditFormState extends State<EditForm> {
 
         // Quarter
         CheckboxListTile(
-          title: Text("Quarter"),
+          title: const Text("Quarter"),
           onChanged: (value) {
             setState(() {
               _quarter = value ?? false;
@@ -132,7 +132,7 @@ class EditFormState extends State<EditForm> {
 
         // Peal
         CheckboxListTile(
-          title: Text("Peal"),
+          title: const Text("Peal"),
           onChanged: (value) {
             setState(() {
               _peal = value ?? false;
@@ -144,11 +144,11 @@ class EditFormState extends State<EditForm> {
 
         Row(
           children: [
-            Spacer(),
+            const Spacer(),
 
             // Delete button
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: ElevatedButton(
                 onPressed: () async {
                   if (await _confirmDelete() && context.mounted) {
@@ -161,7 +161,7 @@ class EditFormState extends State<EditForm> {
 
             // Save button
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: FilledButton(
                 onPressed: () {
                   widget.viewModel.update(
@@ -172,7 +172,7 @@ class EditFormState extends State<EditForm> {
                   );
                   Navigator.pop(context);
                 },
-                child: Text("Save"),
+                child: const Text("Save"),
               ),
             ),
           ],
