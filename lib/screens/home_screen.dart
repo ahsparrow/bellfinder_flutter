@@ -15,15 +15,21 @@ import '../widgets/map.dart';
 import '../widgets/nearest_list.dart';
 import '../widgets/visits_list.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key, required this.viewModel});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key, required this.viewModel});
 
   final HomeViewModel viewModel;
-  final MapController mapController = MapController();
 
-  void _showTowerOnMap(BuildContext context, Tower tower) {
-    DefaultTabController.of(context).animateTo(0);
-    mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  static final MapController mapController = MapController();
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -68,7 +74,7 @@ class HomeScreen extends StatelessWidget {
               // Search suggestions
               suggestionsBuilder:
                   (BuildContext context, SearchController controller) {
-                return viewModel.towers
+                return widget.viewModel.towers
 
                     // Firstly matching start of place name...
                     .where((t) => t.place
@@ -76,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                         .startsWith(controller.text.toLowerCase()))
 
                     // ...and then by rest of place name
-                    .followedBy(viewModel.towers.where((t) => t.place
+                    .followedBy(widget.viewModel.towers.where((t) => t.place
                         .toLowerCase()
                         .contains(controller.text.toLowerCase(), 1)))
                     .take(15)
@@ -118,11 +124,14 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 8),
             child: TabBarView(
               children: [
-                MapWidget(viewModel: viewModel, controller: mapController),
+                MapWidget(
+                    viewModel: widget.viewModel, controller: mapController),
                 NearestListWidget(
-                    viewModel: viewModel, showTowerOnMap: _showTowerOnMap),
+                    viewModel: widget.viewModel,
+                    showTowerOnMap: _showTowerOnMap),
                 VisitsListWidget(
-                    viewModel: viewModel, showTowerOnMap: _showTowerOnMap),
+                    viewModel: widget.viewModel,
+                    showTowerOnMap: _showTowerOnMap),
               ],
             ),
           ),
@@ -152,12 +161,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const Divider(),
                   ListenableBuilder(
-                    listenable: viewModel,
+                    listenable: widget.viewModel,
                     builder: (context, child) => CheckboxListTile(
                       title: Text("Show unringable"),
                       secondary: Icon(Icons.notifications_off),
-                      value: viewModel.includeUnringable,
-                      onChanged: (val) => viewModel.setIncludeUnringable(val!),
+                      value: widget.viewModel.includeUnringable,
+                      onChanged: (val) =>
+                          widget.viewModel.setIncludeUnringable(val!),
                     ),
                   ),
                   const Divider(),
@@ -194,6 +204,11 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void _showTowerOnMap(BuildContext context, Tower tower) {
+    DefaultTabController.of(context).animateTo(0);
+    mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+  }
+
   Future<void> _showAboutDialog(BuildContext context) async {
     final info = await PackageInfo.fromPlatform();
     if (context.mounted) {
@@ -226,8 +241,8 @@ class HomeScreen extends StatelessWidget {
                   "DOVE_DATE",
                   defaultValue: "Unknown",
                 )}'),
-                Text('Total towers: ${viewModel.numTowers}'),
-                Text('Visited: ${viewModel.numVisits}'),
+                Text('Total towers: ${widget.viewModel.numTowers}'),
+                Text('Visited: ${widget.viewModel.numVisits}'),
               ],
             ),
           ),
@@ -247,7 +262,7 @@ class HomeScreen extends StatelessWidget {
     }
 
     final data = await result.xFiles[0].readAsString();
-    final numVisits = await viewModel.loadCsvVists(data);
+    final numVisits = await widget.viewModel.loadCsvVists(data);
 
     if (numVisits == 0 && context.mounted) {
       await showDialog(
@@ -270,7 +285,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _exportCsv(BuildContext context) async {
-    final data = utf8.encode(viewModel.encodeCsvVisits());
+    final data = utf8.encode(widget.viewModel.encodeCsvVisits());
     await FilePicker.platform.saveFile(
       dialogTitle: 'Choose a file',
       fileName: 'visits.csv',
