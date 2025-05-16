@@ -46,7 +46,7 @@ class HomeViewModel extends ChangeNotifier {
       getMapCenter() async {
     final latitude = await _sharedPrefs.getDouble("latitude") ?? 54.0;
     final longitude = await _sharedPrefs.getDouble("longitude") ?? -2.5;
-    final zoom = await _sharedPrefs.getDouble("zoom") ?? -6.0;
+    final zoom = await _sharedPrefs.getDouble("zoom") ?? 6.0;
 
     return (latitude: latitude, longitude: longitude, zoom: zoom);
   }
