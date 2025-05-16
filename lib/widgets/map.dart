@@ -116,6 +116,7 @@ class MapWidgetState extends State<MapWidget> {
                 initialCenter: const LatLng(54, -2.5),
                 initialZoom: 6,
                 maxZoom: 15,
+                minZoom: 2,
                 interactionOptions: InteractionOptions(
                     flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
                 onTap: (_, __) => _popupController.hideAllPopups(),
