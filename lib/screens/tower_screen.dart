@@ -109,7 +109,8 @@ class TowerScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 16),
                           child: const Text('Bells:'),
                         ),
-                        Text(tower.bells.toString()),
+                        Text(
+                            "${tower.bells} ${tower.unringable ? '(Unringable)' : ''}"),
                       ],
                     ),
                     spacer,
