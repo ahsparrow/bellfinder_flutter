@@ -25,11 +25,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static final MapController mapController = MapController();
+  static final MapController _mapController = MapController();
+
+  late final AppLifecycleListener _listener;
 
   @override
   void initState() {
     super.initState();
+    _listener = AppLifecycleListener(
+      onHide: () async {
+        final camera = _mapController.camera;
+        await widget.viewModel.saveMapCenter(
+            camera.center.latitude, camera.center.longitude, camera.zoom);
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _listener.dispose();
+    super.dispose();
   }
 
   @override
@@ -125,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: TabBarView(
               children: [
                 MapWidget(
-                    viewModel: widget.viewModel, controller: mapController),
+                    viewModel: widget.viewModel, controller: _mapController),
                 NearestListWidget(
                     viewModel: widget.viewModel,
                     showTowerOnMap: _showTowerOnMap),
@@ -206,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _showTowerOnMap(BuildContext context, Tower tower) {
     DefaultTabController.of(context).animateTo(0);
-    mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+    _mapController.move(LatLng(tower.latitude, tower.longitude), 13);
   }
 
   Future<void> _showAboutDialog(BuildContext context) async {

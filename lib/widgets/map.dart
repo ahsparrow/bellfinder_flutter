@@ -64,10 +64,20 @@ class MapWidgetState extends State<MapWidget> {
 
     _alignOnUpdate = AlignOnUpdate.never;
     _alignPositionStreamController = StreamController<double?>();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final center = await widget.viewModel.getMapCenter();
+      widget.controller
+          .move(LatLng(center.latitude, center.longitude), center.zoom);
+    });
   }
 
   @override
   void dispose() {
+    final camera = widget.controller.camera;
+    widget.viewModel.saveMapCenter(
+        camera.center.latitude, camera.center.longitude, camera.zoom);
+
     _alignPositionStreamController.close();
     _popupController.dispose();
 

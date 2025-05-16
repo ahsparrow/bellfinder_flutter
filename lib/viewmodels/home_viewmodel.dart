@@ -34,12 +34,29 @@ class HomeViewModel extends ChangeNotifier {
   Stream<Position>? positionStream;
   StreamSubscription<Position>? positionStreamSubscription;
 
+  // Map state
+  Future<void> saveMapCenter(
+      double latitude, double longitude, double zoom) async {
+    await _sharedPrefs.setDouble("latitude", latitude);
+    await _sharedPrefs.setDouble("longitude", longitude);
+    await _sharedPrefs.setDouble("zoom", zoom);
+  }
+
+  Future<({double latitude, double longitude, double zoom})>
+      getMapCenter() async {
+    final latitude = await _sharedPrefs.getDouble("latitude") ?? 54.0;
+    final longitude = await _sharedPrefs.getDouble("longitude") ?? -2.5;
+    final zoom = await _sharedPrefs.getDouble("zoom") ?? -6.0;
+
+    return (latitude: latitude, longitude: longitude, zoom: zoom);
+  }
+
   // Unringable
   bool _includeUnringable = true;
 
   bool get includeUnringable => _includeUnringable;
 
-  void setIncludeUnringable(bool value) async {
+  Future<void> setIncludeUnringable(bool value) async {
     _includeUnringable = value;
 
     await _sharedPrefs.setBool("includeUnringable", value);
