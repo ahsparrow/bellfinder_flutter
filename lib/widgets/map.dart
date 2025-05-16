@@ -134,6 +134,21 @@ class MapWidgetState extends State<MapWidget> {
                   userAgentPackageName: 'uk.org.freeflight.bellfinder',
                 ),
 
+                // Location marker
+                CurrentLocationLayer(
+                  alignPositionStream: _alignPositionStreamController.stream,
+                  alignPositionOnUpdate: _alignOnUpdate,
+                  alignPositionAnimationDuration:
+                      const Duration(milliseconds: 500),
+                  style: LocationMarkerStyle(
+                    marker: DefaultLocationMarker(
+                      color: Colors.green[600]!,
+                    ),
+                    showAccuracyCircle: false,
+                    showHeadingSector: false,
+                  ),
+                ),
+
                 // Marker layer
                 MarkerClusterLayerWidget(
                   options: MarkerClusterLayerOptions(
@@ -174,21 +189,6 @@ class MapWidgetState extends State<MapWidget> {
                         ),
                       );
                     },
-                  ),
-                ),
-
-                // Location marker
-                CurrentLocationLayer(
-                  alignPositionStream: _alignPositionStreamController.stream,
-                  alignPositionOnUpdate: _alignOnUpdate,
-                  alignPositionAnimationDuration:
-                      const Duration(milliseconds: 500),
-                  style: LocationMarkerStyle(
-                    marker: DefaultLocationMarker(
-                      color: Colors.green[600]!,
-                    ),
-                    showAccuracyCircle: false,
-                    showHeadingSector: false,
                   ),
                 ),
 
