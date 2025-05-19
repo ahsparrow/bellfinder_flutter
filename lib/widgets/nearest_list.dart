@@ -59,10 +59,12 @@ class NearestListWidgetState extends State<NearestListWidget> {
                   );
 
                   if (result == "map" && context.mounted) {
-                    widget.showTowerOnMap(context, tower);
+                    await widget.showTowerOnMap(context, tower);
                   }
                 },
-                onLongPress: () => widget.showTowerOnMap(context, tower),
+                onLongPress: () async {
+                  await widget.showTowerOnMap(context, tower);
+                },
                 child: Card(
                   margin: const EdgeInsets.all(2),
                   child: ListTile(

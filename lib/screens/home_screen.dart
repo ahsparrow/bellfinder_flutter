@@ -219,9 +219,15 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _showTowerOnMap(BuildContext context, Tower tower) {
-    DefaultTabController.of(context).animateTo(0);
-    _mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+  void _showTowerOnMap(BuildContext context, Tower tower) async {
+    if (DefaultTabController.of(context).index == 0) {
+      _mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+    } else {
+      await widget.viewModel.saveMapCenter(tower.latitude, tower.longitude, 13);
+      if (context.mounted) {
+        DefaultTabController.of(context).animateTo(0);
+      }
+    }
   }
 
   Future<void> _showAboutDialog(BuildContext context) async {

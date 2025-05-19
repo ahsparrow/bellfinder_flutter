@@ -41,8 +41,10 @@ class VisitsListWidget extends StatelessWidget {
                     ),
                   );
                 },
-                onLongPress: () =>
-                    showTowerOnMap(context, viewModel.getTower(visit.towerId)),
+                onLongPress: () async {
+                  await showTowerOnMap(
+                      context, viewModel.getTower(visit.towerId));
+                },
                 child: Card(
                   margin: const EdgeInsets.all(2),
                   child: ListTile(
