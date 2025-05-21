@@ -261,7 +261,7 @@ class MapWidgetState extends State<MapWidget> {
           Padding(
             padding: const EdgeInsets.all(4),
             child: Text(
-              "${HomeViewModel.weightCwt(tower.weight).round()} cwt",
+              "${HomeViewModel.weightCwt(tower.weight).round()} cwt (${tower.bells})",
             ),
           ),
           Padding(
