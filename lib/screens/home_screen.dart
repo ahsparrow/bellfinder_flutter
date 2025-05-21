@@ -220,7 +220,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _showTowerOnMap(BuildContext context, Tower tower) async {
-    _mapController.move(LatLng(tower.latitude, tower.longitude), 13);
+    _mapController.move(
+      LatLng(tower.latitude, tower.longitude),
+      13,
+      id: "showtower",
+    );
     DefaultTabController.of(context).animateTo(0);
   }
 

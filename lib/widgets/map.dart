@@ -97,6 +97,11 @@ class MapWidgetState extends State<MapWidget> {
             );
           }
         },
+        onMapEvent: (ev) {
+          if (ev is MapEventMove && ev.id == "showtower") {
+            setState(() => _alignOnUpdate = AlignOnUpdate.never);
+          }
+        },
       ),
       children: [
         // Map layer
