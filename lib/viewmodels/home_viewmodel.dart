@@ -12,8 +12,9 @@ import '../data/location.dart';
 class HomeViewModel extends ChangeNotifier {
   HomeViewModel({
     required AppDatabase database,
+    required SharedPreferencesWithCache sharedPrefs,
   })  : _database = database,
-        _sharedPrefs = SharedPreferencesAsync() {
+        _sharedPrefs = sharedPrefs {
     _load();
   }
 
@@ -21,7 +22,7 @@ class HomeViewModel extends ChangeNotifier {
   final AppDatabase _database;
 
   // Shared preferences
-  final SharedPreferencesAsync _sharedPrefs;
+  final SharedPreferencesWithCache _sharedPrefs;
 
   // Towers and visits
   List<Tower> _towers = [];
@@ -42,23 +43,18 @@ class HomeViewModel extends ChangeNotifier {
     await _sharedPrefs.setDouble("zoom", zoom);
   }
 
-  Future<({double latitude, double longitude, double zoom})>
-      getMapCenter() async {
-    final latitude = await _sharedPrefs.getDouble("latitude") ?? 54.0;
-    final longitude = await _sharedPrefs.getDouble("longitude") ?? -2.5;
-    final zoom = await _sharedPrefs.getDouble("zoom") ?? 6.0;
+  ({double latitude, double longitude, double zoom}) getMapCenter() {
+    final latitude = _sharedPrefs.getDouble("latitude") ?? 54.0;
+    final longitude = _sharedPrefs.getDouble("longitude") ?? -2.5;
+    final zoom = _sharedPrefs.getDouble("zoom") ?? 6.0;
 
     return (latitude: latitude, longitude: longitude, zoom: zoom);
   }
 
-  // Unringable
-  bool _includeUnringable = true;
-
-  bool get includeUnringable => _includeUnringable;
+  bool get includeUnringable =>
+      _sharedPrefs.getBool("includeUnringable") ?? true;
 
   Future<void> setIncludeUnringable(bool value) async {
-    _includeUnringable = value;
-
     await _sharedPrefs.setBool("includeUnringable", value);
     notifyListeners();
   }
@@ -66,10 +62,6 @@ class HomeViewModel extends ChangeNotifier {
   // Load database
   _load() async {
     _towers = await _database.getTowers();
-
-    _includeUnringable =
-        await _sharedPrefs.getBool("includeUnringable") ?? true;
-
     notifyListeners();
 
     // Stream visit updates
@@ -81,7 +73,7 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   List<Tower> get towers {
-    return _towers.where((t) => _includeUnringable || !t.unringable).toList();
+    return _towers.where((t) => includeUnringable || !t.unringable).toList();
   }
 
   List<({double dist, Tower tower})> getNearest([int numTowers = 100]) {
@@ -92,7 +84,7 @@ class HomeViewModel extends ChangeNotifier {
     } else {
       var towerDistances = [
         for (final t in _towers)
-          if (_includeUnringable || !t.unringable)
+          if (includeUnringable || !t.unringable)
             (tower: t, dist: distanceFrom(t, pos))
       ];
       towerDistances.sort((a, b) => a.dist.compareTo(b.dist));

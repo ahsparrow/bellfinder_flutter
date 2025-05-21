@@ -19,15 +19,20 @@ void main() async {
     print('${record.level.name}: ${record.time}: ${record.message}');
   });
 
+  // Tower database
   final db = AppDatabase();
   await updateTowers(db);
+
+  // Application preferences
+  final sharedPrefs = await SharedPreferencesWithCache.create(
+    cacheOptions: const SharedPreferencesWithCacheOptions(),
+  );
 
   runApp(
     MultiProvider(
       providers: [
-        Provider(create: (context) {
-          return db;
-        }),
+        Provider(create: (context) => db),
+        Provider(create: (context) => sharedPrefs)
       ],
       child: const MainApp(),
     ),
@@ -41,7 +46,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(
-        viewModel: HomeViewModel(database: context.read<AppDatabase>()),
+        viewModel: HomeViewModel(
+          database: context.read<AppDatabase>(),
+          sharedPrefs: context.read<SharedPreferencesWithCache>(),
+        ),
       ),
       title: "Bellfinder",
       theme: ThemeData.light(),

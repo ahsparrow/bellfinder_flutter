@@ -64,173 +64,166 @@ class MapWidgetState extends State<MapWidget> {
 
     _alignOnUpdate = AlignOnUpdate.never;
     _alignPositionStreamController = StreamController<double?>();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final center = await widget.viewModel.getMapCenter();
-      widget.controller
-          .move(LatLng(center.latitude, center.longitude), center.zoom);
-    });
   }
 
   @override
-  void dispose() {
+  void dispose() async {
+    super.dispose();
     final camera = widget.controller.camera;
-    widget.viewModel.saveMapCenter(
+    await widget.viewModel.saveMapCenter(
         camera.center.latitude, camera.center.longitude, camera.zoom);
 
     _alignPositionStreamController.close();
     _popupController.dispose();
-
-    super.dispose();
   }
 
   @override
   Widget build(context) {
-    return ListenableBuilder(
-        listenable: widget.viewModel,
-        builder: (context, _) {
-          markers = widget.viewModel.towers
-              .map((t) => TowerMarker(
-                    towerId: t.towerId,
-                    point: LatLng(t.latitude, t.longitude),
-                    alignment: const Alignment(0, -1),
-                    child: t.unringable
-                        ? towerUnringable
-                        : switch (t.bells) {
-                            <= 3 => tower3,
-                            4 => tower4,
-                            5 => tower5,
-                            6 || 7 => tower6,
-                            8 || 9 => tower8,
-                            10 || 11 => tower10,
-                            _ => tower12,
-                          },
-                  ))
-              .toList();
+    final mapCenter = widget.viewModel.getMapCenter();
+    return FlutterMap(
+      mapController: widget.controller,
+      options: MapOptions(
+        initialCenter: LatLng(mapCenter.latitude, mapCenter.longitude),
+        initialZoom: mapCenter.zoom,
+        maxZoom: 15,
+        minZoom: 2,
+        interactionOptions: InteractionOptions(
+            flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
+        onTap: (_, __) => _popupController.hideAllPopups(),
+        onPositionChanged: (_, bool hasGesture) {
+          if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
+            setState(
+              () => _alignOnUpdate = AlignOnUpdate.never,
+            );
+          }
+        },
+      ),
+      children: [
+        // Map layer
+        TileLayer(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          userAgentPackageName: 'uk.org.freeflight.bellfinder',
+        ),
 
-          return PopupScope(
-            popupController: _popupController,
-            child: FlutterMap(
-              mapController: widget.controller,
-              options: MapOptions(
-                initialCenter: const LatLng(54, -2.5),
-                initialZoom: 6,
-                maxZoom: 15,
-                minZoom: 2,
-                interactionOptions: InteractionOptions(
-                    flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
-                onTap: (_, __) => _popupController.hideAllPopups(),
-                onPositionChanged: (_, bool hasGesture) {
-                  if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
-                    setState(
-                      () => _alignOnUpdate = AlignOnUpdate.never,
-                    );
-                  }
-                },
-              ),
-              children: [
-                // Map layer
-                TileLayer(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  userAgentPackageName: 'uk.org.freeflight.bellfinder',
-                ),
-
-                // Location marker
-                CurrentLocationLayer(
-                  alignPositionStream: _alignPositionStreamController.stream,
-                  alignPositionOnUpdate: _alignOnUpdate,
-                  alignPositionAnimationDuration:
-                      const Duration(milliseconds: 500),
-                  style: LocationMarkerStyle(
-                    marker: DefaultLocationMarker(
-                      color: Colors.green[600]!,
-                    ),
-                    showAccuracyCircle: false,
-                    showHeadingSector: false,
-                  ),
-                ),
-
-                // Marker layer
-                MarkerClusterLayerWidget(
-                  options: MarkerClusterLayerOptions(
-                    markers: markers,
-                    onMarkerTap: (_) {
-                      if (_alignOnUpdate != AlignOnUpdate.never) {
-                        setState(
-                          () => _alignOnUpdate = AlignOnUpdate.never,
-                        );
-                      }
-                    },
-                    onClusterTap: (_) {
-                      if (_alignOnUpdate != AlignOnUpdate.never) {
-                        setState(
-                          () => _alignOnUpdate = AlignOnUpdate.never,
-                        );
-                      }
-                      _popupController.hideAllPopups();
-                    },
-                    padding: const EdgeInsets.all(50),
-                    popupOptions: PopupOptions(
-                      popupController: _popupController,
-                      popupBuilder: (_, marker) => popupBuilder(marker),
-                    ),
-                    disableClusteringAtZoom: 13,
-                    showPolygon: false,
-                    builder: (context, markers) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.blue,
-                        ),
-                        child: Center(
-                          child: Text(
-                            markers.length.toString(),
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-
-                // Attribution layer
-                RichAttributionWidget(
-                  alignment: AttributionAlignment.bottomLeft,
-                  showFlutterMapAttribution: false,
-                  attributions: [
-                    TextSourceAttribution(
-                      'OpenStreetMap contributors',
-                      onTap: () => launchUrl(Uri.parse(
-                          'https://openstreetmap.org/copyright')), // (external)
-                    ),
-                  ],
-                ),
-
-                // Location button
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(4),
-                    child: IconButton(
-                      icon: (_alignOnUpdate == AlignOnUpdate.never)
-                          ? Icon(Icons.location_searching)
-                          : Icon(Icons.my_location, color: Colors.deepPurple),
-                      onPressed: () {
-                        setState(
-                          () => _alignOnUpdate =
-                              (_alignOnUpdate == AlignOnUpdate.never)
-                                  ? AlignOnUpdate.always
-                                  : AlignOnUpdate.never,
-                        );
-                        _alignPositionStreamController.add(null);
-                      },
-                    ),
-                  ),
-                ),
-              ],
+        // Location marker
+        CurrentLocationLayer(
+          alignPositionStream: _alignPositionStreamController.stream,
+          alignPositionOnUpdate: _alignOnUpdate,
+          alignPositionAnimationDuration: const Duration(milliseconds: 500),
+          style: LocationMarkerStyle(
+            marker: DefaultLocationMarker(
+              color: Colors.green[600]!,
             ),
-          );
-        });
+            showAccuracyCircle: false,
+            showHeadingSector: false,
+          ),
+        ),
+
+        // Marker layer
+        ListenableBuilder(
+          listenable: widget.viewModel,
+          builder: (context, _) {
+            markers = widget.viewModel.towers
+                .map((t) => TowerMarker(
+                      towerId: t.towerId,
+                      point: LatLng(t.latitude, t.longitude),
+                      alignment: const Alignment(0, -1),
+                      child: t.unringable
+                          ? towerUnringable
+                          : switch (t.bells) {
+                              <= 3 => tower3,
+                              4 => tower4,
+                              5 => tower5,
+                              6 || 7 => tower6,
+                              8 || 9 => tower8,
+                              10 || 11 => tower10,
+                              _ => tower12,
+                            },
+                    ))
+                .toList();
+
+            return PopupScope(
+              popupController: _popupController,
+              child: MarkerClusterLayerWidget(
+                options: MarkerClusterLayerOptions(
+                  markers: markers,
+                  onMarkerTap: (_) {
+                    if (_alignOnUpdate != AlignOnUpdate.never) {
+                      setState(
+                        () => _alignOnUpdate = AlignOnUpdate.never,
+                      );
+                    }
+                  },
+                  onClusterTap: (_) {
+                    if (_alignOnUpdate != AlignOnUpdate.never) {
+                      setState(
+                        () => _alignOnUpdate = AlignOnUpdate.never,
+                      );
+                    }
+                    _popupController.hideAllPopups();
+                  },
+                  padding: const EdgeInsets.all(50),
+                  popupOptions: PopupOptions(
+                    popupController: _popupController,
+                    popupBuilder: (_, marker) => popupBuilder(marker),
+                  ),
+                  disableClusteringAtZoom: 13,
+                  showPolygon: false,
+                  builder: (context, markers) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blue,
+                      ),
+                      child: Center(
+                        child: Text(
+                          markers.length.toString(),
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        ),
+
+        // Attribution layer
+        RichAttributionWidget(
+          alignment: AttributionAlignment.bottomLeft,
+          showFlutterMapAttribution: false,
+          attributions: [
+            TextSourceAttribution(
+              'OpenStreetMap contributors',
+              onTap: () => launchUrl(Uri.parse(
+                  'https://openstreetmap.org/copyright')), // (external)
+            ),
+          ],
+        ),
+
+        // Location button
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: EdgeInsets.all(4),
+            child: IconButton(
+              icon: (_alignOnUpdate == AlignOnUpdate.never)
+                  ? Icon(Icons.location_searching)
+                  : Icon(Icons.my_location, color: Colors.deepPurple),
+              onPressed: () {
+                setState(
+                  () => _alignOnUpdate = (_alignOnUpdate == AlignOnUpdate.never)
+                      ? AlignOnUpdate.always
+                      : AlignOnUpdate.never,
+                );
+                _alignPositionStreamController.add(null);
+              },
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   Widget popupBuilder(Marker marker) {
