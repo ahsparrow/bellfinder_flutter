@@ -100,7 +100,9 @@ class MapWidgetState extends State<MapWidget> {
         },
         onMapEvent: (ev) {
           if (ev is MapEventMove && ev.id == "showtower") {
-            setState(() => _alignOnUpdate = AlignOnUpdate.never);
+            if (mounted) {
+              setState(() => _alignOnUpdate = AlignOnUpdate.never);
+            }
           }
         },
       ),
