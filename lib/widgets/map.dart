@@ -88,7 +88,8 @@ class MapWidgetState extends State<MapWidget> {
         maxZoom: 15,
         minZoom: 2,
         interactionOptions: InteractionOptions(
-            flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
+          flags: ~(InteractiveFlag.rotate | InteractiveFlag.doubleTapZoom),
+        ),
         onTap: (_, __) => _popupController.hideAllPopups(),
         onPositionChanged: (_, bool hasGesture) {
           if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
