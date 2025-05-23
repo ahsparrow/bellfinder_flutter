@@ -53,29 +53,7 @@ class NearestListWidgetState extends State<NearestListWidget> {
               itemBuilder: (BuildContext context, int index) {
                 final nearby = nearest[index];
                 final tower = nearby.tower;
-                return GestureDetector(
-                  onTap: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TowerScreen(
-                          viewModel: TowerViewModel(
-                            database: context.read<AppDatabase>(),
-                            towerId: tower.towerId,
-                          ),
-                        ),
-                      ),
-                    );
-
-                    if (result == "map" && context.mounted) {
-                      await widget.showTowerOnMap(context, tower);
-                    }
-                  },
-                  onLongPress: () async {
-                    await widget.showTowerOnMap(context, tower);
-                  },
-                  child: towerCard(tower, nearby.dist),
-                );
+                return towerCard(context, tower, nearby.dist);
               },
             );
           }
@@ -84,9 +62,10 @@ class NearestListWidgetState extends State<NearestListWidget> {
     );
   }
 
-  Card towerCard(Tower tower, double distance) {
+  Card towerCard(BuildContext context, Tower tower, double distance) {
     return Card(
       margin: const EdgeInsets.all(2),
+      clipBehavior: Clip.hardEdge,
       child: ListTile(
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -140,6 +119,26 @@ class NearestListWidgetState extends State<NearestListWidget> {
         leadingAndTrailingTextStyle: TextTheme.of(context).titleLarge,
         visualDensity:
             const VisualDensity(vertical: VisualDensity.minimumDensity),
+        onTap: () async {
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => TowerScreen(
+                viewModel: TowerViewModel(
+                  database: context.read<AppDatabase>(),
+                  towerId: tower.towerId,
+                ),
+              ),
+            ),
+          );
+
+          if (result == "map" && context.mounted) {
+            await widget.showTowerOnMap(context, tower);
+          }
+        },
+        onLongPress: () async {
+          await widget.showTowerOnMap(context, tower);
+        },
       ),
     );
   }
