@@ -33,7 +33,9 @@ Future<bool> hasPermission() async {
 
 Future<Stream<Position>?> getPositionStream() async {
   if (await hasPermission()) {
-    return Geolocator.getPositionStream();
+    return Geolocator.getPositionStream(
+      locationSettings: LocationSettings(distanceFilter: 10),
+    );
   } else {
     return null;
   }
