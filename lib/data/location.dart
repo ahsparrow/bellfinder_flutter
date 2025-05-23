@@ -31,6 +31,15 @@ Future<bool> hasPermission() async {
   return true;
 }
 
+Future<Position?> getLastKnownPosition() async {
+  final pos = await Geolocator.getLastKnownPosition();
+  if (pos != null && DateTime.now().difference(pos.timestamp).inSeconds < 60) {
+    return pos;
+  } else {
+    return null;
+  }
+}
+
 Future<Stream<Position>?> getPositionStream() async {
   if (await hasPermission()) {
     return Geolocator.getPositionStream(

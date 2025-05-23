@@ -168,6 +168,11 @@ class HomeViewModel extends ChangeNotifier {
 
   // Start/stop location updates
   void startLocationUpdates() async {
+    _position = await getLastPosition();
+    if (_position != null) {
+      notifyListeners();
+    }
+
     positionStream = await getPositionStream();
 
     positionStreamSubscription = positionStream?.listen((Position position) {
@@ -181,6 +186,10 @@ class HomeViewModel extends ChangeNotifier {
     await positionStreamSubscription?.cancel();
 
     _position = null;
+  }
+
+  Future<Position?> getLastPosition() async {
+    return getLastKnownPosition();
   }
 
   // Conversion utilities
