@@ -103,32 +103,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     .take(15)
                     .map(
                       (t) => ListTile(
-                          title: Text("${t.place}, ${t.dedication}"),
-                          onTap: () async {
-                            // Close suggestions view
-                            controller.closeView("");
+                        title: Text("${t.place}, ${t.dedication}"),
+                        onTap: () async {
+                          // Close suggestions view
+                          controller.closeView("");
 
-                            // Navigate to tower screen
-                            final result = await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TowerScreen(
-                                  viewModel: TowerViewModel(
-                                    database: context.read<AppDatabase>(),
-                                    towerId: t.towerId,
-                                  ),
+                          // Navigate to tower screen
+                          final result = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TowerScreen(
+                                viewModel: TowerViewModel(
+                                  database: context.read<AppDatabase>(),
+                                  towerId: t.towerId,
                                 ),
                               ),
-                            );
+                            ),
+                          );
 
-                            if (result == "map" && tabContext.mounted) {
-                              _showTowerOnMap(tabContext, t);
-                            }
-                          },
-                          onLongPress: () {
-                            controller.closeView("");
+                          if (result == "map" && tabContext.mounted) {
                             _showTowerOnMap(tabContext, t);
-                          }),
+                          }
+                        },
+                        onLongPress: () {
+                          controller.closeView("");
+                          _showTowerOnMap(tabContext, t);
+                        },
+                      ),
                     );
               },
             ),
