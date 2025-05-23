@@ -27,55 +27,54 @@ class VisitsListWidget extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final visit = viewModel.visits[index];
 
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EditVisitScreen(
-                        viewModel: EditVisitViewModel(
-                          database: context.read<AppDatabase>(),
-                          visitId: visit.visitId,
+              return Card(
+                margin: const EdgeInsets.all(2),
+                clipBehavior: Clip.hardEdge,
+                child: ListTile(
+                  title: Row(
+                    children: [
+                      Text(visit.place),
+                      const Spacer(),
+                      Text(DateFormat('dd/MM/yyyy').format(visit.date)),
+                    ],
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '${visit.dedication}, ${visit.county}',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                       ),
-                    ),
-                  );
-                },
-                onLongPress: () async {
-                  await showTowerOnMap(
-                      context, viewModel.getTower(visit.towerId));
-                },
-                child: Card(
-                  margin: const EdgeInsets.all(2),
-                  child: ListTile(
-                    title: Row(
-                      children: [
-                        Text(visit.place),
-                        const Spacer(),
-                        Text(DateFormat('dd/MM/yyyy').format(visit.date)),
-                      ],
-                    ),
-                    subtitle: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            '${visit.dedication}, ${visit.county}',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
+                      Text((visit.peal)
+                          ? "P"
+                          : (visit.quarter)
+                              ? "Q"
+                              : ""),
+                    ],
+                  ),
+                  leading: CircleAvatar(
+                    backgroundColor: Color(bellColour(visit.bells)),
+                    child: Text('${visit.bells}'),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditVisitScreen(
+                          viewModel: EditVisitViewModel(
+                            database: context.read<AppDatabase>(),
+                            visitId: visit.visitId,
                           ),
                         ),
-                        Text((visit.peal)
-                            ? "P"
-                            : (visit.quarter)
-                                ? "Q"
-                                : ""),
-                      ],
-                    ),
-                    leading: CircleAvatar(
-                      backgroundColor: Color(bellColour(visit.bells)),
-                      child: Text('${visit.bells}'),
-                    ),
-                  ),
+                      ),
+                    );
+                  },
+                  onLongPress: () async {
+                    await showTowerOnMap(
+                        context, viewModel.getTower(visit.towerId));
+                  },
                 ),
               );
             },
