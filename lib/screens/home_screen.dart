@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     .followedBy(widget.viewModel.towers.where((t) => t.place
                         .toLowerCase()
                         .contains(controller.text.toLowerCase(), 1)))
-                    .take(15)
+                    .take(20)
                     .map(
                       (t) => ListTile(
                         title: Text("${t.place}, ${t.dedication}"),
