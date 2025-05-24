@@ -26,59 +26,61 @@ class VisitsListWidget extends StatelessWidget {
             itemCount: viewModel.visits.length,
             itemBuilder: (BuildContext context, int index) {
               final visit = viewModel.visits[index];
-
-              return Card(
-                margin: const EdgeInsets.all(2),
-                clipBehavior: Clip.hardEdge,
-                child: ListTile(
-                  title: Row(
-                    children: [
-                      Text(visit.place),
-                      const Spacer(),
-                      Text(DateFormat('dd/MM/yyyy').format(visit.date)),
-                    ],
-                  ),
-                  subtitle: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '${visit.dedication}, ${visit.county}',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                        ),
-                      ),
-                      Text((visit.peal)
-                          ? "P"
-                          : (visit.quarter)
-                              ? "Q"
-                              : ""),
-                    ],
-                  ),
-                  leading: CircleAvatar(
-                    backgroundColor: Color(bellColour(visit.bells)),
-                    child: Text('${visit.bells}'),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EditVisitScreen(
-                          viewModel: EditVisitViewModel(
-                            database: context.read<AppDatabase>(),
-                            visitId: visit.visitId,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  onLongPress: () async {
-                    await showTowerOnMap(
-                        context, viewModel.getTower(visit.towerId));
-                  },
-                ),
-              );
+              return visitCard(context, visit);
             },
           );
+        },
+      ),
+    );
+  }
+
+  Card visitCard(BuildContext context, VisitTower visit) {
+    return Card(
+      margin: const EdgeInsets.all(2),
+      clipBehavior: Clip.hardEdge,
+      child: ListTile(
+        title: Row(
+          children: [
+            Text(visit.place),
+            const Spacer(),
+            Text(DateFormat('dd/MM/yyyy').format(visit.date)),
+          ],
+        ),
+        subtitle: Row(
+          children: [
+            Expanded(
+              child: Text(
+                '${visit.dedication}, ${visit.county}',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            ),
+            Text((visit.peal)
+                ? "P"
+                : (visit.quarter)
+                    ? "Q"
+                    : ""),
+          ],
+        ),
+        leading: CircleAvatar(
+          backgroundColor: Color(bellColour(visit.bells)),
+          child: Text('${visit.bells}'),
+        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EditVisitScreen(
+                viewModel: EditVisitViewModel(
+                  database: context.read<AppDatabase>(),
+                  visitId: visit.visitId,
+                ),
+              ),
+            ),
+          );
+        },
+        onLongPress: () async {
+          await showTowerOnMap(context, viewModel.getTower(visit.towerId));
         },
       ),
     );
