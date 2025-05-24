@@ -19,14 +19,14 @@ void main() async {
     print('${record.level.name}: ${record.time}: ${record.message}');
   });
 
-  // Tower database
-  final db = AppDatabase();
-  await updateTowers(db);
-
   // Application preferences
   final sharedPrefs = await SharedPreferencesWithCache.create(
     cacheOptions: const SharedPreferencesWithCacheOptions(),
   );
+
+  // Tower database
+  final db = AppDatabase();
+  await updateTowers(db, sharedPrefs);
 
   runApp(
     MultiProvider(
@@ -60,8 +60,8 @@ class MainApp extends StatelessWidget {
   }
 }
 
-Future<void> updateTowers(AppDatabase db) async {
-  final prefs = await SharedPreferences.getInstance();
+Future<void> updateTowers(
+    AppDatabase db, SharedPreferencesWithCache prefs) async {
   final packageInfo = await PackageInfo.fromPlatform();
 
   if (packageInfo.buildNumber != prefs.getString('build_number')) {
