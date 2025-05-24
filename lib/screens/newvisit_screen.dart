@@ -62,99 +62,103 @@ class NewVisitFormState extends State<NewVisitForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ListTile(
-          title: Text(
-            widget.viewModel.place,
-            style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
-          ),
-          subtitle: Text(widget.viewModel.dedication),
-          leading: CircleAvatar(
-            radius: 30,
-            backgroundColor: Color(bellColour(widget.viewModel.bells)),
-            child: Text(
-              "${widget.viewModel.bells}",
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            title: Text(
+              widget.viewModel.place,
               style:
                   DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
             ),
-          ),
-        ),
-
-        // Date
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-          child: TextField(
-            readOnly: true,
-            controller: _dateController,
-            onTap: () => _pickDate(context),
-            decoration: const InputDecoration(
-              labelText: "Date",
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ),
-
-        // Notes
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: TextField(
-            minLines: 5,
-            maxLines: 5,
-            controller: _noteController,
-            decoration: const InputDecoration(
-              labelText: "Notes",
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ),
-
-        // Quarter
-        CheckboxListTile(
-          title: const Text("Quarter"),
-          onChanged: (value) {
-            setState(() {
-              _quarter = value ?? false;
-            });
-          },
-          value: _quarter,
-          controlAffinity: ListTileControlAffinity.leading,
-        ),
-
-        // Peal
-        CheckboxListTile(
-          title: const Text("Peal"),
-          onChanged: (value) {
-            setState(() {
-              _peal = value ?? false;
-            });
-          },
-          value: _peal,
-          controlAffinity: ListTileControlAffinity.leading,
-        ),
-
-        Row(
-          children: [
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: FilledButton(
-                onPressed: () {
-                  widget.viewModel.insert(
-                    date: DateFormat('dd/MM/yyyy').parse(_dateController.text),
-                    notes: _noteController.text,
-                    peal: _peal,
-                    quarter: _quarter,
-                  );
-                  Navigator.pop(context);
-                },
-                child: const Text("Add visit"),
+            subtitle: Text(widget.viewModel.dedication),
+            leading: CircleAvatar(
+              radius: 30,
+              backgroundColor: Color(bellColour(widget.viewModel.bells)),
+              child: Text(
+                "${widget.viewModel.bells}",
+                style:
+                    DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+
+          // Date
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: TextField(
+              readOnly: true,
+              controller: _dateController,
+              onTap: () => _pickDate(context),
+              decoration: const InputDecoration(
+                labelText: "Date",
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+
+          // Notes
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: TextField(
+              minLines: 5,
+              maxLines: 5,
+              controller: _noteController,
+              decoration: const InputDecoration(
+                labelText: "Notes",
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+
+          // Quarter
+          CheckboxListTile(
+            title: const Text("Quarter"),
+            onChanged: (value) {
+              setState(() {
+                _quarter = value ?? false;
+              });
+            },
+            value: _quarter,
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          // Peal
+          CheckboxListTile(
+            title: const Text("Peal"),
+            onChanged: (value) {
+              setState(() {
+                _peal = value ?? false;
+              });
+            },
+            value: _peal,
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+
+          Row(
+            children: [
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: FilledButton(
+                  onPressed: () {
+                    widget.viewModel.insert(
+                      date:
+                          DateFormat('dd/MM/yyyy').parse(_dateController.text),
+                      notes: _noteController.text,
+                      peal: _peal,
+                      quarter: _quarter,
+                    );
+                    Navigator.pop(context);
+                  },
+                  child: const Text("Add visit"),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
