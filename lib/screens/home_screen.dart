@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Bottom navigation with tab controller
             bottomNavigationBar: Padding(
               padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).padding.bottom + 8,
+                bottom: MediaQuery.of(context).padding.bottom,
               ),
               child: const TabBar(
                 tabs: [
@@ -91,6 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Tab(text: 'Visited', icon: Icon(Icons.beenhere)),
                 ],
                 dividerColor: Colors.transparent,
+                indicator: UnderlineTabIndicator(
+                  borderSide: BorderSide(color: Colors.transparent),
+                ),
               ),
             ),
 
