@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 tabs: [
                   Tab(text: 'Map', icon: Icon(Icons.map)),
                   Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
-                  Tab(text: 'Visits', icon: Icon(Icons.beenhere)),
+                  Tab(text: 'Visited', icon: Icon(Icons.beenhere)),
                 ],
                 dividerColor: Colors.transparent,
               ),
