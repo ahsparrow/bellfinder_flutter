@@ -128,74 +128,7 @@ class MapWidgetState extends State<MapWidget> {
         ),
 
         // Marker layer
-        ListenableBuilder(
-          listenable: widget.viewModel,
-          builder: (context, _) {
-            markers = widget.viewModel.towers
-                .map((t) => TowerMarker(
-                      towerId: t.towerId,
-                      point: LatLng(t.latitude, t.longitude),
-                      alignment: const Alignment(0, -1),
-                      child: t.unringable
-                          ? towerUnringable
-                          : switch (t.bells) {
-                              <= 3 => tower3,
-                              4 => tower4,
-                              5 => tower5,
-                              6 || 7 => tower6,
-                              8 || 9 => tower8,
-                              10 || 11 => tower10,
-                              _ => tower12,
-                            },
-                    ))
-                .toList();
-
-            return PopupScope(
-              popupController: _popupController,
-              child: MarkerClusterLayerWidget(
-                options: MarkerClusterLayerOptions(
-                  markers: markers,
-                  onMarkerTap: (_) {
-                    if (_alignOnUpdate != AlignOnUpdate.never) {
-                      setState(
-                        () => _alignOnUpdate = AlignOnUpdate.never,
-                      );
-                    }
-                  },
-                  onClusterTap: (_) {
-                    if (_alignOnUpdate != AlignOnUpdate.never) {
-                      setState(
-                        () => _alignOnUpdate = AlignOnUpdate.never,
-                      );
-                    }
-                    _popupController.hideAllPopups();
-                  },
-                  padding: const EdgeInsets.all(50),
-                  popupOptions: PopupOptions(
-                    popupController: _popupController,
-                    popupBuilder: (_, marker) => popupBuilder(marker),
-                  ),
-                  disableClusteringAtZoom: 13,
-                  showPolygon: false,
-                  builder: (context, markers) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.blue,
-                      ),
-                      child: Center(
-                        child: Text(
-                          markers.length.toString(),
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            );
-          },
-        ),
+        markerLayerBuilder(),
 
         // Attribution layer
         RichAttributionWidget(
@@ -231,6 +164,77 @@ class MapWidgetState extends State<MapWidget> {
           ),
         ),
       ],
+    );
+  }
+
+  ListenableBuilder markerLayerBuilder() {
+    return ListenableBuilder(
+      listenable: widget.viewModel,
+      builder: (context, _) {
+        markers = widget.viewModel.towers
+            .map((t) => TowerMarker(
+                  towerId: t.towerId,
+                  point: LatLng(t.latitude, t.longitude),
+                  alignment: const Alignment(0, -1),
+                  child: t.unringable
+                      ? towerUnringable
+                      : switch (t.bells) {
+                          <= 3 => tower3,
+                          4 => tower4,
+                          5 => tower5,
+                          6 || 7 => tower6,
+                          8 || 9 => tower8,
+                          10 || 11 => tower10,
+                          _ => tower12,
+                        },
+                ))
+            .toList();
+
+        return PopupScope(
+          popupController: _popupController,
+          child: MarkerClusterLayerWidget(
+            options: MarkerClusterLayerOptions(
+              markers: markers,
+              onMarkerTap: (_) {
+                if (_alignOnUpdate != AlignOnUpdate.never) {
+                  setState(
+                    () => _alignOnUpdate = AlignOnUpdate.never,
+                  );
+                }
+              },
+              onClusterTap: (_) {
+                if (_alignOnUpdate != AlignOnUpdate.never) {
+                  setState(
+                    () => _alignOnUpdate = AlignOnUpdate.never,
+                  );
+                }
+                _popupController.hideAllPopups();
+              },
+              padding: const EdgeInsets.all(50),
+              popupOptions: PopupOptions(
+                popupController: _popupController,
+                popupBuilder: (_, marker) => popupBuilder(marker),
+              ),
+              disableClusteringAtZoom: 13,
+              showPolygon: false,
+              builder: (context, markers) {
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blue,
+                  ),
+                  child: Center(
+                    child: Text(
+                      markers.length.toString(),
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 
