@@ -14,6 +14,7 @@ class EditVisitViewModel extends ChangeNotifier {
   final AppDatabase _database;
   final int _visitId;
 
+  int _towerId = 0;
   String _place = "";
   String _dedication = "";
   int _bells = 0;
@@ -22,6 +23,7 @@ class EditVisitViewModel extends ChangeNotifier {
   bool _quarter = false;
   bool _peal = false;
 
+  int get towerId => _towerId;
   String get place => _place;
   String get dedication => _dedication;
   int get bells => _bells;
@@ -34,6 +36,7 @@ class EditVisitViewModel extends ChangeNotifier {
     var visit = await _database.getVisit(_visitId);
     var tower = await _database.getTower(visit.towerId);
 
+    _towerId = tower.towerId;
     _place = tower.place;
     _dedication = tower.dedication;
     _bells = tower.bells;

@@ -10,9 +10,11 @@ import '../viewmodels/newvisit_viewmodel.dart';
 import '../util.dart';
 
 class TowerScreen extends StatelessWidget {
-  const TowerScreen({super.key, required this.viewModel});
+  const TowerScreen(
+      {super.key, required this.viewModel, this.showMapControls = true});
 
   final TowerViewModel viewModel;
+  final bool showMapControls;
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +23,26 @@ class TowerScreen extends StatelessWidget {
         title: const Text('Tower'),
       ),
       body: _body(context),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final tower = viewModel.tower;
-          if (tower != null) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NewVisitScreen(
-                  viewModel: NewVisitViewModel(
-                      database: context.read<AppDatabase>(),
-                      towerId: tower.towerId),
-                ),
-              ),
-            );
-          }
-        },
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: (!showMapControls)
+          ? null
+          : FloatingActionButton(
+              onPressed: () {
+                final tower = viewModel.tower;
+                if (tower != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NewVisitScreen(
+                        viewModel: NewVisitViewModel(
+                            database: context.read<AppDatabase>(),
+                            towerId: tower.towerId),
+                      ),
+                    ),
+                  );
+                }
+              },
+              child: const Icon(Icons.add),
+            ),
     );
   }
 
@@ -153,11 +157,12 @@ class TowerScreen extends StatelessWidget {
               child: FittedBox(
                 child: Row(
                   children: [
-                    OutlinedButton.icon(
-                      onPressed: () => Navigator.pop(context, "map"),
-                      label: const Text("Map"),
-                      icon: const Icon(Icons.map),
-                    ),
+                    if (showMapControls)
+                      OutlinedButton.icon(
+                        onPressed: () => Navigator.pop(context, "map"),
+                        label: const Text("Map"),
+                        icon: const Icon(Icons.map),
+                      ),
                     const SizedBox(width: 16),
                     OutlinedButton.icon(
                       onPressed: () => _launchUrl(tower.towerId),
@@ -165,15 +170,16 @@ class TowerScreen extends StatelessWidget {
                       icon: const Icon(Icons.church_outlined),
                     ),
                     const SizedBox(width: 16),
-                    OutlinedButton.icon(
-                      onPressed: () async {
-                        final uri = Uri.parse(
-                            "geo:${tower.latitude},${tower.longitude}?z=8&q=${tower.latitude},${tower.longitude}(${Uri.encodeFull(tower.dedication)})");
-                        await launchUrl(uri);
-                      },
-                      label: const Text("Directions"),
-                      icon: const Icon(Icons.directions_outlined),
-                    ),
+                    if (showMapControls)
+                      OutlinedButton.icon(
+                        onPressed: () async {
+                          final uri = Uri.parse(
+                              "geo:${tower.latitude},${tower.longitude}?z=8&q=${tower.latitude},${tower.longitude}(${Uri.encodeFull(tower.dedication)})");
+                          await launchUrl(uri);
+                        },
+                        label: const Text("Directions"),
+                        icon: const Icon(Icons.directions_outlined),
+                      ),
                   ],
                 ),
               ),

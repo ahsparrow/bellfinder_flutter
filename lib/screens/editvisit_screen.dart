@@ -1,7 +1,11 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../data/database.dart';
+import '../screens/tower_screen.dart';
 import '../viewmodels/editvisit_viewmodel.dart';
+import '../viewmodels/tower_viewmodel.dart';
 import '../util.dart';
 
 class EditVisitScreen extends StatelessWidget {
@@ -90,6 +94,20 @@ class EditFormState extends State<EditForm> {
                     DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2),
               ),
             ),
+            onTap: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TowerScreen(
+                    showMapControls: false,
+                    viewModel: TowerViewModel(
+                      database: context.read<AppDatabase>(),
+                      towerId: widget.viewModel.towerId,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
 
           // Date
