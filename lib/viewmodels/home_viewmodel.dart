@@ -168,7 +168,7 @@ class HomeViewModel extends ChangeNotifier {
 
   // Start/stop location updates
   void startLocationUpdates() async {
-    _position = await getLastPosition();
+    _position = await getLastKnownPosition();
     if (_position != null) {
       notifyListeners();
     }
@@ -186,10 +186,6 @@ class HomeViewModel extends ChangeNotifier {
     await positionStreamSubscription?.cancel();
 
     _position = null;
-  }
-
-  Future<Position?> getLastPosition() async {
-    return getLastKnownPosition();
   }
 
   // Conversion utilities
