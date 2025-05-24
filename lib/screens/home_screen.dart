@@ -51,172 +51,180 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Builder(builder: (BuildContext tabContext) {
-        return Scaffold(
-          // AppBar contains the tower search bar
-          appBar: AppBar(
-            centerTitle: true,
-            clipBehavior: Clip.none,
-            titleSpacing: 0,
-            title: SearchAnchor(
-              builder: (BuildContext context, SearchController controller) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16),
-                  child: SearchBar(
-                    controller: controller,
-                    elevation: WidgetStatePropertyAll(0),
-                    hintText: "Search towers",
-                    keyboardType: TextInputType.none,
-                    leading: const Icon(Icons.search),
-                    onChanged: (_) => controller.openView(),
-                    onTap: () => controller.openView(),
-
-                    // Trailing actions
-                    trailing: [
-                      // Clear and unfocus search bar
-                      IconButton(
-                        icon: Icon(Icons.close),
-                        onPressed: () {
-                          controller.clear();
-                          FocusScope.of(context).unfocus();
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
-
-              // Search suggestions
-              suggestionsBuilder:
-                  (BuildContext context, SearchController controller) {
-                return widget.viewModel.towers
-
-                    // Firstly matching start of place name...
-                    .where((t) => t.place
-                        .toLowerCase()
-                        .startsWith(controller.text.toLowerCase()))
-
-                    // ...and then by rest of place name
-                    .followedBy(widget.viewModel.towers.where((t) => t.place
-                        .toLowerCase()
-                        .contains(controller.text.toLowerCase(), 1)))
-                    .take(20)
-                    .map(
-                      (t) => ListTile(
-                        title: Text("${t.place}, ${t.dedication}"),
-                        onTap: () async {
-                          // Close suggestions view
-                          controller.closeView("");
-
-                          // Navigate to tower screen
-                          final result = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => TowerScreen(
-                                viewModel: TowerViewModel(
-                                  database: context.read<AppDatabase>(),
-                                  towerId: t.towerId,
-                                ),
-                              ),
-                            ),
-                          );
-
-                          if (result == "map" && tabContext.mounted) {
-                            _showTowerOnMap(tabContext, t);
-                          }
-                        },
-                        onLongPress: () {
-                          controller.closeView("");
-                          _showTowerOnMap(tabContext, t);
-                        },
-                      ),
-                    );
-              },
+      child: Builder(
+        builder: (BuildContext tabContext) {
+          return Scaffold(
+            // AppBar contains the tower search bar
+            appBar: AppBar(
+              centerTitle: true,
+              clipBehavior: Clip.none,
+              titleSpacing: 0,
+              title: buildSearchAnchor(context, tabContext),
             ),
-          ),
 
-          // Body with tabbed widgets
-          body: Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: TabBarView(
-              children: [
-                MapWidget(
-                    viewModel: widget.viewModel, controller: _mapController),
-                NearestListWidget(
-                    viewModel: widget.viewModel,
-                    showTowerOnMap: _showTowerOnMap),
-                VisitsListWidget(
-                    viewModel: widget.viewModel,
-                    showTowerOnMap: _showTowerOnMap),
-              ],
-            ),
-          ),
-
-          // Bottom navigation with tab controller
-          bottomNavigationBar: Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).padding.bottom + 8,
-            ),
-            child: const TabBar(
-              tabs: [
-                Tab(text: 'Map', icon: Icon(Icons.map)),
-                Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
-                Tab(text: 'Visits', icon: Icon(Icons.beenhere)),
-              ],
-              dividerColor: Colors.transparent,
-            ),
-          ),
-
-          drawer: Drawer(
-            child: SafeArea(
-              child: ListView(
-                padding: EdgeInsets.zero,
+            // Body with tabbed widgets
+            body: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: TabBarView(
                 children: [
-                  const ListTile(
-                    title: Text("Settings"),
-                  ),
-                  const Divider(),
-                  ListenableBuilder(
-                    listenable: widget.viewModel,
-                    builder: (context, child) => CheckboxListTile(
-                      title: Text("Show unringable"),
-                      secondary: Icon(Icons.notifications_off),
-                      value: widget.viewModel.includeUnringable,
-                      onChanged: (val) =>
-                          widget.viewModel.setIncludeUnringable(val!),
-                    ),
-                  ),
-                  const Divider(),
-                  ListTile(
-                    title: const Text("Import Visits"),
-                    leading: const Icon(Icons.file_open),
-                    onTap: () async {
-                      _importCsv(context);
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    title: const Text("Export Visits"),
-                    leading: const Icon(Icons.save),
-                    onTap: () async {
-                      _exportCsv(context);
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    title: const Text("About"),
-                    leading: const Icon(Icons.info_outline),
-                    onTap: () {
-                      _showAboutDialog(context);
-                      Navigator.pop(context);
-                    },
-                  ),
+                  MapWidget(
+                      viewModel: widget.viewModel, controller: _mapController),
+                  NearestListWidget(
+                      viewModel: widget.viewModel,
+                      showTowerOnMap: _showTowerOnMap),
+                  VisitsListWidget(
+                      viewModel: widget.viewModel,
+                      showTowerOnMap: _showTowerOnMap),
                 ],
               ),
             ),
+
+            // Bottom navigation with tab controller
+            bottomNavigationBar: Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).padding.bottom + 8,
+              ),
+              child: const TabBar(
+                tabs: [
+                  Tab(text: 'Map', icon: Icon(Icons.map)),
+                  Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
+                  Tab(text: 'Visits', icon: Icon(Icons.beenhere)),
+                ],
+                dividerColor: Colors.transparent,
+              ),
+            ),
+
+            drawer: buildDrawer(context),
+          );
+        },
+      ),
+    );
+  }
+
+  SearchAnchor buildSearchAnchor(
+      BuildContext context, BuildContext tabContext) {
+    return SearchAnchor(
+      builder: (BuildContext context, SearchController controller) {
+        return Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: SearchBar(
+            controller: controller,
+            elevation: WidgetStatePropertyAll(0),
+            hintText: "Search towers",
+            keyboardType: TextInputType.none,
+            leading: const Icon(Icons.search),
+            onChanged: (_) => controller.openView(),
+            onTap: () => controller.openView(),
+
+            // Trailing actions
+            trailing: [
+              // Clear and unfocus search bar
+              IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () {
+                  controller.clear();
+                  FocusScope.of(context).unfocus();
+                },
+              ),
+            ],
           ),
         );
-      }),
+      },
+
+      // Search suggestions
+      suggestionsBuilder: (BuildContext context, SearchController controller) {
+        return widget.viewModel.towers
+
+            // Firstly matching start of place name...
+            .where((t) =>
+                t.place.toLowerCase().startsWith(controller.text.toLowerCase()))
+
+            // ...and then by rest of place name
+            .followedBy(widget.viewModel.towers.where((t) => t.place
+                .toLowerCase()
+                .contains(controller.text.toLowerCase(), 1)))
+            .take(20)
+            .map(
+              (t) => ListTile(
+                title: Text("${t.place}, ${t.dedication}"),
+                onTap: () async {
+                  // Close suggestions view
+                  controller.closeView("");
+
+                  // Navigate to tower screen
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TowerScreen(
+                        viewModel: TowerViewModel(
+                          database: context.read<AppDatabase>(),
+                          towerId: t.towerId,
+                        ),
+                      ),
+                    ),
+                  );
+
+                  if (result == "map" && tabContext.mounted) {
+                    _showTowerOnMap(tabContext, t);
+                  }
+                },
+                onLongPress: () {
+                  controller.closeView("");
+                  _showTowerOnMap(tabContext, t);
+                },
+              ),
+            );
+      },
+    );
+  }
+
+  Drawer buildDrawer(BuildContext context) {
+    return Drawer(
+      child: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const ListTile(
+              title: Text("Settings"),
+            ),
+            const Divider(),
+            ListenableBuilder(
+              listenable: widget.viewModel,
+              builder: (context, child) => CheckboxListTile(
+                title: Text("Show unringable"),
+                secondary: Icon(Icons.notifications_off),
+                value: widget.viewModel.includeUnringable,
+                onChanged: (val) => widget.viewModel.setIncludeUnringable(val!),
+              ),
+            ),
+            const Divider(),
+            ListTile(
+              title: const Text("Import Visits"),
+              leading: const Icon(Icons.file_open),
+              onTap: () async {
+                _importCsv(context);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text("Export Visits"),
+              leading: const Icon(Icons.save),
+              onTap: () async {
+                _exportCsv(context);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text("About"),
+              leading: const Icon(Icons.info_outline),
+              onTap: () {
+                _showAboutDialog(context);
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 
