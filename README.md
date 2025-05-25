@@ -7,8 +7,8 @@ with rings of three or more bells. The app also allows you to record
 details of any visits.
 
 Bell Finder uses the Dove data file from the Central Council of Church
-Bellringers (CCCBR). The file (bellfinder/src/main/assets/dove.txt) is a
-modified version of the CCCBR's original with the removal some unused fields.
+Bellringers (CCCBR). The file (`[project]\assets\dove.json`) is a
+modified version of the CCCBR's original with the removal of some unused fields.
 The file is distributed under a Creative Commons license (see below.)
 
 LICENSES
@@ -26,7 +26,7 @@ LICENSES
    You should have received a copy of the GNU General Public License
    along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-1. The Dove tower data (app/src/main/assets/dove.txt) is a modified
+1. The Dove tower data (`[project]/assets/dove.json`) is a modified
    version of the file provided by the Central Council of Church Bell
    Ringers and is licensed under the Creative Commons Attribution-
    ShareAlike 4.0 International Public License. To view a copy of the
@@ -34,13 +34,13 @@ LICENSES
 
 ## Release build (Android)
 
-Set keystore properties in android/key.properties.
+Set the keystore properties in android/key.properties.
 
-Set version name and build number in pubspec.yaml, e.g to set
-version 1.2.3, build 45 use "1.2.3+45"
+Set the version name and build number in `pubspec.yaml`, e.g for
+version 1.2.3 and build 45 - `version: 1.2.3+45`
 
 Update Dove data in assets/dove.json
 
-Run `flutter build appbundle -dart-define='DOVE_DATE=<date string>`
+Run `flutter build appbundle -dart-define='DOVE_DATE=<date_string>`
 
 The release bundle is created at `[project]/build/app/outputs/bundle/release/app.aab`
