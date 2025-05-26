@@ -1,4 +1,4 @@
-package uk.org.freeflight.newbellfinder
+package uk.org.freeflight.bellfinder
 
 import io.flutter.embedding.android.FlutterActivity
 
