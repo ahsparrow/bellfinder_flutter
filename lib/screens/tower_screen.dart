@@ -173,8 +173,15 @@ class TowerScreen extends StatelessWidget {
                     if (showMapControls)
                       OutlinedButton.icon(
                         onPressed: () async {
-                          final uri = Uri.parse(
-                              "geo:${tower.latitude},${tower.longitude}?z=8&q=${tower.latitude},${tower.longitude}(${Uri.encodeFull(tower.dedication)})");
+                          final uri = Uri(
+                            scheme: 'geo',
+                            path: '${tower.latitude},${tower.longitude}',
+                            queryParameters: {
+                              'z': '8',
+                              'q':
+                                  '${tower.latitude},${tower.longitude}(${tower.dedication})',
+                            },
+                          );
                           await launchUrl(uri);
                         },
                         label: const Text("Directions"),
