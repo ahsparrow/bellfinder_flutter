@@ -110,7 +110,7 @@ class MapWidgetState extends State<MapWidget> {
         // Map layer
         TileLayer(
           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'uk.org.freeflight.bellfinder',
+          userAgentPackageName: 'BellFinder/2.0 (contact: bellfinder@freeflight.org.uk)',
         ),
 
         // Location marker
