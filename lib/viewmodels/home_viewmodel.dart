@@ -108,8 +108,7 @@ class HomeViewModel extends ChangeNotifier {
 
   // Import visits
   Future<int> loadCsvVists(String data) async {
-    final csvVisits =
-        CsvToListConverter(shouldParseNumbers: false).convert(data);
+    final csvVisits = csv.decode(data);
 
     if (csvVisits.isEmpty ||
         csvVisits[0].length != 7 ||
@@ -159,9 +158,8 @@ class HomeViewModel extends ChangeNotifier {
           v.peal ? "Y" : "",
           v.quarter ? "Y" : "",
           v.place
-        ]);
-    final out =
-        const ListToCsvConverter().convert(header.followedBy(rows).toList());
+        ]).toList();
+    final out = csv.encode(header + rows);
 
     return out;
   }
