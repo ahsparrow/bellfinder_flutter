@@ -1,20 +1,20 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
+import 'package:intl/intl.dart';
 
 part 'database.g.dart';
 
-class DateConverter extends TypeConverter<DateTime, int> {
+final formatter = DateFormat("yyyy-MM-dd");
+
+class DateConverter extends TypeConverter<DateTime, String> {
   @override
-  fromSql(int date) {
-    final day = date % 100;
-    final month = (date ~/ 100) % 100 + 1;
-    final year = date ~/ 10000;
-    return DateTime.utc(year, month, day);
+  fromSql(String date) {
+    return formatter.parse(date);
   }
 
   @override
   toSql(DateTime date) {
-    return date.year * 10000 + (date.month - 1) * 100 + date.day;
+    return formatter.format(date);
   }
 }
 
@@ -37,7 +37,7 @@ class Towers extends Table {
 class Visits extends Table {
   IntColumn get visitId => integer().autoIncrement().named('visitId')();
   IntColumn get towerId => integer().named('towerId')();
-  IntColumn get date => integer().map(DateConverter())();
+  TextColumn get date => text().map(DateConverter())();
   TextColumn get notes => text().nullable()();
   BoolColumn get peal => boolean()();
   BoolColumn get quarter => boolean()();
