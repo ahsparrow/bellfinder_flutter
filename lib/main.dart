@@ -1,10 +1,14 @@
 import 'dart:convert' show jsonDecode;
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:path/path.dart' as path;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sqflite/sqflite.dart';
 
 import 'data/database.dart';
 import 'screens/home_screen.dart';
@@ -60,6 +64,7 @@ class MainApp extends StatelessWidget {
   }
 }
 
+// Update with new towers on first run (also migrate visits from old database)
 Future<void> updateTowers(
     AppDatabase db, SharedPreferencesWithCache prefs) async {
   final packageInfo = await PackageInfo.fromPlatform();
@@ -72,5 +77,38 @@ Future<void> updateTowers(
 
     await db.deleteAllTowers();
     await db.insertTowers(towers);
+
+    await migrateOldVisits(db);
+  }
+}
+
+// Migrate visits from old database
+Future<void> migrateOldVisits(AppDatabase db) async {
+  if (Platform.isAndroid) {
+    final dir_path = await getDatabasesPath();
+    final db_path = path.join(dir_path, 'tower_database');
+
+    if (await databaseExists(db_path)) {
+      try {
+        var old_db = await openReadOnlyDatabase('tower_database');
+        final old_visits = await old_db.rawQuery('select * from visits');
+
+        final visits = old_visits.map((v) => Visit(
+          visitId: v['visitId'] as int,
+          towerId: v['towerId'] as int,
+          date: DateTime.parse(((v['date'] as int) + 100).toString()),
+          notes: v['notes'] as String,
+          peal: v['peal'] as int == 1,
+          quarter: v['quarter'] as int == 1,
+        ));
+
+        await db.insertVisits(visits.toList());
+
+        await old_db.close();
+        await deleteDatabase(db_path);
+      } catch (e) {
+        print(e);
+      }
+    }
   }
 }

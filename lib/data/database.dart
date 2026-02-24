@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 import 'package:path/path.dart' as path;
@@ -80,15 +79,7 @@ class AppDatabase extends _$AppDatabase {
   int get schemaVersion => 5;
 
   static QueryExecutor _openConnection() {
-    DriftNativeOptions? nativeOpts;
-    if (Platform.isAndroid) {
-      nativeOpts = DriftNativeOptions(databasePath: () async {
-        var dir = await getApplicationSupportDirectory();
-        return path.join(dir.path, '..', 'databases', 'tower_database');
-      });
-    }
-
-    return driftDatabase(name: 'tower_database', native: nativeOpts);
+    return driftDatabase(name: 'database');
   }
 
   // Get all the towers
