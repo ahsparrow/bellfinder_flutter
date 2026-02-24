@@ -2,7 +2,7 @@ import 'dart:convert' show jsonDecode;
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:logging/logging.dart';
+//import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as path;
 import 'package:provider/provider.dart';
@@ -90,26 +90,22 @@ Future<void> migrateOldVisits(AppDatabase db) async {
     final dbPath = path.join(dirPath, 'tower_database');
 
     if (await databaseExists(dbPath)) {
-      try {
-        var oldDb = await openReadOnlyDatabase('tower_database');
-        final oldVisits = await oldDb.rawQuery('select * from visits');
+      var oldDb = await openReadOnlyDatabase('tower_database');
+      final oldVisits = await oldDb.rawQuery('select * from visits');
 
-        final visits = oldVisits.map((v) => Visit(
-          visitId: v['visitId'] as int,
-          towerId: v['towerId'] as int,
-          date: DateTime.parse(((v['date'] as int) + 100).toString()),
-          notes: v['notes'] as String,
-          peal: v['peal'] as int == 1,
-          quarter: v['quarter'] as int == 1,
-        ));
+      final visits = oldVisits.map((v) => Visit(
+        visitId: v['visitId'] as int,
+        towerId: v['towerId'] as int,
+        date: DateTime.parse(((v['date'] as int) + 100).toString()),
+        notes: v['notes'] as String,
+        peal: v['peal'] as int == 1,
+        quarter: v['quarter'] as int == 1,
+      ));
 
-        await db.insertVisits(visits.toList());
+      await db.insertVisits(visits.toList());
 
-        await oldDb.close();
-        await deleteDatabase(dbPath);
-      } catch (e) {
-        print(e);
-      }
+      await oldDb.close();
+      await deleteDatabase(dbPath);
     }
   }
 }
