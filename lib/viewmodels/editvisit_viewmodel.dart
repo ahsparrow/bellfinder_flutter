@@ -32,7 +32,7 @@ class EditVisitViewModel extends ChangeNotifier {
   bool get quarter => _quarter;
   bool get peal => _peal;
 
-  _load() async {
+  Future<void> _load() async {
     var visit = await _database.getVisit(_visitId);
     var tower = await _database.getTower(visit.towerId);
 

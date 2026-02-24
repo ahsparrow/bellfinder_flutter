@@ -282,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  _importCsv(BuildContext context) async {
+  Future<void> _importCsv(BuildContext context) async {
     final result = await FilePicker.platform.pickFiles(
       dialogTitle: "Choose a file",
       withReadStream: true,

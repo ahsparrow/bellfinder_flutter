@@ -1,7 +1,5 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
-import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart';
 
 part 'database.g.dart';
 
@@ -94,7 +92,7 @@ class AppDatabase extends _$AppDatabase {
   Future<int> deleteAllTowers() => managers.towers.delete();
 
   // Add a list of towers
-  Future<void> insertTowers(towers) {
+  Future<void> insertTowers(List<dynamic> towers) async {
     return transaction(() async {
       for (final tower in towers) {
         await managers.towers.create((o) => o(
@@ -155,7 +153,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   // Delete a visit
-  deleteVisit(int visitId) async {
+  Future<int> deleteVisit(int visitId) async {
     return managers.visits.filter((v) => v.visitId.equals(visitId)).delete();
   }
 

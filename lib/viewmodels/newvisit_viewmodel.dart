@@ -22,7 +22,7 @@ class NewVisitViewModel extends ChangeNotifier {
   String get dedication => _dedication;
   int get bells => _bells;
 
-  _load() async {
+  Future<void> _load() async {
     var tower = await _database.getTower(_towerId);
 
     _place = tower.place;

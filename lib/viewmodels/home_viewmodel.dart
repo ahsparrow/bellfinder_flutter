@@ -60,7 +60,7 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   // Load database
-  _load() async {
+  Future<void> _load() async {
     _towers = await _database.getTowers();
     notifyListeners();
 

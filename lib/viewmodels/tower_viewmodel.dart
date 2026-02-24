@@ -22,7 +22,7 @@ class TowerViewModel extends ChangeNotifier {
   String get weightString => _weightString;
   DateTime? get firstVisit => _visits.firstOrNull?.date;
 
-  _load() async {
+  Future<void> _load() async {
     _tower = await _database.getTower(_towerId);
 
     final weight = _tower!.weight;

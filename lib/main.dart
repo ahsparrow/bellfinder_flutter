@@ -2,7 +2,6 @@ import 'dart:convert' show jsonDecode;
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as path;
@@ -85,15 +84,15 @@ Future<void> updateTowers(
 // Migrate visits from old database
 Future<void> migrateOldVisits(AppDatabase db) async {
   if (Platform.isAndroid) {
-    final dir_path = await getDatabasesPath();
-    final db_path = path.join(dir_path, 'tower_database');
+    final dirPath = await getDatabasesPath();
+    final dbPath = path.join(dirPath, 'tower_database');
 
-    if (await databaseExists(db_path)) {
+    if (await databaseExists(dbPath)) {
       try {
-        var old_db = await openReadOnlyDatabase('tower_database');
-        final old_visits = await old_db.rawQuery('select * from visits');
+        var oldDb = await openReadOnlyDatabase('tower_database');
+        final oldVisits = await oldDb.rawQuery('select * from visits');
 
-        final visits = old_visits.map((v) => Visit(
+        final visits = oldVisits.map((v) => Visit(
           visitId: v['visitId'] as int,
           towerId: v['towerId'] as int,
           date: DateTime.parse(((v['date'] as int) + 100).toString()),
@@ -104,8 +103,8 @@ Future<void> migrateOldVisits(AppDatabase db) async {
 
         await db.insertVisits(visits.toList());
 
-        await old_db.close();
-        await deleteDatabase(db_path);
+        await oldDb.close();
+        await deleteDatabase(dbPath);
       } catch (e) {
         print(e);
       }
