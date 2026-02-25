@@ -70,7 +70,8 @@ Future<void> updateTowers(
     AppDatabase db, SharedPreferencesWithCache prefs) async {
   final packageInfo = await PackageInfo.fromPlatform();
 
-  if (packageInfo.buildNumber != prefs.getString('build_number')) {
+  final prevBuildNumber = prefs.getString('build_number');
+  if (packageInfo.buildNumber != prevBuildNumber) {
     await prefs.setString('build_number', packageInfo.buildNumber);
 
     final dove = await rootBundle.loadString('assets/dove.json');
@@ -79,7 +80,11 @@ Future<void> updateTowers(
     await db.deleteAllTowers();
     await db.insertTowers(towers);
 
-    await migrateOldVisits(db);
+    // prevBuildNumber will be null on initial install or first upgrade
+    // to flutter version
+    if (prevBuildNumber == null) {
+      await migrateOldVisits(db);
+    }
   }
 }
 
