@@ -22932,19 +22932,6 @@
     "practice": ""
   },
   {
-    "towerId": 6396,
-    "place": "Darlton",
-    "dedication": "S Giles",
-    "county": "Nottinghamshire",
-    "iso3166": "GB",
-    "latitude": 53.25433,
-    "longitude": -0.83442,
-    "bells": 3,
-    "weight": 0,
-    "unringable": true,
-    "practice": ""
-  },
-  {
     "towerId": 1447,
     "place": "Darrington",
     "dedication": "S Luke & All Saints",
@@ -75109,7 +75096,7 @@
     "latitude": 52.93864,
     "longitude": -1.30999,
     "bells": 8,
-    "weight": 0,
+    "weight": 1177,
     "unringable": false,
     "practice": "Mon"
   },
