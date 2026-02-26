@@ -182,19 +182,6 @@
     "practice": ""
   },
   {
-    "towerId": 10,
-    "place": "Aberavon",
-    "dedication": "S Mary",
-    "county": "Neath Port Talbot",
-    "iso3166": "GB",
-    "latitude": 51.59631,
-    "longitude": -3.78749,
-    "bells": 8,
-    "weight": 1822,
-    "unringable": false,
-    "practice": ""
-  },
-  {
     "towerId": 11,
     "place": "Aberdare",
     "dedication": "S Elvan",
@@ -309,7 +296,7 @@
     "bells": 6,
     "weight": 830,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (2nd, 4th)"
   },
   {
     "towerId": 6535,
@@ -855,7 +842,7 @@
     "bells": 6,
     "weight": 762,
     "unringable": false,
-    "practice": "Tue 10:30 & Wed 20:00"
+    "practice": ""
   },
   {
     "towerId": 51,
@@ -1620,7 +1607,7 @@
     "latitude": 51.58501,
     "longitude": -2.53049,
     "bells": 6,
-    "weight": 1680,
+    "weight": 1596,
     "unringable": false,
     "practice": "Tue"
   },
@@ -1960,7 +1947,7 @@
     "bells": 8,
     "weight": 1180,
     "unringable": false,
-    "practice": "Wed 20:00"
+    "practice": "Mon 20:00"
   },
   {
     "towerId": 120,
@@ -2165,7 +2152,7 @@
     "iso3166": "GB",
     "latitude": 51.92654,
     "longitude": 0.98554,
-    "bells": 8,
+    "bells": 10,
     "weight": 1486,
     "unringable": false,
     "practice": ""
@@ -2584,7 +2571,7 @@
     "bells": 6,
     "weight": 1101,
     "unringable": false,
-    "practice": "Thu 19:00"
+    "practice": ""
   },
   {
     "towerId": 162,
@@ -3442,7 +3429,7 @@
     "bells": 8,
     "weight": 930,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Thu (not always: check) 13:00"
   },
   {
     "towerId": 6131,
@@ -3499,7 +3486,7 @@
   {
     "towerId": 6257,
     "place": "Aubourn",
-    "dedication": "The Clock Tower",
+    "dedication": "Clock Tower",
     "county": "Lincolnshire",
     "iso3166": "GB",
     "latitude": 53.1518,
@@ -3949,7 +3936,7 @@
     "bells": 6,
     "weight": 816,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon"
   },
   {
     "towerId": 244,
@@ -4040,7 +4027,7 @@
     "bells": 6,
     "weight": 1579,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 251,
@@ -4404,7 +4391,7 @@
     "bells": 6,
     "weight": 569,
     "unringable": false,
-    "practice": "Thu 19:00"
+    "practice": "Mon 19:00"
   },
   {
     "towerId": 272,
@@ -4443,7 +4430,7 @@
     "bells": 8,
     "weight": 2580,
     "unringable": false,
-    "practice": "Mon (2nd, 4th: alt with South Leigh)"
+    "practice": "Mon"
   },
   {
     "towerId": 6823,
@@ -4573,7 +4560,7 @@
     "bells": 5,
     "weight": 1683,
     "unringable": false,
-    "practice": "Mon 19:00"
+    "practice": ""
   },
   {
     "towerId": 283,
@@ -5730,7 +5717,7 @@
     "bells": 8,
     "weight": 1207,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Tue"
   },
   {
     "towerId": 7626,
@@ -5808,7 +5795,7 @@
     "bells": 8,
     "weight": 1330,
     "unringable": false,
-    "practice": "Wed 18:30"
+    "practice": ""
   },
   {
     "towerId": 356,
@@ -5912,7 +5899,7 @@
     "bells": 6,
     "weight": 1582,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (alternates with Mattersey) 19:00"
   },
   {
     "towerId": 6756,
@@ -6042,7 +6029,7 @@
     "bells": 8,
     "weight": 1344,
     "unringable": false,
-    "practice": "Mon 18:30"
+    "practice": "Mon 19:00"
   },
   {
     "towerId": 6902,
@@ -6073,7 +6060,7 @@
   {
     "towerId": 371,
     "place": "Beccles",
-    "dedication": "The Bell Tower",
+    "dedication": "Bell Tower",
     "county": "Suffolk",
     "iso3166": "GB",
     "latitude": 52.45829,
@@ -6328,7 +6315,7 @@
     "bells": 8,
     "weight": 1582,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Mon"
   },
   {
     "towerId": 389,
@@ -6783,7 +6770,7 @@
     "bells": 6,
     "weight": 1417,
     "unringable": false,
-    "practice": ""
+    "practice": "Thu"
   },
   {
     "towerId": 412,
@@ -6913,7 +6900,7 @@
     "bells": 5,
     "weight": 615,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 421,
@@ -6926,7 +6913,7 @@
     "bells": 6,
     "weight": 493,
     "unringable": false,
-    "practice": "Tue 20:00"
+    "practice": "Tue (exc 4th)"
   },
   {
     "towerId": 422,
@@ -7131,7 +7118,7 @@
     "iso3166": "GB",
     "latitude": 52.00657,
     "longitude": -2.3019,
-    "bells": 5,
+    "bells": 6,
     "weight": 958,
     "unringable": false,
     "practice": ""
@@ -7251,7 +7238,7 @@
     "bells": 6,
     "weight": 1736,
     "unringable": false,
-    "practice": "Fri (by arrangement)"
+    "practice": ""
   },
   {
     "towerId": 6695,
@@ -7498,7 +7485,7 @@
     "bells": 8,
     "weight": 1605,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": ""
   },
   {
     "towerId": 5778,
@@ -7561,7 +7548,7 @@
     "latitude": 51.27668,
     "longitude": -2.88766,
     "bells": 4,
-    "weight": 896,
+    "weight": 834,
     "unringable": false,
     "practice": ""
   },
@@ -7743,7 +7730,7 @@
     "latitude": 54.59418,
     "longitude": -1.29345,
     "bells": 3,
-    "weight": 896,
+    "weight": 924,
     "unringable": true,
     "practice": ""
   },
@@ -9245,7 +9232,7 @@
   {
     "towerId": 574,
     "place": "Bodelwyddan",
-    "dedication": "S Margaret ('The Marble Church')",
+    "dedication": "S Margaret ('Marble Church')",
     "county": "Denbighshire",
     "iso3166": "GB",
     "latitude": 53.26676,
@@ -10605,7 +10592,7 @@
     "bells": 6,
     "weight": 1134,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Mon & Sat 09:30"
   },
   {
     "towerId": 654,
@@ -10709,7 +10696,7 @@
     "bells": 8,
     "weight": 1358,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 659,
@@ -13842,7 +13829,7 @@
     "bells": 6,
     "weight": 1066,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed (Fortnightly (check before)) 19:00"
   },
   {
     "towerId": 866,
@@ -15272,7 +15259,7 @@
     "bells": 10,
     "weight": 2268,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri"
   },
   {
     "towerId": 6045,
@@ -15506,7 +15493,7 @@
     "bells": 6,
     "weight": 1284,
     "unringable": false,
-    "practice": "Fri (2nd, 4th)"
+    "practice": "Wed (2nd, 4th: PN shared: Flookburgh (1,3,5)  Cartmel Priory (2,4))"
   },
   {
     "towerId": 964,
@@ -16208,7 +16195,7 @@
     "bells": 6,
     "weight": 924,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Thu 19:00"
   },
   {
     "towerId": 1002,
@@ -16572,7 +16559,7 @@
     "bells": 6,
     "weight": 1306,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Thu (Key Skills Training from 19:00; main practice 19:30)"
   },
   {
     "towerId": 1023,
@@ -16884,7 +16871,7 @@
     "bells": 6,
     "weight": 1164,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Wed (once a month or so and alternates with Withington (Glos) and Compton Abdale)"
   },
   {
     "towerId": 1045,
@@ -16988,7 +16975,7 @@
     "bells": 8,
     "weight": 1188,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Mon 18:30"
   },
   {
     "towerId": 1053,
@@ -17014,7 +17001,7 @@
     "bells": 8,
     "weight": 1218,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon"
   },
   {
     "towerId": 1055,
@@ -17207,7 +17194,7 @@
     "latitude": 51.70424,
     "longitude": -0.61683,
     "bells": 6,
-    "weight": 1909,
+    "weight": 1826,
     "unringable": false,
     "practice": "Thu"
   },
@@ -17560,7 +17547,7 @@
     "bells": 8,
     "weight": 1907,
     "unringable": false,
-    "practice": "Wed (Check to confirm)"
+    "practice": ""
   },
   {
     "towerId": 1088,
@@ -17935,7 +17922,7 @@
     "latitude": 51.29228,
     "longitude": -0.16076,
     "bells": 5,
-    "weight": 1232,
+    "weight": 1204,
     "unringable": true,
     "practice": ""
   },
@@ -17963,7 +17950,7 @@
     "bells": 8,
     "weight": 812,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon 19:00"
   },
   {
     "towerId": 1118,
@@ -18187,6 +18174,19 @@
     "practice": "Wed"
   },
   {
+    "towerId": 7983,
+    "place": "Christchurch",
+    "dedication": "S Peter",
+    "county": "South Island",
+    "iso3166": "NZ",
+    "latitude": -43.53163,
+    "longitude": 172.56992,
+    "bells": 8,
+    "weight": 314,
+    "unringable": false,
+    "practice": ""
+  },
+  {
     "towerId": 1134,
     "place": "Christian Malford",
     "dedication": "All Saints",
@@ -18249,7 +18249,7 @@
     "bells": 8,
     "weight": 2490,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Mon"
   },
   {
     "towerId": 1140,
@@ -19183,7 +19183,7 @@
     "latitude": 52.16697,
     "longitude": -1.71176,
     "bells": 6,
-    "weight": 870,
+    "weight": 876,
     "unringable": false,
     "practice": ""
   },
@@ -19859,7 +19859,7 @@
     "latitude": 51.88997,
     "longitude": 0.89652,
     "bells": 8,
-    "weight": 2369,
+    "weight": 2370,
     "unringable": false,
     "practice": "Thu"
   },
@@ -20527,6 +20527,19 @@
     "practice": "Mon (not always: check)"
   },
   {
+    "towerId": 7977,
+    "place": "Compton Dundon",
+    "dedication": "S Andrew",
+    "county": "Somerset",
+    "iso3166": "GB",
+    "latitude": 51.08973,
+    "longitude": -2.74468,
+    "bells": 6,
+    "weight": 1169,
+    "unringable": false,
+    "practice": ""
+  },
+  {
     "towerId": 1285,
     "place": "Compton Gifford",
     "dedication": "Emmanuel",
@@ -20628,7 +20641,7 @@
     "bells": 6,
     "weight": 1151,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue"
   },
   {
     "towerId": 1293,
@@ -20888,7 +20901,7 @@
     "bells": 6,
     "weight": 1299,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 1310,
@@ -22318,7 +22331,7 @@
     "bells": 6,
     "weight": 1167,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 1408,
@@ -22799,7 +22812,7 @@
     "bells": 3,
     "weight": 621,
     "unringable": false,
-    "practice": "Mon"
+    "practice": "Wed 18:45"
   },
   {
     "towerId": 1439,
@@ -22927,7 +22940,7 @@
     "latitude": 53.25433,
     "longitude": -0.83442,
     "bells": 3,
-    "weight": 616,
+    "weight": 0,
     "unringable": true,
     "practice": ""
   },
@@ -23448,7 +23461,7 @@
     "longitude": -1.85209,
     "bells": 4,
     "weight": 560,
-    "unringable": false,
+    "unringable": true,
     "practice": ""
   },
   {
@@ -23567,6 +23580,19 @@
     "weight": 1377,
     "unringable": false,
     "practice": "Mon"
+  },
+  {
+    "towerId": 1638,
+    "place": "Dereham",
+    "dedication": "S Nicholas",
+    "county": "Norfolk",
+    "iso3166": "GB",
+    "latitude": 52.68082,
+    "longitude": 0.93828,
+    "bells": 8,
+    "weight": 2569,
+    "unringable": false,
+    "practice": ""
   },
   {
     "towerId": 1494,
@@ -25987,19 +26013,6 @@
     "practice": ""
   },
   {
-    "towerId": 1638,
-    "place": "East Dereham",
-    "dedication": "S Nicholas",
-    "county": "Norfolk",
-    "iso3166": "GB",
-    "latitude": 52.68082,
-    "longitude": 0.93828,
-    "bells": 8,
-    "weight": 2569,
-    "unringable": false,
-    "practice": ""
-  },
-  {
     "towerId": 5789,
     "place": "East Down",
     "dedication": "S John Bapt",
@@ -26403,6 +26416,19 @@
     "practice": "Tue"
   },
   {
+    "towerId": 1661,
+    "place": "East Morden",
+    "dedication": "S Mary",
+    "county": "Dorset",
+    "iso3166": "GB",
+    "latitude": 50.75998,
+    "longitude": -2.12046,
+    "bells": 5,
+    "weight": 926,
+    "unringable": false,
+    "practice": "Wed"
+  },
+  {
     "towerId": 7554,
     "place": "East Norton",
     "dedication": "All Saints",
@@ -26582,7 +26608,7 @@
     "bells": 6,
     "weight": 779,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Sat 09:30"
   },
   {
     "towerId": 1673,
@@ -26634,7 +26660,7 @@
     "bells": 8,
     "weight": 980,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 1677,
@@ -27841,7 +27867,7 @@
     "latitude": 52.06744,
     "longitude": -2.02798,
     "bells": 6,
-    "weight": 1904,
+    "weight": 1830,
     "unringable": false,
     "practice": ""
   },
@@ -27999,7 +28025,7 @@
     "bells": 6,
     "weight": 952,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Thu 18:00"
   },
   {
     "towerId": 1759,
@@ -28259,7 +28285,7 @@
     "bells": 8,
     "weight": 2212,
     "unringable": false,
-    "practice": "Thu"
+    "practice": ""
   },
   {
     "towerId": 1776,
@@ -28797,7 +28823,7 @@
   {
     "towerId": 1810,
     "place": "Evesham",
-    "dedication": "The Bell Tower",
+    "dedication": "Bell Tower",
     "county": "Worcestershire",
     "iso3166": "GB",
     "latitude": 52.09127,
@@ -29182,7 +29208,7 @@
     "bells": 6,
     "weight": 976,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon"
   },
   {
     "towerId": 1838,
@@ -29364,7 +29390,7 @@
     "bells": 10,
     "weight": 1315,
     "unringable": false,
-    "practice": "Mon"
+    "practice": ""
   },
   {
     "towerId": 1849,
@@ -29387,8 +29413,8 @@
     "iso3166": "GB",
     "latitude": 51.3156,
     "longitude": -2.28862,
-    "bells": 5,
-    "weight": 535,
+    "bells": 6,
+    "weight": 638,
     "unringable": false,
     "practice": "Tue (see tower website)"
   },
@@ -29897,7 +29923,7 @@
     "bells": 6,
     "weight": 1008,
     "unringable": false,
-    "practice": "Fri 19:00"
+    "practice": ""
   },
   {
     "towerId": 6064,
@@ -30521,7 +30547,7 @@
     "bells": 8,
     "weight": 1897,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Wed (1st, 3rd, 5th)"
   },
   {
     "towerId": 1917,
@@ -30768,7 +30794,7 @@
     "bells": 8,
     "weight": 1318,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue"
   },
   {
     "towerId": 6467,
@@ -30987,7 +31013,7 @@
     "latitude": 50.75312,
     "longitude": -2.53035,
     "bells": 6,
-    "weight": 1806,
+    "weight": 1781,
     "unringable": false,
     "practice": ""
   },
@@ -32587,19 +32613,6 @@
     "longitude": 0.3563,
     "bells": 5,
     "weight": 936,
-    "unringable": true,
-    "practice": ""
-  },
-  {
-    "towerId": 7590,
-    "place": "Gooderstone",
-    "dedication": "S George",
-    "county": "Norfolk",
-    "iso3166": "GB",
-    "latitude": 52.5885,
-    "longitude": 0.60023,
-    "bells": 3,
-    "weight": 728,
     "unringable": true,
     "practice": ""
   },
@@ -34551,7 +34564,7 @@
     "bells": 6,
     "weight": 843,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Fri (1st, 4th, 5th) 20:00"
   },
   {
     "towerId": 2176,
@@ -34653,7 +34666,7 @@
     "latitude": 52.72163,
     "longitude": -0.63269,
     "bells": 6,
-    "weight": 1153,
+    "weight": 1127,
     "unringable": false,
     "practice": ""
   },
@@ -35485,7 +35498,7 @@
     "latitude": 50.90698,
     "longitude": -3.41585,
     "bells": 6,
-    "weight": 1966,
+    "weight": 1962,
     "unringable": false,
     "practice": "Wed"
   },
@@ -36290,10 +36303,10 @@
     "iso3166": "GB",
     "latitude": 52.87396,
     "longitude": -0.89135,
-    "bells": 5,
-    "weight": 968,
+    "bells": 6,
+    "weight": 972,
     "unringable": false,
-    "practice": ""
+    "practice": "Thu"
   },
   {
     "towerId": 2277,
@@ -36332,7 +36345,7 @@
     "bells": 8,
     "weight": 900,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri"
   },
   {
     "towerId": 7639,
@@ -36579,7 +36592,7 @@
     "bells": 8,
     "weight": 1176,
     "unringable": false,
-    "practice": "Wed (5th)"
+    "practice": ""
   },
   {
     "towerId": 2293,
@@ -36761,7 +36774,7 @@
     "bells": 8,
     "weight": 871,
     "unringable": false,
-    "practice": ""
+    "practice": "Sun (3rd: Also 4th Weds 14:30, check website) 16:00"
   },
   {
     "towerId": 2306,
@@ -37149,7 +37162,7 @@
     "latitude": 53.70843,
     "longitude": -2.32626,
     "bells": 8,
-    "weight": 1792,
+    "weight": 1848,
     "unringable": false,
     "practice": ""
   },
@@ -37983,7 +37996,7 @@
     "bells": 8,
     "weight": 1409,
     "unringable": false,
-    "practice": "Wed (alternates with Steeple Bumpstead)"
+    "practice": ""
   },
   {
     "towerId": 2386,
@@ -38384,7 +38397,7 @@
     "latitude": 52.03469,
     "longitude": -0.28422,
     "bells": 8,
-    "weight": 1624,
+    "weight": 1418,
     "unringable": false,
     "practice": "Tue"
   },
@@ -38594,7 +38607,7 @@
     "bells": 10,
     "weight": 2825,
     "unringable": false,
-    "practice": "Tue (1st, 3rd, 5th)"
+    "practice": ""
   },
   {
     "towerId": 2426,
@@ -38683,7 +38696,7 @@
     "latitude": 52.59908,
     "longitude": 1.18895,
     "bells": 8,
-    "weight": 1085,
+    "weight": 1082,
     "unringable": false,
     "practice": "Thu"
   },
@@ -41116,7 +41129,7 @@
     "bells": 8,
     "weight": 695,
     "unringable": false,
-    "practice": "Mon (rotates: see website) 19:00"
+    "practice": "Wed 19:00"
   },
   {
     "towerId": 6445,
@@ -44743,7 +44756,7 @@
     "bells": 6,
     "weight": 1494,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Wed (By arrangement only (check to confirm))"
   },
   {
     "towerId": 2807,
@@ -45547,7 +45560,7 @@
     "latitude": 50.3211,
     "longitude": -4.9592,
     "bells": 8,
-    "weight": 1261,
+    "weight": 1228,
     "unringable": false,
     "practice": "Wed (1st, 3rd)"
   },
@@ -47512,7 +47525,7 @@
     "bells": 8,
     "weight": 497,
     "unringable": false,
-    "practice": "Wed (advise to check first) 19:00"
+    "practice": "Wed (advise to check first)"
   },
   {
     "towerId": 2977,
@@ -47523,7 +47536,7 @@
     "latitude": 52.2014,
     "longitude": -1.5108,
     "bells": 6,
-    "weight": 622,
+    "weight": 655,
     "unringable": false,
     "practice": "Thu"
   },
@@ -47902,7 +47915,7 @@
     "bells": 8,
     "weight": 770,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed 17:30"
   },
   {
     "towerId": 3002,
@@ -47941,7 +47954,7 @@
     "bells": 6,
     "weight": 1092,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 3005,
@@ -48474,7 +48487,7 @@
     "bells": 5,
     "weight": 1196,
     "unringable": false,
-    "practice": "Mon"
+    "practice": ""
   },
   {
     "towerId": 6366,
@@ -49590,7 +49603,7 @@
     "latitude": 51.54165,
     "longitude": -3.37664,
     "bells": 8,
-    "weight": 1176,
+    "weight": 1072,
     "unringable": false,
     "practice": ""
   },
@@ -49813,7 +49826,7 @@
     "bells": 5,
     "weight": 616,
     "unringable": false,
-    "practice": "Thu 18:30"
+    "practice": "Thu (Check before) 18:30"
   },
   {
     "towerId": 3108,
@@ -51022,7 +51035,7 @@
     "bells": 6,
     "weight": 1344,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 3180,
@@ -51282,7 +51295,7 @@
     "bells": 8,
     "weight": 2271,
     "unringable": false,
-    "practice": "Thu (4th)"
+    "practice": "Fri"
   },
   {
     "towerId": 3197,
@@ -51703,7 +51716,7 @@
   {
     "towerId": 6562,
     "place": "Madrid",
-    "dedication": "Iglesia de San Francisco el Grande (The Royal Church)",
+    "dedication": "Iglesia de San Francisco el Grande (Royal Church)",
     "county": "Spain",
     "iso3166": "ES",
     "latitude": 40.41041,
@@ -52067,7 +52080,7 @@
   {
     "towerId": 3248,
     "place": "Manchester",
-    "dedication": "Cath & Parish Ch of S Mary, S Denys, & S George",
+    "dedication": "Cath and Collegiate Ch of S Mary, S Denys, & S George",
     "county": "Greater Manchester",
     "iso3166": "GB",
     "latitude": 53.48526,
@@ -52075,7 +52088,7 @@
     "bells": 10,
     "weight": 3114,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (not always: check) 19:00"
   },
   {
     "towerId": 3247,
@@ -52296,7 +52309,7 @@
     "bells": 6,
     "weight": 1172,
     "unringable": false,
-    "practice": "Mon"
+    "practice": "Wed"
   },
   {
     "towerId": 3262,
@@ -52580,7 +52593,7 @@
     "latitude": 53.86494,
     "longitude": -0.66718,
     "bells": 8,
-    "weight": 1098,
+    "weight": 1064,
     "unringable": false,
     "practice": "Wed"
   },
@@ -53219,7 +53232,7 @@
     "bells": 5,
     "weight": 742,
     "unringable": false,
-    "practice": "Wed 18:00"
+    "practice": "Tue (alternates with Bawtry) 19:00"
   },
   {
     "towerId": 3320,
@@ -53544,7 +53557,7 @@
     "bells": 8,
     "weight": 671,
     "unringable": false,
-    "practice": "Sat (check with contact)"
+    "practice": "Thu (2nd: check with contact)"
   },
   {
     "towerId": 3334,
@@ -53619,7 +53632,7 @@
     "iso3166": "GB",
     "latitude": 51.37256,
     "longitude": -2.14119,
-    "bells": 8,
+    "bells": 10,
     "weight": 2023,
     "unringable": false,
     "practice": ""
@@ -54753,7 +54766,7 @@
     "bells": 6,
     "weight": 1352,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Thu"
   },
   {
     "towerId": 3409,
@@ -55393,19 +55406,6 @@
     "practice": ""
   },
   {
-    "towerId": 1661,
-    "place": "Morden (Morden East)",
-    "dedication": "S Mary",
-    "county": "Dorset",
-    "iso3166": "GB",
-    "latitude": 50.75998,
-    "longitude": -2.12046,
-    "bells": 5,
-    "weight": 926,
-    "unringable": false,
-    "practice": "Wed"
-  },
-  {
     "towerId": 3448,
     "place": "Mordiford",
     "dedication": "Holy Rood",
@@ -55414,8 +55414,8 @@
     "latitude": 52.03374,
     "longitude": -2.62766,
     "bells": 5,
-    "weight": 1014,
-    "unringable": true,
+    "weight": 1009,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -55603,7 +55603,7 @@
   {
     "towerId": 3459,
     "place": "Morpeth",
-    "dedication": "The Clock Tower",
+    "dedication": "Clock Tower",
     "county": "Northumberland",
     "iso3166": "GB",
     "latitude": 55.16749,
@@ -56196,7 +56196,7 @@
     "bells": 8,
     "weight": 1596,
     "unringable": false,
-    "practice": ""
+    "practice": "Thu 18:00"
   },
   {
     "towerId": 7597,
@@ -56391,7 +56391,7 @@
     "bells": 6,
     "weight": 1112,
     "unringable": false,
-    "practice": "Fri 20:00"
+    "practice": "Tue (4th)"
   },
   {
     "towerId": 3509,
@@ -56480,7 +56480,7 @@
     "latitude": 51.34078,
     "longitude": -2.67224,
     "bells": 6,
-    "weight": 1008,
+    "weight": 880,
     "unringable": false,
     "practice": ""
   },
@@ -56741,7 +56741,7 @@
     "longitude": -0.32709,
     "bells": 3,
     "weight": 1120,
-    "unringable": true,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -57106,7 +57106,7 @@
     "bells": 6,
     "weight": 1225,
     "unringable": false,
-    "practice": "Wed 19:00"
+    "practice": ""
   },
   {
     "towerId": 3556,
@@ -57404,7 +57404,7 @@
     "longitude": 0.13046,
     "bells": 6,
     "weight": 1131,
-    "unringable": false,
+    "unringable": true,
     "practice": ""
   },
   {
@@ -58354,7 +58354,7 @@
     "bells": 10,
     "weight": 1164,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Tue (1st)"
   },
   {
     "towerId": 3629,
@@ -58528,7 +58528,7 @@
   {
     "towerId": 5867,
     "place": "Northampton",
-    "dedication": "",
+    "dedication": "Smith College",
     "county": "Massachusetts",
     "iso3166": "US",
     "latitude": 42.31604,
@@ -58536,7 +58536,7 @@
     "bells": 8,
     "weight": 963,
     "unringable": false,
-    "practice": "Mon 17:30 & Thu 17:30"
+    "practice": "Mon 18:30 & Thu 18:30"
   },
   {
     "towerId": 3637,
@@ -58892,7 +58892,7 @@
   {
     "towerId": 7565,
     "place": "Norton",
-    "dedication": "S Andrew",
+    "dedication": "former ch of S Andrew",
     "county": "Powys",
     "iso3166": "GB",
     "latitude": 52.29901,
@@ -59238,7 +59238,7 @@
     "bells": 10,
     "weight": 1823,
     "unringable": false,
-    "practice": "Tue (term only) 19:00"
+    "practice": ""
   },
   {
     "towerId": 3684,
@@ -59431,7 +59431,7 @@
     "latitude": 50.98049,
     "longitude": -3.55383,
     "bells": 8,
-    "weight": 1383,
+    "weight": 1195,
     "unringable": false,
     "practice": ""
   },
@@ -60811,7 +60811,7 @@
     "bells": 8,
     "weight": 1060,
     "unringable": false,
-    "practice": "Mon 19:00"
+    "practice": "Wed"
   },
   {
     "towerId": 3780,
@@ -60889,7 +60889,7 @@
     "bells": 8,
     "weight": 1139,
     "unringable": false,
-    "practice": "Fri"
+    "practice": ""
   },
   {
     "towerId": 3786,
@@ -61487,7 +61487,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Thu 20:00"
   },
   {
     "towerId": 7617,
@@ -61599,8 +61599,8 @@
     "dedication": "S John Bapt",
     "county": "Cambridgeshire",
     "iso3166": "GB",
-    "latitude": 52.66163,
-    "longitude": 0.05404,
+    "latitude": 52.66167,
+    "longitude": 0.0541,
     "bells": 5,
     "weight": 1176,
     "unringable": true,
@@ -61799,7 +61799,7 @@
     "bells": 5,
     "weight": 1008,
     "unringable": false,
-    "practice": "Thu"
+    "practice": ""
   },
   {
     "towerId": 3841,
@@ -62004,10 +62004,10 @@
     "iso3166": "GB",
     "latitude": 51.67637,
     "longitude": -4.91774,
-    "bells": 8,
-    "weight": 1344,
+    "bells": 10,
+    "weight": 1204,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Fri"
   },
   {
     "towerId": 3857,
@@ -62202,7 +62202,7 @@
     "bells": 8,
     "weight": 2106,
     "unringable": false,
-    "practice": "Tue (Check to confirm)"
+    "practice": "Tue"
   },
   {
     "towerId": 3856,
@@ -62226,7 +62226,7 @@
     "latitude": 51.17347,
     "longitude": 0.18326,
     "bells": 8,
-    "weight": 1971,
+    "weight": 1795,
     "unringable": false,
     "practice": ""
   },
@@ -62441,7 +62441,7 @@
   {
     "towerId": 6138,
     "place": "Perth",
-    "dedication": "The Bell Tower (Swan Bells)",
+    "dedication": "Bell Tower",
     "county": "Western Australia",
     "iso3166": "AU",
     "latitude": -31.95898,
@@ -62629,9 +62629,9 @@
     "latitude": 50.81969,
     "longitude": 0.33672,
     "bells": 6,
-    "weight": 871,
+    "weight": 822,
     "unringable": false,
-    "practice": "Sat 10:00"
+    "practice": ""
   },
   {
     "towerId": 3898,
@@ -62813,7 +62813,7 @@
     "bells": 6,
     "weight": 1358,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Tue (exc 1st)"
   },
   {
     "towerId": 3905,
@@ -62826,7 +62826,7 @@
     "bells": 6,
     "weight": 2132,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (1st)"
   },
   {
     "towerId": 7417,
@@ -62892,19 +62892,6 @@
     "weight": 2637,
     "unringable": false,
     "practice": "Tue"
-  },
-  {
-    "towerId": 3910,
-    "place": "Pilton",
-    "dedication": "All Saints",
-    "county": "Northamptonshire",
-    "iso3166": "GB",
-    "latitude": 52.4492,
-    "longitude": -0.49365,
-    "bells": 4,
-    "weight": 896,
-    "unringable": false,
-    "practice": ""
   },
   {
     "towerId": 3911,
@@ -63268,7 +63255,7 @@
     "bells": 6,
     "weight": 1240,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 3935,
@@ -64360,7 +64347,7 @@
     "bells": 6,
     "weight": 951,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Thu 18:00"
   },
   {
     "towerId": 6864,
@@ -64542,7 +64529,7 @@
     "bells": 8,
     "weight": 1591,
     "unringable": false,
-    "practice": "Tue (Tuesday practices are occasionally (probably monthly) to be held at S Matthew\u2019s Bell Tower; intending visitors are advised to confirm practice arrangements with the local contact) 18:00"
+    "practice": "Tue (exc 2nd: Tuesday practices are occasionally (probably monthly) to be held at S Matthew\u2019s Bell Tower; intending visitors are advised to confirm practice arrangements with the local contact) 19:00"
   },
   {
     "towerId": 5879,
@@ -64555,7 +64542,7 @@
     "bells": 8,
     "weight": 1680,
     "unringable": false,
-    "practice": "Tue (Once a month at the library as well as upon special request. Best to confirm by email for any visiting ringers) 18:00"
+    "practice": "Tue (2nd: Once a month at the library as well as upon special request. Best to confirm by email for any visiting ringers) 18:00"
   },
   {
     "towerId": 4018,
@@ -65322,7 +65309,7 @@
     "bells": 6,
     "weight": 733,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Wed 19:00"
   },
   {
     "towerId": 4062,
@@ -65841,7 +65828,7 @@
     "longitude": -2.7577,
     "bells": 3,
     "weight": 784,
-    "unringable": false,
+    "unringable": true,
     "practice": ""
   },
   {
@@ -65856,6 +65843,19 @@
     "weight": 2072,
     "unringable": false,
     "practice": "Tue"
+  },
+  {
+    "towerId": 7884,
+    "place": "Richmond",
+    "dedication": "S Peter",
+    "county": "New South Wales",
+    "iso3166": "AU",
+    "latitude": -33.59382,
+    "longitude": 150.744,
+    "bells": 8,
+    "weight": 389,
+    "unringable": false,
+    "practice": ""
   },
   {
     "towerId": 4091,
@@ -66037,7 +66037,7 @@
     "bells": 8,
     "weight": 1978,
     "unringable": false,
-    "practice": "Wed (see tower website)"
+    "practice": ""
   },
   {
     "towerId": 4103,
@@ -66167,7 +66167,7 @@
     "bells": 6,
     "weight": 1510,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Tue"
   },
   {
     "towerId": 4112,
@@ -66543,7 +66543,7 @@
     "longitude": -3.81424,
     "bells": 6,
     "weight": 784,
-    "unringable": false,
+    "unringable": true,
     "practice": ""
   },
   {
@@ -66557,7 +66557,7 @@
     "bells": 8,
     "weight": 1750,
     "unringable": false,
-    "practice": "Wed 19:45"
+    "practice": "Wed"
   },
   {
     "towerId": 4137,
@@ -66595,7 +66595,7 @@
     "longitude": -1.07922,
     "bells": 6,
     "weight": 1703,
-    "unringable": true,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -66607,7 +66607,7 @@
     "latitude": 50.98189,
     "longitude": -3.72867,
     "bells": 6,
-    "weight": 1008,
+    "weight": 926,
     "unringable": false,
     "practice": ""
   },
@@ -66648,7 +66648,7 @@
     "bells": 8,
     "weight": 2272,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 5889,
@@ -66791,7 +66791,7 @@
     "bells": 6,
     "weight": 1307,
     "unringable": false,
-    "practice": "Thu"
+    "practice": ""
   },
   {
     "towerId": 6331,
@@ -67649,7 +67649,7 @@
     "bells": 6,
     "weight": 934,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Thu 17:00"
   },
   {
     "towerId": 7267,
@@ -68039,7 +68039,7 @@
     "bells": 6,
     "weight": 182,
     "unringable": false,
-    "practice": "Tue (2nd)"
+    "practice": ""
   },
   {
     "towerId": 4224,
@@ -68052,7 +68052,7 @@
     "bells": 6,
     "weight": 860,
     "unringable": false,
-    "practice": "Mon"
+    "practice": ""
   },
   {
     "towerId": 4225,
@@ -69714,7 +69714,7 @@
     "latitude": 53.3813,
     "longitude": -1.46869,
     "bells": 8,
-    "weight": 2804,
+    "weight": 2791,
     "unringable": false,
     "practice": "Mon 19:00"
   },
@@ -70220,9 +70220,9 @@
     "iso3166": "GB",
     "latitude": 51.77271,
     "longitude": -1.61442,
-    "bells": 3,
-    "weight": 560,
-    "unringable": true,
+    "bells": 6,
+    "weight": 493,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -71003,7 +71003,7 @@
     "bells": 6,
     "weight": 1354,
     "unringable": false,
-    "practice": "Mon"
+    "practice": ""
   },
   {
     "towerId": 4414,
@@ -71159,7 +71159,7 @@
     "bells": 6,
     "weight": 1076,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri (Check before; practice held at Kelston, S Nicholas, once every four to six weeks) 10:00"
   },
   {
     "towerId": 7276,
@@ -71994,19 +71994,6 @@
     "practice": "Tue"
   },
   {
-    "towerId": 4474,
-    "place": "South Hill",
-    "dedication": "S Sampson",
-    "county": "Cornwall",
-    "iso3166": "GB",
-    "latitude": 50.5295,
-    "longitude": -4.35838,
-    "bells": 5,
-    "weight": 902,
-    "unringable": true,
-    "practice": ""
-  },
-  {
     "towerId": 6339,
     "place": "South Kelsey",
     "dedication": "S Mary",
@@ -72485,7 +72472,7 @@
     "bells": 8,
     "weight": 1733,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue"
   },
   {
     "towerId": 6459,
@@ -73229,6 +73216,19 @@
     "practice": ""
   },
   {
+    "towerId": 7833,
+    "place": "St Anne",
+    "dedication": "Channel Islands' Ringing Centre",
+    "county": "Alderney",
+    "iso3166": "GG",
+    "latitude": 49.72382,
+    "longitude": -2.16998,
+    "bells": 8,
+    "weight": 288,
+    "unringable": false,
+    "practice": "Wed 16:00"
+  },
+  {
     "towerId": 4549,
     "place": "St Anne",
     "dedication": "S Anne",
@@ -73240,19 +73240,6 @@
     "weight": 1484,
     "unringable": false,
     "practice": "Mon 17:00"
-  },
-  {
-    "towerId": 7833,
-    "place": "St Anne",
-    "dedication": "The Channel Islands Ringing Centre",
-    "county": "Alderney",
-    "iso3166": "GG",
-    "latitude": 49.72382,
-    "longitude": -2.16998,
-    "bells": 8,
-    "weight": 288,
-    "unringable": false,
-    "practice": "Wed 16:00"
   },
   {
     "towerId": 4548,
@@ -74655,7 +74642,7 @@
     "longitude": -0.65893,
     "bells": 4,
     "weight": 1308,
-    "unringable": true,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -75122,7 +75109,7 @@
     "latitude": 52.93864,
     "longitude": -1.30999,
     "bells": 8,
-    "weight": 1177,
+    "weight": 0,
     "unringable": false,
     "practice": "Mon"
   },
@@ -75371,7 +75358,7 @@
     "bells": 6,
     "weight": 1500,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 4686,
@@ -75644,7 +75631,7 @@
     "bells": 6,
     "weight": 1626,
     "unringable": false,
-    "practice": "Wed (alternates with Helions Bumpstead)"
+    "practice": "Wed"
   },
   {
     "towerId": 4705,
@@ -75994,7 +75981,7 @@
     "longitude": -3.63475,
     "bells": 4,
     "weight": 784,
-    "unringable": false,
+    "unringable": true,
     "practice": ""
   },
   {
@@ -76851,7 +76838,7 @@
     "latitude": 51.7434,
     "longitude": -2.29198,
     "bells": 6,
-    "weight": 1932,
+    "weight": 1945,
     "unringable": false,
     "practice": "Wed"
   },
@@ -77438,7 +77425,7 @@
     "bells": 8,
     "weight": 911,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Tue 19:00"
   },
   {
     "towerId": 4817,
@@ -77880,7 +77867,7 @@
     "bells": 8,
     "weight": 1628,
     "unringable": false,
-    "practice": "Tue (1st, 3rd, 5th)"
+    "practice": "Tue"
   },
   {
     "towerId": 4847,
@@ -78426,7 +78413,7 @@
     "bells": 6,
     "weight": 1396,
     "unringable": false,
-    "practice": ""
+    "practice": "Thu"
   },
   {
     "towerId": 4880,
@@ -79492,7 +79479,7 @@
     "bells": 6,
     "weight": 1255,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Mon"
   },
   {
     "towerId": 4940,
@@ -79778,7 +79765,7 @@
     "bells": 6,
     "weight": 529,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Fri (Sometimes changed to Thursday)"
   },
   {
     "towerId": 4955,
@@ -81741,7 +81728,7 @@
     "bells": 8,
     "weight": 2001,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri"
   },
   {
     "towerId": 5067,
@@ -82261,7 +82248,7 @@
     "bells": 6,
     "weight": 1565,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed"
   },
   {
     "towerId": 5096,
@@ -82417,7 +82404,7 @@
     "bells": 8,
     "weight": 357,
     "unringable": false,
-    "practice": "Tue (19:00)"
+    "practice": ""
   },
   {
     "towerId": 7766,
@@ -82430,7 +82417,7 @@
     "bells": 12,
     "weight": 844,
     "unringable": false,
-    "practice": "Tue 19:00"
+    "practice": ""
   },
   {
     "towerId": 5107,
@@ -82508,7 +82495,7 @@
     "bells": 8,
     "weight": 1567,
     "unringable": false,
-    "practice": "Mon 19:00"
+    "practice": "Mon 18:30"
   },
   {
     "towerId": 6859,
@@ -82534,7 +82521,7 @@
     "bells": 8,
     "weight": 1101,
     "unringable": false,
-    "practice": "Mon 19:00"
+    "practice": ""
   },
   {
     "towerId": 5112,
@@ -82599,7 +82586,7 @@
     "bells": 8,
     "weight": 1303,
     "unringable": false,
-    "practice": "Mon"
+    "practice": "Tue (1st, 3rd) 18:30"
   },
   {
     "towerId": 5116,
@@ -83496,7 +83483,7 @@
     "bells": 8,
     "weight": 1774,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 5179,
@@ -83598,7 +83585,7 @@
     "latitude": 52.89869,
     "longitude": -1.86307,
     "bells": 8,
-    "weight": 1989,
+    "weight": 1940,
     "unringable": false,
     "practice": ""
   },
@@ -84432,7 +84419,7 @@
     "bells": 8,
     "weight": 440,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Sun (1st, 2nd, 5th) 12:00"
   },
   {
     "towerId": 5237,
@@ -85342,7 +85329,7 @@
     "bells": 8,
     "weight": 3365,
     "unringable": false,
-    "practice": "Fri 09:30"
+    "practice": "Mon 16:30"
   },
   {
     "towerId": 5293,
@@ -85355,7 +85342,7 @@
     "bells": 10,
     "weight": 2706,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri"
   },
   {
     "towerId": 5294,
@@ -85563,7 +85550,7 @@
     "bells": 8,
     "weight": 3183,
     "unringable": false,
-    "practice": "Wed (19.00)"
+    "practice": "Wed 19:00"
   },
   {
     "towerId": 5307,
@@ -85927,7 +85914,7 @@
     "bells": 6,
     "weight": 1132,
     "unringable": false,
-    "practice": "Fri 19:00"
+    "practice": "Fri (April - September) & Sat (October - March  : Saturday Afternoons (time varies around church events ))"
   },
   {
     "towerId": 6538,
@@ -86211,7 +86198,7 @@
     "latitude": 50.97358,
     "longitude": -0.33369,
     "bells": 6,
-    "weight": 896,
+    "weight": 816,
     "unringable": false,
     "practice": "Thu 20:00"
   },
@@ -86996,19 +86983,6 @@
     "practice": ""
   },
   {
-    "towerId": 7634,
-    "place": "Westmeston",
-    "dedication": "S Martin",
-    "county": "East Sussex",
-    "iso3166": "GB",
-    "latitude": 50.90671,
-    "longitude": -0.09723,
-    "bells": 3,
-    "weight": 781,
-    "unringable": true,
-    "practice": ""
-  },
-  {
     "towerId": 5393,
     "place": "Westmill",
     "dedication": "S Mary V",
@@ -87032,7 +87006,7 @@
     "bells": 10,
     "weight": 2403,
     "unringable": false,
-    "practice": ""
+    "practice": "Thu (term only) 15:30"
   },
   {
     "towerId": 5396,
@@ -87531,7 +87505,7 @@
   {
     "towerId": 5424,
     "place": "Whalley",
-    "dedication": "S Mary V & All Saints",
+    "dedication": "S Mary & All Saints",
     "county": "Lancashire",
     "iso3166": "GB",
     "latitude": 53.82118,
@@ -89086,7 +89060,7 @@
     "bells": 6,
     "weight": 1512,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Wed 20:00"
   },
   {
     "towerId": 6248,
@@ -90048,7 +90022,7 @@
     "bells": 8,
     "weight": 2666,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Thu"
   },
   {
     "towerId": 5588,
@@ -90945,7 +90919,7 @@
     "bells": 8,
     "weight": 1200,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Mon"
   },
   {
     "towerId": 5650,
@@ -92276,7 +92250,7 @@
   {
     "towerId": 5735,
     "place": "Yatton",
-    "dedication": "S Mary the Virgin",
+    "dedication": "S Mary V",
     "county": "Somerset",
     "iso3166": "GB",
     "latitude": 51.38483,
