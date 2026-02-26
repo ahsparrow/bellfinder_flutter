@@ -41,6 +41,6 @@ version 1.2.3 and build 45 - `version: 1.2.3+45`
 
 Update Dove data in assets/dove.json
 
-Run `flutter build appbundle -dart-define='DOVE_DATE=<date_string>`
+Run `flutter build appbundle --dart-define='DOVE_DATE=<date_string>`
 
 The release bundle is created at `[project]/build/app/outputs/bundle/release/app.aab`
