@@ -32,6 +32,16 @@ LICENSES
    ShareAlike 4.0 International Public License. To view a copy of the
    license, visit <https://creativecommons.org/licenses/by-sa/4.0/legalcode>
 
+## Build
+
+Generate the drift database
+
+    dart run build_runner build
+
+Build and test
+
+    flutter run
+
 ## Release build (Android)
 
 Set the keystore properties in android/key.properties.
