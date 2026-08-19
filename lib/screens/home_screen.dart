@@ -283,41 +283,39 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _importCsv(BuildContext context) async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       dialogTitle: "Choose a file",
-      withReadStream: true,
     );
 
-    if (result == null || result.count == 0) {
-      return;
-    }
+    if (file != null) {
+      final data = await file.xFile.readAsString();
+      final numVisits = await widget.viewModel.loadCsvVists(data);
 
-    final data = await result.xFiles[0].readAsString();
-    final numVisits = await widget.viewModel.loadCsvVists(data);
-
-    if (numVisits == 0 && context.mounted) {
-      await showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content: Text('Cannot load visit data from ${result.names[0]}'),
-            actions: [
-              TextButton(
-                child: const Text("OK"),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
-          );
-        },
-      );
+      if (numVisits == 0 && context.mounted) {
+        await showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Error'),
+              content: Text('Cannot load visit data from ${file.name}'),
+              actions: [
+                TextButton(
+                  child: const Text("OK"),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            );
+          },
+        );
+      }
     }
   }
 
   void _exportCsv(BuildContext context) async {
     final data = utf8.encode(widget.viewModel.encodeCsvVisits());
-    await FilePicker.platform.saveFile(
+
+    await FilePicker.saveFile(
       dialogTitle: 'Choose a file',
       fileName: 'visits.csv',
       bytes: data,
