@@ -50,6 +50,7 @@ flutter:
 
   assets:
   - assets/dove.json
+  - assets/map_style.json
   - assets/tower3.svg
   - assets/tower4.svg
   - assets/tower5.svg

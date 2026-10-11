@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert' show jsonDecode;
 
 import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_vector_tiles/flutter_map_vector_tiles.dart' as vt;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -86,16 +88,28 @@ class MapWidgetState extends State<MapWidget> {
     super.dispose();
   }
 
+  Future<(vt.Style, vt.Theme)> getStyle() async {
+    late final vt.Style style;
+    late final String theme;
+
+    await Future.wait([
+      _remoteStyle.then((value) => style = value),
+      rootBundle
+          .loadString('assets/map_style.json')
+          .then((value) => theme = value),
+    ]);
+
+    return (style, vt.ThemeReader().read(jsonDecode(theme)));
+  }
+
   @override
   Widget build(context) {
     final mapCenter = widget.viewModel.getMapCenter();
 
     return FutureBuilder(
-        future: _remoteStyle,
+        future: getStyle(),
         builder: (context, snapshot) {
-          final style = snapshot.data;
-
-          if (style == null) {
+          if (snapshot.data == null) {
             final error = snapshot.error;
             return Center(
               child: error != null
@@ -106,6 +120,9 @@ class MapWidgetState extends State<MapWidget> {
                   : const CircularProgressIndicator(),
             );
           }
+
+          final remoteStyle = snapshot.data!.$1;
+          final localTheme = snapshot.data!.$2;
 
           return FlutterMap(
             mapController: widget.controller,
@@ -137,10 +154,10 @@ class MapWidgetState extends State<MapWidget> {
             children: [
               // Map layer
               vt.VectorTileLayer(
-                theme: style.theme,
-                tileProviders: style.providers,
-                rasterSources: style.rasterSources,
-                sprites: style.sprites,
+                theme: localTheme,
+                tileProviders: remoteStyle.providers,
+                rasterSources: remoteStyle.rasterSources,
+                sprites: remoteStyle.sprites,
               ),
 
               // Location marker
