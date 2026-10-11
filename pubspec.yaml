@@ -21,6 +21,7 @@ dependencies:
   shared_preferences: ^2.5.3
   package_info_plus: ^10.2.1
   flutter_map: ^8.1.1
+  flutter_map_vector_tiles: ^2.9.1
   latlong2: ^0.9.1
   url_launcher: ^6.3.1
   flutter_svg: ^2.0.16

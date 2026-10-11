@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
+import 'package:flutter_map_vector_tiles/flutter_map_vector_tiles.dart' as vt;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -49,6 +50,8 @@ class MapWidget extends StatefulWidget {
 }
 
 class MapWidgetState extends State<MapWidget> {
+  late final Future<vt.Style> _remoteStyle;
+
   late final PopupController _popupController;
 
   late AlignOnUpdate _alignOnUpdate;
@@ -60,6 +63,10 @@ class MapWidgetState extends State<MapWidget> {
   void initState() {
     super.initState();
 
+    _remoteStyle = const vt.StyleReader(
+            uri: 'https://tiles.openfreemap.org/styles/liberty')
+        .read();
+
     _popupController = PopupController();
 
     _alignOnUpdate = AlignOnUpdate.never;
@@ -68,103 +75,129 @@ class MapWidgetState extends State<MapWidget> {
 
   @override
   void dispose() async {
-    super.dispose();
     final camera = widget.controller.camera;
     await widget.viewModel.saveMapCenter(
         camera.center.latitude, camera.center.longitude, camera.zoom);
 
     _alignPositionStreamController.close();
     _popupController.dispose();
+
+    _remoteStyle.then((style) => style.dispose()).ignore();
+    super.dispose();
   }
 
   @override
   Widget build(context) {
     final mapCenter = widget.viewModel.getMapCenter();
-    return FlutterMap(
-      mapController: widget.controller,
-      options: MapOptions(
-        initialCenter: LatLng(mapCenter.latitude, mapCenter.longitude),
-        initialZoom: mapCenter.zoom,
-        maxZoom: 15,
-        minZoom: 2,
-        interactionOptions: InteractionOptions(
-          flags: ~(InteractiveFlag.rotate | InteractiveFlag.doubleTapZoom),
-        ),
-        onTap: (_, __) => _popupController.hideAllPopups(),
-        onPositionChanged: (_, bool hasGesture) {
-          if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
-            setState(
-              () => _alignOnUpdate = AlignOnUpdate.never,
+
+    return FutureBuilder(
+        future: _remoteStyle,
+        builder: (context, snapshot) {
+          final style = snapshot.data;
+
+          if (style == null) {
+            final error = snapshot.error;
+            return Center(
+              child: error != null
+                  ? Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Text('Failed to load style:\n$error'),
+                    )
+                  : const CircularProgressIndicator(),
             );
           }
-        },
-        onMapEvent: (ev) {
-          if (ev is MapEventMove && ev.id == "showtower") {
-            if (mounted) {
-              setState(() => _alignOnUpdate = AlignOnUpdate.never);
-            }
-          }
-        },
-      ),
-      children: [
-        // Map layer
-        TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'BellFinder/2.0 (contact: bellfinder@freeflight.org.uk)',
-        ),
 
-        // Location marker
-        CurrentLocationLayer(
-          alignPositionStream: _alignPositionStreamController.stream,
-          alignPositionOnUpdate: _alignOnUpdate,
-          alignPositionAnimationDuration: const Duration(milliseconds: 500),
-          style: LocationMarkerStyle(
-            marker: DefaultLocationMarker(
-              color: Colors.green[600]!,
-            ),
-            showAccuracyCircle: false,
-            showHeadingSector: false,
-          ),
-        ),
-
-        // Marker layer
-        markerLayerBuilder(),
-
-        // Attribution layer
-        RichAttributionWidget(
-          alignment: AttributionAlignment.bottomLeft,
-          showFlutterMapAttribution: false,
-          attributions: [
-            TextSourceAttribution(
-              'OpenStreetMap contributors',
-              onTap: () => launchUrl(Uri.parse(
-                  'https://openstreetmap.org/copyright')), // (external)
-            ),
-          ],
-        ),
-
-        // Location button
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Padding(
-            padding: EdgeInsets.all(4),
-            child: IconButton(
-              icon: (_alignOnUpdate == AlignOnUpdate.never)
-                  ? Icon(Icons.location_searching)
-                  : Icon(Icons.my_location, color: Colors.deepPurple),
-              onPressed: () {
-                setState(
-                  () => _alignOnUpdate = (_alignOnUpdate == AlignOnUpdate.never)
-                      ? AlignOnUpdate.always
-                      : AlignOnUpdate.never,
-                );
-                _alignPositionStreamController.add(null);
+          return FlutterMap(
+            mapController: widget.controller,
+            options: MapOptions(
+              initialCenter: LatLng(mapCenter.latitude, mapCenter.longitude),
+              initialZoom: mapCenter.zoom,
+              maxZoom: 19,
+              minZoom: 2,
+              interactionOptions: InteractionOptions(
+                flags:
+                    ~(InteractiveFlag.rotate | InteractiveFlag.doubleTapZoom),
+              ),
+              onTap: (_, __) => _popupController.hideAllPopups(),
+              onPositionChanged: (_, bool hasGesture) {
+                if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
+                  setState(
+                    () => _alignOnUpdate = AlignOnUpdate.never,
+                  );
+                }
+              },
+              onMapEvent: (ev) {
+                if (ev is MapEventMove && ev.id == "showtower") {
+                  if (mounted) {
+                    setState(() => _alignOnUpdate = AlignOnUpdate.never);
+                  }
+                }
               },
             ),
-          ),
-        ),
-      ],
-    );
+            children: [
+              // Map layer
+              vt.VectorTileLayer(
+                theme: style.theme,
+                tileProviders: style.providers,
+                rasterSources: style.rasterSources,
+                sprites: style.sprites,
+              ),
+
+              // Location marker
+              CurrentLocationLayer(
+                alignPositionStream: _alignPositionStreamController.stream,
+                alignPositionOnUpdate: _alignOnUpdate,
+                alignPositionAnimationDuration:
+                    const Duration(milliseconds: 500),
+                style: LocationMarkerStyle(
+                  marker: DefaultLocationMarker(
+                    color: Colors.green[600]!,
+                  ),
+                  showAccuracyCircle: false,
+                  showHeadingSector: false,
+                ),
+              ),
+
+              // Marker layer
+              markerLayerBuilder(),
+
+              // Attribution layer
+              RichAttributionWidget(
+                alignment: AttributionAlignment.bottomLeft,
+                showFlutterMapAttribution: false,
+                attributions: [
+                  TextSourceAttribution(
+                    'OpenStreetMap contributors',
+                    onTap: () => launchUrl(Uri.parse(
+                        'https://openstreetmap.org/copyright')), // (external)
+                  ),
+                ],
+              ),
+
+              // Location button
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: EdgeInsets.all(4),
+                  child: IconButton(
+                    icon: (_alignOnUpdate == AlignOnUpdate.never)
+                        ? Icon(Icons.location_searching)
+                        : Icon(Icons.my_location, color: Colors.deepPurple),
+                    onPressed: () {
+                      setState(
+                        () => _alignOnUpdate =
+                            (_alignOnUpdate == AlignOnUpdate.never)
+                                ? AlignOnUpdate.always
+                                : AlignOnUpdate.never,
+                      );
+                      _alignPositionStreamController.add(null);
+                    },
+                  ),
+                ),
+              ),
+            ],
+          );
+        });
   }
 
   ListenableBuilder markerLayerBuilder() {
