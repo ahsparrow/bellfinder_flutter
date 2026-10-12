@@ -184,9 +184,19 @@ class MapWidgetState extends State<MapWidget> {
                 showFlutterMapAttribution: false,
                 attributions: [
                   TextSourceAttribution(
+                    'OpenFreeMap',
+                    onTap: () =>
+                        launchUrl(Uri.parse('https://openfreemap.org')),
+                  ),
+                  TextSourceAttribution(
+                    'OpenMapTiles',
+                    onTap: () =>
+                        launchUrl(Uri.parse('https://openmaptiles.org')),
+                  ),
+                  TextSourceAttribution(
                     'OpenStreetMap contributors',
-                    onTap: () => launchUrl(Uri.parse(
-                        'https://openstreetmap.org/copyright')), // (external)
+                    onTap: () => launchUrl(
+                        Uri.parse('https://openstreetmap.org/copyright')),
                   ),
                 ],
               ),
