@@ -76,10 +76,13 @@ class MapWidgetState extends State<MapWidget> {
   }
 
   @override
-  void dispose() async {
+  void dispose() {
     final camera = widget.controller.camera;
-    await widget.viewModel.saveMapCenter(
-        camera.center.latitude, camera.center.longitude, camera.zoom);
+
+    Future.delayed(Duration.zero, () async {
+      widget.viewModel.saveMapCenter(
+          camera.center.latitude, camera.center.longitude, camera.zoom);
+    });
 
     _alignPositionStreamController.close();
     _popupController.dispose();
