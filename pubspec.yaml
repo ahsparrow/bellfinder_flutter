@@ -34,6 +34,7 @@ dependencies:
   collection: ^1.19.0
   flutter_map_location_marker: ^10.1.0
   sqflite: ^2.4.2
+  material_ui: any
 
 dev_dependencies:
   flutter_test:
