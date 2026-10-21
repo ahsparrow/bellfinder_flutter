@@ -60,6 +60,8 @@ class MapWidgetState extends State<MapWidget> {
   late AlignOnUpdate _alignOnUpdate;
   late final StreamController<double?> _alignPositionStreamController;
 
+  late final ListenableBuilder _markerLayer;
+
   List<TowerMarker> markers = [];
 
   @override
@@ -77,6 +79,8 @@ class MapWidgetState extends State<MapWidget> {
 
     _alignOnUpdate = AlignOnUpdate.never;
     _alignPositionStreamController = StreamController<double?>();
+
+    _markerLayer = markerLayerBuilder();
   }
 
   @override
@@ -181,7 +185,7 @@ class MapWidgetState extends State<MapWidget> {
               ),
 
               // Marker layer
-              markerLayerBuilder(),
+              _markerLayer,
 
               // Attribution layer
               RichAttributionWidget(
