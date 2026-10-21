@@ -123,7 +123,7 @@ Future<void> migrateOldVisits(AppDatabase db) async {
     final dbPath = path.join(dirPath, 'tower_database');
 
     if (await databaseExists(dbPath)) {
-      var oldDb = await openReadOnlyDatabase('tower_database');
+      var oldDb = await openReadOnlyDatabase(dbPath);
       final oldVisits = await oldDb.rawQuery('select * from visits');
 
       final visits = oldVisits.map((v) => Visit(
