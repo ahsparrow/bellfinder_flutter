@@ -53,6 +53,7 @@ class MapWidget extends StatefulWidget {
 
 class MapWidgetState extends State<MapWidget> {
   late final Future<vt.Style> _remoteStyle;
+  late final Future<vt.Theme> _localTheme;
 
   late final PopupController _popupController;
 
@@ -68,6 +69,9 @@ class MapWidgetState extends State<MapWidget> {
     _remoteStyle = const vt.StyleReader(
             uri: 'https://tiles.openfreemap.org/styles/liberty')
         .read();
+    _localTheme = rootBundle
+        .loadString('assets/map_style.json')
+        .then((value) => vt.ThemeReader().read(jsonDecode(value)));
 
     _popupController = PopupController();
 
@@ -93,16 +97,14 @@ class MapWidgetState extends State<MapWidget> {
 
   Future<(vt.Style, vt.Theme)> getStyle() async {
     late final vt.Style style;
-    late final String theme;
+    late final vt.Theme theme;
 
     await Future.wait([
       _remoteStyle.then((value) => style = value),
-      rootBundle
-          .loadString('assets/map_style.json')
-          .then((value) => theme = value),
+      _localTheme.then((value) => theme = value),
     ]);
 
-    return (style, vt.ThemeReader().read(jsonDecode(theme)));
+    return (style, theme);
   }
 
   @override
