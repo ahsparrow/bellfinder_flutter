@@ -12,7 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  drift: ^2.22.1
   drift_flutter: ^0.3.1
   path: ^1.9.1
   provider: ^6.1.2
