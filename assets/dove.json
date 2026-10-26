@@ -88,7 +88,7 @@
     "bells": 6,
     "weight": 1288,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 6891,
@@ -504,7 +504,7 @@
     "bells": 6,
     "weight": 1140,
     "unringable": false,
-    "practice": "Wed (2nd, 4th: alternates with Ilkley)"
+    "practice": "Wed (2nd, 4th)"
   },
   {
     "towerId": 6871,
@@ -569,7 +569,7 @@
     "bells": 12,
     "weight": 3193,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (monthly) & Wed"
   },
   {
     "towerId": 5916,
@@ -621,7 +621,7 @@
     "bells": 8,
     "weight": 1525,
     "unringable": false,
-    "practice": "Mon (monthly: check) 17:30"
+    "practice": "Mon (monthly) 17:30"
   },
   {
     "towerId": 34,
@@ -686,7 +686,7 @@
     "bells": 6,
     "weight": 1144,
     "unringable": false,
-    "practice": "Tue (by arrangement) 18:30"
+    "practice": "Tue (check) 18:30"
   },
   {
     "towerId": 39,
@@ -790,7 +790,7 @@
     "bells": 8,
     "weight": 1413,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 47,
@@ -933,7 +933,7 @@
     "bells": 6,
     "weight": 1064,
     "unringable": false,
-    "practice": "Wed (2nd, 4th: shared with Dumbleton)"
+    "practice": "Wed (2nd, 4th)"
   },
   {
     "towerId": 58,
@@ -1063,7 +1063,7 @@
     "bells": 3,
     "weight": 1058,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 7791,
@@ -1219,7 +1219,7 @@
     "bells": 6,
     "weight": 770,
     "unringable": false,
-    "practice": "PN: check with contact"
+    "practice": ""
   },
   {
     "towerId": 6196,
@@ -1661,7 +1661,7 @@
     "bells": 5,
     "weight": 904,
     "unringable": false,
-    "practice": "Mon (monthly: check)"
+    "practice": "Mon (monthly)"
   },
   {
     "towerId": 100,
@@ -1674,7 +1674,7 @@
     "bells": 6,
     "weight": 1288,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 101,
@@ -1687,7 +1687,7 @@
     "bells": 5,
     "weight": 657,
     "unringable": false,
-    "practice": "Mon (confirm first)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 102,
@@ -1700,7 +1700,7 @@
     "bells": 8,
     "weight": 787,
     "unringable": false,
-    "practice": "Fri (PN alternates with Wolverley)"
+    "practice": "Fri (alt)"
   },
   {
     "towerId": 103,
@@ -1817,7 +1817,7 @@
     "bells": 8,
     "weight": 1546,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 110,
@@ -1843,7 +1843,7 @@
     "bells": 5,
     "weight": 1408,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 112,
@@ -2012,7 +2012,7 @@
     "bells": 6,
     "weight": 1262,
     "unringable": false,
-    "practice": "Mon (1st: other Mons at Swepstone)"
+    "practice": "Mon (1st)"
   },
   {
     "towerId": 125,
@@ -2129,7 +2129,7 @@
     "bells": 6,
     "weight": 879,
     "unringable": false,
-    "practice": "Fri (alternates with West Hoathly) 10:00"
+    "practice": "Fri (alt) 10:00"
   },
   {
     "towerId": 134,
@@ -2207,7 +2207,7 @@
     "bells": 8,
     "weight": 1112,
     "unringable": false,
-    "practice": "Thu (4th, 5th: other weeks at Barnby Dun) 18:00"
+    "practice": "Thu (4th, 5th) 18:00"
   },
   {
     "towerId": 139,
@@ -2415,7 +2415,7 @@
     "bells": 8,
     "weight": 1544,
     "unringable": false,
-    "practice": "Mon (2nd, 4th: alt with Lyminster) 19:00"
+    "practice": "Mon (2nd, 4th) 19:00"
   },
   {
     "towerId": 150,
@@ -2753,7 +2753,7 @@
     "bells": 10,
     "weight": 2430,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 172,
@@ -2935,7 +2935,7 @@
     "bells": 6,
     "weight": 1438,
     "unringable": false,
-    "practice": "Thu (alt: check)"
+    "practice": "Thu (alt)"
   },
   {
     "towerId": 184,
@@ -3091,7 +3091,7 @@
     "bells": 5,
     "weight": 840,
     "unringable": false,
-    "practice": "Wed (Check to confirm)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 195,
@@ -3429,7 +3429,7 @@
     "bells": 8,
     "weight": 930,
     "unringable": false,
-    "practice": "Thu (not always: check) 13:00"
+    "practice": "Thu (check) 13:00"
   },
   {
     "towerId": 6131,
@@ -3442,7 +3442,7 @@
     "bells": 10,
     "weight": 1498,
     "unringable": false,
-    "practice": "Thu (with additions) 18:30"
+    "practice": "Thu 18:30"
   },
   {
     "towerId": 216,
@@ -3637,7 +3637,7 @@
     "bells": 6,
     "weight": 1303,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Mon"
   },
   {
     "towerId": 226,
@@ -3689,7 +3689,7 @@
     "bells": 10,
     "weight": 366,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 228,
@@ -3702,7 +3702,7 @@
     "bells": 6,
     "weight": 2184,
     "unringable": false,
-    "practice": "Tue (alt with Buckerell)"
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 229,
@@ -3741,7 +3741,7 @@
     "bells": 10,
     "weight": 2619,
     "unringable": false,
-    "practice": "Wed (alt: check)"
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 6934,
@@ -3780,7 +3780,7 @@
     "bells": 6,
     "weight": 1288,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 233,
@@ -3832,7 +3832,7 @@
     "bells": 10,
     "weight": 1815,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 237,
@@ -3843,7 +3843,7 @@
     "latitude": 52.28131,
     "longitude": -2.84294,
     "bells": 6,
-    "weight": 1120,
+    "weight": 1064,
     "unringable": false,
     "practice": ""
   },
@@ -3923,7 +3923,7 @@
     "bells": 6,
     "weight": 1344,
     "unringable": false,
-    "practice": "Tue (not always: check) 19:00"
+    "practice": "Tue (check) 19:00"
   },
   {
     "towerId": 243,
@@ -4261,7 +4261,7 @@
     "bells": 8,
     "weight": 1288,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 5921,
@@ -4274,7 +4274,7 @@
     "bells": 8,
     "weight": 2474,
     "unringable": false,
-    "practice": "Sun (see tower website) 13:00"
+    "practice": "Sun (check) 13:00"
   },
   {
     "towerId": 6542,
@@ -4313,7 +4313,7 @@
     "bells": 12,
     "weight": 1641,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri (check)"
   },
   {
     "towerId": 267,
@@ -4573,7 +4573,7 @@
     "bells": 6,
     "weight": 1032,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 284,
@@ -4703,7 +4703,7 @@
     "bells": 6,
     "weight": 1539,
     "unringable": false,
-    "practice": "Tue (shared with Barkby, Queniborough) 18:00"
+    "practice": "Tue (alt) 18:00"
   },
   {
     "towerId": 5825,
@@ -4937,7 +4937,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Thu (1st, 2nd, 3rd: other weeks at Arksey) 18:00"
+    "practice": "Thu (1st, 2nd, 3rd) 18:00"
   },
   {
     "towerId": 306,
@@ -5145,7 +5145,7 @@
     "bells": 6,
     "weight": 1270,
     "unringable": false,
-    "practice": "Thu (check with contact, shared with Horringer) 19:00"
+    "practice": "Thu (alt) 19:00"
   },
   {
     "towerId": 318,
@@ -5158,7 +5158,7 @@
     "bells": 8,
     "weight": 1251,
     "unringable": false,
-    "practice": "Wed 18:15"
+    "practice": ""
   },
   {
     "towerId": 319,
@@ -5379,7 +5379,7 @@
     "bells": 6,
     "weight": 1102,
     "unringable": false,
-    "practice": "Mon (check with contact, shared with Kingweston; West Lydford)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 331,
@@ -5431,7 +5431,7 @@
     "bells": 8,
     "weight": 1879,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 336,
@@ -5691,7 +5691,7 @@
     "bells": 6,
     "weight": 1344,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 349,
@@ -5782,7 +5782,7 @@
     "bells": 8,
     "weight": 1530,
     "unringable": false,
-    "practice": "Thu (by arrangement)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 354,
@@ -5795,7 +5795,7 @@
     "bells": 6,
     "weight": 939,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 7674,
@@ -5808,7 +5808,7 @@
     "bells": 8,
     "weight": 1330,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed 18:30"
   },
   {
     "towerId": 356,
@@ -5912,7 +5912,7 @@
     "bells": 6,
     "weight": 1582,
     "unringable": false,
-    "practice": "Tue (alternates with Mattersey) 19:00"
+    "practice": "Tue (alt) 19:00"
   },
   {
     "towerId": 6756,
@@ -6172,7 +6172,7 @@
     "bells": 6,
     "weight": 1354,
     "unringable": false,
-    "practice": "Thu (check, alt with Peasmarsh) 18:30"
+    "practice": "Thu (alt) 18:30"
   },
   {
     "towerId": 377,
@@ -6237,7 +6237,7 @@
     "bells": 10,
     "weight": 2084,
     "unringable": false,
-    "practice": "Thu (see tower website)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 382,
@@ -6393,7 +6393,7 @@
     "bells": 6,
     "weight": 700,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 7587,
@@ -6432,7 +6432,7 @@
     "bells": 6,
     "weight": 1087,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 392,
@@ -6471,7 +6471,7 @@
     "bells": 5,
     "weight": 1338,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 394,
@@ -6614,7 +6614,7 @@
     "bells": 8,
     "weight": 2096,
     "unringable": false,
-    "practice": "Thu (2nd, 4th: check re 5th)"
+    "practice": "Thu (2nd, 4th: check 5th)"
   },
   {
     "towerId": 5881,
@@ -6692,7 +6692,7 @@
     "bells": 6,
     "weight": 880,
     "unringable": false,
-    "practice": "Thu (4th: shared with Hathern)"
+    "practice": "Thu (4th)"
   },
   {
     "towerId": 407,
@@ -6900,7 +6900,7 @@
     "bells": 6,
     "weight": 1446,
     "unringable": false,
-    "practice": "Mon (last week of each month) 19:00 & Tue 19:00"
+    "practice": "Mon (last) 19:00 & Tue 19:00"
   },
   {
     "towerId": 420,
@@ -6939,7 +6939,7 @@
     "bells": 6,
     "weight": 809,
     "unringable": false,
-    "practice": "Mon (alt with Chawton)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 423,
@@ -7004,7 +7004,7 @@
     "bells": 6,
     "weight": 995,
     "unringable": false,
-    "practice": "Tue (Check to confirm)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 428,
@@ -7069,7 +7069,7 @@
     "bells": 8,
     "weight": 1611,
     "unringable": false,
-    "practice": "Thu (shared with Rotherhithe)"
+    "practice": "Thu (1st, 3rd, 5th)"
   },
   {
     "towerId": 433,
@@ -7433,7 +7433,7 @@
     "bells": 10,
     "weight": 1687,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 455,
@@ -7459,7 +7459,7 @@
     "bells": 8,
     "weight": 883,
     "unringable": false,
-    "practice": "Tue (3rd: Apr-Oct)"
+    "practice": "Tue (3rd: Apr\u2013Oct)"
   },
   {
     "towerId": 457,
@@ -7485,7 +7485,7 @@
     "bells": 6,
     "weight": 938,
     "unringable": false,
-    "practice": "Tue (Winter)"
+    "practice": "Tue (winter)"
   },
   {
     "towerId": 458,
@@ -7498,7 +7498,7 @@
     "bells": 6,
     "weight": 1119,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 460,
@@ -7524,7 +7524,7 @@
     "bells": 6,
     "weight": 1182,
     "unringable": false,
-    "practice": "Mon (exc 1st: shared with West Quantoxhead)"
+    "practice": "Mon (exc 1st)"
   },
   {
     "towerId": 462,
@@ -7589,7 +7589,7 @@
     "bells": 6,
     "weight": 1067,
     "unringable": false,
-    "practice": "Thu (by arrangement)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 467,
@@ -7810,7 +7810,7 @@
     "bells": 8,
     "weight": 942,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 481,
@@ -8005,7 +8005,7 @@
     "bells": 8,
     "weight": 1495,
     "unringable": false,
-    "practice": "Sat (by arrangement)"
+    "practice": "Sat (check)"
   },
   {
     "towerId": 490,
@@ -8720,7 +8720,7 @@
     "bells": 8,
     "weight": 1036,
     "unringable": false,
-    "practice": "Fri"
+    "practice": ""
   },
   {
     "towerId": 541,
@@ -8811,7 +8811,7 @@
     "bells": 6,
     "weight": 1006,
     "unringable": false,
-    "practice": "Mon (4th: alternates with Martin by Timberland) 18:00 & Tue (2nd: rotates: Nocton; Blankney; Potterhanworth; Branston)"
+    "practice": "Mon (4th) 18:00 & Tue (2nd: rota)"
   },
   {
     "towerId": 548,
@@ -9019,7 +9019,7 @@
     "bells": 6,
     "weight": 896,
     "unringable": false,
-    "practice": "Fri (Check to confirm) 09:30"
+    "practice": "Fri (check) 09:30"
   },
   {
     "towerId": 563,
@@ -9448,7 +9448,7 @@
     "bells": 6,
     "weight": 1519,
     "unringable": false,
-    "practice": "Mon (on a rota basis)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 6890,
@@ -10007,7 +10007,7 @@
     "bells": 8,
     "weight": 1394,
     "unringable": false,
-    "practice": "Thu (1st, 3rd, 5th: alt with Great Rissington)"
+    "practice": "Thu (1st, 3rd, 5th)"
   },
   {
     "towerId": 6946,
@@ -10254,7 +10254,7 @@
     "bells": 6,
     "weight": 549,
     "unringable": false,
-    "practice": "Wed (by arrangement) 14:00"
+    "practice": "Wed (check) 14:00"
   },
   {
     "towerId": 627,
@@ -10358,7 +10358,7 @@
     "bells": 12,
     "weight": 2877,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 636,
@@ -10527,7 +10527,7 @@
     "bells": 6,
     "weight": 855,
     "unringable": false,
-    "practice": "Wed (alternate with Newport Pagnell)"
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 6736,
@@ -10540,7 +10540,7 @@
     "bells": 3,
     "weight": 1139,
     "unringable": false,
-    "practice": "Thu (Check to confirm) 16:00"
+    "practice": "Thu (check) 16:00"
   },
   {
     "towerId": 647,
@@ -10566,7 +10566,7 @@
     "bells": 6,
     "weight": 1100,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 650,
@@ -10891,7 +10891,7 @@
     "bells": 6,
     "weight": 1568,
     "unringable": false,
-    "practice": "Wed (exc Summer)"
+    "practice": "Wed (exc summer)"
   },
   {
     "towerId": 5995,
@@ -10904,7 +10904,7 @@
     "bells": 6,
     "weight": 816,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 671,
@@ -10917,7 +10917,7 @@
     "bells": 6,
     "weight": 1115,
     "unringable": false,
-    "practice": "Tue (4th: Practice rotates: Nocton; Blankney; Potterhanworth; Branston.)"
+    "practice": "Tue (4th: rota)"
   },
   {
     "towerId": 672,
@@ -11034,7 +11034,7 @@
     "bells": 8,
     "weight": 2128,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 681,
@@ -11138,7 +11138,7 @@
     "bells": 4,
     "weight": 1382,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 6142,
@@ -11333,7 +11333,7 @@
     "bells": 8,
     "weight": 2012,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 700,
@@ -11372,7 +11372,7 @@
     "bells": 6,
     "weight": 2324,
     "unringable": false,
-    "practice": "Tue (rotates: see website)"
+    "practice": "Tue (rota)"
   },
   {
     "towerId": 702,
@@ -11450,7 +11450,7 @@
     "bells": 6,
     "weight": 972,
     "unringable": false,
-    "practice": "Fri (Check to confirm)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 706,
@@ -11593,7 +11593,7 @@
     "bells": 8,
     "weight": 1169,
     "unringable": false,
-    "practice": "Mon (1st, 3rd) & Tue (not summer)"
+    "practice": "Mon (1st, 3rd) & Tue (exc summer)"
   },
   {
     "towerId": 714,
@@ -11619,7 +11619,7 @@
     "bells": 8,
     "weight": 956,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed (check)"
   },
   {
     "towerId": 716,
@@ -11710,7 +11710,7 @@
     "bells": 6,
     "weight": 959,
     "unringable": false,
-    "practice": "Thu (by arrangement)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 722,
@@ -11957,7 +11957,7 @@
     "bells": 6,
     "weight": 1485,
     "unringable": false,
-    "practice": "Mon (alternate)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 737,
@@ -12022,7 +12022,7 @@
     "bells": 6,
     "weight": 861,
     "unringable": false,
-    "practice": "Tue (not always: check) 18:30"
+    "practice": "Tue (check) 18:30"
   },
   {
     "towerId": 739,
@@ -12048,7 +12048,7 @@
     "bells": 8,
     "weight": 2353,
     "unringable": false,
-    "practice": "Fri (3rd: with exceptions)"
+    "practice": "Fri (3rd: check)"
   },
   {
     "towerId": 740,
@@ -12139,7 +12139,7 @@
     "bells": 8,
     "weight": 2139,
     "unringable": false,
-    "practice": "Tue (not always: check) 19:00"
+    "practice": "Tue (check) 19:00"
   },
   {
     "towerId": 747,
@@ -12295,7 +12295,7 @@
     "bells": 8,
     "weight": 2265,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 760,
@@ -13023,7 +13023,7 @@
     "bells": 6,
     "weight": 673,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (alt) 18:15"
   },
   {
     "towerId": 810,
@@ -13088,7 +13088,7 @@
     "bells": 6,
     "weight": 1468,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 814,
@@ -13179,7 +13179,7 @@
     "bells": 8,
     "weight": 1631,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 821,
@@ -13595,7 +13595,7 @@
     "bells": 8,
     "weight": 2352,
     "unringable": false,
-    "practice": "Tue (Oct-Mar)"
+    "practice": "Tue (Oct\u2013Mar)"
   },
   {
     "towerId": 847,
@@ -13751,7 +13751,7 @@
     "bells": 8,
     "weight": 884,
     "unringable": false,
-    "practice": "Mon (Term only)"
+    "practice": "Mon (term only)"
   },
   {
     "towerId": 5854,
@@ -13855,7 +13855,7 @@
     "bells": 6,
     "weight": 1066,
     "unringable": false,
-    "practice": "Wed (Fortnightly (check before)) 19:00"
+    "practice": "Wed (fortnightly) 19:00"
   },
   {
     "towerId": 866,
@@ -13946,7 +13946,7 @@
     "bells": 6,
     "weight": 1064,
     "unringable": false,
-    "practice": "Tue (check with contact) 13:30"
+    "practice": "Tue (check) 13:30"
   },
   {
     "towerId": 872,
@@ -14505,7 +14505,7 @@
     "bells": 8,
     "weight": 945,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Wed 19:00"
   },
   {
     "towerId": 907,
@@ -14518,7 +14518,7 @@
     "bells": 8,
     "weight": 1457,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Wed 19:00"
   },
   {
     "towerId": 6963,
@@ -14544,7 +14544,7 @@
     "bells": 8,
     "weight": 1324,
     "unringable": false,
-    "practice": "Fri (by arrangement)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 909,
@@ -14557,7 +14557,7 @@
     "bells": 6,
     "weight": 911,
     "unringable": false,
-    "practice": "Mon (rotates with Harringworth, Gretton)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 910,
@@ -14570,7 +14570,7 @@
     "bells": 8,
     "weight": 1438,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Fri (check) 19:00"
   },
   {
     "towerId": 5855,
@@ -15051,7 +15051,7 @@
     "bells": 12,
     "weight": 3896,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 940,
@@ -15129,7 +15129,7 @@
     "bells": 6,
     "weight": 763,
     "unringable": false,
-    "practice": "Wed (1st: but not always so advisable to check first)"
+    "practice": "Wed (1st: check)"
   },
   {
     "towerId": 942,
@@ -15207,7 +15207,7 @@
     "bells": 6,
     "weight": 1514,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed 19:00"
   },
   {
     "towerId": 948,
@@ -15298,7 +15298,7 @@
     "bells": 6,
     "weight": 815,
     "unringable": false,
-    "practice": "Wed (Check to confirm)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 953,
@@ -15519,7 +15519,7 @@
     "bells": 6,
     "weight": 1284,
     "unringable": false,
-    "practice": "Wed (2nd, 4th: PN shared: Flookburgh (1,3,5)  Cartmel Priory (2,4))"
+    "practice": "Wed (2nd, 4th)"
   },
   {
     "towerId": 964,
@@ -15649,7 +15649,7 @@
     "bells": 6,
     "weight": 840,
     "unringable": false,
-    "practice": "Thu (alt: check)"
+    "practice": "Thu (alt)"
   },
   {
     "towerId": 6543,
@@ -15675,7 +15675,7 @@
     "bells": 6,
     "weight": 1281,
     "unringable": false,
-    "practice": "PN: check with contact"
+    "practice": ""
   },
   {
     "towerId": 974,
@@ -15714,7 +15714,7 @@
     "bells": 8,
     "weight": 1288,
     "unringable": false,
-    "practice": "Tue (Tied / Simulator practice) 18:00 & Thu 19:00"
+    "practice": "Tue (tied) 18:00 & Thu 19:00"
   },
   {
     "towerId": 976,
@@ -15922,7 +15922,7 @@
     "bells": 5,
     "weight": 548,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 985,
@@ -16039,7 +16039,7 @@
     "bells": 6,
     "weight": 966,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 991,
@@ -16117,7 +16117,7 @@
     "bells": 4,
     "weight": 672,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 996,
@@ -16286,7 +16286,7 @@
     "bells": 6,
     "weight": 633,
     "unringable": false,
-    "practice": "Fri (with exceptions)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 1006,
@@ -16390,7 +16390,7 @@
     "bells": 6,
     "weight": 1410,
     "unringable": false,
-    "practice": "Fri (with exceptions) 20:00"
+    "practice": "Fri (check) 20:00"
   },
   {
     "towerId": 1012,
@@ -16455,7 +16455,7 @@
     "bells": 8,
     "weight": 1943,
     "unringable": false,
-    "practice": "Thu (with exceptions) 17:00"
+    "practice": "Thu (check) 17:00"
   },
   {
     "towerId": 5971,
@@ -16585,7 +16585,7 @@
     "bells": 6,
     "weight": 1306,
     "unringable": false,
-    "practice": "Thu (Key Skills Training from 19:00; main practice 19:30)"
+    "practice": "Thu"
   },
   {
     "towerId": 1023,
@@ -16897,7 +16897,7 @@
     "bells": 6,
     "weight": 1164,
     "unringable": false,
-    "practice": "Wed (once a month or so and alternates with Withington (Glos) and Compton Abdale)"
+    "practice": "Wed (5th)"
   },
   {
     "towerId": 1045,
@@ -16910,7 +16910,7 @@
     "bells": 6,
     "weight": 1438,
     "unringable": false,
-    "practice": "Tue (alt: check)"
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 1046,
@@ -16960,7 +16960,7 @@
     "latitude": 52.48781,
     "longitude": -2.41319,
     "bells": 6,
-    "weight": 1120,
+    "weight": 1008,
     "unringable": false,
     "practice": ""
   },
@@ -17092,7 +17092,7 @@
     "bells": 10,
     "weight": 1844,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": ""
   },
   {
     "towerId": 5777,
@@ -17430,7 +17430,7 @@
     "bells": 8,
     "weight": 1161,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 1079,
@@ -17482,7 +17482,7 @@
     "bells": 8,
     "weight": 2717,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 5857,
@@ -17742,7 +17742,7 @@
     "bells": 6,
     "weight": 1452,
     "unringable": false,
-    "practice": "Thu (alt: check)"
+    "practice": "Thu (alt)"
   },
   {
     "towerId": 6771,
@@ -17768,7 +17768,7 @@
     "bells": 6,
     "weight": 843,
     "unringable": false,
-    "practice": "Mon (2nd, 4th)"
+    "practice": "Mon"
   },
   {
     "towerId": 1101,
@@ -18002,7 +18002,7 @@
     "bells": 5,
     "weight": 1052,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 1120,
@@ -18041,7 +18041,7 @@
     "bells": 8,
     "weight": 1755,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 1123,
@@ -18184,7 +18184,7 @@
     "bells": 12,
     "weight": 3024,
     "unringable": false,
-    "practice": "Mon (check on Bank Hol)"
+    "practice": "Mon (check BH)"
   },
   {
     "towerId": 5954,
@@ -18769,7 +18769,7 @@
     "bells": 6,
     "weight": 687,
     "unringable": false,
-    "practice": "Fri (during BST only)"
+    "practice": "Fri (BST)"
   },
   {
     "towerId": 5820,
@@ -19120,7 +19120,7 @@
     "bells": 5,
     "weight": 1338,
     "unringable": false,
-    "practice": "Mon (by arrangement) 19:00"
+    "practice": "Mon (check) 19:00"
   },
   {
     "towerId": 1194,
@@ -19198,7 +19198,7 @@
     "bells": 8,
     "weight": 1386,
     "unringable": false,
-    "practice": "Wed (alt: check)"
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 1200,
@@ -19341,7 +19341,7 @@
     "bells": 8,
     "weight": 2034,
     "unringable": false,
-    "practice": "Mon (on a rota basis)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 1209,
@@ -19471,7 +19471,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 1197,
@@ -19640,7 +19640,7 @@
     "bells": 8,
     "weight": 1101,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Thu"
   },
   {
     "towerId": 1228,
@@ -19757,7 +19757,7 @@
     "bells": 8,
     "weight": 1120,
     "unringable": false,
-    "practice": "Mon (confirm first)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 1236,
@@ -20017,7 +20017,7 @@
     "bells": 8,
     "weight": 1290,
     "unringable": false,
-    "practice": "Fri (by arrangement) 20:00"
+    "practice": "Fri (check) 20:00"
   },
   {
     "towerId": 1251,
@@ -20329,7 +20329,7 @@
     "bells": 10,
     "weight": 1153,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Mon"
   },
   {
     "towerId": 1271,
@@ -20498,7 +20498,7 @@
     "bells": 6,
     "weight": 760,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 1281,
@@ -20550,7 +20550,7 @@
     "bells": 6,
     "weight": 1624,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 7977,
@@ -20628,7 +20628,7 @@
     "bells": 5,
     "weight": 779,
     "unringable": false,
-    "practice": "Thu (confirm first)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 1290,
@@ -21265,7 +21265,7 @@
     "bells": 6,
     "weight": 1748,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed"
   },
   {
     "towerId": 1333,
@@ -21525,7 +21525,7 @@
     "bells": 8,
     "weight": 1777,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (rota)"
   },
   {
     "towerId": 1347,
@@ -21668,7 +21668,7 @@
     "bells": 8,
     "weight": 1925,
     "unringable": false,
-    "practice": "Mon (1st, 3rd, 5th: alternates with Wimborne St Giles)"
+    "practice": "Mon (1st, 3rd, 5th)"
   },
   {
     "towerId": 1357,
@@ -22123,7 +22123,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Thu (alternate weeks with Fladbury)"
+    "practice": "Thu (alt)"
   },
   {
     "towerId": 1391,
@@ -22266,7 +22266,7 @@
     "bells": 6,
     "weight": 1072,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 6312,
@@ -22318,7 +22318,7 @@
     "bells": 6,
     "weight": 1051,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 1404,
@@ -22448,7 +22448,7 @@
     "bells": 10,
     "weight": 1141,
     "unringable": false,
-    "practice": "Mon (with exceptions) 20:15"
+    "practice": "Mon (check) 20:15"
   },
   {
     "towerId": 3552,
@@ -22578,7 +22578,7 @@
     "bells": 6,
     "weight": 1205,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 1422,
@@ -22916,7 +22916,7 @@
     "bells": 8,
     "weight": 950,
     "unringable": false,
-    "practice": "Wed (check with contact) 17:00"
+    "practice": "Wed (check) 17:00"
   },
   {
     "towerId": 1444,
@@ -23124,7 +23124,7 @@
     "bells": 6,
     "weight": 1568,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 1459,
@@ -23553,7 +23553,7 @@
     "bells": 8,
     "weight": 1586,
     "unringable": false,
-    "practice": "PN: see tower website"
+    "practice": ""
   },
   {
     "towerId": 1491,
@@ -23631,7 +23631,7 @@
     "bells": 8,
     "weight": 1068,
     "unringable": false,
-    "practice": "Mon (check on Bank Hol)"
+    "practice": "Mon (check BH)"
   },
   {
     "towerId": 1496,
@@ -23800,7 +23800,7 @@
     "bells": 6,
     "weight": 1245,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 1506,
@@ -23839,7 +23839,7 @@
     "bells": 6,
     "weight": 905,
     "unringable": false,
-    "practice": "Thu"
+    "practice": ""
   },
   {
     "towerId": 1508,
@@ -24502,7 +24502,7 @@
     "bells": 8,
     "weight": 878,
     "unringable": false,
-    "practice": "Thu (check with contact)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 1546,
@@ -24866,7 +24866,7 @@
     "bells": 6,
     "weight": 937,
     "unringable": false,
-    "practice": "Mon (2nd, 4th: Shared with Woolpit (1st, 3rd, & 5th))"
+    "practice": "Mon (2nd, 4th)"
   },
   {
     "towerId": 5907,
@@ -24944,7 +24944,7 @@
     "bells": 12,
     "weight": 5086,
     "unringable": false,
-    "practice": "Tue (with additions) 18:30"
+    "practice": "Tue 18:30"
   },
   {
     "towerId": 5901,
@@ -24983,7 +24983,7 @@
     "bells": 10,
     "weight": 2550,
     "unringable": false,
-    "practice": ""
+    "practice": "Thu 18:15"
   },
   {
     "towerId": 1571,
@@ -25074,7 +25074,7 @@
     "bells": 6,
     "weight": 1232,
     "unringable": false,
-    "practice": "Wed (1st, 3rd, 5th: Shared with Alderton)"
+    "practice": "Wed (1st, 3rd, 5th)"
   },
   {
     "towerId": 7729,
@@ -25568,7 +25568,7 @@
     "bells": 6,
     "weight": 1372,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 1608,
@@ -25607,7 +25607,7 @@
     "bells": 6,
     "weight": 926,
     "unringable": false,
-    "practice": "Wed (by arrangement)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 6432,
@@ -25645,7 +25645,7 @@
     "longitude": -0.30577,
     "bells": 8,
     "weight": 1932,
-    "unringable": true,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -25867,7 +25867,7 @@
     "bells": 6,
     "weight": 832,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 1627,
@@ -25893,7 +25893,7 @@
     "bells": 6,
     "weight": 1817,
     "unringable": false,
-    "practice": "Tue (rotates: see website)"
+    "practice": "Tue (rota)"
   },
   {
     "towerId": 1629,
@@ -25997,7 +25997,7 @@
     "bells": 8,
     "weight": 1120,
     "unringable": false,
-    "practice": "Fri (not always: check) 18:30"
+    "practice": "Fri (check) 18:30"
   },
   {
     "towerId": 1636,
@@ -26686,7 +26686,7 @@
     "bells": 8,
     "weight": 1726,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue"
   },
   {
     "towerId": 1678,
@@ -26699,7 +26699,7 @@
     "bells": 10,
     "weight": 2739,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 1679,
@@ -26712,7 +26712,7 @@
     "bells": 6,
     "weight": 1127,
     "unringable": false,
-    "practice": "Sat (with exceptions) 09:30"
+    "practice": "Sat (check) 09:30"
   },
   {
     "towerId": 1680,
@@ -27167,7 +27167,7 @@
     "bells": 8,
     "weight": 2999,
     "unringable": false,
-    "practice": "Sat (not always: check) 11:00"
+    "practice": "Sat (check) 11:00"
   },
   {
     "towerId": 1709,
@@ -27271,7 +27271,7 @@
     "bells": 8,
     "weight": 1134,
     "unringable": false,
-    "practice": "Fri (during term time only)"
+    "practice": "Fri (term only)"
   },
   {
     "towerId": 1718,
@@ -27921,7 +27921,7 @@
     "bells": 5,
     "weight": 360,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 1753,
@@ -28113,10 +28113,10 @@
     "iso3166": "GB",
     "latitude": 52.52907,
     "longitude": -0.39665,
-    "bells": 5,
+    "bells": 6,
     "weight": 1630,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 1764,
@@ -28597,7 +28597,7 @@
     "bells": 8,
     "weight": 826,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 1798,
@@ -28766,7 +28766,7 @@
     "bells": 6,
     "weight": 1652,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 1806,
@@ -29364,7 +29364,7 @@
     "bells": 6,
     "weight": 659,
     "unringable": false,
-    "practice": "Thu (2nd, 4th: shared with Felixstowe)"
+    "practice": "Thu (2nd, 4th)"
   },
   {
     "towerId": 1846,
@@ -29429,7 +29429,7 @@
     "bells": 6,
     "weight": 638,
     "unringable": false,
-    "practice": "Tue (see tower website)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 6435,
@@ -29481,7 +29481,7 @@
     "bells": 5,
     "weight": 896,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 7755,
@@ -29624,7 +29624,7 @@
     "bells": 6,
     "weight": 1087,
     "unringable": false,
-    "practice": "Wed (with exceptions) 20:00"
+    "practice": "Wed (check) 20:00"
   },
   {
     "towerId": 1861,
@@ -30040,7 +30040,7 @@
     "bells": 3,
     "weight": 510,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 7723,
@@ -30378,7 +30378,7 @@
     "bells": 6,
     "weight": 784,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 1904,
@@ -30417,7 +30417,7 @@
     "bells": 8,
     "weight": 1431,
     "unringable": false,
-    "practice": "Thu (alternate weeks with Cropthorne)"
+    "practice": "Thu (alt)"
   },
   {
     "towerId": 1907,
@@ -30469,7 +30469,7 @@
     "bells": 3,
     "weight": 682,
     "unringable": false,
-    "practice": "Mon (not always: check) 19:00"
+    "practice": "Mon (check) 19:00"
   },
   {
     "towerId": 1910,
@@ -31041,7 +31041,7 @@
     "bells": 6,
     "weight": 1426,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 1949,
@@ -31054,7 +31054,7 @@
     "bells": 6,
     "weight": 1607,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Tue (1st, 3rd, 5th)"
   },
   {
     "towerId": 1950,
@@ -31106,7 +31106,7 @@
     "bells": 6,
     "weight": 908,
     "unringable": false,
-    "practice": "Tue (by arrangement) 20:00"
+    "practice": "Tue (check) 20:00"
   },
   {
     "towerId": 1953,
@@ -31184,7 +31184,7 @@
     "bells": 6,
     "weight": 999,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 1957,
@@ -31223,7 +31223,7 @@
     "bells": 6,
     "weight": 1299,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 1960,
@@ -31288,7 +31288,7 @@
     "bells": 8,
     "weight": 1740,
     "unringable": false,
-    "practice": "Wed (monthly: check)"
+    "practice": "Wed (monthly)"
   },
   {
     "towerId": 6817,
@@ -31314,7 +31314,7 @@
     "bells": 6,
     "weight": 701,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 7638,
@@ -32185,7 +32185,7 @@
     "bells": 6,
     "weight": 1008,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Wed (rota)"
   },
   {
     "towerId": 2017,
@@ -32458,7 +32458,7 @@
     "bells": 8,
     "weight": 1671,
     "unringable": false,
-    "practice": "Fri (with additions)"
+    "practice": "Fri"
   },
   {
     "towerId": 7161,
@@ -32835,7 +32835,7 @@
     "bells": 6,
     "weight": 1995,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 2060,
@@ -32900,7 +32900,7 @@
     "bells": 8,
     "weight": 2632,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (3rd)"
   },
   {
     "towerId": 5937,
@@ -32913,7 +32913,7 @@
     "bells": 12,
     "weight": 2439,
     "unringable": false,
-    "practice": "Tue (see tower website) 17:00"
+    "practice": "Tue (check) 17:00"
   },
   {
     "towerId": 2065,
@@ -33277,7 +33277,7 @@
     "bells": 6,
     "weight": 780,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 2086,
@@ -33303,7 +33303,7 @@
     "bells": 8,
     "weight": 1609,
     "unringable": false,
-    "practice": "Fri (with exceptions)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 2088,
@@ -33576,7 +33576,7 @@
     "bells": 6,
     "weight": 986,
     "unringable": false,
-    "practice": "Wed (exc 2nd: at Chrishall on 2nd Wed)"
+    "practice": "Wed (exc 2nd)"
   },
   {
     "towerId": 2109,
@@ -34005,7 +34005,7 @@
     "bells": 6,
     "weight": 1344,
     "unringable": false,
-    "practice": "Tue (exc Summer)"
+    "practice": "Tue (exc summer)"
   },
   {
     "towerId": 2133,
@@ -34265,7 +34265,7 @@
     "bells": 6,
     "weight": 1263,
     "unringable": false,
-    "practice": "Thu (2nd, 4th: alt with Bourton on the Water)"
+    "practice": "Thu (2nd, 4th)"
   },
   {
     "towerId": 2153,
@@ -34304,7 +34304,7 @@
     "bells": 6,
     "weight": 1338,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 2156,
@@ -34655,7 +34655,7 @@
     "bells": 6,
     "weight": 1425,
     "unringable": false,
-    "practice": "Tue (2nd, 4th: alternates with Earls Colne)"
+    "practice": "Tue (2nd, 4th)"
   },
   {
     "towerId": 2182,
@@ -34668,7 +34668,7 @@
     "bells": 10,
     "weight": 2646,
     "unringable": false,
-    "practice": "Wed (see tower website) 20:00"
+    "practice": "Wed (check) 20:00"
   },
   {
     "towerId": 2183,
@@ -34785,7 +34785,7 @@
     "bells": 5,
     "weight": 976,
     "unringable": false,
-    "practice": "Mon (rotates with Caldecott, Harringworth)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 6447,
@@ -34980,7 +34980,7 @@
     "bells": 6,
     "weight": 863,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 5858,
@@ -35032,7 +35032,7 @@
     "bells": 8,
     "weight": 1290,
     "unringable": false,
-    "practice": "Mon (Practices are held on the third Monday during the odd months; Monday practices are otherwise held at Litlington)"
+    "practice": ""
   },
   {
     "towerId": 2202,
@@ -35097,7 +35097,7 @@
     "bells": 6,
     "weight": 948,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 2207,
@@ -35942,7 +35942,7 @@
     "bells": 6,
     "weight": 1237,
     "unringable": false,
-    "practice": "Tue (check with contact)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 6201,
@@ -36553,7 +36553,7 @@
     "bells": 8,
     "weight": 847,
     "unringable": false,
-    "practice": "Thu (not always: check) 20:00"
+    "practice": "Thu (check) 20:00"
   },
   {
     "towerId": 2289,
@@ -36722,7 +36722,7 @@
     "bells": 6,
     "weight": 1180,
     "unringable": false,
-    "practice": "Mon (rotates with Caldecott, Gretton)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 2301,
@@ -36787,7 +36787,7 @@
     "bells": 8,
     "weight": 871,
     "unringable": false,
-    "practice": "Sun (3rd: Also 4th Weds 14:30, check website) 16:00"
+    "practice": "Wed (4th: check) 14:30 & Sun (3rd) 16:00"
   },
   {
     "towerId": 2306,
@@ -36813,7 +36813,7 @@
     "bells": 5,
     "weight": 394,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 2307,
@@ -37008,7 +37008,7 @@
     "bells": 6,
     "weight": 1364,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 2317,
@@ -37242,7 +37242,7 @@
     "bells": 5,
     "weight": 653,
     "unringable": false,
-    "practice": "Mon (not always: check) 20:00"
+    "practice": "Mon (check) 20:00"
   },
   {
     "towerId": 2334,
@@ -37554,7 +37554,7 @@
     "bells": 8,
     "weight": 2595,
     "unringable": false,
-    "practice": "Fri (with exceptions)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 2353,
@@ -37593,7 +37593,7 @@
     "bells": 8,
     "weight": 869,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 6397,
@@ -37944,7 +37944,7 @@
     "bells": 5,
     "weight": 1736,
     "unringable": false,
-    "practice": "Thu (1st: Apr-Sept)"
+    "practice": "Thu (1st: Apr\u2013Sep)"
   },
   {
     "towerId": 2379,
@@ -38386,7 +38386,7 @@
     "bells": 8,
     "weight": 2408,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon"
   },
   {
     "towerId": 6566,
@@ -38438,7 +38438,7 @@
     "bells": 8,
     "weight": 1535,
     "unringable": false,
-    "practice": "Tue (with exceptions) 19:00"
+    "practice": "Tue (check) 19:00"
   },
   {
     "towerId": 2414,
@@ -38568,7 +38568,7 @@
     "bells": 8,
     "weight": 822,
     "unringable": false,
-    "practice": "Tue (with exceptions) 20:00"
+    "practice": "Tue (check) 20:00"
   },
   {
     "towerId": 6008,
@@ -38737,7 +38737,7 @@
     "bells": 6,
     "weight": 1033,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 2435,
@@ -39010,7 +39010,7 @@
     "bells": 6,
     "weight": 1081,
     "unringable": false,
-    "practice": "Sat (2nd: check to confirm) 10:30"
+    "practice": "Sat (2nd: check) 10:30"
   },
   {
     "towerId": 2453,
@@ -39075,7 +39075,7 @@
     "bells": 6,
     "weight": 1260,
     "unringable": false,
-    "practice": "Tue (phone first to confirm)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 2457,
@@ -39236,7 +39236,7 @@
   {
     "towerId": 6766,
     "place": "Hightown",
-    "dedication": "All Saints",
+    "dedication": "former ch of All Saints",
     "county": "West Yorkshire",
     "iso3166": "GB",
     "latitude": 53.72177,
@@ -39413,7 +39413,7 @@
     "bells": 6,
     "weight": 1624,
     "unringable": false,
-    "practice": "Wed (check first)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 6919,
@@ -39660,7 +39660,7 @@
     "bells": 8,
     "weight": 1063,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 2496,
@@ -39829,7 +39829,7 @@
     "bells": 8,
     "weight": 1388,
     "unringable": false,
-    "practice": "Tue (not always: check) 19:00"
+    "practice": "Tue (check) 19:00"
   },
   {
     "towerId": 2502,
@@ -39985,7 +39985,7 @@
     "bells": 6,
     "weight": 924,
     "unringable": false,
-    "practice": "PN: check with contact"
+    "practice": ""
   },
   {
     "towerId": 2513,
@@ -40388,7 +40388,7 @@
     "bells": 6,
     "weight": 1456,
     "unringable": false,
-    "practice": "Sat (alternates with Shipston on Stour) 10:00"
+    "practice": "Sat (alt) 10:00"
   },
   {
     "towerId": 2536,
@@ -40453,7 +40453,7 @@
     "bells": 5,
     "weight": 1168,
     "unringable": false,
-    "practice": "Sat (confirm first) 09:30"
+    "practice": "Sat (check) 09:30"
   },
   {
     "towerId": 2540,
@@ -40674,7 +40674,7 @@
     "bells": 8,
     "weight": 1340,
     "unringable": false,
-    "practice": "Wed (1st, 3rd)"
+    "practice": "Tue 13:30"
   },
   {
     "towerId": 2553,
@@ -40713,7 +40713,7 @@
     "bells": 6,
     "weight": 1804,
     "unringable": false,
-    "practice": "Fri"
+    "practice": "Mon"
   },
   {
     "towerId": 2555,
@@ -40804,7 +40804,7 @@
     "bells": 8,
     "weight": 898,
     "unringable": false,
-    "practice": "Thu (check with contact) 19:00"
+    "practice": "Thu (alt) 19:00"
   },
   {
     "towerId": 2561,
@@ -40973,7 +40973,7 @@
     "bells": 8,
     "weight": 702,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 2572,
@@ -41025,7 +41025,7 @@
     "bells": 6,
     "weight": 1568,
     "unringable": false,
-    "practice": "Wed (1st: GMT only shared with Brant Broughton)"
+    "practice": "Wed (1st: GMT)"
   },
   {
     "towerId": 2576,
@@ -41155,7 +41155,7 @@
     "bells": 8,
     "weight": 1235,
     "unringable": false,
-    "practice": "Mon (rotates: see website) 19:00"
+    "practice": "Mon (rota) 19:00"
   },
   {
     "towerId": 5862,
@@ -41168,7 +41168,7 @@
     "bells": 8,
     "weight": 791,
     "unringable": false,
-    "practice": "Mon (rotates: see website) 19:00"
+    "practice": "Mon (rota) 19:00"
   },
   {
     "towerId": 2583,
@@ -41454,7 +41454,7 @@
     "bells": 6,
     "weight": 915,
     "unringable": false,
-    "practice": "Tue (1st, 3rd, 4th)"
+    "practice": ""
   },
   {
     "towerId": 2601,
@@ -41467,7 +41467,7 @@
     "bells": 8,
     "weight": 1813,
     "unringable": false,
-    "practice": "Tue (5th)"
+    "practice": ""
   },
   {
     "towerId": 2602,
@@ -42130,7 +42130,7 @@
     "bells": 8,
     "weight": 1454,
     "unringable": false,
-    "practice": "Wed (alternates with Mickleton) 19:00"
+    "practice": "Wed (alt) 19:00"
   },
   {
     "towerId": 2648,
@@ -42143,7 +42143,7 @@
     "bells": 8,
     "weight": 2557,
     "unringable": false,
-    "practice": "Wed (alt: check)"
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 2649,
@@ -42169,7 +42169,7 @@
     "bells": 6,
     "weight": 1362,
     "unringable": false,
-    "practice": "Thu (alt: check)"
+    "practice": "Thu (alt)"
   },
   {
     "towerId": 7093,
@@ -42234,7 +42234,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 2653,
@@ -42546,7 +42546,7 @@
     "bells": 12,
     "weight": 3898,
     "unringable": false,
-    "practice": "Mon (check on Bank Hol)"
+    "practice": "Mon (check BH)"
   },
   {
     "towerId": 2671,
@@ -42676,7 +42676,7 @@
     "bells": 8,
     "weight": 1845,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 2678,
@@ -42754,7 +42754,7 @@
     "bells": 10,
     "weight": 1816,
     "unringable": false,
-    "practice": "Tue (not always: check) 20:00"
+    "practice": "Tue (check) 20:00"
   },
   {
     "towerId": 2683,
@@ -43014,7 +43014,7 @@
     "bells": 8,
     "weight": 1024,
     "unringable": false,
-    "practice": "Mon (with additions) 19:00"
+    "practice": "Mon 19:00"
   },
   {
     "towerId": 7995,
@@ -43040,7 +43040,7 @@
     "bells": 6,
     "weight": 657,
     "unringable": false,
-    "practice": "Tue (confirm first) 18:00"
+    "practice": "Tue (check) 18:00"
   },
   {
     "towerId": 2698,
@@ -43196,7 +43196,7 @@
     "bells": 6,
     "weight": 1200,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri (every 4\u20136 wks)"
   },
   {
     "towerId": 2707,
@@ -43937,7 +43937,7 @@
     "bells": 6,
     "weight": 1046,
     "unringable": false,
-    "practice": "Wed (1st: Check to confirm)"
+    "practice": "Wed (1st)"
   },
   {
     "towerId": 7682,
@@ -44080,7 +44080,7 @@
     "bells": 10,
     "weight": 3168,
     "unringable": false,
-    "practice": "Wed (except 3rd at St Nicholas)"
+    "practice": "Wed (exc 3rd)"
   },
   {
     "towerId": 2761,
@@ -44093,7 +44093,7 @@
     "bells": 8,
     "weight": 2112,
     "unringable": false,
-    "practice": "Wed (3rd: other weeks at St Margaret's)"
+    "practice": "Wed (3rd)"
   },
   {
     "towerId": 2762,
@@ -44143,7 +44143,7 @@
     "latitude": 52.15101,
     "longitude": -2.82202,
     "bells": 5,
-    "weight": 1232,
+    "weight": 1176,
     "unringable": false,
     "practice": ""
   },
@@ -44158,7 +44158,7 @@
     "bells": 6,
     "weight": 1157,
     "unringable": false,
-    "practice": "Mon (last Monday of the month)"
+    "practice": "Mon (last)"
   },
   {
     "towerId": 2766,
@@ -44314,7 +44314,7 @@
     "bells": 8,
     "weight": 2464,
     "unringable": false,
-    "practice": "Tue (univ term: check)"
+    "practice": "Tue (term only, check)"
   },
   {
     "towerId": 2778,
@@ -44600,7 +44600,7 @@
     "bells": 6,
     "weight": 1033,
     "unringable": false,
-    "practice": "Mon (18:00 - 19:30 October - Easter and 18:30 - 20:00 Easter - September, check bank holidays and fifth Mondays.)"
+    "practice": "Mon (Oct\u2013Easter 18:00 else 18:30, check)"
   },
   {
     "towerId": 2795,
@@ -44691,7 +44691,7 @@
     "bells": 5,
     "weight": 1605,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 2801,
@@ -44741,7 +44741,7 @@
     "latitude": 52.8697,
     "longitude": -0.99653,
     "bells": 6,
-    "weight": 178,
+    "weight": 0,
     "unringable": false,
     "practice": ""
   },
@@ -44782,7 +44782,7 @@
     "bells": 6,
     "weight": 1494,
     "unringable": false,
-    "practice": "Wed (By arrangement only (check to confirm))"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 2807,
@@ -44795,7 +44795,7 @@
     "bells": 6,
     "weight": 1422,
     "unringable": false,
-    "practice": "Fri (suspended pro tem)"
+    "practice": ""
   },
   {
     "towerId": 2808,
@@ -44886,7 +44886,7 @@
     "bells": 6,
     "weight": 817,
     "unringable": false,
-    "practice": "Sat (check with contact) 10:00"
+    "practice": "Sat (check) 10:00"
   },
   {
     "towerId": 2810,
@@ -45159,7 +45159,7 @@
     "bells": 6,
     "weight": 1646,
     "unringable": false,
-    "practice": "Mon (by arrangement) 19:00"
+    "practice": "Mon (check) 19:00"
   },
   {
     "towerId": 2825,
@@ -45263,7 +45263,7 @@
     "bells": 8,
     "weight": 2016,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 2830,
@@ -45666,7 +45666,7 @@
     "bells": 6,
     "weight": 1473,
     "unringable": false,
-    "practice": "Wed"
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 2851,
@@ -45679,7 +45679,7 @@
     "bells": 8,
     "weight": 2296,
     "unringable": false,
-    "practice": "Thu (check with contact)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 2852,
@@ -46589,7 +46589,7 @@
     "bells": 6,
     "weight": 1364,
     "unringable": false,
-    "practice": "Wed (2nd: BST only shared with Brant Broughton, Welbourn)"
+    "practice": "Wed (2nd: BST)"
   },
   {
     "towerId": 2912,
@@ -46784,7 +46784,7 @@
     "bells": 10,
     "weight": 1960,
     "unringable": false,
-    "practice": "Fri (with additions)"
+    "practice": "Fri"
   },
   {
     "towerId": 2927,
@@ -47109,7 +47109,7 @@
     "bells": 6,
     "weight": 770,
     "unringable": false,
-    "practice": "Thu (Occasional)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 2949,
@@ -47460,7 +47460,7 @@
     "bells": 10,
     "weight": 3537,
     "unringable": false,
-    "practice": "Mon (check on Bank Hol)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 2972,
@@ -47551,7 +47551,7 @@
     "bells": 8,
     "weight": 497,
     "unringable": false,
-    "practice": "Wed (advise to check first)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 2977,
@@ -47733,7 +47733,7 @@
     "bells": 6,
     "weight": 1169,
     "unringable": false,
-    "practice": "Fri 20:00"
+    "practice": "Thu 19:00"
   },
   {
     "towerId": 2987,
@@ -48019,7 +48019,7 @@
     "bells": 6,
     "weight": 812,
     "unringable": false,
-    "practice": "Mon (Practice is Monday, except for the third Monday during the odd months when it is at Guilden Morden.)"
+    "practice": "Mon"
   },
   {
     "towerId": 7205,
@@ -48344,7 +48344,7 @@
     "bells": 6,
     "weight": 1253,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3024,
@@ -48708,7 +48708,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Mon (check with contact) 18:30"
+    "practice": "Mon (check) 18:30"
   },
   {
     "towerId": 3041,
@@ -48825,7 +48825,7 @@
     "bells": 8,
     "weight": 1535,
     "unringable": false,
-    "practice": "Tue (check with contact)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3049,
@@ -48942,7 +48942,7 @@
     "bells": 6,
     "weight": 1023,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 6777,
@@ -48981,7 +48981,7 @@
     "bells": 6,
     "weight": 1004,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (rota)"
   },
   {
     "towerId": 6872,
@@ -49007,7 +49007,7 @@
     "bells": 6,
     "weight": 599,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 3060,
@@ -49215,7 +49215,7 @@
     "bells": 6,
     "weight": 1120,
     "unringable": false,
-    "practice": "Wed (with exceptions) 20:00"
+    "practice": "Wed (check) 20:00"
   },
   {
     "towerId": 3072,
@@ -49332,7 +49332,7 @@
     "bells": 6,
     "weight": 1118,
     "unringable": false,
-    "practice": "Mon (1st: Please check) 19:00"
+    "practice": "Mon (1st: check) 19:00"
   },
   {
     "towerId": 3079,
@@ -49475,7 +49475,7 @@
     "bells": 8,
     "weight": 1369,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 3086,
@@ -49540,7 +49540,7 @@
     "bells": 6,
     "weight": 440,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3090,
@@ -49566,7 +49566,7 @@
     "bells": 6,
     "weight": 644,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 3091,
@@ -49605,7 +49605,7 @@
     "bells": 8,
     "weight": 508,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 3094,
@@ -49631,7 +49631,7 @@
     "bells": 10,
     "weight": 1072,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue"
   },
   {
     "towerId": 3096,
@@ -49852,7 +49852,7 @@
     "bells": 5,
     "weight": 616,
     "unringable": false,
-    "practice": "Thu (Check before) 18:30"
+    "practice": "Thu (check) 18:30"
   },
   {
     "towerId": 3108,
@@ -49995,7 +49995,7 @@
     "bells": 12,
     "weight": 3618,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 3116,
@@ -50060,7 +50060,7 @@
     "bells": 8,
     "weight": 3467,
     "unringable": false,
-    "practice": ""
+    "practice": "Fri"
   },
   {
     "towerId": 3122,
@@ -50268,7 +50268,7 @@
     "bells": 6,
     "weight": 1867,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 6753,
@@ -50450,7 +50450,7 @@
     "bells": 5,
     "weight": 896,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3148,
@@ -51373,7 +51373,7 @@
     "bells": 6,
     "weight": 1239,
     "unringable": false,
-    "practice": "Tue (rotates: see website)"
+    "practice": "Tue (rota)"
   },
   {
     "towerId": 3201,
@@ -51464,7 +51464,7 @@
     "bells": 6,
     "weight": 1201,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 3208,
@@ -51594,7 +51594,7 @@
     "bells": 10,
     "weight": 2635,
     "unringable": false,
-    "practice": "Mon (check on Bank Hol)"
+    "practice": "Mon (check BH)"
   },
   {
     "towerId": 3218,
@@ -51763,7 +51763,7 @@
     "bells": 6,
     "weight": 860,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 3228,
@@ -51841,7 +51841,7 @@
     "bells": 8,
     "weight": 724,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 3233,
@@ -51907,19 +51907,6 @@
     "weight": 2800,
     "unringable": false,
     "practice": "Tue 17:00"
-  },
-  {
-    "towerId": 6170,
-    "place": "Makhanda",
-    "dedication": "Holy Cross Monastery",
-    "county": "Eastern Cape",
-    "iso3166": "ZA",
-    "latitude": -33.33599,
-    "longitude": 26.47134,
-    "bells": 6,
-    "weight": 392,
-    "unringable": false,
-    "practice": ""
   },
   {
     "towerId": 3236,
@@ -52231,7 +52218,7 @@
     "bells": 6,
     "weight": 714,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 6400,
@@ -52387,7 +52374,7 @@
     "bells": 8,
     "weight": 1601,
     "unringable": false,
-    "practice": "Mon (not always: check) 20:00"
+    "practice": "Mon (check) 20:00"
   },
   {
     "towerId": 3266,
@@ -52413,7 +52400,7 @@
     "bells": 5,
     "weight": 1168,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3268,
@@ -52426,7 +52413,7 @@
     "bells": 8,
     "weight": 2411,
     "unringable": false,
-    "practice": "Wed (not always: check) 19:00"
+    "practice": "Wed (check) 19:00"
   },
   {
     "towerId": 3269,
@@ -52465,7 +52452,7 @@
     "bells": 6,
     "weight": 853,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 6015,
@@ -52478,7 +52465,7 @@
     "bells": 8,
     "weight": 593,
     "unringable": false,
-    "practice": "Mon (with additions)"
+    "practice": "Mon"
   },
   {
     "towerId": 3272,
@@ -52725,7 +52712,7 @@
     "bells": 6,
     "weight": 2128,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 3288,
@@ -53024,7 +53011,7 @@
     "bells": 6,
     "weight": 1045,
     "unringable": false,
-    "practice": "Mon (2nd: alternates with Blankney) 18:00"
+    "practice": "Mon (2nd) 18:00"
   },
   {
     "towerId": 3308,
@@ -53141,7 +53128,7 @@
     "bells": 8,
     "weight": 2049,
     "unringable": false,
-    "practice": "Mon (check with contact) 17:30"
+    "practice": "Mon (check) 17:30"
   },
   {
     "towerId": 3313,
@@ -53245,7 +53232,7 @@
     "bells": 5,
     "weight": 742,
     "unringable": false,
-    "practice": "Tue (alternates with Bawtry) 19:00"
+    "practice": "Tue (alt) 19:00"
   },
   {
     "towerId": 3320,
@@ -53271,7 +53258,7 @@
     "bells": 8,
     "weight": 1190,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue"
   },
   {
     "towerId": 3322,
@@ -53479,7 +53466,7 @@
     "bells": 8,
     "weight": 1676,
     "unringable": false,
-    "practice": "Wed (2nd)"
+    "practice": "Wed (1st)"
   },
   {
     "towerId": 3333,
@@ -53505,7 +53492,7 @@
     "bells": 8,
     "weight": 1382,
     "unringable": false,
-    "practice": "Tue (confirm first) 17:00"
+    "practice": "Tue (check) 17:00"
   },
   {
     "towerId": 5928,
@@ -53531,7 +53518,7 @@
     "bells": 6,
     "weight": 445,
     "unringable": false,
-    "practice": "Thu (check with contact) 19:00"
+    "practice": "Thu (check) 19:00"
   },
   {
     "towerId": 5924,
@@ -53570,7 +53557,7 @@
     "bells": 8,
     "weight": 671,
     "unringable": false,
-    "practice": "Thu (2nd: check with contact)"
+    "practice": "Thu (2nd: check)"
   },
   {
     "towerId": 3334,
@@ -53583,7 +53570,7 @@
     "bells": 5,
     "weight": 867,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 5773,
@@ -54051,7 +54038,7 @@
     "bells": 8,
     "weight": 769,
     "unringable": false,
-    "practice": "Sun (2nd, 4th: alternates with Dunston) 09:50"
+    "practice": "Sun (2nd, 4th) 09:50"
   },
   {
     "towerId": 7443,
@@ -54194,7 +54181,7 @@
     "bells": 8,
     "weight": 1780,
     "unringable": false,
-    "practice": "Wed (alternates with Ilmington) 19:00"
+    "practice": "Wed (alt) 19:00"
   },
   {
     "towerId": 5974,
@@ -54402,7 +54389,7 @@
     "bells": 6,
     "weight": 1568,
     "unringable": false,
-    "practice": "Mon (alt: check)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 3384,
@@ -54415,7 +54402,7 @@
     "bells": 6,
     "weight": 569,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 3385,
@@ -54467,7 +54454,7 @@
     "bells": 6,
     "weight": 998,
     "unringable": false,
-    "practice": "Thu (1st, 3rd, 5th: shared with Puddletown) 18:30"
+    "practice": "Thu (1st, 3rd, 5th) 18:30"
   },
   {
     "towerId": 3389,
@@ -54480,7 +54467,7 @@
     "bells": 10,
     "weight": 1899,
     "unringable": false,
-    "practice": "Tue (see tower website)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3390,
@@ -54571,7 +54558,7 @@
     "bells": 6,
     "weight": 1246,
     "unringable": false,
-    "practice": "Tue (Every other week; check with contact)"
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 7444,
@@ -55065,7 +55052,7 @@
     "bells": 6,
     "weight": 510,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 3427,
@@ -55117,7 +55104,7 @@
     "bells": 5,
     "weight": 816,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 3429,
@@ -55468,7 +55455,7 @@
     "bells": 8,
     "weight": 571,
     "unringable": false,
-    "practice": "Tue (confirm first) 19:00"
+    "practice": "Tue (check) 19:00"
   },
   {
     "towerId": 3451,
@@ -55507,7 +55494,7 @@
     "bells": 6,
     "weight": 1039,
     "unringable": false,
-    "practice": "Mon (May-Sept) 18:30"
+    "practice": "Mon (May\u2013Sep) 18:30"
   },
   {
     "towerId": 3456,
@@ -55793,7 +55780,7 @@
     "bells": 8,
     "weight": 1343,
     "unringable": false,
-    "practice": "PN: check with contact"
+    "practice": ""
   },
   {
     "towerId": 3470,
@@ -56300,7 +56287,7 @@
     "bells": 6,
     "weight": 2256,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 7768,
@@ -56339,7 +56326,7 @@
     "bells": 6,
     "weight": 886,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 3505,
@@ -56729,7 +56716,7 @@
     "bells": 6,
     "weight": 582,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 6374,
@@ -56911,7 +56898,7 @@
     "bells": 10,
     "weight": 1345,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 5812,
@@ -57223,7 +57210,7 @@
     "bells": 5,
     "weight": 568,
     "unringable": false,
-    "practice": "Sat (confirm first) 16:00"
+    "practice": "Sat (check) 16:00"
   },
   {
     "towerId": 3564,
@@ -57314,7 +57301,7 @@
     "bells": 8,
     "weight": 1528,
     "unringable": false,
-    "practice": "Fri"
+    "practice": ""
   },
   {
     "towerId": 3572,
@@ -57327,7 +57314,7 @@
     "bells": 8,
     "weight": 2424,
     "unringable": false,
-    "practice": "Wed (alternate with Bradwell, Milton Keynes)"
+    "practice": "Wed (alt)"
   },
   {
     "towerId": 3573,
@@ -57457,7 +57444,7 @@
     "bells": 8,
     "weight": 980,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 6290,
@@ -57496,7 +57483,7 @@
     "bells": 8,
     "weight": 1450,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 3581,
@@ -57535,7 +57522,7 @@
     "bells": 6,
     "weight": 1099,
     "unringable": false,
-    "practice": "Mon (advisable to check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3586,
@@ -57587,7 +57574,7 @@
     "bells": 6,
     "weight": 935,
     "unringable": false,
-    "practice": "Tue (1st: rotates, with Blankney, Potterhanworth, Branston) 19:00"
+    "practice": "Tue (1st: rota) 19:00"
   },
   {
     "towerId": 7233,
@@ -57821,7 +57808,7 @@
     "bells": 5,
     "weight": 978,
     "unringable": false,
-    "practice": "Sat (by arrangement) 17:00"
+    "practice": "Sat (check) 17:00"
   },
   {
     "towerId": 6403,
@@ -58107,7 +58094,7 @@
     "bells": 6,
     "weight": 1539,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3616,
@@ -59043,7 +59030,7 @@
     "bells": 8,
     "weight": 1644,
     "unringable": false,
-    "practice": "Thu (check with contact) 19:00"
+    "practice": "Thu (check) 19:00"
   },
   {
     "towerId": 3665,
@@ -59225,7 +59212,7 @@
     "bells": 6,
     "weight": 726,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3683,
@@ -59459,7 +59446,7 @@
     "bells": 6,
     "weight": 636,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Wed 18:30"
   },
   {
     "towerId": 3700,
@@ -59493,8 +59480,8 @@
     "dedication": "S Nicholas",
     "county": "Suffolk",
     "iso3166": "GB",
-    "latitude": 52.35184,
-    "longitude": 1.16586,
+    "latitude": 52.35189,
+    "longitude": 1.16588,
     "bells": 6,
     "weight": 1208,
     "unringable": false,
@@ -60200,7 +60187,7 @@
     "bells": 8,
     "weight": 771,
     "unringable": false,
-    "practice": "Tue (confirm first) 18:00"
+    "practice": "Tue (check) 18:00"
   },
   {
     "towerId": 6295,
@@ -60369,7 +60356,7 @@
     "bells": 8,
     "weight": 2406,
     "unringable": false,
-    "practice": "Tue (3rd, 4th, 5th: 1st & 2nd are at Aughton, Christ Church)"
+    "practice": "Tue (3rd, 4th, 5th)"
   },
   {
     "towerId": 3753,
@@ -61773,7 +61760,7 @@
     "bells": 6,
     "weight": 1674,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3839,
@@ -61838,7 +61825,7 @@
     "bells": 6,
     "weight": 907,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 3844,
@@ -61864,7 +61851,7 @@
     "bells": 6,
     "weight": 1040,
     "unringable": false,
-    "practice": "Thu (not always: check) 19:00"
+    "practice": "Thu (alt) 19:00"
   },
   {
     "towerId": 3846,
@@ -62085,7 +62072,7 @@
     "bells": 6,
     "weight": 952,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3863,
@@ -62150,7 +62137,7 @@
     "bells": 6,
     "weight": 952,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 3868,
@@ -62449,7 +62436,7 @@
     "bells": 16,
     "weight": 3262,
     "unringable": false,
-    "practice": "Sun (see tower website) 11:00"
+    "practice": "Sun (check) 11:00"
   },
   {
     "towerId": 3884,
@@ -62579,7 +62566,7 @@
     "bells": 6,
     "weight": 700,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3894,
@@ -62644,7 +62631,7 @@
     "bells": 6,
     "weight": 1371,
     "unringable": false,
-    "practice": "Mon"
+    "practice": "Tue"
   },
   {
     "towerId": 5972,
@@ -62982,7 +62969,7 @@
     "bells": 8,
     "weight": 1139,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3918,
@@ -62995,7 +62982,7 @@
     "bells": 8,
     "weight": 2115,
     "unringable": false,
-    "practice": "Tue (check with contact) 20:00"
+    "practice": "Tue (check) 20:00"
   },
   {
     "towerId": 3919,
@@ -63203,7 +63190,7 @@
     "bells": 10,
     "weight": 3450,
     "unringable": false,
-    "practice": "Tue"
+    "practice": ""
   },
   {
     "towerId": 3931,
@@ -63307,7 +63294,7 @@
     "bells": 8,
     "weight": 1299,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 3938,
@@ -63346,7 +63333,7 @@
     "bells": 8,
     "weight": 1379,
     "unringable": false,
-    "practice": "Thu (with additions)"
+    "practice": "Thu"
   },
   {
     "towerId": 3941,
@@ -63385,7 +63372,7 @@
     "bells": 6,
     "weight": 1268,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 3943,
@@ -63398,7 +63385,7 @@
     "bells": 8,
     "weight": 1421,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 3944,
@@ -63450,7 +63437,7 @@
     "bells": 6,
     "weight": 1115,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 3949,
@@ -63502,7 +63489,7 @@
     "bells": 6,
     "weight": 840,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 3953,
@@ -63606,7 +63593,7 @@
     "bells": 6,
     "weight": 780,
     "unringable": false,
-    "practice": "Tue (3rd, 5th: rotates with Nocton, Blankney, Branston) 19:00"
+    "practice": "Tue (3rd, 5th: rota) 19:00"
   },
   {
     "towerId": 3958,
@@ -63905,7 +63892,7 @@
     "bells": 6,
     "weight": 889,
     "unringable": false,
-    "practice": "Tue (alt: check)"
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 3978,
@@ -64100,7 +64087,7 @@
     "bells": 6,
     "weight": 1498,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 3992,
@@ -64152,7 +64139,7 @@
     "bells": 6,
     "weight": 2368,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 3996,
@@ -64191,7 +64178,7 @@
     "bells": 6,
     "weight": 1838,
     "unringable": false,
-    "practice": "Thu (2nd, 4th: shared with Milborne St Andrew) 18:30"
+    "practice": "Thu (2nd, 4th) 18:30"
   },
   {
     "towerId": 4000,
@@ -64477,7 +64464,7 @@
     "bells": 6,
     "weight": 1092,
     "unringable": false,
-    "practice": "Tue (4th: Apr-Oct)"
+    "practice": "Tue (4th: Apr\u2013Oct)"
   },
   {
     "towerId": 4016,
@@ -64529,7 +64516,7 @@
     "bells": 8,
     "weight": 1591,
     "unringable": false,
-    "practice": "Tue (exc 2nd: Tuesday practices are occasionally (probably monthly) to be held at S Matthew\u2019s Bell Tower; intending visitors are advised to confirm practice arrangements with the local contact) 19:00"
+    "practice": "Tue (exc 2nd: check) 19:00"
   },
   {
     "towerId": 5879,
@@ -64542,7 +64529,7 @@
     "bells": 8,
     "weight": 1680,
     "unringable": false,
-    "practice": "Tue (2nd: Once a month at the library as well as upon special request. Best to confirm by email for any visiting ringers) 18:00"
+    "practice": "Tue (2nd: check) 18:00"
   },
   {
     "towerId": 4018,
@@ -64568,7 +64555,7 @@
     "bells": 6,
     "weight": 4123,
     "unringable": false,
-    "practice": "Wed (by arrangement)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4020,
@@ -64581,7 +64568,7 @@
     "bells": 6,
     "weight": 830,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 4021,
@@ -64594,7 +64581,7 @@
     "bells": 6,
     "weight": 638,
     "unringable": false,
-    "practice": "Sat (with exceptions) 09:30"
+    "practice": "Sat (check) 09:30"
   },
   {
     "towerId": 4022,
@@ -64607,7 +64594,7 @@
     "bells": 8,
     "weight": 1587,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 4023,
@@ -64620,7 +64607,7 @@
     "bells": 6,
     "weight": 1165,
     "unringable": false,
-    "practice": "Tue (alt: check) 18:00"
+    "practice": "Tue (alt) 18:00"
   },
   {
     "towerId": 6782,
@@ -64815,7 +64802,7 @@
     "bells": 8,
     "weight": 1359,
     "unringable": false,
-    "practice": "Thu (not always: check) 20:00"
+    "practice": "Thu (check) 20:00"
   },
   {
     "towerId": 4037,
@@ -65270,7 +65257,7 @@
     "bells": 8,
     "weight": 1385,
     "unringable": false,
-    "practice": "Sat (alternates with Wath upon Dearne) 18:00"
+    "practice": "Sat (alt) 18:00"
   },
   {
     "towerId": 4059,
@@ -65335,7 +65322,7 @@
     "bells": 12,
     "weight": 2596,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 4064,
@@ -65517,7 +65504,7 @@
     "bells": 6,
     "weight": 1063,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 4076,
@@ -65582,7 +65569,7 @@
     "bells": 6,
     "weight": 726,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4080,
@@ -65907,7 +65894,7 @@
     "bells": 6,
     "weight": 1015,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 6041,
@@ -66089,7 +66076,7 @@
     "bells": 12,
     "weight": 2600,
     "unringable": false,
-    "practice": "Wed (website->access info)"
+    "practice": "Wed"
   },
   {
     "towerId": 4107,
@@ -66453,7 +66440,7 @@
     "bells": 4,
     "weight": 784,
     "unringable": false,
-    "practice": "Thu (by arrangement)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 7946,
@@ -66492,7 +66479,7 @@
     "bells": 10,
     "weight": 2546,
     "unringable": false,
-    "practice": "Tue"
+    "practice": "Tue 19:00"
   },
   {
     "towerId": 4132,
@@ -66752,7 +66739,7 @@
     "bells": 8,
     "weight": 1181,
     "unringable": false,
-    "practice": "Thu (shared with Bermondsey, please check)"
+    "practice": "Thu (2nd, 4th)"
   },
   {
     "towerId": 4147,
@@ -66999,7 +66986,7 @@
     "bells": 10,
     "weight": 2116,
     "unringable": false,
-    "practice": "Wed (exc Summer)"
+    "practice": "Wed (exc summer)"
   },
   {
     "towerId": 2914,
@@ -67103,7 +67090,7 @@
     "bells": 6,
     "weight": 1304,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 4164,
@@ -67129,7 +67116,7 @@
     "bells": 5,
     "weight": 1264,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 2619,
@@ -67454,7 +67441,7 @@
     "bells": 6,
     "weight": 1105,
     "unringable": false,
-    "practice": "Wed (by arrangement)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4187,
@@ -67792,7 +67779,7 @@
     "bells": 6,
     "weight": 448,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 4207,
@@ -68052,7 +68039,7 @@
     "bells": 6,
     "weight": 757,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon"
   },
   {
     "towerId": 4225,
@@ -68546,7 +68533,7 @@
     "bells": 3,
     "weight": 884,
     "unringable": false,
-    "practice": "Tue (by arrangement)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 4251,
@@ -68650,7 +68637,7 @@
     "bells": 6,
     "weight": 604,
     "unringable": false,
-    "practice": "Thu (confirm first) 20:00"
+    "practice": "Thu (check) 20:00"
   },
   {
     "towerId": 4257,
@@ -68858,7 +68845,7 @@
     "bells": 6,
     "weight": 1141,
     "unringable": false,
-    "practice": "Mon (5th), Wed (alternate months starting in June) & Thu (5th)"
+    "practice": "Mon (5th), Wed (alt) & Thu (5th)"
   },
   {
     "towerId": 7643,
@@ -69027,7 +69014,7 @@
     "bells": 8,
     "weight": 1299,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4278,
@@ -69273,7 +69260,7 @@
     "longitude": -1.69869,
     "bells": 6,
     "weight": 733,
-    "unringable": true,
+    "unringable": false,
     "practice": ""
   },
   {
@@ -69326,7 +69313,7 @@
     "bells": 8,
     "weight": 1255,
     "unringable": false,
-    "practice": "Fri (not always: check) 17:00"
+    "practice": "Fri (check) 17:00"
   },
   {
     "towerId": 4297,
@@ -69599,7 +69586,7 @@
     "bells": 6,
     "weight": 796,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 4316,
@@ -69794,7 +69781,7 @@
     "bells": 6,
     "weight": 1690,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 6670,
@@ -69937,7 +69924,7 @@
     "bells": 6,
     "weight": 690,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 4340,
@@ -70041,7 +70028,7 @@
     "bells": 6,
     "weight": 1277,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 4347,
@@ -70275,7 +70262,7 @@
     "bells": 6,
     "weight": 1329,
     "unringable": false,
-    "practice": "Tue (following 1st and 3rd Sunday)"
+    "practice": "Tue (following 1st, 3rd Sun)"
   },
   {
     "towerId": 4363,
@@ -70288,7 +70275,7 @@
     "bells": 6,
     "weight": 1094,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 4364,
@@ -70366,7 +70353,7 @@
     "bells": 6,
     "weight": 1065,
     "unringable": false,
-    "practice": "Sat (alternates with Honington) 10:00"
+    "practice": "Sat (alt) 10:00"
   },
   {
     "towerId": 7721,
@@ -70730,7 +70717,7 @@
     "bells": 10,
     "weight": 2192,
     "unringable": false,
-    "practice": "Tue (see tower website)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 4393,
@@ -70808,7 +70795,7 @@
     "bells": 6,
     "weight": 614,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4400,
@@ -70977,7 +70964,7 @@
     "bells": 10,
     "weight": 2476,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4412,
@@ -71146,7 +71133,7 @@
     "bells": 8,
     "weight": 1118,
     "unringable": false,
-    "practice": "Thu (see tower website) 18:30"
+    "practice": "Thu (check) 18:30"
   },
   {
     "towerId": 4423,
@@ -71159,7 +71146,7 @@
     "bells": 6,
     "weight": 1076,
     "unringable": false,
-    "practice": "Fri (Check before; practice held at Kelston, S Nicholas, once every four to six weeks) 10:00"
+    "practice": "Fri (check) 10:00"
   },
   {
     "towerId": 7276,
@@ -71276,7 +71263,7 @@
     "bells": 6,
     "weight": 870,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 4428,
@@ -71367,7 +71354,7 @@
     "bells": 6,
     "weight": 1714,
     "unringable": false,
-    "practice": "Wed (by arrangement)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4434,
@@ -71588,7 +71575,7 @@
     "bells": 6,
     "weight": 959,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 4448,
@@ -71601,7 +71588,7 @@
     "bells": 8,
     "weight": 1508,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (1st, 3rd, 4th)"
   },
   {
     "towerId": 4449,
@@ -71614,7 +71601,7 @@
     "bells": 10,
     "weight": 2352,
     "unringable": false,
-    "practice": "Wed (4th: check first)"
+    "practice": "Wed (4th: check)"
   },
   {
     "towerId": 4450,
@@ -71952,7 +71939,7 @@
     "bells": 12,
     "weight": 3380,
     "unringable": false,
-    "practice": "Mon (see tower website)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 7455,
@@ -72056,7 +72043,7 @@
     "bells": 8,
     "weight": 1171,
     "unringable": false,
-    "practice": "Wed (1st, 3rd: alt with Bampton)"
+    "practice": "Wed"
   },
   {
     "towerId": 6409,
@@ -72251,7 +72238,7 @@
     "bells": 6,
     "weight": 735,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4488,
@@ -72485,7 +72472,7 @@
     "bells": 6,
     "weight": 310,
     "unringable": false,
-    "practice": "Thu (check with contact)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 4502,
@@ -72667,7 +72654,7 @@
     "bells": 12,
     "weight": 5461,
     "unringable": false,
-    "practice": "Wed (not always: check) 18:30"
+    "practice": "Wed (check) 18:30"
   },
   {
     "towerId": 4513,
@@ -72706,7 +72693,7 @@
     "bells": 6,
     "weight": 570,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 4517,
@@ -72784,7 +72771,7 @@
     "bells": 6,
     "weight": 1412,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": ""
   },
   {
     "towerId": 6020,
@@ -73109,7 +73096,7 @@
     "bells": 8,
     "weight": 967,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 4542,
@@ -73200,7 +73187,7 @@
     "bells": 6,
     "weight": 888,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 4547,
@@ -73291,7 +73278,7 @@
     "bells": 8,
     "weight": 2077,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 4553,
@@ -73447,7 +73434,7 @@
     "bells": 6,
     "weight": 1096,
     "unringable": false,
-    "practice": "Fri"
+    "practice": ""
   },
   {
     "towerId": 4563,
@@ -73473,7 +73460,7 @@
     "bells": 8,
     "weight": 1404,
     "unringable": false,
-    "practice": "Wed (exc  Aug)"
+    "practice": "Wed (exc Aug)"
   },
   {
     "towerId": 4565,
@@ -73785,7 +73772,7 @@
     "bells": 6,
     "weight": 838,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (rota)"
   },
   {
     "towerId": 4588,
@@ -74318,7 +74305,7 @@
     "bells": 6,
     "weight": 2128,
     "unringable": false,
-    "practice": "Thu (by arrangement) 20:00"
+    "practice": "Thu (check) 20:00"
   },
   {
     "towerId": 4619,
@@ -74955,7 +74942,7 @@
     "bells": 4,
     "weight": 687,
     "unringable": false,
-    "practice": "PN: By arrangement"
+    "practice": ""
   },
   {
     "towerId": 4657,
@@ -75124,7 +75111,7 @@
     "bells": 6,
     "weight": 1492,
     "unringable": false,
-    "practice": "Wed (not always: check) 20:00"
+    "practice": "Wed (check) 20:00"
   },
   {
     "towerId": 7459,
@@ -75215,7 +75202,7 @@
     "bells": 6,
     "weight": 839,
     "unringable": false,
-    "practice": "Mon (Oct-May) 18:30"
+    "practice": "Mon (Oct\u2013May) 18:30"
   },
   {
     "towerId": 4675,
@@ -75280,7 +75267,7 @@
     "bells": 6,
     "weight": 1680,
     "unringable": false,
-    "practice": "Tue (not always: check) 20:00"
+    "practice": "Tue (check) 20:00"
   },
   {
     "towerId": 4680,
@@ -75540,7 +75527,7 @@
     "bells": 6,
     "weight": 896,
     "unringable": false,
-    "practice": "Wed (Winter)"
+    "practice": "Wed (winter)"
   },
   {
     "towerId": 4698,
@@ -75566,7 +75553,7 @@
     "bells": 6,
     "weight": 1103,
     "unringable": false,
-    "practice": "Mon (check first via SCACR website)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4700,
@@ -75748,7 +75735,7 @@
     "bells": 6,
     "weight": 1295,
     "unringable": false,
-    "practice": "Wed (with exceptions; please check with the Tower Captain before travelling) 18:00"
+    "practice": "Wed (check) 18:00"
   },
   {
     "towerId": 4713,
@@ -75930,7 +75917,7 @@
     "bells": 6,
     "weight": 804,
     "unringable": false,
-    "practice": "Mon (exc last of month)"
+    "practice": "Mon (exc last)"
   },
   {
     "towerId": 4722,
@@ -76175,7 +76162,7 @@
     "latitude": 52.48665,
     "longitude": -0.81544,
     "bells": 6,
-    "weight": 1125,
+    "weight": 1175,
     "unringable": false,
     "practice": ""
   },
@@ -76242,7 +76229,7 @@
     "bells": 6,
     "weight": 1456,
     "unringable": false,
-    "practice": "Fri (Last Friday of the month)"
+    "practice": "Fri (last)"
   },
   {
     "towerId": 4761,
@@ -76593,7 +76580,7 @@
     "bells": 5,
     "weight": 1960,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4758,
@@ -76645,7 +76632,7 @@
     "bells": 6,
     "weight": 1919,
     "unringable": false,
-    "practice": "Mon (see tower website)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4759,
@@ -77516,7 +77503,7 @@
     "bells": 8,
     "weight": 1283,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4824,
@@ -77685,7 +77672,7 @@
     "bells": 6,
     "weight": 1810,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4833,
@@ -77984,7 +77971,7 @@
     "bells": 8,
     "weight": 1391,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 7343,
@@ -78374,7 +78361,7 @@
     "bells": 6,
     "weight": 807,
     "unringable": false,
-    "practice": "Tue (following 2nd and 4th Sunday)"
+    "practice": "Tue (following 2nd, 4th Sun)"
   },
   {
     "towerId": 4878,
@@ -78395,7 +78382,7 @@
     "dedication": "S Swithun",
     "county": "Buckinghamshire",
     "iso3166": "GB",
-    "latitude": 51.93825,
+    "latitude": 51.93828,
     "longitude": -0.83631,
     "bells": 6,
     "weight": 1396,
@@ -79076,7 +79063,7 @@
     "bells": 6,
     "weight": 1268,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 4919,
@@ -79375,7 +79362,7 @@
     "bells": 6,
     "weight": 485,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 6031,
@@ -79687,7 +79674,7 @@
     "bells": 8,
     "weight": 1320,
     "unringable": false,
-    "practice": "Mon (not always: check)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4952,
@@ -79752,7 +79739,7 @@
     "bells": 6,
     "weight": 529,
     "unringable": false,
-    "practice": "Fri (Sometimes changed to Thursday)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 4955,
@@ -79830,7 +79817,7 @@
     "bells": 6,
     "weight": 1211,
     "unringable": false,
-    "practice": "Thu (with exceptions) 20:00"
+    "practice": "Thu (check) 20:00"
   },
   {
     "towerId": 4960,
@@ -79869,7 +79856,7 @@
     "bells": 6,
     "weight": 898,
     "unringable": false,
-    "practice": "Mon (with exceptions)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 4963,
@@ -80441,7 +80428,7 @@
     "bells": 5,
     "weight": 747,
     "unringable": false,
-    "practice": "Wed (not always: check) 19:00"
+    "practice": "Wed (check) 19:00"
   },
   {
     "towerId": 4995,
@@ -80571,7 +80558,7 @@
     "bells": 6,
     "weight": 1030,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 5000,
@@ -80649,7 +80636,7 @@
     "bells": 6,
     "weight": 948,
     "unringable": false,
-    "practice": "Thu (not always: check)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 5005,
@@ -80662,7 +80649,7 @@
     "bells": 8,
     "weight": 1380,
     "unringable": false,
-    "practice": "Tue (check with contact) 18:00"
+    "practice": "Tue (check) 18:00"
   },
   {
     "towerId": 5006,
@@ -81078,7 +81065,7 @@
     "bells": 6,
     "weight": 1652,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Wed"
   },
   {
     "towerId": 5031,
@@ -81234,7 +81221,7 @@
     "bells": 6,
     "weight": 1853,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 7541,
@@ -81429,7 +81416,7 @@
     "bells": 6,
     "weight": 1801,
     "unringable": false,
-    "practice": "Wed (alt: check) 19:00"
+    "practice": "Wed (alt) 19:00"
   },
   {
     "towerId": 6077,
@@ -81442,7 +81429,7 @@
     "bells": 3,
     "weight": 784,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 5051,
@@ -81741,7 +81728,7 @@
     "bells": 6,
     "weight": 941,
     "unringable": false,
-    "practice": "Mon (check on Bank Hol)"
+    "practice": "Mon (check BH)"
   },
   {
     "towerId": 7308,
@@ -82053,7 +82040,7 @@
     "bells": 6,
     "weight": 983,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 5086,
@@ -82898,7 +82885,7 @@
     "bells": 6,
     "weight": 1445,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 5139,
@@ -83067,7 +83054,7 @@
     "bells": 6,
     "weight": 1386,
     "unringable": false,
-    "practice": "Wed (with exceptions)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 5150,
@@ -83327,7 +83314,7 @@
     "bells": 8,
     "weight": 1626,
     "unringable": false,
-    "practice": "Thu (1st, 3rd: rotates: 2nd North Luffenham, 4th Lyddington, 5th Monday or Thursday Seaton)"
+    "practice": "Thu (1st, 3rd)"
   },
   {
     "towerId": 5169,
@@ -83340,7 +83327,7 @@
     "bells": 6,
     "weight": 1064,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 5180,
@@ -83548,7 +83535,7 @@
     "bells": 8,
     "weight": 1603,
     "unringable": false,
-    "practice": "Thu"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 6349,
@@ -83743,7 +83730,7 @@
     "bells": 6,
     "weight": 884,
     "unringable": false,
-    "practice": "Mon (on a rota basis)"
+    "practice": "Mon (rota)"
   },
   {
     "towerId": 5192,
@@ -83808,7 +83795,7 @@
     "bells": 8,
     "weight": 611,
     "unringable": false,
-    "practice": "PN: check with contact"
+    "practice": ""
   },
   {
     "towerId": 7948,
@@ -84107,7 +84094,7 @@
     "bells": 6,
     "weight": 949,
     "unringable": false,
-    "practice": "Mon (exc 3rd: 3rd Monday of the month practices are held at Guilden Morden)"
+    "practice": "Mon"
   },
   {
     "towerId": 5214,
@@ -84120,7 +84107,7 @@
     "bells": 8,
     "weight": 2025,
     "unringable": false,
-    "practice": "Mon (by arrangement)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 5215,
@@ -84224,7 +84211,7 @@
     "bells": 6,
     "weight": 954,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 5222,
@@ -84250,7 +84237,7 @@
     "bells": 12,
     "weight": 4179,
     "unringable": false,
-    "practice": "Wed (not always: check)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 5226,
@@ -84289,7 +84276,7 @@
     "bells": 10,
     "weight": 1933,
     "unringable": false,
-    "practice": "Wed"
+    "practice": ""
   },
   {
     "towerId": 5228,
@@ -84458,7 +84445,7 @@
     "bells": 8,
     "weight": 1682,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 5929,
@@ -84801,7 +84788,7 @@
   {
     "towerId": 5263,
     "place": "Warminster",
-    "dedication": "S Denys",
+    "dedication": "Minster Ch of S Denys",
     "county": "Wiltshire",
     "iso3166": "GB",
     "latitude": 51.20858,
@@ -84939,7 +84926,7 @@
     "bells": 8,
     "weight": 1756,
     "unringable": false,
-    "practice": "Wed (2nd, 4th: check re 5th)"
+    "practice": "Wed (2nd, 4th: check 5th)"
   },
   {
     "towerId": 5270,
@@ -85095,7 +85082,7 @@
     "bells": 8,
     "weight": 1973,
     "unringable": false,
-    "practice": "Sun (not always: check) 12:00"
+    "practice": "Sun (check) 12:00"
   },
   {
     "towerId": 5878,
@@ -85160,7 +85147,7 @@
     "bells": 8,
     "weight": 1409,
     "unringable": false,
-    "practice": "Sat (alternates with Rawmarsh) 18:00"
+    "practice": "Sat (alt) 18:00"
   },
   {
     "towerId": 5282,
@@ -85407,7 +85394,7 @@
     "bells": 8,
     "weight": 1257,
     "unringable": false,
-    "practice": "Wed (4th: BST only, shared with Brant Broughton, Leadenham)"
+    "practice": "Wed (4th: BST)"
   },
   {
     "towerId": 5298,
@@ -85589,7 +85576,7 @@
     "bells": 5,
     "weight": 445,
     "unringable": false,
-    "practice": "PN: by arrangement"
+    "practice": ""
   },
   {
     "towerId": 6478,
@@ -85628,7 +85615,7 @@
     "bells": 6,
     "weight": 1316,
     "unringable": false,
-    "practice": "Fri (not always: check)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 5309,
@@ -85641,7 +85628,7 @@
     "bells": 8,
     "weight": 2161,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 6413,
@@ -85862,7 +85849,7 @@
     "bells": 6,
     "weight": 916,
     "unringable": false,
-    "practice": "Tue (1st: Summer only)"
+    "practice": "Tue (1st: summer)"
   },
   {
     "towerId": 5325,
@@ -85901,7 +85888,7 @@
     "bells": 6,
     "weight": 1132,
     "unringable": false,
-    "practice": "Fri (April - September) & Sat (October - March  : Saturday Afternoons (time varies around church events ))"
+    "practice": "Fri (Apr\u2013Sep) & Sat (Oct\u2013Mar check)"
   },
   {
     "towerId": 6538,
@@ -86291,7 +86278,7 @@
     "bells": 6,
     "weight": 1267,
     "unringable": false,
-    "practice": "Fri (alternates with Ardingly) 10:00"
+    "practice": "Fri (alt) 10:00"
   },
   {
     "towerId": 7319,
@@ -86382,7 +86369,7 @@
     "bells": 6,
     "weight": 1540,
     "unringable": false,
-    "practice": "Mon (check with contact)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 5360,
@@ -86731,7 +86718,7 @@
     "latitude": 52.01545,
     "longitude": -1.09459,
     "bells": 3,
-    "weight": 663,
+    "weight": 560,
     "unringable": true,
     "practice": ""
   },
@@ -86863,7 +86850,7 @@
     "bells": 8,
     "weight": 2593,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 5386,
@@ -86941,7 +86928,7 @@
     "bells": 6,
     "weight": 983,
     "unringable": false,
-    "practice": "Sat (until 11:30) 10:00"
+    "practice": "Sat 10:00"
   },
   {
     "towerId": 5391,
@@ -86980,7 +86967,7 @@
     "bells": 6,
     "weight": 747,
     "unringable": false,
-    "practice": "Wed (see tower website)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 5395,
@@ -87305,7 +87292,7 @@
     "bells": 6,
     "weight": 2231,
     "unringable": false,
-    "practice": "Mon (alt: check)"
+    "practice": "Mon (alt)"
   },
   {
     "towerId": 7496,
@@ -87513,7 +87500,7 @@
     "bells": 6,
     "weight": 1358,
     "unringable": false,
-    "practice": ""
+    "practice": "Mon 19:00"
   },
   {
     "towerId": 6305,
@@ -87590,7 +87577,7 @@
     "longitude": -1.0364,
     "bells": 3,
     "weight": 336,
-    "unringable": false,
+    "unringable": true,
     "practice": ""
   },
   {
@@ -87929,7 +87916,7 @@
     "bells": 12,
     "weight": 1793,
     "unringable": false,
-    "practice": "Fri (with additions)"
+    "practice": "Fri"
   },
   {
     "towerId": 5456,
@@ -88592,7 +88579,7 @@
     "bells": 6,
     "weight": 1226,
     "unringable": false,
-    "practice": "Thu (not always: check) 14:00"
+    "practice": "Thu (check) 14:00"
   },
   {
     "towerId": 5498,
@@ -88683,7 +88670,7 @@
     "bells": 6,
     "weight": 857,
     "unringable": false,
-    "practice": "Thu (on a rota basis)"
+    "practice": "Thu (rota)"
   },
   {
     "towerId": 6050,
@@ -88839,7 +88826,7 @@
     "bells": 6,
     "weight": 1344,
     "unringable": false,
-    "practice": "Thu (by arrangement)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 5513,
@@ -89112,7 +89099,7 @@
     "bells": 8,
     "weight": 1601,
     "unringable": false,
-    "practice": "Mon (2nd, 4th: alternates with Cranborne)"
+    "practice": "Mon (2nd, 4th)"
   },
   {
     "towerId": 7328,
@@ -89255,7 +89242,7 @@
     "bells": 8,
     "weight": 1971,
     "unringable": false,
-    "practice": "Fri (preceding service ringing, timings vary)"
+    "practice": "Fri"
   },
   {
     "towerId": 5541,
@@ -89281,7 +89268,7 @@
     "bells": 8,
     "weight": 1566,
     "unringable": false,
-    "practice": "Mon (by arrangement)"
+    "practice": "Mon (check)"
   },
   {
     "towerId": 7863,
@@ -89359,7 +89346,7 @@
     "bells": 8,
     "weight": 2156,
     "unringable": false,
-    "practice": ""
+    "practice": "Tue (alt)"
   },
   {
     "towerId": 5548,
@@ -89476,7 +89463,7 @@
     "bells": 6,
     "weight": 1918,
     "unringable": false,
-    "practice": "Tue (not always: check)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 7473,
@@ -89593,7 +89580,7 @@
     "bells": 6,
     "weight": 1242,
     "unringable": false,
-    "practice": "Thu (with exceptions)"
+    "practice": "Thu (check)"
   },
   {
     "towerId": 5563,
@@ -89619,7 +89606,7 @@
     "bells": 6,
     "weight": 2240,
     "unringable": false,
-    "practice": "Mon"
+    "practice": "Tue (2nd, 4th)"
   },
   {
     "towerId": 7433,
@@ -89840,7 +89827,7 @@
     "bells": 6,
     "weight": 1191,
     "unringable": false,
-    "practice": "Wed (check with contact)"
+    "practice": "Wed (check)"
   },
   {
     "towerId": 5579,
@@ -90087,7 +90074,7 @@
     "bells": 6,
     "weight": 1256,
     "unringable": false,
-    "practice": ""
+    "practice": "Wed (1st, 3rd)"
   },
   {
     "towerId": 5593,
@@ -90152,7 +90139,7 @@
     "bells": 8,
     "weight": 1689,
     "unringable": false,
-    "practice": "Fri (not always: check) 20:00"
+    "practice": "Fri (check) 20:00"
   },
   {
     "towerId": 5597,
@@ -90451,7 +90438,7 @@
     "bells": 8,
     "weight": 1074,
     "unringable": false,
-    "practice": "Fri (PN alternates with Amblecote)"
+    "practice": "Fri (alt)"
   },
   {
     "towerId": 5620,
@@ -90659,7 +90646,7 @@
     "bells": 6,
     "weight": 1790,
     "unringable": false,
-    "practice": "Wed (check with contact) 18:00"
+    "practice": "Wed (check) 18:00"
   },
   {
     "towerId": 5633,
@@ -90945,7 +90932,7 @@
     "bells": 6,
     "weight": 924,
     "unringable": false,
-    "practice": "Mon (1st, 3rd, 5th: Shared with Drinkstone, 2nd & 4th)"
+    "practice": "Mon (1st, 3rd, 5th)"
   },
   {
     "towerId": 7208,
@@ -91374,7 +91361,7 @@
     "bells": 6,
     "weight": 896,
     "unringable": false,
-    "practice": "Tue (Apr-Sept)"
+    "practice": "Tue (Apr\u2013Sep)"
   },
   {
     "towerId": 6307,
@@ -91400,7 +91387,7 @@
     "bells": 6,
     "weight": 379,
     "unringable": false,
-    "practice": "Tue (with exceptions)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 5685,
@@ -91478,7 +91465,7 @@
     "bells": 6,
     "weight": 820,
     "unringable": false,
-    "practice": "Fri (with exceptions)"
+    "practice": "Fri (check)"
   },
   {
     "towerId": 6026,
@@ -92219,7 +92206,7 @@
     "bells": 6,
     "weight": 760,
     "unringable": false,
-    "practice": "Tue (check with contact)"
+    "practice": "Tue (check)"
   },
   {
     "towerId": 5735,
@@ -92432,7 +92419,7 @@
   {
     "towerId": 5746,
     "place": "York",
-    "dedication": "Jalou York formerly Arts Centre",
+    "dedication": "former ch of S John Ouse Bridge",
     "county": "North Yorkshire",
     "iso3166": "GB",
     "latitude": 53.95743,
@@ -92479,7 +92466,7 @@
     "bells": 6,
     "weight": 1022,
     "unringable": false,
-    "practice": "Wed (Please check first in case of cancellation) 19:00"
+    "practice": "Wed (check) 19:00"
   },
   {
     "towerId": 5978,
@@ -92510,7 +92497,7 @@
   {
     "towerId": 7340,
     "place": "York",
-    "dedication": "York St Mary's (visual art venue)",
+    "dedication": "former ch of St Mary Castlegate",
     "county": "North Yorkshire",
     "iso3166": "GB",
     "latitude": 53.95716,
