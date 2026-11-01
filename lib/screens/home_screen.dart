@@ -25,6 +25,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   static final MapController _mapController = MapController();
 
   late final AppLifecycleListener _listener;
@@ -54,29 +55,30 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Builder(
         builder: (BuildContext tabContext) {
           return Scaffold(
+            key: _scaffoldKey,
+            extendBodyBehindAppBar: true,
+
             // AppBar contains the tower search bar
             appBar: AppBar(
+              automaticallyImplyActions: false,
+              backgroundColor: Colors.transparent,
               centerTitle: true,
               clipBehavior: Clip.none,
-              titleSpacing: 0,
               title: buildSearchAnchor(context, tabContext),
             ),
 
             // Body with tabbed widgets
-            body: Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: TabBarView(
-                children: [
-                  MapWidget(
-                      viewModel: widget.viewModel, controller: _mapController),
-                  NearestListWidget(
-                      viewModel: widget.viewModel,
-                      showTowerOnMap: _showTowerOnMap),
-                  VisitsListWidget(
-                      viewModel: widget.viewModel,
-                      showTowerOnMap: _showTowerOnMap),
-                ],
-              ),
+            body: TabBarView(
+              children: [
+                MapWidget(
+                    viewModel: widget.viewModel, controller: _mapController),
+                NearestListWidget(
+                    viewModel: widget.viewModel,
+                    showTowerOnMap: _showTowerOnMap),
+                VisitsListWidget(
+                    viewModel: widget.viewModel,
+                    showTowerOnMap: _showTowerOnMap),
+              ],
             ),
 
             // Bottom navigation with tab controller
@@ -97,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            drawer: buildDrawer(context),
+            endDrawer: buildDrawer(context),
           );
         },
       ),
@@ -127,6 +129,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   controller.clear();
                   FocusScope.of(context).unfocus();
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  _scaffoldKey.currentState!.openEndDrawer();
                 },
               ),
             ],
