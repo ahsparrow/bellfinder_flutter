@@ -102,22 +102,25 @@ class _HomeScreenState extends State<HomeScreen>
       ),
 
       // Bottom navigation with tab controller
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).padding.bottom,
-        ),
-        child: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(text: 'Map', icon: Icon(Icons.map)),
-            Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
-            Tab(text: 'Visited', icon: Icon(Icons.beenhere)),
-          ],
-          dividerColor: Colors.transparent,
-          indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(color: Colors.transparent),
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.map),
+            label: 'Map',
           ),
-        ),
+          NavigationDestination(
+            icon: Icon(Icons.near_me),
+            label: 'Near Me',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.beenhere),
+            label: 'Visited',
+          ),
+        ],
+        selectedIndex: _tabController.index,
+        onDestinationSelected: (int index) {
+          _tabController.animateTo(index);
+        },
       ),
 
       endDrawer: buildDrawer(context),
