@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen>
         centerTitle: true,
         clipBehavior: Clip.none,
         systemOverlayStyle: _overlayStyle,
-        title: buildSearchAnchor(context, context),
+        title: buildSearchAnchor(context),
       ),
 
       // Body with tabbed widgets
@@ -127,8 +127,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  SearchAnchor buildSearchAnchor(
-      BuildContext context, BuildContext buildContext) {
+  SearchAnchor buildSearchAnchor(BuildContext context) {
     return SearchAnchor(
       builder: (BuildContext context, SearchController controller) {
         return Padding(
@@ -196,13 +195,13 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   );
 
-                  if (result == "map" && buildContext.mounted) {
-                    _showTowerOnMap(buildContext, t);
+                  if (result == "map" && context.mounted) {
+                    _showTowerOnMap(context, t);
                   }
                 },
                 onLongPress: () {
                   controller.closeView("");
-                  _showTowerOnMap(buildContext, t);
+                  _showTowerOnMap(context, t);
                 },
               ),
             );
