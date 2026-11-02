@@ -6,6 +6,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' show LatLng;
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/scheduler.dart';
 
 import '../data/database.dart';
 import '../screens/tower_screen.dart';
@@ -24,9 +26,13 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   static final MapController _mapController = MapController();
+
+  SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.dark;
+  late final TabController _tabController;
 
   late final AppLifecycleListener _listener;
 
@@ -40,6 +46,25 @@ class _HomeScreenState extends State<HomeScreen> {
             camera.center.latitude, camera.center.longitude, camera.zoom);
       },
     );
+
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      var sysBrightness =
+          SchedulerBinding.instance.platformDispatcher.platformBrightness;
+
+      var brightness = _tabController.index == 0
+          // Always uses dark icons for map tab
+          ? Brightness.dark
+          // Nearest and visit tabs follow system theme
+          : sysBrightness == Brightness.dark
+              ? Brightness.light
+              : Brightness.dark;
+
+      setState(() {
+        _overlayStyle =
+            SystemUiOverlayStyle(statusBarIconBrightness: brightness);
+      });
+    });
   }
 
   @override
@@ -64,11 +89,13 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.transparent,
               centerTitle: true,
               clipBehavior: Clip.none,
+              systemOverlayStyle: _overlayStyle,
               title: buildSearchAnchor(context, tabContext),
             ),
 
             // Body with tabbed widgets
             body: TabBarView(
+              controller: _tabController,
               children: [
                 MapWidget(
                     viewModel: widget.viewModel, controller: _mapController),
@@ -86,7 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).padding.bottom,
               ),
-              child: const TabBar(
+              child: TabBar(
+                controller: _tabController,
                 tabs: [
                   Tab(text: 'Map', icon: Icon(Icons.map)),
                   Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
