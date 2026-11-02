@@ -75,67 +75,57 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Builder(
-        builder: (BuildContext tabContext) {
-          return Scaffold(
-            key: _scaffoldKey,
-            extendBodyBehindAppBar: true,
+    return Scaffold(
+      key: _scaffoldKey,
+      extendBodyBehindAppBar: true,
 
-            // AppBar contains the tower search bar
-            appBar: AppBar(
-              automaticallyImplyActions: false,
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              clipBehavior: Clip.none,
-              systemOverlayStyle: _overlayStyle,
-              title: buildSearchAnchor(context, tabContext),
-            ),
-
-            // Body with tabbed widgets
-            body: TabBarView(
-              controller: _tabController,
-              children: [
-                MapWidget(
-                    viewModel: widget.viewModel, controller: _mapController),
-                NearestListWidget(
-                    viewModel: widget.viewModel,
-                    showTowerOnMap: _showTowerOnMap),
-                VisitsListWidget(
-                    viewModel: widget.viewModel,
-                    showTowerOnMap: _showTowerOnMap),
-              ],
-            ),
-
-            // Bottom navigation with tab controller
-            bottomNavigationBar: Padding(
-              padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).padding.bottom,
-              ),
-              child: TabBar(
-                controller: _tabController,
-                tabs: [
-                  Tab(text: 'Map', icon: Icon(Icons.map)),
-                  Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
-                  Tab(text: 'Visited', icon: Icon(Icons.beenhere)),
-                ],
-                dividerColor: Colors.transparent,
-                indicator: UnderlineTabIndicator(
-                  borderSide: BorderSide(color: Colors.transparent),
-                ),
-              ),
-            ),
-
-            endDrawer: buildDrawer(context),
-          );
-        },
+      // AppBar contains the tower search bar
+      appBar: AppBar(
+        automaticallyImplyActions: false,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        clipBehavior: Clip.none,
+        systemOverlayStyle: _overlayStyle,
+        title: buildSearchAnchor(context, context),
       ),
+
+      // Body with tabbed widgets
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          MapWidget(viewModel: widget.viewModel, controller: _mapController),
+          NearestListWidget(
+              viewModel: widget.viewModel, showTowerOnMap: _showTowerOnMap),
+          VisitsListWidget(
+              viewModel: widget.viewModel, showTowerOnMap: _showTowerOnMap),
+        ],
+      ),
+
+      // Bottom navigation with tab controller
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).padding.bottom,
+        ),
+        child: TabBar(
+          controller: _tabController,
+          tabs: [
+            Tab(text: 'Map', icon: Icon(Icons.map)),
+            Tab(text: 'Near Me', icon: Icon(Icons.near_me)),
+            Tab(text: 'Visited', icon: Icon(Icons.beenhere)),
+          ],
+          dividerColor: Colors.transparent,
+          indicator: UnderlineTabIndicator(
+            borderSide: BorderSide(color: Colors.transparent),
+          ),
+        ),
+      ),
+
+      endDrawer: buildDrawer(context),
     );
   }
 
   SearchAnchor buildSearchAnchor(
-      BuildContext context, BuildContext tabContext) {
+      BuildContext context, BuildContext buildContext) {
     return SearchAnchor(
       builder: (BuildContext context, SearchController controller) {
         return Padding(
@@ -203,13 +193,13 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   );
 
-                  if (result == "map" && tabContext.mounted) {
-                    _showTowerOnMap(tabContext, t);
+                  if (result == "map" && buildContext.mounted) {
+                    _showTowerOnMap(buildContext, t);
                   }
                 },
                 onLongPress: () {
                   controller.closeView("");
-                  _showTowerOnMap(tabContext, t);
+                  _showTowerOnMap(buildContext, t);
                 },
               ),
             );
