@@ -273,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen>
       13,
       id: "showtower",
     );
-    DefaultTabController.of(context).animateTo(0);
+    _tabController.animateTo(0);
   }
 
   Future<void> _showAboutDialog(BuildContext context) async {
