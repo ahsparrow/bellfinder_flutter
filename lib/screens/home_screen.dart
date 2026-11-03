@@ -121,6 +121,7 @@ class _HomeScreenState extends State<HomeScreen>
         onDestinationSelected: (int index) {
           _tabController.animateTo(index);
         },
+        height: 60,
       ),
 
       endDrawer: buildDrawer(context),
