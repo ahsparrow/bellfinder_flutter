@@ -29,7 +29,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  static final MapController _mapController = MapController();
+  final MapController _mapController = MapController();
 
   SystemUiOverlayStyle _overlayStyle = SystemUiOverlayStyle.dark;
   late final TabController _tabController;
@@ -69,6 +69,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
+    _mapController.dispose();
+    _tabController.dispose();
     _listener.dispose();
     super.dispose();
   }
