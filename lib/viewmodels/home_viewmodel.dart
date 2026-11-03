@@ -107,7 +107,7 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   // Import visits
-  Future<int> loadCsvVists(String data) async {
+  Future<int> loadCsvVisits(String data) async {
     final csvVisits = csv.decode(data);
 
     if (csvVisits.isEmpty ||
@@ -150,15 +150,17 @@ class HomeViewModel extends ChangeNotifier {
 
     final formatter = DateFormat("yyyy-MM-dd");
 
-    final rows = _visits.map((v) => [
-          v.visitId,
-          v.towerId,
-          formatter.format(v.date),
-          v.notes,
-          v.peal ? "Y" : "",
-          v.quarter ? "Y" : "",
-          v.place
-        ]).toList();
+    final rows = _visits
+        .map((v) => [
+              v.visitId,
+              v.towerId,
+              formatter.format(v.date),
+              v.notes,
+              v.peal ? "Y" : "",
+              v.quarter ? "Y" : "",
+              v.place
+            ])
+        .toList();
     final out = csv.encode(header + rows);
 
     return out;

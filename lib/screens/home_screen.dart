@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (file != null) {
       final data = await file.xFile.readAsString();
-      final numVisits = await widget.viewModel.loadCsvVists(data);
+      final numVisits = await widget.viewModel.loadCsvVisits(data);
 
       if (numVisits == 0 && context.mounted) {
         await showDialog(
