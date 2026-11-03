@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  SearchAnchor buildSearchAnchor(BuildContext context) {
+  SearchAnchor buildSearchAnchor(BuildContext buildContext) {
     return SearchAnchor(
       builder: (BuildContext context, SearchController controller) {
         return Padding(
@@ -196,13 +196,13 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   );
 
-                  if (result == "map" && context.mounted) {
-                    _showTowerOnMap(context, t);
+                  if (result == "map" && buildContext.mounted) {
+                    _showTowerOnMap(buildContext, t);
                   }
                 },
                 onLongPress: () {
                   controller.closeView("");
-                  _showTowerOnMap(context, t);
+                  _showTowerOnMap(buildContext, t);
                 },
               ),
             );
