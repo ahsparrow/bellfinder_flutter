@@ -137,7 +137,6 @@ class _HomeScreenState extends State<HomeScreen>
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: SearchBar(
             controller: controller,
-            elevation: WidgetStatePropertyAll(0),
             hintText: "Search towers",
             keyboardType: TextInputType.none,
             leading: const Icon(Icons.search),
