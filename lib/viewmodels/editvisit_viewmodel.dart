@@ -3,11 +3,7 @@ import 'package:flutter/foundation.dart';
 import '../data/database.dart';
 
 class EditVisitViewModel extends ChangeNotifier {
-  EditVisitViewModel({
-    required AppDatabase database,
-    required int visitId,
-  })  : _visitId = visitId,
-        _database = database {
+  EditVisitViewModel({required this._database, required this._visitId}) {
     _load();
   }
 
@@ -48,17 +44,19 @@ class EditVisitViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<int> update(
-      {required DateTime date,
-      required String notes,
-      required bool peal,
-      required bool quarter}) async {
+  Future<int> update({
+    required DateTime date,
+    required String notes,
+    required bool peal,
+    required bool quarter,
+  }) async {
     return await _database.updateVisit(
-        visitId: _visitId,
-        date: date,
-        notes: notes,
-        peal: peal,
-        quarter: quarter);
+      visitId: _visitId,
+      date: date,
+      notes: notes,
+      peal: peal,
+      quarter: quarter,
+    );
   }
 
   Future<int> delete() async {

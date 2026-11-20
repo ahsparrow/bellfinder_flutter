@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:collection';
+
 import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
@@ -10,11 +11,7 @@ import '../data/database.dart';
 import '../data/location.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  HomeViewModel({
-    required AppDatabase database,
-    required SharedPreferencesWithCache sharedPrefs,
-  })  : _database = database,
-        _sharedPrefs = sharedPrefs {
+  HomeViewModel({required this._database, required this._sharedPrefs}) {
     _load();
   }
 
@@ -37,7 +34,10 @@ class HomeViewModel extends ChangeNotifier {
 
   // Map state
   Future<void> saveMapCenter(
-      double latitude, double longitude, double zoom) async {
+    double latitude,
+    double longitude,
+    double zoom,
+  ) async {
     await _sharedPrefs.setDouble("latitude", latitude);
     await _sharedPrefs.setDouble("longitude", longitude);
     await _sharedPrefs.setDouble("zoom", zoom);
@@ -85,7 +85,7 @@ class HomeViewModel extends ChangeNotifier {
       var towerDistances = [
         for (final t in _towers)
           if (includeUnringable || !t.unringable)
-            (tower: t, dist: distanceFrom(t, pos))
+            (tower: t, dist: distanceFrom(t, pos)),
       ];
       towerDistances.sort((a, b) => a.dist.compareTo(b.dist));
 
@@ -144,22 +144,24 @@ class HomeViewModel extends ChangeNotifier {
         "Notes",
         "Peal",
         "Quarter",
-        "Place"
-      ]
+        "Place",
+      ],
     ];
 
     final formatter = DateFormat("yyyy-MM-dd");
 
     final rows = _visits
-        .map((v) => [
-              v.visitId,
-              v.towerId,
-              formatter.format(v.date),
-              v.notes,
-              v.peal ? "Y" : "",
-              v.quarter ? "Y" : "",
-              v.place
-            ])
+        .map(
+          (v) => [
+            v.visitId,
+            v.towerId,
+            formatter.format(v.date),
+            v.notes,
+            v.peal ? "Y" : "",
+            v.quarter ? "Y" : "",
+            v.place,
+          ],
+        )
         .toList();
     final out = csv.encode(header + rows);
 
@@ -191,7 +193,11 @@ class HomeViewModel extends ChangeNotifier {
   // Conversion utilities
   double distanceFrom(Tower t, Position p) {
     return Geolocator.distanceBetween(
-        p.latitude, p.longitude, t.latitude, t.longitude);
+      p.latitude,
+      p.longitude,
+      t.latitude,
+      t.longitude,
+    );
   }
 
   static double weightCwt(int weight) => weight / 112;

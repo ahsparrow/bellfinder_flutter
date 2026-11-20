@@ -3,11 +3,7 @@ import 'package:flutter/foundation.dart';
 import '../data/database.dart';
 
 class NewVisitViewModel extends ChangeNotifier {
-  NewVisitViewModel({
-    required AppDatabase database,
-    required int towerId,
-  })  : _towerId = towerId,
-        _database = database {
+  NewVisitViewModel({required this._database, required this._towerId}) {
     _load();
   }
 
@@ -39,10 +35,11 @@ class NewVisitViewModel extends ChangeNotifier {
     required bool peal,
   }) async {
     return await _database.insertVisit(
-        towerId: _towerId,
-        date: date,
-        notes: notes,
-        quarter: quarter,
-        peal: peal);
+      towerId: _towerId,
+      date: date,
+      notes: notes,
+      quarter: quarter,
+      peal: peal,
+    );
   }
 }

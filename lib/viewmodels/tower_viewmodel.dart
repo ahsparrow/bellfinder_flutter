@@ -3,11 +3,7 @@ import 'package:flutter/foundation.dart';
 import '../data/database.dart';
 
 class TowerViewModel extends ChangeNotifier {
-  TowerViewModel({
-    required AppDatabase database,
-    required int towerId,
-  })  : _towerId = towerId,
-        _database = database {
+  TowerViewModel({required this._database, required this._towerId}) {
     _load();
   }
 

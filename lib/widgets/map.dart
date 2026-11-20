@@ -41,8 +41,11 @@ class TowerMarker extends Marker {
 }
 
 class MapWidget extends StatefulWidget {
-  const MapWidget(
-      {super.key, required this.viewModel, required this.controller});
+  const MapWidget({
+    super.key,
+    required this.viewModel,
+    required this.controller,
+  });
 
   final HomeViewModel viewModel;
   final MapController controller;
@@ -69,8 +72,8 @@ class MapWidgetState extends State<MapWidget> {
     super.initState();
 
     _remoteStyle = const vt.StyleReader(
-            uri: 'https://tiles.openfreemap.org/styles/liberty')
-        .read();
+      uri: 'https://tiles.openfreemap.org/styles/liberty',
+    ).read();
     _localTheme = rootBundle
         .loadString('assets/map_style.json')
         .then((value) => vt.ThemeReader().read(jsonDecode(value)));
@@ -89,7 +92,10 @@ class MapWidgetState extends State<MapWidget> {
 
     Future.delayed(Duration.zero, () async {
       widget.viewModel.saveMapCenter(
-          camera.center.latitude, camera.center.longitude, camera.zoom);
+        camera.center.latitude,
+        camera.center.longitude,
+        camera.zoom,
+      );
     });
 
     _alignPositionStreamController.close();
@@ -116,124 +122,118 @@ class MapWidgetState extends State<MapWidget> {
     final mapCenter = widget.viewModel.getMapCenter();
 
     return FutureBuilder(
-        future: getStyle(),
-        builder: (context, snapshot) {
-          if (snapshot.data == null) {
-            final error = snapshot.error;
-            return Center(
-              child: error != null
-                  ? Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Text('Failed to load style:\n$error'),
-                    )
-                  : const CircularProgressIndicator(),
-            );
-          }
-
-          final remoteStyle = snapshot.data!.$1;
-          final localTheme = snapshot.data!.$2;
-
-          return FlutterMap(
-            mapController: widget.controller,
-            options: MapOptions(
-              initialCenter: LatLng(mapCenter.latitude, mapCenter.longitude),
-              initialZoom: mapCenter.zoom,
-              maxZoom: 19,
-              minZoom: 2,
-              interactionOptions: InteractionOptions(
-                flags:
-                    ~(InteractiveFlag.rotate | InteractiveFlag.doubleTapZoom),
-              ),
-              onTap: (_, __) => _popupController.hideAllPopups(),
-              onPositionChanged: (_, bool hasGesture) {
-                if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
-                  setState(
-                    () => _alignOnUpdate = AlignOnUpdate.never,
-                  );
-                }
-              },
-              onMapEvent: (ev) {
-                if (ev is MapEventMove && ev.id == "showtower") {
-                  if (mounted) {
-                    setState(() => _alignOnUpdate = AlignOnUpdate.never);
-                  }
-                }
-              },
-            ),
-            children: [
-              // Map layer
-              vt.VectorTileLayer(
-                theme: localTheme,
-                tileProviders: remoteStyle.providers,
-                rasterSources: remoteStyle.rasterSources,
-                sprites: remoteStyle.sprites,
-              ),
-
-              // Location marker
-              CurrentLocationLayer(
-                alignPositionStream: _alignPositionStreamController.stream,
-                alignPositionOnUpdate: _alignOnUpdate,
-                alignPositionAnimationDuration:
-                    const Duration(milliseconds: 500),
-                style: LocationMarkerStyle(
-                  marker: DefaultLocationMarker(
-                    color: Colors.green[600]!,
-                  ),
-                  showAccuracyCircle: false,
-                  showHeadingSector: false,
-                ),
-              ),
-
-              // Marker layer
-              _markerLayer,
-
-              // Attribution layer
-              RichAttributionWidget(
-                alignment: AttributionAlignment.bottomLeft,
-                showFlutterMapAttribution: false,
-                attributions: [
-                  TextSourceAttribution(
-                    'OpenFreeMap',
-                    onTap: () =>
-                        launchUrl(Uri.parse('https://openfreemap.org')),
-                  ),
-                  TextSourceAttribution(
-                    'OpenMapTiles',
-                    onTap: () =>
-                        launchUrl(Uri.parse('https://openmaptiles.org')),
-                  ),
-                  TextSourceAttribution(
-                    'OpenStreetMap contributors',
-                    onTap: () => launchUrl(
-                        Uri.parse('https://openstreetmap.org/copyright')),
-                  ),
-                ],
-              ),
-
-              // Location button
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: EdgeInsets.all(4),
-                  child: IconButton(
-                    icon: (_alignOnUpdate == AlignOnUpdate.never)
-                        ? Icon(Icons.location_searching)
-                        : Icon(Icons.my_location, color: Colors.deepPurple),
-                    onPressed: () {
-                      setState(
-                        () => _alignOnUpdate =
-                            (_alignOnUpdate == AlignOnUpdate.never)
-                                ? AlignOnUpdate.always
-                                : AlignOnUpdate.never,
-                      );
-                      _alignPositionStreamController.add(null);
-                    },
-                  ),
-                ),
-              ),
-            ],
+      future: getStyle(),
+      builder: (context, snapshot) {
+        if (snapshot.data == null) {
+          final error = snapshot.error;
+          return Center(
+            child: error != null
+                ? Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Text('Failed to load style:\n$error'),
+                  )
+                : const CircularProgressIndicator(),
           );
-        });
+        }
+
+        final remoteStyle = snapshot.data!.$1;
+        final localTheme = snapshot.data!.$2;
+
+        return FlutterMap(
+          mapController: widget.controller,
+          options: MapOptions(
+            initialCenter: LatLng(mapCenter.latitude, mapCenter.longitude),
+            initialZoom: mapCenter.zoom,
+            maxZoom: 19,
+            minZoom: 2,
+            interactionOptions: InteractionOptions(
+              flags: ~(InteractiveFlag.rotate | InteractiveFlag.doubleTapZoom),
+            ),
+            onTap: (_, _) => _popupController.hideAllPopups(),
+            onPositionChanged: (_, bool hasGesture) {
+              if (hasGesture && _alignOnUpdate != AlignOnUpdate.never) {
+                setState(() => _alignOnUpdate = AlignOnUpdate.never);
+              }
+            },
+            onMapEvent: (ev) {
+              if (ev is MapEventMove && ev.id == "showtower") {
+                if (mounted) {
+                  setState(() => _alignOnUpdate = AlignOnUpdate.never);
+                }
+              }
+            },
+          ),
+          children: [
+            // Map layer
+            vt.VectorTileLayer(
+              theme: localTheme,
+              tileProviders: remoteStyle.providers,
+              rasterSources: remoteStyle.rasterSources,
+              sprites: remoteStyle.sprites,
+            ),
+
+            // Location marker
+            CurrentLocationLayer(
+              alignPositionStream: _alignPositionStreamController.stream,
+              alignPositionOnUpdate: _alignOnUpdate,
+              alignPositionAnimationDuration: const Duration(milliseconds: 500),
+              style: LocationMarkerStyle(
+                marker: DefaultLocationMarker(color: Colors.green[600]!),
+                showAccuracyCircle: false,
+                showHeadingSector: false,
+              ),
+            ),
+
+            // Marker layer
+            _markerLayer,
+
+            // Attribution layer
+            RichAttributionWidget(
+              alignment: AttributionAlignment.bottomLeft,
+              showFlutterMapAttribution: false,
+              attributions: [
+                TextSourceAttribution(
+                  'OpenFreeMap',
+                  onTap: () => launchUrl(Uri.parse('https://openfreemap.org')),
+                ),
+                TextSourceAttribution(
+                  'OpenMapTiles',
+                  onTap: () => launchUrl(Uri.parse('https://openmaptiles.org')),
+                ),
+                TextSourceAttribution(
+                  'OpenStreetMap contributors',
+                  onTap: () => launchUrl(
+                    Uri.parse('https://openstreetmap.org/copyright'),
+                  ),
+                ),
+              ],
+            ),
+
+            // Location button
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: EdgeInsets.all(4),
+                child: IconButton(
+                  icon: (_alignOnUpdate == AlignOnUpdate.never)
+                      ? Icon(Icons.location_searching)
+                      : Icon(Icons.my_location, color: Colors.deepPurple),
+                  onPressed: () {
+                    setState(
+                      () => _alignOnUpdate =
+                          (_alignOnUpdate == AlignOnUpdate.never)
+                          ? AlignOnUpdate.always
+                          : AlignOnUpdate.never,
+                    );
+                    _alignPositionStreamController.add(null);
+                  },
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   ListenableBuilder markerLayerBuilder() {
@@ -241,22 +241,24 @@ class MapWidgetState extends State<MapWidget> {
       listenable: widget.viewModel,
       builder: (context, _) {
         markers = widget.viewModel.towers
-            .map((t) => TowerMarker(
-                  towerId: t.towerId,
-                  point: LatLng(t.latitude, t.longitude),
-                  alignment: const Alignment(0, -1),
-                  child: t.unringable
-                      ? towerUnringable
-                      : switch (t.bells) {
-                          <= 3 => tower3,
-                          4 => tower4,
-                          5 => tower5,
-                          6 || 7 => tower6,
-                          8 || 9 => tower8,
-                          10 || 11 => tower10,
-                          _ => tower12,
-                        },
-                ))
+            .map(
+              (t) => TowerMarker(
+                towerId: t.towerId,
+                point: LatLng(t.latitude, t.longitude),
+                alignment: const Alignment(0, -1),
+                child: t.unringable
+                    ? towerUnringable
+                    : switch (t.bells) {
+                        <= 3 => tower3,
+                        4 => tower4,
+                        5 => tower5,
+                        6 || 7 => tower6,
+                        8 || 9 => tower8,
+                        10 || 11 => tower10,
+                        _ => tower12,
+                      },
+              ),
+            )
             .toList();
 
         return PopupScope(
@@ -266,16 +268,12 @@ class MapWidgetState extends State<MapWidget> {
               markers: markers,
               onMarkerTap: (_) {
                 if (_alignOnUpdate != AlignOnUpdate.never) {
-                  setState(
-                    () => _alignOnUpdate = AlignOnUpdate.never,
-                  );
+                  setState(() => _alignOnUpdate = AlignOnUpdate.never);
                 }
               },
               onClusterTap: (_) {
                 if (_alignOnUpdate != AlignOnUpdate.never) {
-                  setState(
-                    () => _alignOnUpdate = AlignOnUpdate.never,
-                  );
+                  setState(() => _alignOnUpdate = AlignOnUpdate.never);
                 }
                 _popupController.hideAllPopups();
               },
@@ -323,16 +321,11 @@ class MapWidgetState extends State<MapWidget> {
         children: [
           Padding(
             padding: const EdgeInsets.all(4),
-            child: Text(
-              tower.place,
-              textScaler: TextScaler.linear(1.3),
-            ),
+            child: Text(tower.place, textScaler: TextScaler.linear(1.3)),
           ),
           Padding(
             padding: const EdgeInsets.all(4),
-            child: Text(
-              tower.dedication,
-            ),
+            child: Text(tower.dedication),
           ),
           Padding(
             padding: const EdgeInsets.all(4),
